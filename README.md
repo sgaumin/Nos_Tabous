@@ -1,2 +1,2 @@
-# Nos_Tabous
-Student IDE Project in progress
+# Nos Tabous
+Student IDE Narrative Game project in progress.

@@ -12,4 +12,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb12cf43435f20740ae47f48c120dd47, type: 3}
   m_Name: DialogueElementList
   m_EditorClassIdentifier: 
-  ElementList: []
+  ElementList:
+  - PlayerIsTalking: 1
+    IsThereChoices: 1
+    FollowUpDialogueElement: 0
+    Content: Hello
+    ChoiceList:
+    - Content: Nop
+      FollowUpDialogueElement: 1
+    - Content: Yep
+      FollowUpDialogueElement: 2
+  - PlayerIsTalking: 0
+    IsThereChoices: 0
+    FollowUpDialogueElement: 1
+    Content: Houba
+    ChoiceList:
+    - Content: Nop
+      FollowUpDialogueElement: 1
+    - Content: Yep
+      FollowUpDialogueElement: 1
+  - PlayerIsTalking: 1
+    IsThereChoices: 0
+    FollowUpDialogueElement: 2
+    Content: Hop
+    ChoiceList:
+    - Content: Nop
+      FollowUpDialogueElement: 1
+    - Content: Yep
+      FollowUpDialogueElement: 1

@@ -6,8 +6,8 @@ using UnityEngine;
 public class OneDialogueElement
 {
     public bool PlayerIsTalking;
-    public bool IsThereChoices;
-    public int FollowUpDialogueElement;
     public string Content;
-    public List<OneDialogueChoice> ChoiceList;
+    public bool IsThereChoices;
+    public int ChoiceID;
+    public int FollowUpDialogueElement;
 }

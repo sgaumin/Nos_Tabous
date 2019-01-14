@@ -5,4 +5,5 @@ using UnityEngine;
 public class OneDialogueElementList : ScriptableObject
 {
     public List<OneDialogueElement> ElementList;
+    public List<OneDialogueBranching> BranchingList;
 }

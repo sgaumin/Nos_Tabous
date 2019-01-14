@@ -23,11 +23,11 @@ public class DialogueSystemScript : MonoBehaviour
     {
         if (DialogueContent.ElementList[indexDialogue].IsThereChoices)
         {
-            for (int i = 0; i < DialogueContent.ElementList[indexDialogue].ChoiceList.Count; i++)
+            for (int i = 0; i < DialogueContent.BranchingList[DialogueContent.ElementList[indexDialogue].ChoiceID].ChoiceList.Count; i++)
             {
                 if (Input.GetKeyDown((i + 1).ToString()) || Input.GetKeyDown(string.Concat("[", (i + 1).ToString(), "]")))
                 {
-                    indexDialogueNew = DialogueContent.ElementList[indexDialogue].ChoiceList[i].FollowUpDialogueElement;
+                    indexDialogueNew = DialogueContent.BranchingList[DialogueContent.ElementList[indexDialogue].ChoiceID].ChoiceList[i].FollowUpDialogueElement;
                 }
                 if (indexDialogue != indexDialogueNew)
                 {
@@ -63,9 +63,9 @@ public class DialogueSystemScript : MonoBehaviour
         {
             text = string.Concat(text, "\n");
 
-            for(int i = 0; i< DialogueContent.ElementList[indexDialogue].ChoiceList.Count; i++)
+            for(int i = 0; i< DialogueContent.BranchingList[DialogueContent.ElementList[indexDialogue].ChoiceID].ChoiceList.Count; i++)
             {
-                text = string.Concat(text,"\n", (i+1).ToString(), ". ", DialogueContent.ElementList[indexDialogue].ChoiceList[i].Content); 
+                text = string.Concat(text,"\n", (i+1).ToString(), ". ", DialogueContent.BranchingList[DialogueContent.ElementList[indexDialogue].ChoiceID].ChoiceList[i].Content); 
             }
         }
         gameObject.GetComponent<Text>().text = text;

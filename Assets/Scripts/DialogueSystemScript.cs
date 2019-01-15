@@ -8,42 +8,67 @@ public class DialogueSystemScript : MonoBehaviour
     public OneDialogueElementList DialogueContent;
     private int indexDialogue;
     private int indexDialogueNew;
+    private int indexChoix;
     private string text;
+    private bool updateText;
 
     // Start is called before the first frame update
     void Start()
     {
         indexDialogue = 0;
         indexDialogueNew = 0;
+        indexChoix = 0;
+        for(int i = 0; i < DialogueContent.BranchingList.Count; i++)
+        {
+            for(int j = 0; j< DialogueContent.BranchingList[i].ChoiceList.Count; j++)
+            {
+                DialogueContent.BranchingList[i].ChoiceList[j].IsThere = true;
+            }
+        }
         UpdateText();
     }
 
     // Update is called once per frame
     void Update()
     {
+        updateText = false;
         if (DialogueContent.ElementList[indexDialogue].IsThereChoices)
         {
+            indexChoix = 1;
             for (int i = 0; i < DialogueContent.BranchingList[DialogueContent.ElementList[indexDialogue].ChoiceID].ChoiceList.Count; i++)
             {
-                if (Input.GetKeyDown((i + 1).ToString()) || Input.GetKeyDown(string.Concat("[", (i + 1).ToString(), "]")))
+                if (DialogueContent.BranchingList[DialogueContent.ElementList[indexDialogue].ChoiceID].ChoiceList[i].IsThere)
                 {
-                    indexDialogueNew = DialogueContent.BranchingList[DialogueContent.ElementList[indexDialogue].ChoiceID].ChoiceList[i].FollowUpDialogueElement;
+                    if (Input.GetKeyDown(indexChoix.ToString()) || Input.GetKeyDown(string.Concat("[", indexChoix.ToString(), "]")))
+                    {
+                        indexDialogueNew = DialogueContent.BranchingList[DialogueContent.ElementList[indexDialogue].ChoiceID].ChoiceList[i].FollowUpDialogueElement;
+                        DialogueContent.BranchingList[DialogueContent.ElementList[indexDialogue].ChoiceID].ChoiceList[i].IsThere = false;
+                        updateText = true;
+
+                    }
+                    indexChoix++;
                 }
-                if (indexDialogue != indexDialogueNew)
-                {
-                    indexDialogue = indexDialogueNew;
-                    UpdateText();                    
-                }
+                    
+                
+            }
+            if (indexChoix == 1 && Input.anyKeyDown)
+            {
+                indexDialogueNew = DialogueContent.ElementList[indexDialogue].FollowUpDialogueElement;
+                updateText = true;
             }
         }
         else
         {
             if (Input.anyKeyDown)
             {
-                indexDialogue= DialogueContent.ElementList[indexDialogue].FollowUpDialogueElement;
-                indexDialogueNew = indexDialogue;
-                UpdateText();
+                indexDialogueNew = DialogueContent.ElementList[indexDialogue].FollowUpDialogueElement;
+                updateText = true;
             }
+        }
+        if (updateText)
+        {
+            indexDialogue = indexDialogueNew;
+            UpdateText();
         }
     }
 
@@ -62,10 +87,16 @@ public class DialogueSystemScript : MonoBehaviour
         if (DialogueContent.ElementList[indexDialogue].IsThereChoices)
         {
             text = string.Concat(text, "\n");
+            indexChoix = 1;
 
             for(int i = 0; i< DialogueContent.BranchingList[DialogueContent.ElementList[indexDialogue].ChoiceID].ChoiceList.Count; i++)
             {
-                text = string.Concat(text,"\n", (i+1).ToString(), ". ", DialogueContent.BranchingList[DialogueContent.ElementList[indexDialogue].ChoiceID].ChoiceList[i].Content); 
+                if (DialogueContent.BranchingList[DialogueContent.ElementList[indexDialogue].ChoiceID].ChoiceList[i].IsThere)
+                {
+                    text = string.Concat(text, "\n", indexChoix.ToString(), ". ", DialogueContent.BranchingList[DialogueContent.ElementList[indexDialogue].ChoiceID].ChoiceList[i].Content);
+                    indexChoix++;
+                }
+                 
             }
         }
         gameObject.GetComponent<Text>().text = text;

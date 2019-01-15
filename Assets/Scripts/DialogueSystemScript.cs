@@ -9,6 +9,7 @@ public class DialogueSystemScript : MonoBehaviour
     private int indexDialogue;
     private int indexDialogueNew;
     private int indexChoix;
+    public static int indexBranching;
     private string text;
     private bool updateText;
 
@@ -18,6 +19,8 @@ public class DialogueSystemScript : MonoBehaviour
         indexDialogue = 0;
         indexDialogueNew = 0;
         indexChoix = 0;
+        indexBranching = -1;
+
         for(int i = 0; i < DialogueContent.BranchingList.Count; i++)
         {
             for(int j = 0; j< DialogueContent.BranchingList[i].ChoiceList.Count; j++)
@@ -67,7 +70,9 @@ public class DialogueSystemScript : MonoBehaviour
         }
         if (updateText)
         {
+
             indexDialogue = indexDialogueNew;
+            
             UpdateText();
         }
     }
@@ -82,8 +87,16 @@ public class DialogueSystemScript : MonoBehaviour
         {
             text = DialogueContent.ElementList[indexDialogue].Content;
         }
-        
 
+        if (DialogueContent.ElementList[indexDialogue].IsThereChoices)
+        {
+            indexBranching = DialogueContent.ElementList[indexDialogue].ChoiceID;
+        }
+        else
+        {
+            indexBranching = -1;
+        }
+        /*
         if (DialogueContent.ElementList[indexDialogue].IsThereChoices)
         {
             text = string.Concat(text, "\n");
@@ -98,7 +111,7 @@ public class DialogueSystemScript : MonoBehaviour
                 }
                  
             }
-        }
+        }*/
         gameObject.GetComponent<Text>().text = text;
     }
 }

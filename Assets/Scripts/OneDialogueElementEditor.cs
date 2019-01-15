@@ -93,7 +93,7 @@ public class OneDialogueElementEditor : EditorWindow
                 GUILayout.BeginHorizontal();
                 viewindex = Mathf.Clamp(EditorGUILayout.IntField("Current Element", viewindex, GUILayout.ExpandWidth(false)), 0, DialogueElementList.ElementList.Count-1);
                 //Mathf.Clamp (viewIndex, 1, inventoryItemList.itemList.Count);
-                EditorGUILayout.LabelField("of   " + DialogueElementList.ElementList.Count.ToString() + "  elements", "", GUILayout.ExpandWidth(false));
+                EditorGUILayout.LabelField("on   " + (DialogueElementList.ElementList.Count-1).ToString(), "", GUILayout.ExpandWidth(false));
                 GUILayout.EndHorizontal();
 
                 GUILayout.Space(10);
@@ -103,9 +103,10 @@ public class OneDialogueElementEditor : EditorWindow
                 GUILayout.Space(10);
 
                 GUILayout.BeginHorizontal();
-                DialogueElementList.ElementList[viewindex].PlayerIsTalking = EditorGUILayout.Toggle("PlayerIsTalking", DialogueElementList.ElementList[viewindex].PlayerIsTalking, GUILayout.ExpandWidth(false));
-                DialogueElementList.ElementList[viewindex].IsThereChoices = EditorGUILayout.Toggle("IsThereChoices", DialogueElementList.ElementList[viewindex].IsThereChoices, GUILayout.ExpandWidth(false));
-                DialogueElementList.ElementList[viewindex].FollowUpDialogueElement = EditorGUILayout.IntField("Followup Element", DialogueElementList.ElementList[viewindex].FollowUpDialogueElement, GUILayout.ExpandWidth(false));
+                /*DialogueElementList.ElementList[viewindex].PlayerIsTalking = EditorGUILayout.Toggle("PlayerIsTalking", DialogueElementList.ElementList[viewindex].PlayerIsTalking, GUILayout.ExpandWidth(false));*/
+                DialogueElementList.ElementList[viewindex].IsThereChoices = EditorGUILayout.Toggle("IsThereChoices", DialogueElementList.ElementList[viewindex].IsThereChoices/*, GUILayout.ExpandWidth(false)*/);
+                GUILayout.Space(5);
+                DialogueElementList.ElementList[viewindex].FollowUpDialogueElement = EditorGUILayout.IntField("Followup Element", DialogueElementList.ElementList[viewindex].FollowUpDialogueElement/*, GUILayout.ExpandWidth(false)*/);
                 GUILayout.EndHorizontal();
 
                 if (DialogueElementList.ElementList[viewindex].IsThereChoices)

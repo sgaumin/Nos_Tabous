@@ -62,7 +62,7 @@ public class OneDialogueElementEditor : EditorWindow
 
             if (GUILayout.Button("Prev", GUILayout.ExpandWidth(false)))
             {
-                if (viewindex > 0)
+                if (viewindex > 1)
                     viewindex--;
             }
             GUILayout.Space(5);
@@ -91,10 +91,54 @@ public class OneDialogueElementEditor : EditorWindow
             if (DialogueElementList.ElementList.Count > 0)
             {
                 GUILayout.BeginHorizontal();
-                viewindex = Mathf.Clamp(EditorGUILayout.IntField("Current Element", viewindex, GUILayout.ExpandWidth(false)), 0, DialogueElementList.ElementList.Count-1);
+                viewindex = Mathf.Clamp(EditorGUILayout.IntField("Current Element", viewindex, GUILayout.ExpandWidth(false)), 1, DialogueElementList.ElementList.Count-1);
                 //Mathf.Clamp (viewIndex, 1, inventoryItemList.itemList.Count);
                 EditorGUILayout.LabelField("on   " + (DialogueElementList.ElementList.Count-1).ToString(), "", GUILayout.ExpandWidth(false));
+
+                GUILayout.Space(5);
+
+                DialogueElementList.startingIndex = EditorGUILayout.IntField("StartingElement", DialogueElementList.startingIndex, GUILayout.ExpandWidth(false));
+
+                if(0< DialogueElementList.startingIndex && DialogueElementList.startingIndex<DialogueElementList.ElementList.Count && GUILayout.Button("Go to", GUILayout.ExpandWidth(false)))
+                {
+                    viewindex = DialogueElementList.startingIndex;
+                }
                 GUILayout.EndHorizontal();
+
+                GUILayout.Space(5);
+                GUILayout.BeginHorizontal();
+                EditorGUILayout.LabelField("This element is accessible from : ");
+                for(int i = 1; i < DialogueElementList.ElementList.Count; i++)
+                {
+                    bool b = false;
+                    if (DialogueElementList.ElementList[i].FollowUpDialogueElement == viewindex)
+                    {
+                        b = true;
+                    }
+                    else if (DialogueElementList.ElementList[i].IsThereChoices)
+                    {
+                        for(int j = 0; j< DialogueElementList.ElementList[i].Branching.ChoiceList.Count; j++)
+                        {
+                            if (DialogueElementList.ElementList[i].Branching.ChoiceList[j].FollowUpDialogueElement == viewindex && (DialogueElementList.ElementList[i].Branching.ChoiceList[j].IsTabou == false || DialogueElementList.ElementList[i].Branching.ChoiceList[j].LessTabouContent != ""))
+                            {
+                                b = true;
+                            }
+                        }
+                    }
+
+                    if (b)
+                    {
+                        if (GUILayout.Button(i.ToString(), GUILayout.ExpandWidth(false)))
+                        {
+                            viewindex = i;
+                        }
+                        GUILayout.Space(1);
+                    }
+                    
+                }
+                EditorGUILayout.LabelField(" ");
+                GUILayout.EndHorizontal();
+
 
                 GUILayout.Space(10);
 
@@ -104,42 +148,18 @@ public class OneDialogueElementEditor : EditorWindow
 
                 GUILayout.BeginHorizontal();
                 /*DialogueElementList.ElementList[viewindex].PlayerIsTalking = EditorGUILayout.Toggle("PlayerIsTalking", DialogueElementList.ElementList[viewindex].PlayerIsTalking, GUILayout.ExpandWidth(false));*/
-                DialogueElementList.ElementList[viewindex].IsThereChoices = EditorGUILayout.Toggle("IsThereChoices", DialogueElementList.ElementList[viewindex].IsThereChoices/*, GUILayout.ExpandWidth(false)*/);
+                DialogueElementList.ElementList[viewindex].IsThereChoices = EditorGUILayout.Toggle("IsThereChoices", DialogueElementList.ElementList[viewindex].IsThereChoices, GUILayout.ExpandWidth(false));
                 GUILayout.Space(5);
-                DialogueElementList.ElementList[viewindex].FollowUpDialogueElement = EditorGUILayout.IntField("Followup Element", DialogueElementList.ElementList[viewindex].FollowUpDialogueElement/*, GUILayout.ExpandWidth(false)*/);
+                DialogueElementList.ElementList[viewindex].FollowUpDialogueElement = EditorGUILayout.IntField("Followup Element", DialogueElementList.ElementList[viewindex].FollowUpDialogueElement, GUILayout.ExpandWidth(false));
+                if (0 < DialogueElementList.ElementList[viewindex].FollowUpDialogueElement && DialogueElementList.ElementList[viewindex].FollowUpDialogueElement < DialogueElementList.ElementList.Count && GUILayout.Button("Go to", GUILayout.ExpandWidth(false)))
+                {
+                    viewindex = DialogueElementList.ElementList[viewindex].FollowUpDialogueElement;
+                }
                 GUILayout.EndHorizontal();
 
                 if (DialogueElementList.ElementList[viewindex].IsThereChoices)
                 {
-                    if (DialogueElementList.ElementList[viewindex].ChoiceID < 0)
-                    {
-                        DialogueElementList.ElementList[viewindex].ChoiceID = 0;
-                    }
-
-                    GUILayout.BeginHorizontal();
-                    if (GUILayout.Button("Prev", GUILayout.ExpandWidth(false)))
-                    {
-                        if (DialogueElementList.ElementList[viewindex].ChoiceID > 0)
-                            DialogueElementList.ElementList[viewindex].ChoiceID--;
-                    }
-                    GUILayout.Space(5);
-                    
-                    DialogueElementList.ElementList[viewindex].ChoiceID = Mathf.Clamp(EditorGUILayout.IntField("Branching ID", DialogueElementList.ElementList[viewindex].ChoiceID, GUILayout.ExpandWidth(false)),0,DialogueElementList.BranchingList.Count - 1);
-
-                    GUILayout.Space(5);
-
-                    if (GUILayout.Button("Next", GUILayout.ExpandWidth(false)))
-                    {
-                        DialogueElementList.ElementList[viewindex].ChoiceID++;
-                        if (DialogueElementList.ElementList[viewindex].ChoiceID >= DialogueElementList.BranchingList.Count)
-                        {
-                            DialogueElementList.BranchingList.Add(new OneDialogueBranching());
-                            DialogueElementList.BranchingList[DialogueElementList.ElementList[viewindex].ChoiceID].ChoiceList = new List<OneDialogueChoice>();
-                        }
-                    }
-                    GUILayout.EndHorizontal();
-
-
+                                     
 
                     GUILayout.Space(10);
                     
@@ -150,12 +170,25 @@ public class OneDialogueElementEditor : EditorWindow
                 
                     GUILayout.Space(10);
                     
-                    if (DialogueElementList.BranchingList[DialogueElementList.ElementList[viewindex].ChoiceID].ChoiceList.Count > 0)
+                    if (DialogueElementList.ElementList[viewindex].Branching.ChoiceList.Count > 0)
                     {
-                        for(int index = 0; index < DialogueElementList.BranchingList[DialogueElementList.ElementList[viewindex].ChoiceID].ChoiceList.Count; index++)
+                        for(int index = 0; index < DialogueElementList.ElementList[viewindex].Branching.ChoiceList.Count; index++)
                         {
-                            DialogueElementList.BranchingList[DialogueElementList.ElementList[viewindex].ChoiceID].ChoiceList[index].Content = EditorGUILayout.TextArea(DialogueElementList.BranchingList[DialogueElementList.ElementList[viewindex].ChoiceID].ChoiceList[index].Content as string, GUILayout.Height(50.0f));
-                            DialogueElementList.BranchingList[DialogueElementList.ElementList[viewindex].ChoiceID].ChoiceList[index].FollowUpDialogueElement = EditorGUILayout.IntField(DialogueElementList.BranchingList[DialogueElementList.ElementList[viewindex].ChoiceID].ChoiceList[index].FollowUpDialogueElement);
+                            DialogueElementList.ElementList[viewindex].Branching.ChoiceList[index].Content = EditorGUILayout.TextArea(DialogueElementList.ElementList[viewindex].Branching.ChoiceList[index].Content as string, GUILayout.Height(50.0f));
+                            DialogueElementList.ElementList[viewindex].Branching.ChoiceList[index].IsTabou = EditorGUILayout.Toggle("IsTabou", DialogueElementList.ElementList[viewindex].Branching.ChoiceList[index].IsTabou);
+                            if (DialogueElementList.ElementList[viewindex].Branching.ChoiceList[index].IsTabou)
+                            {
+                                GUILayout.Space(5);
+                                DialogueElementList.ElementList[viewindex].Branching.ChoiceList[index].LessTabouContent = EditorGUILayout.TextArea(DialogueElementList.ElementList[viewindex].Branching.ChoiceList[index].LessTabouContent as string, GUILayout.Height(50.0f));
+                            }
+                            GUILayout.Space(5);
+                            GUILayout.BeginHorizontal();
+                            DialogueElementList.ElementList[viewindex].Branching.ChoiceList[index].FollowUpDialogueElement = EditorGUILayout.IntField(DialogueElementList.ElementList[viewindex].Branching.ChoiceList[index].FollowUpDialogueElement, GUILayout.ExpandWidth(false));
+                            if(0< DialogueElementList.ElementList[viewindex].Branching.ChoiceList[index].FollowUpDialogueElement && DialogueElementList.ElementList[viewindex].Branching.ChoiceList[index].FollowUpDialogueElement < DialogueElementList.ElementList.Count && GUILayout.Button("Go to", GUILayout.ExpandWidth(false)))
+                            {
+                                viewindex = DialogueElementList.ElementList[viewindex].Branching.ChoiceList[index].FollowUpDialogueElement;
+                            }
+                            GUILayout.EndHorizontal();
                             if (GUILayout.Button("Delete Choice", GUILayout.ExpandWidth(false)))
                             {
                                 DeleteChoice(index);
@@ -194,19 +227,24 @@ public class OneDialogueElementEditor : EditorWindow
         // There is no overwrite protection here!
         // There is No "Are you sure you want to overwrite your existing object?" if it exists.
         // This should probably get a string from the user to create a new name and pass it ...
-        viewindex = 0;
         DialogueElementList = CreateDialogueElementList.Create();
         if (DialogueElementList)
         {
             DialogueElementList.ElementList = new List<OneDialogueElement>();
-            DialogueElementList.BranchingList = new List<OneDialogueBranching>
-            {
-                new OneDialogueBranching()
-            };
-            DialogueElementList.BranchingList[0].ChoiceList = new List<OneDialogueChoice>();
+            DialogueElementList.startingIndex = 1;
+
+            OneDialogueElement newElement = new OneDialogueElement();
+            newElement.IsThereChoices = false;
+            newElement.Content = "ERROR ! \n Si vous arrivez à cette embranchement, cela signifie que quelque chose s'est mal passé, où que vous avez explorer du contenu en cours de construction. Appuyez sur n'importe quelle touche pour revenir au début.";
+            newElement.Branching = new OneDialogueBranching();
+            newElement.FollowUpDialogueElement = 0;
+            DialogueElementList.ElementList.Add(newElement);
+
+            AddElement();
             string relPath = AssetDatabase.GetAssetPath(DialogueElementList);
             EditorPrefs.SetString("ObjectPath", relPath);
         }
+        viewindex = 1;
     }
 
     void OpenElementList()
@@ -228,13 +266,13 @@ public class OneDialogueElementEditor : EditorWindow
     void AddElement()
     {
         OneDialogueElement newElement = new OneDialogueElement();
-        newElement.PlayerIsTalking = false;
         newElement.IsThereChoices = false;
-        newElement.Content = "Text";
-        newElement.ChoiceID = -1;
+        newElement.Content = "Put some text here";
+        newElement.Branching = new OneDialogueBranching();
+        newElement.Branching.ChoiceList = new List<OneDialogueChoice>();
         newElement.FollowUpDialogueElement = viewindex + 1;
         DialogueElementList.ElementList.Add(newElement);
-        viewindex = DialogueElementList.ElementList.Count;
+        viewindex = DialogueElementList.ElementList.Count-1;
     }
 
     void DeleteElement(int index)
@@ -245,15 +283,18 @@ public class OneDialogueElementEditor : EditorWindow
     void AddChoice()
     {
         OneDialogueChoice newChoice = new OneDialogueChoice();
-        newChoice.Content = "Text";
+        int i = DialogueElementList.ElementList[viewindex].Branching.ChoiceList.Count;
+        newChoice.Content = "Choice " + i.ToString();
         newChoice.FollowUpDialogueElement = viewindex + 1;
         newChoice.IsThere = true;
-        DialogueElementList.BranchingList[DialogueElementList.ElementList[viewindex].ChoiceID].ChoiceList.Add(newChoice);
+        newChoice.IsTabou = false;
+        newChoice.LessTabouContent = "";
+        DialogueElementList.ElementList[viewindex].Branching.ChoiceList.Add(newChoice);
 
     }
 
     void DeleteChoice(int index)
     {
-        DialogueElementList.BranchingList[DialogueElementList.ElementList[viewindex].ChoiceID].ChoiceList.RemoveAt(index);
+        DialogueElementList.ElementList[viewindex].Branching.ChoiceList.RemoveAt(index);
     }
 }

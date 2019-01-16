@@ -12,33 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb12cf43435f20740ae47f48c120dd47, type: 3}
   m_Name: DialogueElementList
   m_EditorClassIdentifier: 
-  ElementList:
-  - PlayerIsTalking: 0
-    Content: Let's see how many time it works.
-    IsThereChoices: 1
-    ChoiceID: 0
-    FollowUpDialogueElement: 2
-  - PlayerIsTalking: 0
-    Content: Retour au choix
-    IsThereChoices: 0
-    ChoiceID: -1
-    FollowUpDialogueElement: 0
-  - PlayerIsTalking: 0
-    Content: fin
-    IsThereChoices: 0
-    ChoiceID: -1
-    FollowUpDialogueElement: 2
-  BranchingList:
-  - ChoiceList:
-    - Content: Choice 1
-      FollowUpDialogueElement: 0
-      IsThere: 0
-    - Content: "Choix num\xE9ro 2"
-      FollowUpDialogueElement: 0
-      IsThere: 0
-    - Content: Choix III
-      FollowUpDialogueElement: 0
-      IsThere: 0
-    - Content: "Le quatri\xE8me"
-      FollowUpDialogueElement: 0
-      IsThere: 0
+  startingIndex: 0
+  ElementList: []

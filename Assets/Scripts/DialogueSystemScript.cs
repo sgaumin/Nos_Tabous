@@ -6,28 +6,32 @@ using UnityEngine.UI;
 public class DialogueSystemScript : MonoBehaviour
 {
     public OneDialogueElementList DialogueContent;
-    private int indexDialogue;
+    public static int indexDialogue;
     private int indexDialogueNew;
     private int indexChoix;
-    public static int indexBranching;
+    public static int clickedChoice;
     private string text;
     private bool updateText;
+    public static int numberedChoiceMode = 1; //0 means : no number. 1 means : 1. 3. 4. if 2 has disappear. 2 means : 3. becomes 2., and 4. becomes 3., if 2 has disappear.
 
     // Start is called before the first frame update
     void Start()
     {
-        indexDialogue = 0;
-        indexDialogueNew = 0;
+        indexDialogue = DialogueContent.startingIndex;
+        indexDialogueNew = DialogueContent.startingIndex;
         indexChoix = 0;
-        indexBranching = -1;
+        clickedChoice = -1;
 
-        for(int i = 0; i < DialogueContent.BranchingList.Count; i++)
+        for(int i = 0; i < DialogueContent.ElementList.Count; i++)
         {
-            for(int j = 0; j< DialogueContent.BranchingList[i].ChoiceList.Count; j++)
+            for(int j = 0; j< DialogueContent.ElementList[i].Branching.ChoiceList.Count; j++)
             {
-                DialogueContent.BranchingList[i].ChoiceList[j].IsThere = true;
+                DialogueContent.ElementList[i].Branching.ChoiceList[j].IsThere = true;
             }
         }
+
+        DialogueContent.ElementList[0].FollowUpDialogueElement = DialogueContent.startingIndex;
+
         UpdateText();
     }
 
@@ -38,21 +42,29 @@ public class DialogueSystemScript : MonoBehaviour
         if (DialogueContent.ElementList[indexDialogue].IsThereChoices)
         {
             indexChoix = 1;
-            for (int i = 0; i < DialogueContent.BranchingList[DialogueContent.ElementList[indexDialogue].ChoiceID].ChoiceList.Count; i++)
+                        
+            for (int i = 0; i < DialogueContent.ElementList[indexDialogue].Branching.ChoiceList.Count; i++)
             {
-                if (DialogueContent.BranchingList[DialogueContent.ElementList[indexDialogue].ChoiceID].ChoiceList[i].IsThere)
+                if (DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].IsThere|| DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].LessTabouContent!="")
                 {
-                    if (Input.GetKeyDown(indexChoix.ToString()) || Input.GetKeyDown(string.Concat("[", indexChoix.ToString(), "]")))
+                    
+                    if((numberedChoiceMode!=1 && (Input.GetKeyDown(indexChoix.ToString()) || Input.GetKeyDown(string.Concat("[", indexChoix.ToString(), "]")))) || (Input.GetKeyDown((i+1).ToString()) || Input.GetKeyDown(string.Concat("[", (i+1).ToString(), "]"))) || (clickedChoice == indexChoix))
                     {
-                        indexDialogueNew = DialogueContent.BranchingList[DialogueContent.ElementList[indexDialogue].ChoiceID].ChoiceList[i].FollowUpDialogueElement;
-                        DialogueContent.BranchingList[DialogueContent.ElementList[indexDialogue].ChoiceID].ChoiceList[i].IsThere = false;
-                        updateText = true;
-
+                        if (DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].IsTabou && DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].IsThere)
+                        {
+                            DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].IsThere = false;
+                            clickedChoice = -1;
+                            updateText = true;
+                        }
+                        else
+                        {
+                            indexDialogueNew = DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].FollowUpDialogueElement;
+                            clickedChoice = -1;
+                            updateText = true;
+                        }
                     }
                     indexChoix++;
                 }
-                    
-                
             }
             if (indexChoix == 1 && Input.anyKeyDown)
             {
@@ -70,8 +82,14 @@ public class DialogueSystemScript : MonoBehaviour
         }
         if (updateText)
         {
-
-            indexDialogue = indexDialogueNew;
+            if (0<indexDialogueNew && indexDialogueNew < DialogueContent.ElementList.Count)
+            {
+                indexDialogue = indexDialogueNew;
+            }
+            else
+            {
+                indexDialogue = 0;
+            }
             
             UpdateText();
         }
@@ -79,23 +97,9 @@ public class DialogueSystemScript : MonoBehaviour
 
     void UpdateText()
     {
-        if (DialogueContent.ElementList[indexDialogue].PlayerIsTalking)
-        {
-            text = string.Concat("<i>",DialogueContent.ElementList[indexDialogue].Content,"</i>");
-        }
-        else
-        {
-            text = DialogueContent.ElementList[indexDialogue].Content;
-        }
-
-        if (DialogueContent.ElementList[indexDialogue].IsThereChoices)
-        {
-            indexBranching = DialogueContent.ElementList[indexDialogue].ChoiceID;
-        }
-        else
-        {
-            indexBranching = -1;
-        }
+        
+        text = DialogueContent.ElementList[indexDialogue].Content;
+        
         /*
         if (DialogueContent.ElementList[indexDialogue].IsThereChoices)
         {

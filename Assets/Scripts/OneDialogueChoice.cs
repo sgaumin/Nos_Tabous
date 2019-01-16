@@ -7,5 +7,7 @@ public class OneDialogueChoice
 {
     public string Content;
     public int FollowUpDialogueElement;
+    public bool IsTabou;
     public bool IsThere;
+    public string LessTabouContent;
 }

@@ -6,22 +6,42 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
 
-public class TextChoixScript : MonoBehaviour
+public class TextChoixScript : MonoBehaviour, IPointerClickHandler
 {
     public int ChoiceNumber;
     public OneDialogueElementList DialogueContent;
     private string text;
     private int indexChoice;
+    private int bidule;
+    private int bidulenew;
     
 
-    void OnMouseDown()
+    void Start()
     {
-        DialogueSystemScript.clickedChoice = ChoiceNumber;
+        bidule = 0;
+    }
+
+    public void OnPointerClick(PointerEventData pointerEvent)
+    {
+        Debug.Log("voiture");
+        bidule++;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
+        
+        if (bidule != 0)
+        {
+            if (bidule == bidulenew)
+            {
+                DialogueSystemScript.clickedChoice = ChoiceNumber;
+                bidule = 0;
+            }
+            bidulenew = bidule;
+        }
+
         text = "";
         indexChoice = 1;
 

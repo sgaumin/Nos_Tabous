@@ -14,6 +14,7 @@ public class DialogueSystemScript : MonoBehaviour
     private bool updateText;
     public static int numberedChoiceMode = 1; //0 means : no number. 1 means : 1. 3. 4. if 2 has disappear. 2 means : 3. becomes 2., and 4. becomes 3., if 2 has disappear.
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +23,9 @@ public class DialogueSystemScript : MonoBehaviour
         indexChoix = 0;
         clickedChoice = -1;
 
-        for(int i = 0; i < DialogueContent.ElementList.Count; i++)
+        for (int i = 0; i < DialogueContent.ElementList.Count; i++)
         {
-            for(int j = 0; j< DialogueContent.ElementList[i].Branching.ChoiceList.Count; j++)
+            for (int j = 0; j < DialogueContent.ElementList[i].Branching.ChoiceList.Count; j++)
             {
                 DialogueContent.ElementList[i].Branching.ChoiceList[j].IsThere = true;
             }
@@ -39,16 +40,17 @@ public class DialogueSystemScript : MonoBehaviour
     void Update()
     {
         updateText = false;
+
         if (DialogueContent.ElementList[indexDialogue].IsThereChoices)
         {
             indexChoix = 1;
-                        
+
             for (int i = 0; i < DialogueContent.ElementList[indexDialogue].Branching.ChoiceList.Count; i++)
             {
-                if (DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].IsThere|| DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].LessTabouContent!="")
+                if (DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].IsThere || DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].LessTabouContent != "")
                 {
-                    
-                    if((numberedChoiceMode!=1 && (Input.GetKeyDown(indexChoix.ToString()) || Input.GetKeyDown(string.Concat("[", indexChoix.ToString(), "]")))) || (Input.GetKeyDown((i+1).ToString()) || Input.GetKeyDown(string.Concat("[", (i+1).ToString(), "]"))) || (clickedChoice == indexChoix))
+
+                    if ((numberedChoiceMode != 1 && (Input.GetKeyDown(indexChoix.ToString()) || Input.GetKeyDown(string.Concat("[", indexChoix.ToString(), "]")))) || (Input.GetKeyDown((i + 1).ToString()) || Input.GetKeyDown(string.Concat("[", (i + 1).ToString(), "]"))) || (clickedChoice == indexChoix))
                     {
                         if (DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].IsTabou && DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].IsThere)
                         {
@@ -70,6 +72,7 @@ public class DialogueSystemScript : MonoBehaviour
             {
                 indexDialogueNew = DialogueContent.ElementList[indexDialogue].FollowUpDialogueElement;
                 updateText = true;
+                clickedChoice = -1;
             }
         }
         else
@@ -78,11 +81,13 @@ public class DialogueSystemScript : MonoBehaviour
             {
                 indexDialogueNew = DialogueContent.ElementList[indexDialogue].FollowUpDialogueElement;
                 updateText = true;
+                clickedChoice = -1;
             }
         }
         if (updateText)
         {
-            if (0<indexDialogueNew && indexDialogueNew < DialogueContent.ElementList.Count)
+            clickedChoice = -1;
+            if (0 < indexDialogueNew && indexDialogueNew < DialogueContent.ElementList.Count)
             {
                 indexDialogue = indexDialogueNew;
             }
@@ -90,16 +95,18 @@ public class DialogueSystemScript : MonoBehaviour
             {
                 indexDialogue = 0;
             }
-            
+
             UpdateText();
         }
+
+
     }
 
     void UpdateText()
     {
-        
+
         text = DialogueContent.ElementList[indexDialogue].Content;
-        
+
         /*
         if (DialogueContent.ElementList[indexDialogue].IsThereChoices)
         {

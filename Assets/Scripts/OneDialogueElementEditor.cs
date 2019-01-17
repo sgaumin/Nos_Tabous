@@ -277,6 +277,16 @@ public class OneDialogueElementEditor : EditorWindow
 
     void DeleteElement(int index)
     {
+        for(int i = 1; i< DialogueElementList.ElementList.Count; i++)
+        {
+            if (DialogueElementList.ElementList[i].FollowUpDialogueElement == index) DialogueElementList.ElementList[i].FollowUpDialogueElement = 0;
+            if (DialogueElementList.ElementList[i].FollowUpDialogueElement > index) DialogueElementList.ElementList[i].FollowUpDialogueElement--;
+            for(int j = 0; j< DialogueElementList.ElementList[i].Branching.ChoiceList.Count; j++)
+            {
+                if (DialogueElementList.ElementList[i].Branching.ChoiceList[j].FollowUpDialogueElement == index) DialogueElementList.ElementList[i].Branching.ChoiceList[j].FollowUpDialogueElement = 0;
+                if (DialogueElementList.ElementList[i].Branching.ChoiceList[j].FollowUpDialogueElement > index) DialogueElementList.ElementList[i].Branching.ChoiceList[j].FollowUpDialogueElement--;
+            }
+        }
         DialogueElementList.ElementList.RemoveAt(index);
     }
 

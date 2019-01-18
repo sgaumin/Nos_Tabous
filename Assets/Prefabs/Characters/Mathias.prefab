@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1077386664178200230}
   - component: {fileID: 1077386664178200231}
   - component: {fileID: 1077386664178200225}
+  - component: {fileID: 6038095646221152590}
   m_Layer: 0
   m_Name: Mathias
   m_TagString: Untagged
@@ -99,3 +100,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &6038095646221152590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077386664178200228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cef2e40f05e33d469f51a4ffebd3ae3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

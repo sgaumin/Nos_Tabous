@@ -20,6 +20,7 @@ public class DialogueSystemScript : MonoBehaviour
     {
         indexDialogue = DialogueContent.startingIndex;
         indexDialogueNew = DialogueContent.startingIndex;
+
         indexChoix = 0;
         clickedChoice = -1;
 

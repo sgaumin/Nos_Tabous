@@ -14,7 +14,7 @@ public class TextChoixScript : MonoBehaviour, IPointerClickHandler
     private int indexChoice;
     private int bidule;
     private int bidulenew;
-    
+
 
     void Start()
     {
@@ -25,13 +25,13 @@ public class TextChoixScript : MonoBehaviour, IPointerClickHandler
     {
         Debug.Log("voiture");
         bidule++;
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
         if (bidule != 0)
         {
             if (bidule == bidulenew)
@@ -49,7 +49,7 @@ public class TextChoixScript : MonoBehaviour, IPointerClickHandler
         {
             for (int i = 0; i < DialogueContent.ElementList[DialogueSystemScript.indexDialogue].Branching.ChoiceList.Count; i++)
             {
-                if (DialogueContent.ElementList[DialogueSystemScript.indexDialogue].Branching.ChoiceList[i].IsThere || DialogueContent.ElementList[DialogueSystemScript.indexDialogue].Branching.ChoiceList[i].LessTabouContent!="")
+                if (DialogueContent.ElementList[DialogueSystemScript.indexDialogue].Branching.ChoiceList[i].IsThere || DialogueContent.ElementList[DialogueSystemScript.indexDialogue].Branching.ChoiceList[i].LessTabouContent != "")
                 {
                     if (indexChoice == ChoiceNumber)
                     {
@@ -74,10 +74,10 @@ public class TextChoixScript : MonoBehaviour, IPointerClickHandler
                 }
             }
         }
-        
+
 
         gameObject.GetComponent<Text>().text = text;
     }
 
-    
+
 }

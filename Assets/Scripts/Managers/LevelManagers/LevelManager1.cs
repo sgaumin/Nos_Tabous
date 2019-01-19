@@ -8,7 +8,7 @@ public class LevelManager1 : MonoBehaviour
     [SerializeField] private Animator henriAnimator;
     [SerializeField] private GameObject dialogues;
 
-    [SerializeField] private AudioManager1 audioLevel;
+    [SerializeField] private AudioManager1 audioManager;
 
     private Character mathiasCharacter;
     private Character henriCharacter;
@@ -48,34 +48,16 @@ public class LevelManager1 : MonoBehaviour
 
         indexCount = DialogueSystemScript.indexDialogue;
 
-        if (DialogueSystemScript.indexDialogue == 0)
+        if (indexCount == 0)
             StartCoroutine(StartLevel());
 
-        if (DialogueSystemScript.indexDialogue == 2)
+        if (indexCount == 2 || indexCount == 4 || indexCount == 6 || indexCount == 8)
             StartCoroutine(SecondStepLevel());
 
-        if (DialogueSystemScript.indexDialogue == 3)
+        if (indexCount == 3 || indexCount == 5 || indexCount == 7 || indexCount == 9)
             StartCoroutine(ThirdStepLevel());
 
-        if (DialogueSystemScript.indexDialogue == 4)
-            StartCoroutine(SecondStepLevel());
-
-        if (DialogueSystemScript.indexDialogue == 5)
-            StartCoroutine(ThirdStepLevel());
-
-        if (DialogueSystemScript.indexDialogue == 6)
-            StartCoroutine(SecondStepLevel());
-
-        if (DialogueSystemScript.indexDialogue == 7)
-            StartCoroutine(ThirdStepLevel());
-
-        if (DialogueSystemScript.indexDialogue == 8)
-            StartCoroutine(SecondStepLevel());
-
-        if (DialogueSystemScript.indexDialogue == 9)
-            StartCoroutine(ThirdStepLevel());
-
-        if (DialogueSystemScript.indexDialogue == 10)
+        if (indexCount == 10)
             StartCoroutine(LastStepLevel());
     }
 
@@ -91,7 +73,7 @@ public class LevelManager1 : MonoBehaviour
 
         // Phone sound playing
         yield return new WaitForSeconds(1f);
-        audioLevel.PlayPhoneSound(true);
+        audioManager.PlayPhoneSound(true);
 
         // Show Mathias character
         yield return new WaitForSeconds(2f);
@@ -105,7 +87,7 @@ public class LevelManager1 : MonoBehaviour
         mathiasAnimator.SetTrigger("CallStarting");
 
         // End phone sound
-        audioLevel.PlayPhoneSound(false);
+        audioManager.PlayPhoneSound(false);
         yield return new WaitForSeconds(0.5f);
 
         // Henri turn
@@ -177,9 +159,9 @@ public class LevelManager1 : MonoBehaviour
 
         // Hide Texts into the dialogues box
         dialogueBox.ShowTexts(false);
+        yield return new WaitForSeconds(0.5f);
 
         // Animation FadOut dialogues box
-        yield return new WaitForSeconds(0.5f);
         Animator dialoguesAnimator = dialogues.GetComponent<Animator>();
         dialoguesAnimator.SetTrigger("FadOut");
 
@@ -193,7 +175,6 @@ public class LevelManager1 : MonoBehaviour
 
     IEnumerator TabouStepLevel()
     {
-
         mathiasAnimator.SetTrigger("CallIdle");
         mathiasAnimator.SetTrigger("CallTabou");
 

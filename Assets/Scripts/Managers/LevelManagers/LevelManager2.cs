@@ -1,19 +1,21 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelManager2 : MonoBehaviour
 {
     [SerializeField] private Animator mathiasAnimator;
     [SerializeField] private Animator carolineAnimator;
+    [SerializeField] private Animator background;
     [SerializeField] private GameObject dialogues;
 
-    [SerializeField] private AudioManager2 audioLevel;
+    [SerializeField] private AudioManager2 audioManager;
 
     private Character mathiasCharacter;
     private Character carolineCharacter;
     private DialogueBox dialogueBox;
     private int indexCount;
+
+    private bool isStarting = true;
 
     void Start()
     {
@@ -39,17 +41,39 @@ public class LevelManager2 : MonoBehaviour
 
     void Update()
     {
+        // Check if the choice is Tabou and set the animation
+        if (DialogueSystemScript.isTabou)
+            StartCoroutine(TabouStepLevel());
+
+        // Set Animation and Sound according to the Dialogue Index
         if (DialogueSystemScript.indexDialogue == indexCount)
             return;
 
         indexCount = DialogueSystemScript.indexDialogue;
 
-        // TO DO: Implement more flexible IF statement
-        if (DialogueSystemScript.indexDialogue == 10)
+        // TO DO: Implement more flexible IF statement regarding previous previous scnene loading and indexCount was not reset
+        if ((indexCount == 10 || indexCount == 0) && isStarting)
+        {
+            DialogueSystemScript.indexDialogue = 0;
+            indexCount = 0;
             StartCoroutine(StartLevel());
+            isStarting = false;
+        }
+
+        // Mathias Speaking Steps
+        if (indexCount == 1 || indexCount == 3 || indexCount == 6 || indexCount == 8 || indexCount == 10)
+            StartCoroutine(SecondStepLevel());
+
+        // Caroline Speaking Steps
+        if (indexCount == 2 || indexCount == 4 || indexCount == 7 || indexCount == 9 || indexCount == 12)
+            StartCoroutine(ThirdStepLevel());
+
+        if (indexCount == 13)
+            StartCoroutine(FinalStepLevel());
     }
 
-    IEnumerator StartLevel() {
+    IEnumerator StartLevel()
+    {
 
         yield return new WaitForSeconds(2f);
 
@@ -73,6 +97,89 @@ public class LevelManager2 : MonoBehaviour
         dialogueBox.ShowTexts(true);
 
         // Coroutine End
+        yield break;
+    }
+
+    IEnumerator SecondStepLevel()
+    {
+        // Set Caroline calling idle animation
+        carolineAnimator.SetTrigger("Reset");
+        yield return new WaitForSeconds(0.5f);
+
+        // Set Mathias calling talking animation
+        mathiasAnimator.SetTrigger("Talking");
+
+        // Coroutine End
+        yield break;
+    }
+
+    IEnumerator ThirdStepLevel()
+    {
+        // Set Mathias calling idle animation
+        mathiasAnimator.SetTrigger("Reset");
+
+        // Set Caroline calling talking animation
+        yield return new WaitForSeconds(0.5f);
+        carolineAnimator.SetTrigger("Talking");
+
+        // Coroutine End
+        yield break;
+    }
+
+    IEnumerator TabouStepLevel()
+    {
+        mathiasAnimator.SetTrigger("Reset");
+        mathiasAnimator.SetTrigger("Tabou");
+
+        yield return new WaitForSeconds(2f);
+        mathiasAnimator.SetTrigger("Talking");
+
+        // Coroutine End
+        yield break;
+    }
+
+    IEnumerator FinalStepLevel()
+    {
+        // Flip Mathias
+        mathiasCharacter.Flip();
+        mathiasAnimator.SetTrigger("Reset");
+        yield return new WaitForSeconds(0.5f);
+
+        // Reset Caroline animation 
+        carolineAnimator.SetTrigger("Reset");
+        yield return new WaitForSeconds(0.5f);
+
+        // Caroline Fad Out animation
+        carolineAnimator.SetTrigger("FadOut");
+
+        // Play sound Shoes
+        audioManager.PlayHeelShoesSound(true);
+        yield return new WaitForSeconds(2f);
+        audioManager.PlayHeelShoesSound(false);
+
+        // Play sound door
+        audioManager.PlayClosedDoorSound(true);
+        yield return new WaitForSeconds(4f);
+
+        // Flip Mathias
+        mathiasCharacter.Flip();
+        yield return new WaitForSeconds(0.5f);
+
+        // Hide Texts into the dialogues box
+        dialogueBox.ShowTexts(false);
+        yield return new WaitForSeconds(0.5f);
+
+        // Animation FadOut dialogues box
+        Animator dialoguesAnimator = dialogues.GetComponent<Animator>();
+        dialoguesAnimator.SetTrigger("FadOut");
+        yield return new WaitForSeconds(0.5f);
+
+        // Background fad out animation
+        background.SetTrigger("FadOut");
+        yield return new WaitForSeconds(2f);
+
+        // Coroutine End
+        GameSystem.instance.QuitGame();
         yield break;
     }
 

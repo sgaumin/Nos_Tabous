@@ -1156,7 +1156,7 @@ MonoBehaviour:
   mathiasAnimator: {fileID: 1077386663531074277}
   henriAnimator: {fileID: 8554242887335753590}
   dialogues: {fileID: 845376066}
-  audioLevel: {fileID: 1868717104}
+  audioManager: {fileID: 1868717104}
 --- !u!1 &1077386663531074272
 GameObject:
   m_ObjectHideFlags: 0

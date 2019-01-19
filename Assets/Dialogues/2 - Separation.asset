@@ -27,7 +27,7 @@ MonoBehaviour:
       - Content: "Va te calmer et reviens apr\xE8s."
         FollowUpDialogueElement: 2
         IsTabou: 1
-        IsThere: 1
+        IsThere: 0
         LessTabouContent: "...C\u2019\xE9tait mon p\xE8re, il est chiant en ce moment."
       - Content: "\xC7a ne te regarde pas avec qui je parle."
         FollowUpDialogueElement: 2
@@ -48,20 +48,20 @@ MonoBehaviour:
     IsThereChoices: 0
     Branching:
       ChoiceList: []
-    FollowUpDialogueElement: 3
+    FollowUpDialogueElement: 4
   - Content: "Mais bordel, mais enl\xE8ve toi la merde de devant les yeux ! \r\nJ\u2019essaie
       de te parler de nous et toi tu... et puis merde, \xE7a y est, j\u2019en ai d\xE9j\xE0
       marre."
     IsThereChoices: 0
     Branching:
       ChoiceList: []
-    FollowUpDialogueElement: 4
+    FollowUpDialogueElement: 5
   - Content: "\xC9coute, je vais \xEAtre directe, on se parle plus, on s\u2019\xE9coute
       plus... on baise plus. \r\nC\u2019est fini entre nous."
     IsThereChoices: 0
     Branching:
       ChoiceList: []
-    FollowUpDialogueElement: 5
+    FollowUpDialogueElement: 6
   - Content: '...'
     IsThereChoices: 1
     Branching:
@@ -86,24 +86,61 @@ MonoBehaviour:
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
-    FollowUpDialogueElement: 6
+    FollowUpDialogueElement: 7
   - Content: "...Pourtant j\u2019ai fait des efforts, avec toi, avec ta fille et \xE7a
       n\u2019a pas \xE9tait facile pour moi, \nj\u2019ai souffert \xE0 cause de toi,
       pour nous..."
     IsThereChoices: 0
     Branching:
       ChoiceList: []
-    FollowUpDialogueElement: 7
+    FollowUpDialogueElement: 8
   - Content: "C\u2019est \xE7a, t\u2019as qu\u2019\xE0 te placer comme victime en
       plus. \nC\u2019est facile de rejeter la faute sur les autres. \nTu te remets
       jamais en question ?"
     IsThereChoices: 0
     Branching:
       ChoiceList: []
-    FollowUpDialogueElement: 8
+    FollowUpDialogueElement: 9
   - Content: "Je ne me remets jamais en question ? \nTu crois pas que c\u2019est \xE0
-      ton tour, de t\u2019en poser, des questions ?"
+      ton tour, de t\u2019en poser, des questions ?\nTu m\u2019insupporte de plus
+      en plus de chaque jour et je ne comprend pas comment j\u2019ai pu rester aussi
+      longtemps avec toi.\r\n\rQuand est-ce que tu vas montrer de la gratitude aux
+      personnes qui t\u2019aiment ?\r\n"
     IsThereChoices: 0
     Branching:
       ChoiceList: []
-    FollowUpDialogueElement: 9
+    FollowUpDialogueElement: 10
+  - Content: '...'
+    IsThereChoices: 1
+    Branching:
+      ChoiceList:
+      - Content: "Tu es belle quand tu t\u2019\xE9nerves\u2026"
+        FollowUpDialogueElement: 11
+        IsTabou: 1
+        IsThere: 0
+        LessTabouContent: "Tu es.. Vraiment insupportable\r\n"
+      - Content: Tu es vraiment idiote ma pauvre fille..
+        FollowUpDialogueElement: 11
+        IsTabou: 1
+        IsThere: 1
+        LessTabouContent: "Tu ne comprends rien, et j\u2019ai l\u2019impression que
+          tu ne changeras pas."
+    FollowUpDialogueElement: 10
+  - Content: "Mieux vaut que je parte d\u2019ici avant de dire des choses qui me d\xE9passe..."
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 12
+  - Content: "C\u2019est \xE7a pars, et fuis la discussion comme d\u2019habitude.\nNon,
+      c\u2019est moi qui pars, je ME barre d\xE8s ce soir, et tu n\u2019es pas pr\xEAt
+      de me revoir de si tot."
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 13
+  - Content: "Allez va si, \xE7a va me faire de l\u2019air, je vais dormir l\u2019esprit
+      tranquille."
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 13

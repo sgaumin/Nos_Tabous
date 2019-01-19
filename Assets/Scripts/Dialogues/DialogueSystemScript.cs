@@ -56,17 +56,16 @@ public class DialogueSystemScript : MonoBehaviour
 
                     if ((numberedChoiceMode != 1 && (Input.GetKeyDown(indexChoix.ToString()) || Input.GetKeyDown(string.Concat("[", indexChoix.ToString(), "]")))) || (Input.GetKeyDown((i + 1).ToString()) || Input.GetKeyDown(string.Concat("[", (i + 1).ToString(), "]"))) || (clickedChoice == indexChoix))
                     {
+                        clickedChoice = -1;
                         if (DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].IsTabou && DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].IsThere)
                         {
                             DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].IsThere = false;
-                            clickedChoice = -1;
                             updateText = true;
                             isTabou = true;
                         }
                         else
                         {
                             indexDialogueNew = DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].FollowUpDialogueElement;
-                            clickedChoice = -1;
                             updateText = true;
                         }
                     }

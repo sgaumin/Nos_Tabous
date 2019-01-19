@@ -6,41 +6,30 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
 
-public class TextChoixScript : MonoBehaviour, IPointerClickHandler
+public class TextChoixScript : MonoBehaviour, IPointerDownHandler
 {
     public int ChoiceNumber;
     public OneDialogueElementList DialogueContent;
     private string text;
     private int indexChoice;
-    private int bidule;
-    private int bidulenew;
+    private bool firstClick;
+    private bool firstClickbis;
 
 
     void Start()
     {
-        bidule = 0;
+        
     }
 
-    public void OnPointerClick(PointerEventData pointerEvent)
+    public void OnPointerDown(PointerEventData pointerEvent)
     {
-        //Debug.Log("voiture");
-        bidule++;
-
+            DialogueSystemScript.clickedChoice = ChoiceNumber;      
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        if (bidule != 0)
-        {
-            if (bidule == bidulenew)
-            {
-                DialogueSystemScript.clickedChoice = ChoiceNumber;
-                bidule = 0;
-            }
-            bidulenew = bidule;
-        }
+       
 
         text = "";
         indexChoice = 1;
@@ -74,9 +63,9 @@ public class TextChoixScript : MonoBehaviour, IPointerClickHandler
                 }
             }
         }
-
-
         gameObject.GetComponent<Text>().text = text;
+        
+        
     }
 
 

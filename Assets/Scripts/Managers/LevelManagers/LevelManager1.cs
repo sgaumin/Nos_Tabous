@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class LevelManager1 : MonoBehaviour
 {
+    // TO DO: Create an abract class to avoid repetition in variables between all LevelManager
     [SerializeField] private Animator mathiasAnimator;
     [SerializeField] private Animator henriAnimator;
     [SerializeField] private GameObject dialogues;
@@ -16,19 +17,22 @@ public class LevelManager1 : MonoBehaviour
 
     void Start()
     {
-        ShowDialogues(false);
-        StartCoroutine(StartLevel());
-
+        // Asign Character components
         mathiasCharacter = mathiasAnimator.gameObject.GetComponent<Character>();
         henriCharacter = henriAnimator.gameObject.GetComponent<Character>();
 
+        // Asign DialogueBox component
         dialogueBox = dialogues.GetComponent<DialogueBox>();
 
         // Hide Mathias & Henri Character at Starting
         mathiasCharacter.gameObject.SetActive(false);
         henriCharacter.gameObject.SetActive(false);
 
-        indexCount = 0;
+        // Index for checking the current IndexDialogue of DialogueSystemScript script 
+        indexCount = 999;
+
+        // Hide Dialogue Box
+        ShowDialogues(false);
     }
 
     // TO DO: Create a Delegate function on DialogueSystemScript for isTabou & indexDialogue variables
@@ -43,6 +47,9 @@ public class LevelManager1 : MonoBehaviour
             return;
 
         indexCount = DialogueSystemScript.indexDialogue;
+
+        if (DialogueSystemScript.indexDialogue == 0)
+            StartCoroutine(StartLevel());
 
         if (DialogueSystemScript.indexDialogue == 2)
             StartCoroutine(SecondStepLevel());
@@ -74,7 +81,6 @@ public class LevelManager1 : MonoBehaviour
 
     IEnumerator StartLevel()
     {
-
         // Waiting before starting
         yield return new WaitForSeconds(0.5f);
         henriCharacter.gameObject.SetActive(true);
@@ -90,6 +96,9 @@ public class LevelManager1 : MonoBehaviour
         // Show Mathias character
         yield return new WaitForSeconds(2f);
         mathiasCharacter.gameObject.SetActive(true);
+
+        // Activate fad in animation for Mathias
+        mathiasAnimator.SetBool("IsFadIn", true);
 
         // Mathias pick up the phone animation
         yield return new WaitForSeconds(2f);
@@ -176,7 +185,7 @@ public class LevelManager1 : MonoBehaviour
 
         // Quit PLay Mode
         yield return new WaitForSeconds(2f);
-        GameSystem.instance.QuitGame();
+        GameSystem.instance.PlayNextScene();
 
         // Coroutine End
         yield break;

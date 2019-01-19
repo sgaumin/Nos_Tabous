@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameSystem : MonoBehaviour
 {
-
     // Singleton
     public static GameSystem instance = null;
 
@@ -28,10 +25,16 @@ public class GameSystem : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    // Allow to load a scne by its name
-    public void LoadScene(string scene)
+    // Allow to load a scene by its name
+    public void LoadSceneByName(string scene)
     {
         SceneManager.LoadScene(scene);
+    }
+
+    // Allow to load a scene by its name
+    public void LoadSceneByIndex(int buildIndexNumber)
+    {
+        SceneManager.LoadScene(buildIndexNumber);
     }
 
     // Relaod the actual scene

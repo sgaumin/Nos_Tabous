@@ -13,4 +13,97 @@ MonoBehaviour:
   m_Name: 2 - Separation
   m_EditorClassIdentifier: 
   startingIndex: 0
-  ElementList: []
+  ElementList:
+  - Content: "Bon Mathias, on peut commencer \xE0 discuter ou tu dois encore appeler
+      la terre enti\xE8re ?"
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 1
+  - Content: Laisse moi tranquille...
+    IsThereChoices: 1
+    Branching:
+      ChoiceList:
+      - Content: "Va te calmer et reviens apr\xE8s."
+        FollowUpDialogueElement: 2
+        IsTabou: 1
+        IsThere: 1
+        LessTabouContent: "...C\u2019\xE9tait mon p\xE8re, il est chiant en ce moment."
+      - Content: "\xC7a ne te regarde pas avec qui je parle."
+        FollowUpDialogueElement: 2
+        IsTabou: 1
+        IsThere: 1
+        LessTabouContent: "...C\u2019\xE9tait mon p\xE8re, il est chiant en ce moment."
+    FollowUpDialogueElement: 2
+  - Content: "Ton p\xE8re, encore ton p\xE8re, toujours ton p\xE8re\u2026 \nC\u2019est
+      pas possible d\u2019\xEAtre but\xE9 \xE0 ce point-l\xE0 ! \nSi t\u2019as un
+      probl\xE8me avec lui, tu le traite avec lui. \nJ\u2019aimerais qu\u2019on parle
+      de nous l\xE0."
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 3
+  - Content: "J\u2019ai pas de probl\xE8me avec mon p\xE8re, qu\u2019est-ce que tu
+      racontes\u2026"
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 3
+  - Content: "Mais bordel, mais enl\xE8ve toi la merde de devant les yeux ! \r\nJ\u2019essaie
+      de te parler de nous et toi tu... et puis merde, \xE7a y est, j\u2019en ai d\xE9j\xE0
+      marre."
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 4
+  - Content: "\xC9coute, je vais \xEAtre directe, on se parle plus, on s\u2019\xE9coute
+      plus... on baise plus. \r\nC\u2019est fini entre nous."
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 5
+  - Content: '...'
+    IsThereChoices: 1
+    Branching:
+      ChoiceList:
+      - Content: De QUOI ?
+        FollowUpDialogueElement: 7
+        IsTabou: 0
+        IsThere: 1
+        LessTabouContent: 
+      - Content: "C\u2019est pas trop t\xF4t !"
+        FollowUpDialogueElement: 7
+        IsTabou: 0
+        IsThere: 1
+        LessTabouContent: 
+      - Content: "...mais je t\u2019aime."
+        FollowUpDialogueElement: 7
+        IsTabou: 0
+        IsThere: 1
+        LessTabouContent: 
+      - Content: "\u2026"
+        FollowUpDialogueElement: 7
+        IsTabou: 0
+        IsThere: 1
+        LessTabouContent: 
+    FollowUpDialogueElement: 6
+  - Content: "...Pourtant j\u2019ai fait des efforts, avec toi, avec ta fille et \xE7a
+      n\u2019a pas \xE9tait facile pour moi, \nj\u2019ai souffert \xE0 cause de toi,
+      pour nous..."
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 7
+  - Content: "C\u2019est \xE7a, t\u2019as qu\u2019\xE0 te placer comme victime en
+      plus. \nC\u2019est facile de rejeter la faute sur les autres. \nTu te remets
+      jamais en question ?"
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 8
+  - Content: "Je ne me remets jamais en question ? \nTu crois pas que c\u2019est \xE0
+      ton tour, de t\u2019en poser, des questions ?"
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 9

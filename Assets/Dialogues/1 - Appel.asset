@@ -33,23 +33,23 @@ MonoBehaviour:
       ChoiceList:
       - Content: "Tu tombes mal, on peut en reparler plus tard ? C\u2019est pas le
           meilleur moment."
-        FollowUpDialogueElement: 3
+        FollowUpDialogueElement: 11
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
       - Content: "Je sais pas si j\u2019ai envie de venir."
-        FollowUpDialogueElement: 3
+        FollowUpDialogueElement: 12
         IsTabou: 1
         IsThere: 1
         LessTabouContent: "Je sais pas si\u2026 j\u2019aurais assez de temps. Avec
           le travail, tout \xE7a."
       - Content: "\xC0 propos de Caroline.."
-        FollowUpDialogueElement: 3
+        FollowUpDialogueElement: 13
         IsTabou: 1
-        IsThere: 0
-        LessTabouContent: "(Nan, je pr\xE9f\xE8re pas aborder le sujet avec lui)"
+        IsThere: 1
+        LessTabouContent: "Nan, je pr\xE9f\xE8re pas aborder le sujet avec lui"
       - Content: "C\u2019est trop tard pour essayer de jouer le papa mod\xE8le."
-        FollowUpDialogueElement: 3
+        FollowUpDialogueElement: 14
         IsTabou: 1
         IsThere: 1
         LessTabouContent: "C\u2019est trop tard pour\u2026 s\u2019organiser. Pour
@@ -65,12 +65,12 @@ MonoBehaviour:
     Branching:
       ChoiceList:
       - Content: Vous aussi vous me manquez.
-        FollowUpDialogueElement: 5
+        FollowUpDialogueElement: 15
         IsTabou: 1
-        IsThere: 0
-        LessTabouContent: "(Nan\u2026 c\u2019est\u2026 c\u2019est faux.)\r\n"
+        IsThere: 1
+        LessTabouContent: "Nan\u2026 c\u2019est\u2026 c\u2019est faux.\n"
       - Content: "\u2026"
-        FollowUpDialogueElement: 5
+        FollowUpDialogueElement: 16
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
@@ -85,25 +85,24 @@ MonoBehaviour:
     IsThereChoices: 1
     Branching:
       ChoiceList:
-      - Content: "Ma m\xE8re, je veux bien. T\u2019as jamais vraiment \xE9t\xE9 un
-          p\xE8re pour moi"
+      - Content: "Ma m\xE8re, je veux bien... "
         FollowUpDialogueElement: 7
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
       - Content: "T\u2019as\u2026 *soupire* Juste, laisse moi tranquille pour le moment"
-        FollowUpDialogueElement: 7
+        FollowUpDialogueElement: 18
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
       - Content: "C\u2019est juste l\u2019effort de trop en ce moment. Surtout depuis
           ce qui se passe avec Caroline."
-        FollowUpDialogueElement: 7
+        FollowUpDialogueElement: 19
         IsTabou: 1
         IsThere: 1
         LessTabouContent: "C\u2019est juste l\u2019effort de trop en ce moment."
       - Content: "J\u2019ai pas le temps d\u2019en discuter maintenant, d\xE9sol\xE9."
-        FollowUpDialogueElement: 7
+        FollowUpDialogueElement: 20
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
@@ -129,3 +128,56 @@ MonoBehaviour:
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 10
+  - Content: "Tu tombes mal, on peut en reparler plus tard ? C\u2019est pas le meilleur
+      moment."
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 3
+  - Content: "Je sais pas si\u2026 j\u2019aurais assez de temps. Avec le travail,
+      tout \xE7a."
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 3
+  - Content: "Nan, je pr\xE9f\xE8re pas aborder le sujet avec lui. (A revoir)"
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 3
+  - Content: "C\u2019est trop tard pour\u2026 s\u2019organiser. Pour le trajet."
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 3
+  - Content: "Nan\u2026 c\u2019est\u2026 c\u2019est faux."
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 5
+  - Content: "\u2026"
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 5
+  - Content: "Ma m\xE8re, je veux bien... T\u2019as jamais vraiment \xE9t\xE9 un p\xE8re
+      pour moi"
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 7
+  - Content: "T\u2019as\u2026 *soupire* Juste, laisse moi tranquille pour le moment"
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 7
+  - Content: "C\u2019est juste l\u2019effort de trop en ce moment."
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 7
+  - Content: "J\u2019ai pas le temps d\u2019en discuter maintenant, d\xE9sol\xE9."
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 7

@@ -20,34 +20,41 @@ public class LevelManager1 : MonoBehaviour
 
         mathiasCharacter = mathiasAnimator.gameObject.GetComponent<Character>();
         henriCharacter = henriAnimator.gameObject.GetComponent<Character>();
+
+        // Hide Mathias Character at Starting
+        mathiasCharacter.gameObject.SetActive(false);
     }
 
     IEnumerator StartLevel()
     {
-        // Animation d'appel d'Henri
+        // Henri phone call animation
         yield return new WaitForSeconds(1f);
         henriAnimator.SetTrigger("BackCallStarting");
 
-        // Sonnerie de vibreur
+        // Phone sound playing
         yield return new WaitForSeconds(1f);
         audioLevel.PlayPhoneSound(true);
 
-        // Mathias décroche le téléphone
+        // Show Mathias character
+        yield return new WaitForSeconds(2f);
+        mathiasCharacter.gameObject.SetActive(true);
+
+        // Mathias hang phone animation
         yield return new WaitForSeconds(2f);
         mathiasAnimator.SetTrigger("CallStarting");
 
-        // Fin Sonnerie de vibreur
+        // End phone sound
         audioLevel.PlayPhoneSound(false);
         yield return new WaitForSeconds(0.5f);
 
-        // Henri se tounre
+        // Henri turn
         henriCharacter.Flip();
 
-        // Henri commence à discuter
+        // Henri start talking animation
         henriAnimator.SetTrigger("BackCallTalking");
         yield return new WaitForSeconds(0.5f);
 
-        // Affichage des dialogues
+        // Show dialogues box 
         ShowDialogues(true);
     }
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
+#if (UNITY_EDITOR) 
 public class OneDialogueElementEditor : EditorWindow
 {
     public OneDialogueElementList DialogueElementList;
@@ -308,3 +309,4 @@ public class OneDialogueElementEditor : EditorWindow
         DialogueElementList.ElementList[viewindex].Branching.ChoiceList.RemoveAt(index);
     }
 }
+#endif

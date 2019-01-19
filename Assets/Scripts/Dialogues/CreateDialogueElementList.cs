@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
-
+#if (UNITY_EDITOR) 
 public class CreateDialogueElementList
 {
     [MenuItem("Assets/Create/Dialogue Element List")]
@@ -15,3 +15,4 @@ public class CreateDialogueElementList
         return asset;
     }
 }
+#endif

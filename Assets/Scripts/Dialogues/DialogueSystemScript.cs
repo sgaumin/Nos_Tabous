@@ -7,6 +7,8 @@ public class DialogueSystemScript : MonoBehaviour
 {
     public OneDialogueElementList DialogueContent;
     public static int indexDialogue;
+    public static bool isTabou;
+
     private int indexDialogueNew;
     private int indexChoix;
     public static int clickedChoice;
@@ -45,6 +47,7 @@ public class DialogueSystemScript : MonoBehaviour
         if (DialogueContent.ElementList[indexDialogue].IsThereChoices)
         {
             indexChoix = 1;
+            isTabou = false;
 
             for (int i = 0; i < DialogueContent.ElementList[indexDialogue].Branching.ChoiceList.Count; i++)
             {
@@ -58,6 +61,7 @@ public class DialogueSystemScript : MonoBehaviour
                             DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].IsThere = false;
                             clickedChoice = -1;
                             updateText = true;
+                            isTabou = true;
                         }
                         else
                         {

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingIndex: 0
   ElementList:
-  - Content: "Bonjour Mathias, comment \xE7a va ? \n\nTu as repens\xE9 \xE0 notre
-      invitation ?  \n\n"
+  - Content: "Bonjour Mathias, comment \xE7a va ? \nTu as repens\xE9 \xE0 notre invitation
+      ?  \n\n"
     IsThereChoices: 0
     Branching:
       ChoiceList: []
@@ -46,7 +46,7 @@ MonoBehaviour:
       - Content: "\xC0 propos de Caroline.."
         FollowUpDialogueElement: 3
         IsTabou: 1
-        IsThere: 1
+        IsThere: 0
         LessTabouContent: "(Nan, je pr\xE9f\xE8re pas aborder le sujet avec lui)"
       - Content: "C\u2019est trop tard pour essayer de jouer le papa mod\xE8le."
         FollowUpDialogueElement: 3
@@ -81,7 +81,7 @@ MonoBehaviour:
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 6
-  - Content: ..
+  - Content: '...'
     IsThereChoices: 1
     Branching:
       ChoiceList:

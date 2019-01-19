@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelManager1 : MonoBehaviour
@@ -12,6 +11,7 @@ public class LevelManager1 : MonoBehaviour
 
     private Character mathiasCharacter;
     private Character henriCharacter;
+    private DialogueBox dialogueBox;
     private int indexCount;
 
     void Start()
@@ -22,6 +22,8 @@ public class LevelManager1 : MonoBehaviour
         mathiasCharacter = mathiasAnimator.gameObject.GetComponent<Character>();
         henriCharacter = henriAnimator.gameObject.GetComponent<Character>();
 
+        dialogueBox = dialogues.GetComponent<DialogueBox>();
+
         // Hide Mathias & Henri Character at Starting
         mathiasCharacter.gameObject.SetActive(false);
         henriCharacter.gameObject.SetActive(false);
@@ -29,10 +31,13 @@ public class LevelManager1 : MonoBehaviour
         indexCount = 0;
     }
 
-    // TO DO: Launch Tabou animation when clicking on tabou choice
-    // TO DO: Create a Delegate function on DialogueSystemScript
+    // TO DO: Create a Delegate function on DialogueSystemScript for isTabou & indexDialogue variables
     private void Update()
     {
+        // Check if the choice is Tabou and set the animation
+        if (DialogueSystemScript.isTabou)
+            StartCoroutine(TabouStepLevel());
+
         // Set Animation and Sound according to the Dialogue Index
         if (DialogueSystemScript.indexDialogue == indexCount)
             return;
@@ -104,6 +109,10 @@ public class LevelManager1 : MonoBehaviour
 
         // Show dialogues box 
         ShowDialogues(true);
+        yield return new WaitForSeconds(0.5f);
+
+        // Show Texts into the dialogues box
+        dialogueBox.ShowTexts(true);
 
         // Coroutine End
         yield break;
@@ -124,7 +133,6 @@ public class LevelManager1 : MonoBehaviour
 
     IEnumerator ThirdStepLevel()
     {
-
         // Set Mathias calling idle animation
         mathiasAnimator.SetTrigger("CallIdle");
 
@@ -153,15 +161,41 @@ public class LevelManager1 : MonoBehaviour
 
         // Animation hang up Henri
         henriAnimator.SetTrigger("BackCallEnding");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
 
         // Animation FadOut Henri
         henriAnimator.SetTrigger("FadOut");
+
+        // Hide Texts into the dialogues box
+        dialogueBox.ShowTexts(false);
+
+        // Animation FadOut dialogues box
+        yield return new WaitForSeconds(0.5f);
+        Animator dialoguesAnimator = dialogues.GetComponent<Animator>();
+        dialoguesAnimator.SetTrigger("FadOut");
+
+        // Quit PLay Mode
+        yield return new WaitForSeconds(2f);
+        GameSystem.instance.QuitGame();
 
         // Coroutine End
         yield break;
     }
 
+    IEnumerator TabouStepLevel()
+    {
+
+        mathiasAnimator.SetTrigger("CallIdle");
+        mathiasAnimator.SetTrigger("CallTabou");
+
+        yield return new WaitForSeconds(0.2f);
+        mathiasAnimator.SetTrigger("CallTalking");
+
+        // Coroutine End
+        yield break;
+    }
+
+    // TO DO: Create a Utilities class with this Method used by all Level Managers
     void ShowDialogues(bool activated)
     {
         if (dialogues != null)

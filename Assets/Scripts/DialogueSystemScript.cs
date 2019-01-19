@@ -32,7 +32,7 @@ public class DialogueSystemScript : MonoBehaviour
             }
         }
 
-        DialogueContent.ElementList[0].FollowUpDialogueElement = DialogueContent.startingIndex;
+        //DialogueContent.ElementList[0].FollowUpDialogueElement = DialogueContent.startingIndex;
 
         UpdateText();
     }
@@ -99,8 +99,6 @@ public class DialogueSystemScript : MonoBehaviour
 
             UpdateText();
         }
-
-
     }
 
     void UpdateText()

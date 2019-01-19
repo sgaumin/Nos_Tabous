@@ -23,7 +23,7 @@ public class TextChoixScript : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData pointerEvent)
     {
-        Debug.Log("voiture");
+        //Debug.Log("voiture");
         bidule++;
 
     }

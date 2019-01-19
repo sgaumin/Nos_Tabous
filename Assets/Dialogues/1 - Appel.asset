@@ -19,7 +19,7 @@ MonoBehaviour:
     IsThereChoices: 0
     Branching:
       ChoiceList: []
-    FollowUpDialogueElement: 0
+    FollowUpDialogueElement: 1
   - Content: "\xC7a fait longtemps qu\u2019on s\u2019est pas retrouv\xE9 tous ensemble
       \xE0 la maison, et puis \xE7a serait l\u2019occasion qu\u2019on revoit Jade
       si elle a envie.  \n\n\xC7a nous ferait vraiment plaisir. "
@@ -67,7 +67,7 @@ MonoBehaviour:
       - Content: Vous aussi vous me manquez.
         FollowUpDialogueElement: 5
         IsTabou: 1
-        IsThere: 1
+        IsThere: 0
         LessTabouContent: "(Nan\u2026 c\u2019est\u2026 c\u2019est faux.)\r\n"
       - Content: "\u2026"
         FollowUpDialogueElement: 5
@@ -119,12 +119,12 @@ MonoBehaviour:
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 9
-  - Content: "Bonne soir\xE9e, embra- *CLIC*"
+  - Content: "Bonne soir\xE9e, embra- "
     IsThereChoices: 0
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 10
-  - Content: Embrasse mon cul.
+  - Content: '*CLIC* Embrasse mon cul.'
     IsThereChoices: 0
     Branching:
       ChoiceList: []

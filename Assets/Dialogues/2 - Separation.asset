@@ -25,12 +25,12 @@ MonoBehaviour:
     Branching:
       ChoiceList:
       - Content: "Va te calmer et reviens apr\xE8s."
-        FollowUpDialogueElement: 2
+        FollowUpDialogueElement: 14
         IsTabou: 1
         IsThere: 0
         LessTabouContent: "...C\u2019\xE9tait mon p\xE8re, il est chiant en ce moment."
       - Content: "\xC7a ne te regarde pas avec qui je parle."
-        FollowUpDialogueElement: 2
+        FollowUpDialogueElement: 14
         IsTabou: 1
         IsThere: 1
         LessTabouContent: "...C\u2019\xE9tait mon p\xE8re, il est chiant en ce moment."
@@ -67,22 +67,22 @@ MonoBehaviour:
     Branching:
       ChoiceList:
       - Content: De QUOI ?
-        FollowUpDialogueElement: 7
+        FollowUpDialogueElement: 15
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
       - Content: "C\u2019est pas trop t\xF4t !"
-        FollowUpDialogueElement: 7
+        FollowUpDialogueElement: 16
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
       - Content: "...mais je t\u2019aime."
-        FollowUpDialogueElement: 7
+        FollowUpDialogueElement: 17
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
       - Content: "\u2026"
-        FollowUpDialogueElement: 7
+        FollowUpDialogueElement: 18
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
@@ -115,12 +115,12 @@ MonoBehaviour:
     Branching:
       ChoiceList:
       - Content: "Tu es belle quand tu t\u2019\xE9nerves\u2026"
-        FollowUpDialogueElement: 11
+        FollowUpDialogueElement: 19
         IsTabou: 1
         IsThere: 0
         LessTabouContent: "Tu es.. Vraiment insupportable\r\n"
       - Content: Tu es vraiment idiote ma pauvre fille..
-        FollowUpDialogueElement: 11
+        FollowUpDialogueElement: 20
         IsTabou: 1
         IsThere: 1
         LessTabouContent: "Tu ne comprends rien, et j\u2019ai l\u2019impression que
@@ -144,3 +144,39 @@ MonoBehaviour:
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 13
+  - Content: "...C\u2019\xE9tait mon p\xE8re, il est chiant en ce moment."
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 2
+  - Content: De QUOI ?
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 7
+  - Content: "C\u2019est\u2026 c\u2019est\u2026"
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 7
+  - Content: "\u2026 mais\u2026 mais\u2026 "
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 7
+  - Content: "\u2026"
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 7
+  - Content: "Tu es.. Vraiment insupportable\r"
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 11
+  - Content: "Tu ne comprends rien, et j\u2019ai l\u2019impression que tu ne changeras
+      pas."
+    IsThereChoices: 0
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 11

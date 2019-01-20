@@ -48,12 +48,19 @@ public class LevelManager1 : MonoBehaviour
 
         indexCount = DialogueSystemScript.indexDialogue;
 
+        // Start Level scripting
         if (indexCount == 0)
             StartCoroutine(StartLevel());
 
-        if (indexCount == 2 || indexCount == 4 || indexCount == 6 || indexCount == 8)
+        // Mathias Talking
+        if (indexCount == 2 || indexCount == 4 || indexCount == 6)
             StartCoroutine(SecondStepLevel());
 
+        // Mathias Anger
+        if (indexCount == 8)
+            StartCoroutine(AngerStepLevel());
+
+        // Henri Talking
         if (indexCount == 3 || indexCount == 5 || indexCount == 7 || indexCount == 9)
             StartCoroutine(ThirdStepLevel());
 
@@ -64,7 +71,7 @@ public class LevelManager1 : MonoBehaviour
     IEnumerator StartLevel()
     {
         // Waiting before starting
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         henriCharacter.gameObject.SetActive(true);
 
         // Henri phone call animation
@@ -137,6 +144,10 @@ public class LevelManager1 : MonoBehaviour
 
     IEnumerator LastStepLevel()
     {
+        // Set Mathias calling anger animation
+        mathiasAnimator.SetTrigger("CallAnger");
+        yield return new WaitForSeconds(1f);
+
         // Animation hang up Mathias
         mathiasAnimator.SetTrigger("CallIdle");
         mathiasAnimator.SetTrigger("CallEnding");
@@ -180,6 +191,19 @@ public class LevelManager1 : MonoBehaviour
 
         yield return new WaitForSeconds(0.2f);
         mathiasAnimator.SetTrigger("CallTalking");
+
+        // Coroutine End
+        yield break;
+    }
+
+    IEnumerator AngerStepLevel()
+    {
+        // Set Henri calling idle animation
+        henriAnimator.SetTrigger("BackCallIdle");
+        yield return new WaitForSeconds(0.5f);
+
+        // Set Mathias calling anger animation
+        mathiasAnimator.SetTrigger("CallAnger");
 
         // Coroutine End
         yield break;

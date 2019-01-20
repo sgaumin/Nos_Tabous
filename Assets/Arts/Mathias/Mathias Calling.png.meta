@@ -9,6 +9,13 @@ TextureImporter:
     21300008: Mathias Calling test_4
     21300010: Mathias Calling test_5
     21300012: Mathias Calling test_6
+    21300014: Mathias Calling_0
+    21300016: Mathias Calling_1
+    21300018: Mathias Calling_2
+    21300020: Mathias Calling_3
+    21300022: Mathias Calling_4
+    21300024: Mathias Calling_5
+    21300026: Mathias Calling_6
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -49,7 +56,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -102,7 +109,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mathias Calling test_0
+      name: Mathias Calling_0
       rect:
         serializedVersion: 2
         x: 0
@@ -116,13 +123,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c60ff2cf3d1737f489230d7312d01de7
+      spriteID: 516a8056d205fec4b88d02da7ad78093
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mathias Calling test_1
+      name: Mathias Calling_1
       rect:
         serializedVersion: 2
         x: 320
@@ -136,13 +143,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cbf81fff098ab844bbb7355a5491c9f
+      spriteID: 4a471043b12451c4b83405291d767d55
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mathias Calling test_2
+      name: Mathias Calling_2
       rect:
         serializedVersion: 2
         x: 640
@@ -156,13 +163,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ff33858120a92d94e8bdc1ea7847a4f4
+      spriteID: 0e42c32ea26576f408b46676cb21a4c6
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mathias Calling test_3
+      name: Mathias Calling_3
       rect:
         serializedVersion: 2
         x: 960
@@ -176,13 +183,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4c7d84f7ab816948bce757e78651f38
+      spriteID: 75aa6093e408db247bee40b8f48aee52
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mathias Calling test_4
+      name: Mathias Calling_4
       rect:
         serializedVersion: 2
         x: 1280
@@ -196,13 +203,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a7685671207f7e4ea03d0761b099cb7
+      spriteID: 6a49b66fd30ed8648a7c2e45bd4b6096
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mathias Calling test_5
+      name: Mathias Calling_5
       rect:
         serializedVersion: 2
         x: 1600
@@ -216,13 +223,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f3481c1fc18dc0a48a3dc0a17310af25
+      spriteID: a722c3af13a652b4f87c007039e3c93e
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mathias Calling test_6
+      name: Mathias Calling_6
       rect:
         serializedVersion: 2
         x: 1920
@@ -236,7 +243,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c5e61315abc7eb54bac3bf5115ea3b3d
+      spriteID: 0f8cbc030a008e5438bfbe15d791a116
       vertices: []
       indices: 
       edges: []

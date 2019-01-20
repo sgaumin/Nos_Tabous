@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 
-// TO DO: Create an abract class for all AudioManagers
-public class AudioManager1 : MonoBehaviour
+public class AudioManager3 : MonoBehaviour
 {
     private AudioSource audioSource;
 

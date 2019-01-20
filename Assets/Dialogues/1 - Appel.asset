@@ -65,7 +65,7 @@ MonoBehaviour:
     Branching:
       ChoiceList:
       - Content: Vous aussi vous me manquez.
-        FollowUpDialogueElement: 4
+        FollowUpDialogueElement: 16
         IsTabou: 0
         IsThere: 1
         LessTabouContent: '

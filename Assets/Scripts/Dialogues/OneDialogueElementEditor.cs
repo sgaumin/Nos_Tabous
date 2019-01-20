@@ -8,6 +8,7 @@ public class OneDialogueElementEditor : EditorWindow
 {
     public OneDialogueElementList DialogueElementList;
     private int viewindex = 0;
+    Vector2 scrollPos= new Vector2(0,0);
 
     [MenuItem("Window/Dialogue Element Editor %#e")]
     static void Init()
@@ -176,6 +177,8 @@ public class OneDialogueElementEditor : EditorWindow
                     
                     if (DialogueElementList.ElementList[viewindex].Branching.ChoiceList.Count > 0)
                     {
+                        
+                        scrollPos = EditorGUILayout.BeginScrollView(scrollPos/*, GUILayout.Width(), GUILayout.Height(100)*/);
                         for(int index = 0; index < DialogueElementList.ElementList[viewindex].Branching.ChoiceList.Count; index++)
                         {
                             DialogueElementList.ElementList[viewindex].Branching.ChoiceList[index].Content = EditorGUILayout.TextArea(DialogueElementList.ElementList[viewindex].Branching.ChoiceList[index].Content as string, GUILayout.Height(50.0f));
@@ -199,6 +202,7 @@ public class OneDialogueElementEditor : EditorWindow
                             }
                             GUILayout.Space(10);
                         }
+                        EditorGUILayout.EndScrollView() ;
 
                     }
                     else

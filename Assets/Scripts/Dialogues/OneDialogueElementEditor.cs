@@ -139,7 +139,8 @@ public class OneDialogueElementEditor : EditorWindow
                 }
                 EditorGUILayout.LabelField(" ");
                 GUILayout.EndHorizontal();
-
+                GUILayout.Space(10);
+                DialogueElementList.ElementList[viewindex].WhoIsSpeaking = EditorGUILayout.TextField("Name", DialogueElementList.ElementList[viewindex].WhoIsSpeaking as string);
 
                 GUILayout.Space(10);
 
@@ -148,7 +149,6 @@ public class OneDialogueElementEditor : EditorWindow
                 GUILayout.Space(10);
 
                 GUILayout.BeginHorizontal();
-                /*DialogueElementList.ElementList[viewindex].PlayerIsTalking = EditorGUILayout.Toggle("PlayerIsTalking", DialogueElementList.ElementList[viewindex].PlayerIsTalking, GUILayout.ExpandWidth(false));*/
                 DialogueElementList.ElementList[viewindex].IsThereChoices = EditorGUILayout.Toggle("IsThereChoices", DialogueElementList.ElementList[viewindex].IsThereChoices, GUILayout.ExpandWidth(false));
                 GUILayout.Space(5);
                 DialogueElementList.ElementList[viewindex].FollowUpDialogueElement = EditorGUILayout.IntField("Followup Element", DialogueElementList.ElementList[viewindex].FollowUpDialogueElement, GUILayout.ExpandWidth(false));
@@ -156,6 +156,9 @@ public class OneDialogueElementEditor : EditorWindow
                 {
                     viewindex = DialogueElementList.ElementList[viewindex].FollowUpDialogueElement;
                 }
+                GUILayout.Space(5);
+                DialogueElementList.ElementList[viewindex].Couleur = EditorGUILayout.ColorField("Couleur", DialogueElementList.ElementList[viewindex].Couleur);
+
                 GUILayout.EndHorizontal();
 
                 if (DialogueElementList.ElementList[viewindex].IsThereChoices)
@@ -272,6 +275,7 @@ public class OneDialogueElementEditor : EditorWindow
         newElement.Branching = new OneDialogueBranching();
         newElement.Branching.ChoiceList = new List<OneDialogueChoice>();
         newElement.FollowUpDialogueElement = viewindex + 1;
+        newElement.Couleur = Color.white;
         DialogueElementList.ElementList.Add(newElement);
         viewindex = DialogueElementList.ElementList.Count-1;
     }

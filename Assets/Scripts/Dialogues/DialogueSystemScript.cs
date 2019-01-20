@@ -125,6 +125,8 @@ public class DialogueSystemScript : MonoBehaviour
                  
             }
         }*/
+        gameObject.GetComponent<Text>().color = DialogueContent.ElementList[indexDialogue].Couleur;
         gameObject.GetComponent<Text>().text = text;
+        
     }
 }

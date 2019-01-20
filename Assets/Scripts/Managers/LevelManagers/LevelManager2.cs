@@ -188,6 +188,9 @@ public class LevelManager2 : MonoBehaviour
 
     IEnumerator FinalStepLevel()
     {
+        // Set Caroline idle animation
+        carolineAnimator.SetTrigger("Reset");
+
         // Waiting time
         yield return new WaitForSeconds(2f);
 

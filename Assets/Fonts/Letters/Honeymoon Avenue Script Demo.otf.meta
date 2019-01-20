@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: fb7bb6c3087712b459a011ce34319f9c
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Honeymoon Avenue Script
+  fontNames:
+  - Honeymoon Avenue Script
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: e19db6567b7cc4f4faf72fccb47334e6, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

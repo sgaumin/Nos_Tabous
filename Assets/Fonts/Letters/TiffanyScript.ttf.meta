@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: f8e20f6dc9c4a454b97960f02230bb3e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Tiffany Script
+  fontNames:
+  - Tiffany Script
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: c7c2ed6d6b0899a44b4ed6cdda3e9681, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

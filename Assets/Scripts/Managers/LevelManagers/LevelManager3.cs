@@ -7,6 +7,7 @@ public class LevelManager3 : MonoBehaviour
     [SerializeField] private Animator mathiasAnimator;
     [SerializeField] private Animator henriAnimator;
     [SerializeField] private GameObject dialogues;
+    [SerializeField] private GameObject lendemain;
 
     [SerializeField] private AudioManager3 audioManager;
 
@@ -28,6 +29,8 @@ public class LevelManager3 : MonoBehaviour
 
         // Hide Henri Character at Starting
         henriCharacter.gameObject.SetActive(false);
+
+        lendemain.SetActive(false);
 
         // Index for checking the current IndexDialogue of DialogueSystemScript script 
         indexCount = 999;
@@ -74,6 +77,10 @@ public class LevelManager3 : MonoBehaviour
     {
         // Waiting before starting
         yield return new WaitForSeconds(1f);
+        lendemain.SetActive(true);
+
+        yield return new WaitForSeconds(3f);
+        lendemain.SetActive(false);
 
         // Mathias pick up the phone animation
         mathiasAnimator.SetTrigger("CallStarting");

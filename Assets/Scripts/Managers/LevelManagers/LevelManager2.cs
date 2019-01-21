@@ -62,11 +62,11 @@ public class LevelManager2 : MonoBehaviour
 
         // Mathias Speaking Steps
         if ( indexCount == 3)
-            StartCoroutine(SecondStepLevel());
+            StartCoroutine(MathiasTalking());
 
         // Mathias Anger Steps
         if (indexCount == 1 || indexCount == 6 || indexCount == 8)
-            StartCoroutine(AngerStepLevel());
+            StartCoroutine(MathiasAnger());
 
         // Mathias Very Anger Steps
         if (indexCount == 10)
@@ -74,7 +74,7 @@ public class LevelManager2 : MonoBehaviour
 
         // Caroline Speaking Steps
         if (indexCount == 2 || indexCount == 4 || indexCount == 7 || indexCount == 9 || indexCount == 12)
-            StartCoroutine(ThirdStepLevel());
+            StartCoroutine(CarolineTalking());
 
         if (indexCount == 13)
             StartCoroutine(FinalStepLevel());
@@ -108,7 +108,7 @@ public class LevelManager2 : MonoBehaviour
         yield break;
     }
 
-    IEnumerator SecondStepLevel()
+    IEnumerator MathiasTalking()
     {
         // Set Caroline idle animation
         carolineAnimator.SetTrigger("Reset");
@@ -121,7 +121,7 @@ public class LevelManager2 : MonoBehaviour
         yield break;
     }
 
-    IEnumerator ThirdStepLevel()
+    IEnumerator CarolineTalking()
     {
         // Set Mathias  idle animation
         mathiasAnimator.SetTrigger("Reset");
@@ -160,7 +160,7 @@ public class LevelManager2 : MonoBehaviour
         yield break;
     }
 
-    IEnumerator AngerStepLevel()
+    IEnumerator MathiasAnger()
     {
         // Set Caroline calling idle animation
         carolineAnimator.SetTrigger("Reset");

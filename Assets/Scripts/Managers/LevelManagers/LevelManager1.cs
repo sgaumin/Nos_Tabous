@@ -4,6 +4,7 @@ using UnityEngine;
 public class LevelManager1 : MonoBehaviour
 {
     // TO DO: Create an abract class to avoid repetition in variables between all LevelManager
+    // TO DO: Create objet Event per Step
     [SerializeField] private Animator mathiasAnimator;
     [SerializeField] private Animator henriAnimator;
     [SerializeField] private GameObject dialogues;
@@ -54,7 +55,7 @@ public class LevelManager1 : MonoBehaviour
 
         // Mathias Talking
         if (indexCount == 2 || indexCount == 4 || indexCount == 6)
-            StartCoroutine(SecondStepLevel());
+            StartCoroutine(MathiasTalkingStep());
 
         // Mathias Anger
         if (indexCount == 8)
@@ -62,7 +63,7 @@ public class LevelManager1 : MonoBehaviour
 
         // Henri Talking
         if (indexCount == 3 || indexCount == 5 || indexCount == 7 || indexCount == 9)
-            StartCoroutine(ThirdStepLevel());
+            StartCoroutine(HenriTalkingStep());
 
         // Final Step
         if (indexCount == 10)
@@ -117,7 +118,7 @@ public class LevelManager1 : MonoBehaviour
         yield break;
     }
 
-    IEnumerator SecondStepLevel()
+    IEnumerator MathiasTalkingStep()
     {
         // Set Henri calling idle animation
         henriAnimator.SetTrigger("BackCallIdle");
@@ -130,7 +131,7 @@ public class LevelManager1 : MonoBehaviour
         yield break;
     }
 
-    IEnumerator ThirdStepLevel()
+    IEnumerator HenriTalkingStep()
     {
         // Set Mathias calling idle animation
         mathiasAnimator.SetTrigger("CallIdle");

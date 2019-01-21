@@ -44,6 +44,7 @@ public class DialogueSystemScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        gameObject.GetComponent<Text>().fontSize = BestFitScript.fontsize;
         updateText = false;
         updateIsTotal = false;
 

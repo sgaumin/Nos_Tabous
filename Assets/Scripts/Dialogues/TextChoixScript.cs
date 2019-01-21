@@ -43,6 +43,7 @@ public class TextChoixScript : MonoBehaviour, IPointerDownHandler, IPointerEnter
        
 
         text = "";
+        gameObject.GetComponent<Text>().fontSize = BestFitScript.fontsize;
         indexChoice = 1;
 
         if (DialogueContent.ElementList[DialogueSystemScript.indexDialogue].IsThereChoices)
@@ -53,7 +54,7 @@ public class TextChoixScript : MonoBehaviour, IPointerDownHandler, IPointerEnter
                 {
                     if (indexChoice == ChoiceNumber)
                     {
-                        if (isHighlighted||ScriptAreYouOverTextBox.WhoIsHighlighted ==ChoiceNumber)
+                        if (isHighlighted || ScriptAreYouOverTextBox.WhoIsHighlighted ==ChoiceNumber)
                         {
                             text = "> ";
                         }

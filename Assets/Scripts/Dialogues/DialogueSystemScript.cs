@@ -14,12 +14,14 @@ public class DialogueSystemScript : MonoBehaviour
     public static int clickedChoice;
     private string text;
     private bool updateText;
+    private bool updateIsTotal;
     public static int numberedChoiceMode = 1; //0 means : no number. 1 means : 1. 3. 4. if 2 has disappear. 2 means : 3. becomes 2., and 4. becomes 3., if 2 has disappear.
 
 
     // Start is called before the first frame update
     void Start()
     {
+        
         indexDialogue = DialogueContent.startingIndex;
         indexDialogueNew = DialogueContent.startingIndex;
 
@@ -43,6 +45,7 @@ public class DialogueSystemScript : MonoBehaviour
     void Update()
     {
         updateText = false;
+        updateIsTotal = false;
 
         if (DialogueContent.ElementList[indexDialogue].IsThereChoices)
         {
@@ -61,12 +64,14 @@ public class DialogueSystemScript : MonoBehaviour
                         {
                             DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].IsThere = false;
                             updateText = true;
+                            updateIsTotal = false;
                             isTabou = true;
                         }
                         else
                         {
                             indexDialogueNew = DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].FollowUpDialogueElement;
                             updateText = true;
+                            updateIsTotal = true;
                         }
                     }
                     indexChoix++;
@@ -76,6 +81,7 @@ public class DialogueSystemScript : MonoBehaviour
             {
                 indexDialogueNew = DialogueContent.ElementList[indexDialogue].FollowUpDialogueElement;
                 updateText = true;
+                updateIsTotal = true;
                 clickedChoice = -1;
             }
         }
@@ -85,6 +91,7 @@ public class DialogueSystemScript : MonoBehaviour
             {
                 indexDialogueNew = DialogueContent.ElementList[indexDialogue].FollowUpDialogueElement;
                 updateText = true;
+                updateIsTotal = true;
                 clickedChoice = -1;
             }
         }
@@ -108,7 +115,21 @@ public class DialogueSystemScript : MonoBehaviour
     {
 
         text = DialogueContent.ElementList[indexDialogue].Content;
-
+        if (DialogueContent.startingIndex != indexDialogue)
+        {
+            if (updateIsTotal)
+            {
+                AudioManagerClic.instance.GetComponent<AudioSource>().pitch = 1;
+                AudioManagerClic.instance.PlayClicSound();
+            }
+            else
+            {
+                AudioManagerClic.instance.GetComponent<AudioSource>().pitch = 0.8f;
+                AudioManagerClic.instance.PlayClicSound();
+            }
+        }
+        
+        
         /*
         if (DialogueContent.ElementList[indexDialogue].IsThereChoices)
         {

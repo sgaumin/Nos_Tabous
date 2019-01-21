@@ -53,7 +53,7 @@ public class TextChoixScript : MonoBehaviour, IPointerDownHandler, IPointerEnter
                 {
                     if (indexChoice == ChoiceNumber)
                     {
-                        if (isHighlighted)
+                        if (isHighlighted||ScriptAreYouOverTextBox.WhoIsHighlighted ==ChoiceNumber)
                         {
                             text = "> ";
                         }

@@ -10,6 +10,9 @@ public class GameSystem : MonoBehaviour
     public enum gameStates { Playing, Pause, End };
     public gameStates gameState = gameStates.Playing;
 
+    // To Update according to main Menu name scene
+    public const string MenuName = "0b- Menu";
+
     void Awake()
     {
         if (instance == null)
@@ -47,6 +50,11 @@ public class GameSystem : MonoBehaviour
     public void PlayNextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void LoadMenu()
+    {
+        LoadSceneByName(MenuName);
     }
 
     // Quit the game

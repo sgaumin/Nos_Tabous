@@ -18,7 +18,7 @@ public class SplashScreenManager : MonoBehaviour
         fadScreen.SetTrigger("FadOut");
         yield return new WaitForSeconds(2f);
 
-        GameSystem.instance.PlayNextScene();
+        GameSystem.instance.LoadMenu();
 
         yield break;
     }

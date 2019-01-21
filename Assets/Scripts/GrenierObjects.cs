@@ -11,7 +11,7 @@ public class GrenierObjects : MonoBehaviour
     public bool isHenriLetter;
 
     [HideInInspector] public bool isChecked;
-    [HideInInspector] public bool canBeSelected;
+    [HideInInspector] private bool canBeSelected;
 
     [SerializeField] private Text commentsBox;
     [SerializeField] private Text lettersBox;
@@ -24,6 +24,30 @@ public class GrenierObjects : MonoBehaviour
         levelManager = FindObjectOfType<LevelManager8>();
         animator = GetComponent<Animator>();
         canBeSelected = true;
+    }
+
+    public bool CanBeSelected
+    {
+        get
+        {
+            return canBeSelected;
+        }
+        set
+        {
+            if (!value)
+            {
+                animator = GetComponent<Animator>();
+                animator.SetBool("isHighlighted", false);
+
+                if (isChecked)
+                    animator.SetTrigger("IsIdle");
+
+                if (!isChecked)
+                    animator.SetTrigger("IsWaiting");
+            }
+
+            canBeSelected = value;
+        }
     }
 
     private void OnMouseOver()
@@ -53,7 +77,8 @@ public class GrenierObjects : MonoBehaviour
             if (!isLetter)
                 commentsBox.text = comment;
 
-            if (isLetter) {
+            if (isLetter)
+            {
                 lettersBox.text = comment;
                 StartCoroutine(levelManager.ShowLetter(isHenriLetter));
             }

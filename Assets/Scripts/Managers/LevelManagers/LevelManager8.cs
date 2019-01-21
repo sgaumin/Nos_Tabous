@@ -11,9 +11,12 @@ public class LevelManager8 : MonoBehaviour
     [SerializeField] private Button quitButton;
 
     private GrenierObjects[] grenierObjects;
+
     private int countObject;
     private int currentStep;
 
+
+    // TO DO: BUG si on terminer par selectionner la lettre d'André
     void Start()
     {
         // Hide Henri's letter
@@ -36,8 +39,6 @@ public class LevelManager8 : MonoBehaviour
 
     void Update()
     {
-        Debug.Log(currentStep);
-
         // If all objects is checked
         if (currentStep == 1)
             if (!isAllChecked())
@@ -46,10 +47,13 @@ public class LevelManager8 : MonoBehaviour
             }
             else
             {
-                // Show Henri's letter
-                currentStep = 3;
-                StartCoroutine(ShowHenriLetter());
-                return;
+                if (currentStep != 2)
+                {
+                    // Show Henri's letter
+                    currentStep = 3;
+                    StartCoroutine(ShowHenriLetter());
+                    return;
+                }
             }
 
         // If Andre's letter is checked
@@ -61,12 +65,6 @@ public class LevelManager8 : MonoBehaviour
                 StartCoroutine(HideLetter());
             }
         }
-
-        // If Henry's letter is checked, go to end of this level 
-        if (currentStep == 3)
-            if (henriLetter.isChecked)
-                if (Input.anyKeyDown)
-                    StartCoroutine(FinalStep());
     }
 
     IEnumerator StartStep()
@@ -83,12 +81,13 @@ public class LevelManager8 : MonoBehaviour
 
     IEnumerator ShowHenriLetter()
     {
+        // Stop click interactions
+        yield return new WaitForSeconds(0.2f);
+        isAllClickable(false);
+
         // Show Henri's letter
         yield return new WaitForSeconds(1f);
         henriLetter.gameObject.SetActive(true);
-
-        // Unclickable Henri's letter
-        henriLetter.GetComponent<GrenierObjects>().canBeSelected = false;
 
         // Hide dialogueBox
         commentsBox.SetActive(false);
@@ -107,11 +106,21 @@ public class LevelManager8 : MonoBehaviour
 
         // Stop click interactions
         yield return new WaitForSeconds(0.2f);
+        henriLetter.GetComponent<GrenierObjects>().CanBeSelected = false;
         isAllClickable(false);
 
         // Andre's Letter step
         if (!isHenriLetter)
             currentStep = 2;
+
+        if (isHenriLetter) {
+            // Henri's letter step
+            currentStep = 4;
+
+            // Show Quit Button
+            yield return new WaitForSeconds(0.2f);
+            quitButton.gameObject.SetActive(true);
+        }
 
         // End of coroutine
         yield break;
@@ -133,23 +142,27 @@ public class LevelManager8 : MonoBehaviour
         yield break;
     }
 
+    public void LaunchFinalSteps() {
+        StartCoroutine(FinalStep());
+    }
+
     IEnumerator FinalStep()
     {
         // Waiting time
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
-        // Hide lettersBox
-        lettersBox.SetActive(false);
+        // Hide quit button
+        quitButton.gameObject.SetActive(false);
 
         // Hide dialogue box
         commentsBox.SetActive(false);
+        
+        // Hide lettersBox
+        lettersBox.SetActive(false);
 
         // fad Out animation
         fadScreen.SetTrigger("FadOut");
         yield return new WaitForSeconds(2f);
-
-        // Show Quit Button
-        quitButton.gameObject.SetActive(true);
 
         // End of coroutine
         yield break;
@@ -175,7 +188,7 @@ public class LevelManager8 : MonoBehaviour
     {
         foreach (GrenierObjects grenierObject in grenierObjects)
         {
-            grenierObject.canBeSelected = value;
+            grenierObject.CanBeSelected = value;
         }
     }
 }

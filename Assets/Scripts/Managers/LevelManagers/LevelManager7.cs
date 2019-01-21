@@ -37,8 +37,6 @@ public class LevelManager7 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(DialogueSystemScript.indexDialogue);
-
         // Set Animation and Sound according to the Dialogue Index
         if (DialogueSystemScript.indexDialogue == indexCount)
             return;
@@ -73,12 +71,12 @@ public class LevelManager7 : MonoBehaviour
         mathiasCharacter.Flip();
 
         //// Stairs sound playing
-        //audioManager.PlayStairsSound(true);
-        //yield return new WaitForSeconds(audioManager.lenghtSound - 1f);
+        audioManager.PlayStairsSound(true);
+        yield return new WaitForSeconds(audioManager.lenghtSound - 1f);
 
-        //// Door sound playing
-        //audioManager.PlayOpenDoorSound(true);
-        //yield return new WaitForSeconds(2.5f);
+        // Door sound playing
+        audioManager.PlayOpenDoorSound(true);
+        yield return new WaitForSeconds(2.5f);
 
         // Show the background at starting
         background.gameObject.SetActive(true);

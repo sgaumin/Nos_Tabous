@@ -121,7 +121,7 @@ public class DialogueSystemScript : MonoBehaviour
         {
             if (updateIsTotal)
             {
-                AudioManagerClic.instance.GetComponent<AudioSource>().pitch = 1;
+                AudioManagerClic.instance.GetComponent<AudioSource>().pitch = 1f;
                 AudioManagerClic.instance.PlayClicSound();
             }
             else

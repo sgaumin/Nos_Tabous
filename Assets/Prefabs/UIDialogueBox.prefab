@@ -1033,7 +1033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -1087,7 +1087,6 @@ GameObject:
   - component: {fileID: 7051373838342534767}
   - component: {fileID: 3044935547024259781}
   - component: {fileID: 8153866912477600325}
-  - component: {fileID: 2641922807782271369}
   m_Layer: 5
   m_Name: FakeFondText
   m_TagString: Untagged
@@ -1175,15 +1174,3 @@ MonoBehaviour:
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
   m_ChildControlHeight: 1
---- !u!114 &2641922807782271369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9130508748183757949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d2228a0a66b13a4b9741d8b6066faca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

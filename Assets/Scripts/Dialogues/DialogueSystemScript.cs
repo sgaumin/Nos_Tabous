@@ -15,7 +15,7 @@ public class DialogueSystemScript : MonoBehaviour
     private string text;
     private bool updateText;
     private bool updateIsTotal;
-    public static int numberedChoiceMode = 1; //0 means : no number. 1 means : 1. 3. 4. if 2 has disappear. 2 means : 3. becomes 2., and 4. becomes 3., if 2 has disappear.
+    public static int numberedChoiceMode = 0; //0 means : no number. 1 means : 1. 3. 4. if 2 has disappear. 2 means : 3. becomes 2., and 4. becomes 3., if 2 has disappear.
 
 
     // Start is called before the first frame update
@@ -115,6 +115,7 @@ public class DialogueSystemScript : MonoBehaviour
     {
 
         text = DialogueContent.ElementList[indexDialogue].Content;
+        text = string.Concat(text, "\n");
         if (DialogueContent.startingIndex != indexDialogue)
         {
             if (updateIsTotal)

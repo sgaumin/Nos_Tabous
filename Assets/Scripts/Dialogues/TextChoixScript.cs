@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 
 
-public class TextChoixScript : MonoBehaviour, IPointerDownHandler
+public class TextChoixScript : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
     public int ChoiceNumber;
     public OneDialogueElementList DialogueContent;
@@ -14,6 +14,7 @@ public class TextChoixScript : MonoBehaviour, IPointerDownHandler
     private int indexChoice;
     private bool firstClick;
     private bool firstClickbis;
+    private bool isHighlighted;
 
 
     void Start()
@@ -26,6 +27,16 @@ public class TextChoixScript : MonoBehaviour, IPointerDownHandler
             DialogueSystemScript.clickedChoice = ChoiceNumber;      
     }
 
+    public void OnPointerEnter(PointerEventData pointerEvent)
+    {
+        isHighlighted = true;
+               
+    }
+
+    public void OnPointerExit(PointerEventData pointerEvent)
+    {
+        isHighlighted = false;
+    }
     // Update is called once per frame
     void Update()
     {
@@ -42,13 +53,22 @@ public class TextChoixScript : MonoBehaviour, IPointerDownHandler
                 {
                     if (indexChoice == ChoiceNumber)
                     {
+                        if (isHighlighted)
+                        {
+                            text = "> ";
+                        }
+                        else
+                        {
+                            text = "   ";
+                        }
+
                         if (DialogueSystemScript.numberedChoiceMode == 1)
                         {
-                            text = string.Concat((i + 1).ToString(), ". ");
+                            text = string.Concat(text, (i + 1).ToString(), ". ");
                         }
                         if (DialogueSystemScript.numberedChoiceMode == 2)
                         {
-                            text = string.Concat(indexChoice.ToString(), ". ");
+                            text = string.Concat(text, indexChoice.ToString(), ". ");
                         }
                         if (DialogueContent.ElementList[DialogueSystemScript.indexDialogue].Branching.ChoiceList[i].IsThere)
                         {

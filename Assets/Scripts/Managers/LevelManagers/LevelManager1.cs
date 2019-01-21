@@ -8,6 +8,7 @@ public class LevelManager1 : MonoBehaviour
     [SerializeField] private Animator mathiasAnimator;
     [SerializeField] private Animator henriAnimator;
     [SerializeField] private GameObject dialogues;
+    [SerializeField] private GameObject nameDialogues;
 
     [SerializeField] private AudioManager1 audioManager;
 
@@ -54,19 +55,19 @@ public class LevelManager1 : MonoBehaviour
             StartCoroutine(StartLevel());
 
         // Mathias Talking
-        if (indexCount == 2 || indexCount == 4 || indexCount == 6)
+        if (indexCount == 3 || indexCount == 4 || indexCount == 5 || indexCount == 7 || indexCount == 8 || indexCount == 13)
             StartCoroutine(MathiasTalkingStep());
 
         // Mathias Anger
-        if (indexCount == 8)
+        if (indexCount == 10 || indexCount == 12)
             StartCoroutine(AngerStepLevel());
 
         // Henri Talking
-        if (indexCount == 3 || indexCount == 5 || indexCount == 7 || indexCount == 9)
+        if (indexCount == 1 || indexCount == 2 || indexCount == 6 || indexCount == 9 || indexCount == 11)
             StartCoroutine(HenriTalkingStep());
 
         // Final Step
-        if (indexCount == 10)
+        if (indexCount == 11)
             StartCoroutine(LastStepLevel());
     }
 
@@ -223,10 +224,16 @@ public class LevelManager1 : MonoBehaviour
         if (dialogues != null)
         {
             if (activated)
+            {
                 dialogues.SetActive(true);
+                nameDialogues.SetActive(true);
+            }
 
             if (!activated)
+            {
                 dialogues.SetActive(false);
+                nameDialogues.SetActive(false);
+            }
         }
     }
 }

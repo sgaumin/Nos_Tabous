@@ -54,7 +54,7 @@ public class LevelManager2 : MonoBehaviour
         // TO DO: Implement more flexible IF statement regarding previous previous scnene loading and indexCount was not reset
         if ((indexCount == 10 || indexCount == 0) && isStarting)
         {
-            DialogueSystemScript.indexDialogue = 0; // TO report
+            //DialogueSystemScript.indexDialogue = 0; // TO report
             indexCount = 0;
             StartCoroutine(StartLevel());
             isStarting = false;

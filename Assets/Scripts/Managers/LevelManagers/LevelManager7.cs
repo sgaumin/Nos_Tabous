@@ -141,7 +141,7 @@ public class LevelManager7 : MonoBehaviour
         }
 
         if (!isEnd)
-            GameSystem.instance.QuitGame();
+            GameSystem.instance.PlayNextScene();
 
         // Coroutine End
         yield break;

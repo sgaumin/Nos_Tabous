@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Lettre Henri
+  m_Controller: {fileID: 9100000, guid: dfebf442a2440b84db19482a2642524b, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 9b07fb4c65056c24cb033a3554127a20, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 0f9ecfbd6b68dba44881c420f6bb89f2, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 70266fb9ec8a461498ecece97e89eb8f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 768e38f9864a7134e94861362be3a0c5, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: a29b2901c5d1f5f42b01a9259d887727, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: fa1faccae9992ba4083a44011504177b, type: 2}

@@ -6,7 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/0- Menu.unity
+    path: Assets/Scenes/0a- Splash Screen.unity
+    guid: 172dfb1b983812c4dbb263dc616b3bd6
+  - enabled: 1
+    path: Assets/Scenes/0b- Menu.unity
     guid: 0c7fa640b1a60f54494d287a8c5cce91
   - enabled: 1
     path: Assets/Scenes/1- Appel.unity
@@ -17,6 +20,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/3- Excuses.unity
     guid: 36e5dae8672c8214faa3565efdfe6cae
+  - enabled: 1
+    path: Assets/Scenes/7- Grenier.unity
+    guid: ae7633255ec6aed4699837700b42ce5a
+  - enabled: 1
+    path: Assets/Scenes/8- Malle.unity
+    guid: 427df45c1b6ee4a439adcb3800b56aec
   - enabled: 1
     path: Assets/Scenes/10- Fin.unity
     guid: fe24a3e632f434e45958dccbfc30d433

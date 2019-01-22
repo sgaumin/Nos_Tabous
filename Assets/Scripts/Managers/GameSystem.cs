@@ -25,7 +25,7 @@ public class GameSystem : MonoBehaviour
             Destroy(gameObject);
         }
 
-        DontDestroyOnLoad(gameObject);
+       // DontDestroyOnLoad(gameObject);
     }
 
     // Allow to load a scene by its name

@@ -12,66 +12,87 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb12cf43435f20740ae47f48c120dd47, type: 3}
   m_Name: 7 - Grenier
   m_EditorClassIdentifier: 
-  startingIndex: 0
+  startingIndex: 1
   ElementList:
+  - WhoIsSpeaking: 
+    Content: "ERROR ! \n Si vous arrivez \xE0 cette embranchement, cela signifie que
+      quelque chose s'est mal pass\xE9, o\xF9 que vous avez explorer du contenu en
+      cours de construction. Appuyez sur n'importe quelle touche pour revenir au d\xE9but."
+    IsThereChoices: 0
+    Couleur: {r: 0, g: 0, b: 0, a: 0}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 0
   - WhoIsSpeaking: Mathias
-    Content: "Bon, elles sont o\xF9 ces fichues ampoules ?"
-    IsThereChoices: 1
+    Content: On y voit rien, ici.
+    IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
-      ChoiceList:
-      - Content: '[Action] Regarder dans le cartons de droite'
-        FollowUpDialogueElement: 1
-        IsTabou: 0
-        IsThere: 1
-        LessTabouContent: 
-    FollowUpDialogueElement: 1
-  - WhoIsSpeaking: Mathias
-    Content: "C'est bon j'ai ce qu'il faut.\nIl n'y a plus de la lumi\xE8re ici ?"
-    IsThereChoices: 1
-    Couleur: {r: 1, g: 1, b: 1, a: 1}
-    Branching:
-      ChoiceList:
-      - Content: "[Action] R\xE9parer la l'ampoule du grenier"
-        FollowUpDialogueElement: 2
-        IsTabou: 0
-        IsThere: 1
-        LessTabouContent: 
-      - Content: '[Action] Partir'
-        FollowUpDialogueElement: 4
-        IsTabou: 0
-        IsThere: 1
-        LessTabouContent: 
-    FollowUpDialogueElement: 1
-  - WhoIsSpeaking: Mathias
-    Content: "C\u2019est quoi tout ce bordel ? \nComme si il n\u2019y avait pas assez
-      de choses pour amasser de la poussi\xE8re dans cette maison.."
-    IsThereChoices: 1
-    Couleur: {r: 1, g: 1, b: 1, a: 1}
-    Branching:
-      ChoiceList:
-      - Content: '[Action] Ouvrir la malle'
-        FollowUpDialogueElement: 3
-        IsTabou: 0
-        IsThere: 1
-        LessTabouContent: 
-      - Content: '[Action] Partir'
-        FollowUpDialogueElement: 4
-        IsTabou: 0
-        IsThere: 1
-        LessTabouContent: 
+      ChoiceList: []
     FollowUpDialogueElement: 2
   - WhoIsSpeaking: Mathias
-    Content: Ouverture de la malle
+    Content: "Bon, o\xF9 est la lampe ?"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 3
   - WhoIsSpeaking: Mathias
-    Content: Descente des escaliers
+    Content: "\xC7a doit \xEAtre \xE7a."
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 4
+  - WhoIsSpeaking: Mathias
+    Content: C'est quoi ce bordel ?
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 5
+  - WhoIsSpeaking: Mathias
+    Content: Ils feraient mieux de jeter leurs vieux trucs...
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 6
+  - WhoIsSpeaking: Mathias
+    Content: Qu'est ce qu'ils peuvent bien ranger dans cette grande malle ?
+    IsThereChoices: 1
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList:
+      - Content: '[Action] Ouvrir la malle'
+        FollowUpDialogueElement: 8
+        IsTabou: 0
+        IsThere: 1
+        LessTabouContent: 
+      - Content: "[Action] Retourner au rez de chauss\xE9e."
+        FollowUpDialogueElement: 7
+        IsTabou: 0
+        IsThere: 1
+        LessTabouContent: 
+    FollowUpDialogueElement: 0
+  - WhoIsSpeaking: 
+    Content: 
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 7
+  - WhoIsSpeaking: Mathias
+    Content: "Oh merde, sur quoi je suis tomb\xE9 ?..."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 9
+  - WhoIsSpeaking: 
+    Content: 
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 9

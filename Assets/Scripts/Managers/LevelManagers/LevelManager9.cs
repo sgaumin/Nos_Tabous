@@ -6,15 +6,18 @@ public class LevelManager9 : MonoBehaviour
 {
     [SerializeField] private Animator mathiasAnimator;
     [SerializeField] private Animator henryAnimator;
+    [SerializeField] private Animator sylvieAnimator;
 
     [SerializeField] private Animator background;
 
     // UI
     [SerializeField] private GameObject dialogues;
     [SerializeField] private GameObject nameDialogues;
+    [SerializeField] private GameObject fadOutScreen;
 
     private Character mathiasCharacter;
     private Character henryCharacter;
+    private Character sylvieCharacter;
 
     private DialogueBox dialogueBox;
     private int indexCount;
@@ -30,13 +33,17 @@ public class LevelManager9 : MonoBehaviour
         // Asign Character components
         mathiasCharacter = mathiasAnimator.gameObject.GetComponent<Character>();
         henryCharacter = henryAnimator.gameObject.GetComponent<Character>();
+        sylvieCharacter = sylvieAnimator.gameObject.GetComponent<Character>();
 
         // Asign DialogueBox component
         dialogueBox = dialogues.GetComponent<DialogueBox>();
 
         // Hide
         henryCharacter.gameObject.SetActive(false);
+        sylvieCharacter.gameObject.SetActive(false);
         background.gameObject.SetActive(false);
+
+        fadOutScreen.SetActive(false);
 
         // Index for checking the current IndexDialogue of DialogueSystemScript script 
         indexCount = 999;
@@ -62,25 +69,31 @@ public class LevelManager9 : MonoBehaviour
             isStarting = false;
         }
 
+        // Mathias Speaking Steps
+        if (indexCount == 2 || indexCount == 4)
+            StartCoroutine(MathiasTalking());
+
         // henry Speaking Steps
-        if (indexCount == 1)
-            StartCoroutine(henryTalking());
+        if (indexCount == 1 || indexCount == 3)
+            StartCoroutine(HenryTalking());
 
         // End Level
-        if (indexCount == 2)
+        if (indexCount == 6)
             StartCoroutine(FinalStepLevel());
     }
 
     IEnumerator StartLevel()
     {
+        // Waiting time
         yield return new WaitForSeconds(1f);
 
         // Show Background
         background.gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
 
-        // Show henry Character
+        // Show Henry & Sylvie Characters
         henryCharacter.gameObject.SetActive(true);
+        sylvieCharacter.gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
 
         // Show dialogues box 
@@ -94,8 +107,15 @@ public class LevelManager9 : MonoBehaviour
         yield break;
     }
 
-    IEnumerator henryTalking()
+    IEnumerator HenryTalking()
     {
+        // Mathias Idle animation
+        if (indexCount != 1)
+        {
+            mathiasAnimator.SetTrigger("Reset");
+            yield return new WaitForSeconds(0.5f);
+
+        }
         // Set henry  talking animation
         henryAnimator.SetTrigger("BackTalking");
 
@@ -103,22 +123,25 @@ public class LevelManager9 : MonoBehaviour
         yield break;
     }
 
-    IEnumerator FinalStepLevel()
+    IEnumerator MathiasTalking()
     {
         // Set henry idle animation
         henryAnimator.SetTrigger("ResetBack");
         yield return new WaitForSeconds(0.5f);
 
-        // Set Mathias talking animation
+        // Mathias Idle animation
         mathiasAnimator.SetTrigger("Talking");
-        yield return new WaitForSeconds(1f);
 
-        // Reset Mathias animation
+        // Coroutine End
+        yield break;
+    }
+
+    IEnumerator FinalStepLevel()
+    {
+        // Set Henry & Mathias idle animation
         mathiasAnimator.SetTrigger("Reset");
-        yield return new WaitForSeconds(1f);
-
-        // henry Fad Out animation
-        henryAnimator.SetTrigger("FadOut");
+        henryAnimator.SetTrigger("ResetBack");
+        yield return new WaitForSeconds(0.5f);
 
         // Hide Texts into the dialogues box
         dialogueBox.ShowTexts(false);
@@ -134,6 +157,16 @@ public class LevelManager9 : MonoBehaviour
 
         // Background fad out animation
         background.SetTrigger("FadOut");
+        yield return new WaitForSeconds(2f);
+
+        // Characters Fad Out animation
+        henryAnimator.SetTrigger("FadOut");
+        sylvieAnimator.SetTrigger("FadOut");
+        
+        mathiasAnimator.SetTrigger("FadOut");
+        yield return new WaitForSeconds(1f);
+
+        fadOutScreen.SetActive(true);
         yield return new WaitForSeconds(2f);
 
         // Coroutine End

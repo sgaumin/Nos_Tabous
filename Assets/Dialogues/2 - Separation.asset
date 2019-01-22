@@ -250,7 +250,7 @@ MonoBehaviour:
     Couleur: {r: 1, g: 1, b: 0.53333336, a: 1}
     Branching:
       ChoiceList:
-      - Content: "Tu ne peux faire \xE7a !"
+      - Content: "Tu ne peux pas faire \xE7a !"
         FollowUpDialogueElement: 0
         IsTabou: 1
         IsThere: 1
@@ -292,4 +292,11 @@ MonoBehaviour:
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
-    FollowUpDialogueElement: 28
+    FollowUpDialogueElement: 29
+  - WhoIsSpeaking: 
+    Content: 
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 29

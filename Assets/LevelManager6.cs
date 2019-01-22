@@ -1,17 +1,21 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelManager7 : MonoBehaviour
+public class LevelManager6 : MonoBehaviour
 {
     [SerializeField] private Animator mathiasAnimator;
-    [SerializeField] private GameObject dialogues;
+    [SerializeField] private Animator sylvieAnimator;
 
     [SerializeField] private Animator background;
+
+    // UI
+    [SerializeField] private GameObject dialogues;
     [SerializeField] private GameObject nameDialogues;
 
-    [SerializeField] private AudioManager7 audioManager;
-
     private Character mathiasCharacter;
+    private Character sylvieCharacter;
+
     private DialogueBox dialogueBox;
     private int indexCount;
 
@@ -20,13 +24,18 @@ public class LevelManager7 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // Deactivate fad in animation for Mathias
+        mathiasAnimator.SetBool("IsFadIn", false);
+
         // Asign Character components
         mathiasCharacter = mathiasAnimator.gameObject.GetComponent<Character>();
+        sylvieCharacter = sylvieAnimator.gameObject.GetComponent<Character>();
 
         // Asign DialogueBox component
         dialogueBox = dialogues.GetComponent<DialogueBox>();
 
-        // Hide the background at starting
+        // Hide
+        sylvieCharacter.gameObject.SetActive(false);
         background.gameObject.SetActive(false);
 
         // Index for checking the current IndexDialogue of DialogueSystemScript script 
@@ -45,77 +54,48 @@ public class LevelManager7 : MonoBehaviour
 
         indexCount = DialogueSystemScript.indexDialogue;
 
-        if ((indexCount == 2 || indexCount == 0) && isStarting)
+        if ((indexCount == 10 || indexCount == 0) && isStarting)
         {
-            DialogueSystemScript.indexDialogue = 0; // TO report
+            //DialogueSystemScript.indexDialogue = 0; // TO report
             indexCount = 0;
             StartCoroutine(StartLevel());
             isStarting = false;
         }
 
-        // Mathias Speaking Steps
-        if (indexCount == 1 || indexCount == 2)
-            StartCoroutine(MathiasTalkingStep());
+        // Sylvie Speaking Steps
+        if (indexCount == 1)
+            StartCoroutine(sylvieTalking());
 
-        // Open Box
-        if (indexCount == 3)
-            StartCoroutine(LastStepLevel(false));
-
-        // End Game
-        if (indexCount == 4)
-            StartCoroutine(LastStepLevel(true));
+        // End Level
+        if (indexCount == 2)
+            StartCoroutine(FinalStepLevel());
     }
 
-    IEnumerator StartLevel()
+    IEnumerator sylvieTalking()
     {
-        // Flip Mathias and play Back animation
-        mathiasAnimator.SetTrigger("Back");
-        mathiasCharacter.Flip();
+        // Set sylvie  talking animation
+        sylvieAnimator.SetTrigger("BackTalking");
 
-        //// Stairs sound playing
-        audioManager.PlayStairsSound(true);
-        yield return new WaitForSeconds(audioManager.lenghtSound - 1f);
+        // Coroutine End
+        yield break;
+    }
 
-        // Door sound playing
-        audioManager.PlayOpenDoorSound(true);
-        yield return new WaitForSeconds(2.5f);
-
-        // Show the background at starting
-        background.gameObject.SetActive(true);
-        yield return new WaitForSeconds(2f);
-
-        // Show dialogues box 
-        ShowDialogues(true);
+    IEnumerator FinalStepLevel()
+    {
+        // Set sylvie idle animation
+        sylvieAnimator.SetTrigger("ResetBack");
         yield return new WaitForSeconds(0.5f);
 
-        // Show Texts into the dialogues box
-        dialogueBox.ShowTexts(true);
+        // Set Mathias talking animation
+        mathiasAnimator.SetTrigger("Talking");
+        yield return new WaitForSeconds(1f);
 
-        // Coroutine End
-        yield break;
-    }
+        // Reset Mathias animation
+        mathiasAnimator.SetTrigger("Reset");
+        yield return new WaitForSeconds(1f);
 
-    IEnumerator MathiasTalkingStep()
-    {
-        // Set Mathias calling talking animation
-        mathiasAnimator.SetTrigger("BackTalking");
-        yield return new WaitForSeconds(2f);
-
-        // Set Mathias calling talking animation
-        mathiasAnimator.SetTrigger("Back");
-
-        // Coroutine End
-        yield break;
-    }
-
-    IEnumerator LastStepLevel(bool isEnd)
-    {
-        // Box sound playing
-        if (!isEnd)
-        {
-            audioManager.PlayOpenBoxSound(true);
-            yield return new WaitForSeconds(2f);
-        }
+        // sylvie Fad Out animation
+        sylvieAnimator.SetTrigger("FadOut");
 
         // Hide Texts into the dialogues box
         dialogueBox.ShowTexts(false);
@@ -126,24 +106,36 @@ public class LevelManager7 : MonoBehaviour
         dialoguesAnimator.SetTrigger("FadOut");
         Animator dialoguesNameAnimator = nameDialogues.GetComponent<Animator>();
         dialoguesNameAnimator.SetTrigger("FadOut");
+
         yield return new WaitForSeconds(0.5f);
 
         // Background fad out animation
         background.SetTrigger("FadOut");
+        yield return new WaitForSeconds(2f);
+
+        // Coroutine End
+        GameSystem.instance.PlayNextScene();
+        yield break;
+    }
+
+    IEnumerator StartLevel()
+    {
         yield return new WaitForSeconds(1f);
 
-        // Load end Game Screen is End
-        if (isEnd)
-        {
-            // Hide Mathias 
-            mathiasAnimator.SetTrigger("BackFadOut");
-            yield return new WaitForSeconds(2f);
+        // Show Background
+        background.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
 
-            GameSystem.instance.LoadSceneByName("10- Fin");
-        }
+        // Show sylvie Character
+        sylvieCharacter.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
 
-        if (!isEnd)
-            GameSystem.instance.PlayNextScene();
+        // Show dialogues box 
+        ShowDialogues(true);
+        yield return new WaitForSeconds(0.5f);
+
+        // Show Texts into the dialogues box
+        dialogueBox.ShowTexts(true);
 
         // Coroutine End
         yield break;

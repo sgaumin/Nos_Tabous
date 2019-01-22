@@ -1136,37 +1136,37 @@ PrefabInstance:
         type: 3}
       propertyPath: DialogueContent
       value: 
-      objectReference: {fileID: 11400000, guid: a98c10626b9749d46900ffe855aa432e,
+      objectReference: {fileID: 11400000, guid: 3ae2a1b502cd43f42ae961fadb7e3c88,
         type: 2}
     - target: {fileID: 5937179895550561074, guid: ba662aafc2f9ccf40bb6caad531fa548,
         type: 3}
       propertyPath: DialogueContent
       value: 
-      objectReference: {fileID: 11400000, guid: a98c10626b9749d46900ffe855aa432e,
+      objectReference: {fileID: 11400000, guid: 3ae2a1b502cd43f42ae961fadb7e3c88,
         type: 2}
     - target: {fileID: 5937179896412478350, guid: ba662aafc2f9ccf40bb6caad531fa548,
         type: 3}
       propertyPath: DialogueContent
       value: 
-      objectReference: {fileID: 11400000, guid: a98c10626b9749d46900ffe855aa432e,
+      objectReference: {fileID: 11400000, guid: 3ae2a1b502cd43f42ae961fadb7e3c88,
         type: 2}
     - target: {fileID: 5937179896611505842, guid: ba662aafc2f9ccf40bb6caad531fa548,
         type: 3}
       propertyPath: DialogueContent
       value: 
-      objectReference: {fileID: 11400000, guid: a98c10626b9749d46900ffe855aa432e,
+      objectReference: {fileID: 11400000, guid: 3ae2a1b502cd43f42ae961fadb7e3c88,
         type: 2}
     - target: {fileID: 5937179896220560658, guid: ba662aafc2f9ccf40bb6caad531fa548,
         type: 3}
       propertyPath: DialogueContent
       value: 
-      objectReference: {fileID: 11400000, guid: a98c10626b9749d46900ffe855aa432e,
+      objectReference: {fileID: 11400000, guid: 3ae2a1b502cd43f42ae961fadb7e3c88,
         type: 2}
     - target: {fileID: 5937179897194157792, guid: ba662aafc2f9ccf40bb6caad531fa548,
         type: 3}
       propertyPath: DialogueContent
       value: 
-      objectReference: {fileID: 11400000, guid: a98c10626b9749d46900ffe855aa432e,
+      objectReference: {fileID: 11400000, guid: 3ae2a1b502cd43f42ae961fadb7e3c88,
         type: 2}
     - target: {fileID: 5937179896754259201, guid: ba662aafc2f9ccf40bb6caad531fa548,
         type: 3}
@@ -1202,7 +1202,7 @@ PrefabInstance:
         type: 3}
       propertyPath: DialogueContent
       value: 
-      objectReference: {fileID: 11400000, guid: a98c10626b9749d46900ffe855aa432e,
+      objectReference: {fileID: 11400000, guid: 3ae2a1b502cd43f42ae961fadb7e3c88,
         type: 2}
     - target: {fileID: 5165934685886004839, guid: ba662aafc2f9ccf40bb6caad531fa548,
         type: 3}

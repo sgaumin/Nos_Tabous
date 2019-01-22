@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startingIndex: 0
   ElementList:
-  - WhoIsSpeaking: 
+  - WhoIsSpeaking: Mathias
     Content: "Bon, elles sont o\xF9 ces fichues ampoules ?"
     IsThereChoices: 1
     Couleur: {r: 1, g: 1, b: 1, a: 1}
@@ -26,7 +26,7 @@ MonoBehaviour:
         IsThere: 1
         LessTabouContent: 
     FollowUpDialogueElement: 1
-  - WhoIsSpeaking: 
+  - WhoIsSpeaking: Mathias
     Content: "C'est bon j'ai ce qu'il faut.\nIl n'y a plus de la lumi\xE8re ici ?"
     IsThereChoices: 1
     Couleur: {r: 1, g: 1, b: 1, a: 1}
@@ -43,7 +43,7 @@ MonoBehaviour:
         IsThere: 1
         LessTabouContent: 
     FollowUpDialogueElement: 1
-  - WhoIsSpeaking: 
+  - WhoIsSpeaking: Mathias
     Content: "C\u2019est quoi tout ce bordel ? \nComme si il n\u2019y avait pas assez
       de choses pour amasser de la poussi\xE8re dans cette maison.."
     IsThereChoices: 1
@@ -61,14 +61,14 @@ MonoBehaviour:
         IsThere: 1
         LessTabouContent: 
     FollowUpDialogueElement: 2
-  - WhoIsSpeaking: 
+  - WhoIsSpeaking: Mathias
     Content: Ouverture de la malle
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 3
-  - WhoIsSpeaking: 
+  - WhoIsSpeaking: Mathias
     Content: Descente des escaliers
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}

@@ -1,43 +1,47 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelManager4 : MonoBehaviour
+public class LevelManager5 : MonoBehaviour
 {
     [SerializeField] private Animator mathiasAnimator;
-    [SerializeField] private Animator jadeAnimator;
+    [SerializeField] private Animator sylvieAnimator;
+    [SerializeField] private Animator henriAnimator;
+
     [SerializeField] private Animator background;
-    [SerializeField] private Animator car;
+
+    [SerializeField] private AudioManager5 audioManager;
 
     // UI
     [SerializeField] private GameObject dialogues;
     [SerializeField] private GameObject nameDialogues;
 
-    [SerializeField] private AudioManager4 audioManager;
-
     private Character mathiasCharacter;
-    private Character jadeCharacter;
+    private Character sylvieCharacter;
+    private Character henriCharacter;
+
     private DialogueBox dialogueBox;
     private int indexCount;
 
     private bool isStarting = true;
 
+    // Start is called before the first frame update
     void Start()
     {
         // Deactivate fad in animation for Mathias
         mathiasAnimator.SetBool("IsFadIn", false);
 
-        // Deactivate Car animation
-        car.enabled = false;
-
         // Asign Character components
         mathiasCharacter = mathiasAnimator.gameObject.GetComponent<Character>();
-        jadeCharacter = jadeAnimator.gameObject.GetComponent<Character>();
+        sylvieCharacter = sylvieAnimator.gameObject.GetComponent<Character>();
+        henriCharacter = henriAnimator.gameObject.GetComponent<Character>();
 
         // Asign DialogueBox component
         dialogueBox = dialogues.GetComponent<DialogueBox>();
 
         // Hide
-        jadeCharacter.gameObject.SetActive(false);
+        sylvieCharacter.gameObject.SetActive(false);
+        henriCharacter.gameObject.SetActive(false);
         background.gameObject.SetActive(false);
 
         // Index for checking the current IndexDialogue of DialogueSystemScript script 
@@ -47,8 +51,11 @@ public class LevelManager4 : MonoBehaviour
         ShowDialogues(false);
     }
 
+    // Update is called once per frame
     void Update()
     {
+        Debug.Log(DialogueSystemScript.indexDialogue);
+
         // Check if the choice is Tabou and set the animation
         if (DialogueSystemScript.isTabou)
             StartCoroutine(TabouStepLevel());
@@ -69,19 +76,23 @@ public class LevelManager4 : MonoBehaviour
         }
 
         // Mathias Speaking Steps
-        if (indexCount == 2 || indexCount == 6 || indexCount == 9 || indexCount == 11 || indexCount == 14 || indexCount == 16 || indexCount == 18 || indexCount == 21)
+        if (indexCount == 1 || indexCount == 3 || indexCount == 5 || indexCount == 8 || indexCount == 10 || indexCount == 12 || indexCount == 15 || indexCount == 21)
             StartCoroutine(MathiasTalking());
 
-        // Jade Speaking Steps
-        if (indexCount == 1 || indexCount == 5 || indexCount == 10 || indexCount == 12 || indexCount == 15 || indexCount == 17 || indexCount == 19 || indexCount == 20 || indexCount == 22)
-            StartCoroutine(JadeTalking());
+        // Sylvie Speaking Steps
+        if (indexCount == 2 || indexCount == 4 || indexCount == 9)
+            StartCoroutine(sylvieTalking());
 
-        // facing right Jade's animation
-        if (indexCount == 7)
-            StartCoroutine(JadeFacingRight());
+        // Henri Speaking Steps
+        if (indexCount == 14 || indexCount == 17)
+            StartCoroutine(sylvieTalking());
+
+        // Entrance Henri
+        if (indexCount == 6)
+            StartCoroutine(HenriEntrance());
 
         // End Level
-        if (indexCount == 22)
+        if (indexCount == 18)
             StartCoroutine(FinalStepLevel());
     }
 
@@ -89,16 +100,29 @@ public class LevelManager4 : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
 
-        // Play car starting sound
-        audioManager.PlayStartDrivingSound(true);
-        yield return new WaitForSeconds(6f);
-
-        // Show jade Character
-        jadeCharacter.gameObject.SetActive(true);
+        // Play wind sound
+        audioManager.PlayWindSound(true);
         yield return new WaitForSeconds(3f);
+
+        // Play foot sound
+        audioManager.PlayFootSound(true);
+        yield return new WaitForSeconds(7f);
+
+        // Play knock sound
+        audioManager.PlayKnockSound(true);
+        yield return new WaitForSeconds(3f);
+
+        // Disalble all sounds
+        audioManager.PlayWindSound(false);
+        audioManager.PlayFootSound(false);
+        audioManager.PlayKnockSound(false);
 
         // Show Background
         background.gameObject.SetActive(true);
+        yield return new WaitForSeconds(1f);
+
+        // Show sylvie Character
+        sylvieCharacter.gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
 
         // Show dialogues box 
@@ -108,20 +132,19 @@ public class LevelManager4 : MonoBehaviour
         // Show Texts into the dialogues box
         dialogueBox.ShowTexts(true);
 
-        // Play car ambience sound
-        audioManager.PlayAmbianceSound(true);
-        yield return new WaitForSeconds(0.5f);
-        car.enabled = true;
-
         // Coroutine End
         yield break;
     }
 
     IEnumerator MathiasTalking()
     {
-        // Set jade idle animation
-        jadeAnimator.SetTrigger("Reset");
-        yield return new WaitForSeconds(0.5f);
+        if (indexCount != 1)
+        {
+            // Set sylvie idle animation
+            sylvieAnimator.SetTrigger("ResetBack");
+            henriAnimator.SetTrigger("ResetBack");
+            yield return new WaitForSeconds(0.5f);
+        }
 
         // Set Mathias talking animation
         mathiasAnimator.SetTrigger("Talking");
@@ -130,31 +153,42 @@ public class LevelManager4 : MonoBehaviour
         yield break;
     }
 
-    IEnumerator JadeTalking()
+    IEnumerator sylvieTalking()
     {
         // Set Mathias  idle animation
-        if (indexCount != 1)
-            mathiasAnimator.SetTrigger("Reset");
-
-        // Set jade  talking animation
+        mathiasAnimator.SetTrigger("Reset");
+        henriAnimator.SetTrigger("ResetBack");
         yield return new WaitForSeconds(0.5f);
-        jadeAnimator.SetTrigger("Talking");
+
+        // Set sylvie  talking animation
+        sylvieAnimator.SetTrigger("BackTalking");
 
         // Coroutine End
         yield break;
     }
 
-    IEnumerator JadeFacingRight() {
-
-        // Set Mathias  idle animation
-        if (indexCount != 1)
-            mathiasAnimator.SetTrigger("Reset");
-
-        // Set jade  talking animation
+    IEnumerator HenriTalking()
+    {
+        mathiasAnimator.SetTrigger("Reset");
+        //sylvieAnimator.SetTrigger("ResetBack");
         yield return new WaitForSeconds(0.5f);
-        jadeAnimator.SetTrigger("FacingRight");
+
+        // Set sylvie  talking animation
+        henriAnimator.SetTrigger("BackTalking");
 
         // Coroutine End
+        yield break;
+    }
+
+    IEnumerator HenriEntrance()
+    {
+        // Show Henri
+        henriCharacter.gameObject.SetActive(true);
+
+        // Henri Talking
+        yield return StartCoroutine(HenriTalking());
+
+        // End Coroutine
         yield break;
     }
 
@@ -186,28 +220,11 @@ public class LevelManager4 : MonoBehaviour
 
     IEnumerator FinalStepLevel()
     {
-        // Set jade  talking animation
-        yield return new WaitForSeconds(0.5f);
-        jadeAnimator.SetTrigger("Talking");
-
         // Reset Mathias animation
         mathiasAnimator.SetTrigger("Reset");
 
-        // Set jade idle animation
-        yield return new WaitForSeconds(0.5f);
-        jadeAnimator.SetTrigger("Reset");
-
-        // Stop car animation
-        car.enabled = false;
-
-        // Waiting time
-        yield return new WaitForSeconds(2f);
-
-        // Play sound car door closed
-        audioManager.PlayClosedDoorSound(true);
-
-        // jade Fad Out animation
-        jadeAnimator.SetTrigger("FadOut");
+        // sylvie Fad Out animation
+        sylvieAnimator.SetTrigger("FadOut");
 
         // Hide Texts into the dialogues box
         dialogueBox.ShowTexts(false);

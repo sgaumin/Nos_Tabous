@@ -40,6 +40,8 @@ public class LevelManager1 : MonoBehaviour
     // TO DO: Create a Delegate function on DialogueSystemScript for isTabou & indexDialogue variables
     private void Update()
     {
+        Debug.Log(DialogueSystemScript.indexDialogue);
+
         // Check if the choice is Tabou and set the animation
         if (DialogueSystemScript.isTabou)
             StartCoroutine(TabouStepLevel());
@@ -55,19 +57,19 @@ public class LevelManager1 : MonoBehaviour
             StartCoroutine(StartLevel());
 
         // Mathias Talking
-        if (indexCount == 3 || indexCount == 4 || indexCount == 5 || indexCount == 7 || indexCount == 8 || indexCount == 13)
+        if (indexCount == 2 || indexCount == 4 || indexCount == 5 || indexCount == 8 || indexCount == 10 || indexCount == 13)
             StartCoroutine(MathiasTalkingStep());
 
-        // Mathias Anger
-        if (indexCount == 10 || indexCount == 12)
-            StartCoroutine(AngerStepLevel());
+        //// Mathias Anger
+        //if (indexCount == 10)
+        //    StartCoroutine(AngerStepLevel());
 
         // Henri Talking
-        if (indexCount == 1 || indexCount == 2 || indexCount == 6 || indexCount == 9 || indexCount == 11)
+        if (indexCount == 1 || indexCount == 3 || indexCount == 6 || indexCount == 9 || indexCount == 12 || indexCount == 14)
             StartCoroutine(HenriTalkingStep());
 
         // Final Step
-        if (indexCount == 12)
+        if (indexCount == 15)
             StartCoroutine(LastStepLevel());
     }
 
@@ -135,11 +137,14 @@ public class LevelManager1 : MonoBehaviour
     IEnumerator HenriTalkingStep()
     {
         // Set Mathias calling idle animation
-        mathiasAnimator.SetTrigger("CallIdle");
+        if (indexCount != 1)
+        {
+            mathiasAnimator.SetTrigger("CallIdle");
 
-        // Set Henri calling talking animation
-        yield return new WaitForSeconds(0.5f);
-        henriAnimator.SetTrigger("BackCallTalking");
+            // Set Henri calling talking animation
+            yield return new WaitForSeconds(0.5f);
+            henriAnimator.SetTrigger("BackCallTalking");
+        }
 
         // Coroutine End
         yield break;
@@ -147,7 +152,6 @@ public class LevelManager1 : MonoBehaviour
 
     IEnumerator LastStepLevel()
     {
-
         // Set Henri calling idle animation
         henriAnimator.SetTrigger("BackCallIdle");
         yield return new WaitForSeconds(0.2f);
@@ -184,9 +188,8 @@ public class LevelManager1 : MonoBehaviour
         // Animation FadOut dialogues box
         Animator dialoguesAnimator = dialogues.GetComponent<Animator>();
         dialoguesAnimator.SetTrigger("FadOut");
-
         Animator dialoguesNameAnimator = nameDialogues.GetComponent<Animator>();
-        dialoguesAnimator.SetTrigger("FadOut");
+        dialoguesNameAnimator.SetTrigger("FadOut");
 
         // Quit PLay Mode
         yield return new WaitForSeconds(2f);

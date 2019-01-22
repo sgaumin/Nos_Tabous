@@ -16,15 +16,26 @@ public class TextChoixScript : MonoBehaviour, IPointerDownHandler, IPointerEnter
     private bool firstClickbis;
     private bool isHighlighted;
 
+    private bool isReady;
+    private bool FadeInNotOut;
+    private float opacity;
+    private int indexDialogueSave;
+
 
     void Start()
     {
-        
+        isReady = false;
+        FadeInNotOut = true;
+        opacity = 0;
     }
 
     public void OnPointerDown(PointerEventData pointerEvent)
     {
-            DialogueSystemScript.clickedChoice = ChoiceNumber;      
+        if (isReady)
+        {
+            DialogueSystemScript.clickedChoice = ChoiceNumber;
+        }
+                
     }
 
     public void OnPointerEnter(PointerEventData pointerEvent)
@@ -40,7 +51,69 @@ public class TextChoixScript : MonoBehaviour, IPointerDownHandler, IPointerEnter
     // Update is called once per frame
     void Update()
     {
-       
+        if (isReady)
+        {
+            if (DialogueSystemScript.choiceToFadeOut == ChoiceNumber ||DialogueSystemScript.opacity<1f)
+            {
+                isReady = false;
+                FadeInNotOut = false;
+                DialogueSystemScript.choiceToFadeOut = 0;
+                indexDialogueSave = DialogueSystemScript.indexDialogue;
+            }
+        }
+        else
+        {
+            if (FadeInNotOut)
+            {
+                opacity += Time.deltaTime;
+                if (opacity >= 1f)
+                {
+                    opacity = 1;
+                    isReady = true;
+                    FadeInNotOut = false;
+                }
+            }
+            else
+            {
+                opacity -= Time.deltaTime;
+                if (opacity <= 0f)
+                {
+                    opacity = 0;
+                    indexChoice = 1;
+                    if(indexDialogueSave == DialogueSystemScript.indexDialogue)
+                    {
+                        for (int i = 0; i < DialogueContent.ElementList[DialogueSystemScript.indexDialogue].Branching.ChoiceList.Count; i++)
+                        {
+                            if (DialogueContent.ElementList[DialogueSystemScript.indexDialogue].Branching.ChoiceList[i].IsThere || DialogueContent.ElementList[DialogueSystemScript.indexDialogue].Branching.ChoiceList[i].LessTabouContent != "")
+                            {
+                                if (indexChoice == ChoiceNumber)
+                                {
+                                    DialogueContent.ElementList[DialogueSystemScript.indexDialogue].Branching.ChoiceList[i].IsThere = false;
+                                    if(DialogueContent.ElementList[DialogueSystemScript.indexDialogue].Branching.ChoiceList[i].LessTabouContent == "")
+                                    {
+                                        opacity = 1f;
+                                        isReady = true;
+                                    }
+                                    else
+                                    {
+                                        FadeInNotOut = true;
+                                    }                                    
+                                }
+                                indexChoice++;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        FadeInNotOut = true;
+                    }
+                    
+                    
+
+                }
+            }
+        }
+        
 
         text = "";
         gameObject.GetComponent<Text>().fontSize = BestFitScript.fontsize;
@@ -84,9 +157,13 @@ public class TextChoixScript : MonoBehaviour, IPointerDownHandler, IPointerEnter
                 }
             }
         }
+        Color Couleur = Color.white;
+        Couleur.a =opacity;
         gameObject.GetComponent<Text>().text = text;
-        
-        
+        gameObject.GetComponent<Text>().color = Couleur;
+
+
+
     }
 
 

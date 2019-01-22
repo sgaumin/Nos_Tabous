@@ -20,6 +20,7 @@ public class DialogueSystemScript : MonoBehaviour
     private bool FadeInNotOut;
     private bool IsReady;
     public static float opacity;
+    public static int choiceToFadeOut;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,7 @@ public class DialogueSystemScript : MonoBehaviour
         FadeInNotOut = true;
         indexChoix = 0;
         clickedChoice = -1;
+        choiceToFadeOut = 0;
 
         for (int i = 0; i < DialogueContent.ElementList.Count; i++)
         {
@@ -70,7 +72,7 @@ public class DialogueSystemScript : MonoBehaviour
                             clickedChoice = -1;
                             if (DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].IsTabou && DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].IsThere)
                             {
-                                DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].IsThere = false;
+                                choiceToFadeOut = indexChoix;
                                 updateText = true;
                                 updateIsTotal = false;
                                 isTabou = true;

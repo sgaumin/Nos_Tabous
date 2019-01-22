@@ -44,6 +44,8 @@ public class LevelManager2 : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(DialogueSystemScript.indexDialogue);
+
         // Check if the choice is Tabou and set the animation
         if (DialogueSystemScript.isTabou)
             StartCoroutine(TabouStepLevel());
@@ -64,22 +66,26 @@ public class LevelManager2 : MonoBehaviour
         }
 
         // Mathias Speaking Steps
-        if ( indexCount == 3)
+        if (indexCount == 2 || indexCount == 4 || indexCount == 6 || indexCount == 8 || indexCount == 10 
+            || indexCount == 12 || indexCount == 15 || indexCount == 17 || indexCount == 19 || indexCount == 20 
+            || indexCount == 24 || indexCount == 26)
             StartCoroutine(MathiasTalking());
 
-        // Mathias Anger Steps
-        if (indexCount == 1 || indexCount == 6 || indexCount == 8)
-            StartCoroutine(MathiasAnger());
+        //// Mathias Anger Steps
+        //if (indexCount == 1 || indexCount == 6 || indexCount == 8)
+        //    StartCoroutine(MathiasAnger());
 
-        // Mathias Very Anger Steps
-        if (indexCount == 10)
-            StartCoroutine(VeryAngerStepLevel());
+        //// Mathias Very Anger Steps
+        //if (indexCount == 10)
+        //    StartCoroutine(VeryAngerStepLevel());
 
         // Caroline Speaking Steps
-        if (indexCount == 2 || indexCount == 4 || indexCount == 7 || indexCount == 9 || indexCount == 12)
+        if (indexCount == 1 || indexCount == 3 || indexCount == 5 || indexCount == 7 || indexCount == 9 
+            || indexCount == 11 || indexCount == 13 || indexCount == 14 || indexCount == 18
+            || indexCount == 21 || indexCount == 22 || indexCount == 23 || indexCount == 27)
             StartCoroutine(CarolineTalking());
 
-        if (indexCount == 13)
+        if (indexCount == 28)
             StartCoroutine(FinalStepLevel());
     }
 
@@ -127,11 +133,14 @@ public class LevelManager2 : MonoBehaviour
     IEnumerator CarolineTalking()
     {
         // Set Mathias  idle animation
-        mathiasAnimator.SetTrigger("Reset");
+        if (indexCount != 1)
+        {
+            mathiasAnimator.SetTrigger("Reset");
 
-        // Set Caroline  talking animation
-        yield return new WaitForSeconds(0.5f);
-        carolineAnimator.SetTrigger("Talking");
+            // Set Caroline  talking animation
+            yield return new WaitForSeconds(0.5f);
+            carolineAnimator.SetTrigger("Talking");
+        }
 
         // Coroutine End
         yield break;
@@ -142,7 +151,7 @@ public class LevelManager2 : MonoBehaviour
         // Retrieve the current animation state
         AnimatorClipInfo[] m_CurrentClipInfo;
         m_CurrentClipInfo = mathiasAnimator.GetCurrentAnimatorClipInfo(0);
-        string  m_ClipName = m_CurrentClipInfo[0].clip.name;
+        string m_ClipName = m_CurrentClipInfo[0].clip.name;
 
         // Set Mathias Tabou animation
         mathiasAnimator.SetTrigger("Reset");

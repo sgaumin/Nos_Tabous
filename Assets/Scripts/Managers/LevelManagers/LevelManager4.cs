@@ -5,7 +5,6 @@ public class LevelManager4 : MonoBehaviour
 {
     [SerializeField] private Animator mathiasAnimator;
     [SerializeField] private Animator jadeAnimator;
-    [SerializeField] private Animator background;
     [SerializeField] private Animator car;
 
     // UI
@@ -26,9 +25,6 @@ public class LevelManager4 : MonoBehaviour
         // Deactivate fad in animation for Mathias
         mathiasAnimator.SetBool("IsFadIn", false);
 
-        // Deactivate Car animation
-        car.enabled = false;
-
         // Asign Character components
         mathiasCharacter = mathiasAnimator.gameObject.GetComponent<Character>();
         jadeCharacter = jadeAnimator.gameObject.GetComponent<Character>();
@@ -38,7 +34,7 @@ public class LevelManager4 : MonoBehaviour
 
         // Hide
         jadeCharacter.gameObject.SetActive(false);
-        background.gameObject.SetActive(false);
+        car.gameObject.SetActive(false);
 
         // Index for checking the current IndexDialogue of DialogueSystemScript script 
         indexCount = 999;
@@ -98,8 +94,10 @@ public class LevelManager4 : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         // Show Background
-        background.gameObject.SetActive(true);
+        car.gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
+
+        car.SetTrigger("Move");
 
         // Show dialogues box 
         ShowDialogues(true);
@@ -222,7 +220,7 @@ public class LevelManager4 : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         // Background fad out animation
-        background.SetTrigger("FadOut");
+        car.SetTrigger("FadOut");
         yield return new WaitForSeconds(2f);
 
         // Coroutine End

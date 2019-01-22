@@ -7,6 +7,7 @@ public class LevelManager1 : MonoBehaviour
     // TO DO: Create objet Event per Step
     [SerializeField] private Animator mathiasAnimator;
     [SerializeField] private Animator henriAnimator;
+    [SerializeField] private GameObject disclaimer;
     [SerializeField] private GameObject dialogues;
     [SerializeField] private GameObject nameDialogues;
 
@@ -29,6 +30,9 @@ public class LevelManager1 : MonoBehaviour
         // Hide Mathias & Henri Character at Starting
         mathiasCharacter.gameObject.SetActive(false);
         henriCharacter.gameObject.SetActive(false);
+
+        // Hide
+        disclaimer.SetActive(false);
 
         // Index for checking the current IndexDialogue of DialogueSystemScript script 
         indexCount = 999;
@@ -77,6 +81,14 @@ public class LevelManager1 : MonoBehaviour
     {
         // Waiting before starting
         yield return new WaitForSeconds(1f);
+
+        //Show Disclaimer
+        disclaimer.SetActive(true);
+        yield return new WaitForSeconds(13f);
+        disclaimer.SetActive(false);
+
+        // Show Henri
+        yield return new WaitForSeconds(2f);
         henriCharacter.gameObject.SetActive(true);
 
         // Henri phone call animation

@@ -7,7 +7,8 @@ public class LevelManager3 : MonoBehaviour
     [SerializeField] private Animator mathiasAnimator;
     [SerializeField] private Animator henriAnimator;
     [SerializeField] private GameObject dialogues;
-    [SerializeField] private GameObject lendemain;
+    [SerializeField] private GameObject clock;
+    [SerializeField] private GameObject callSignals;
 
     [SerializeField] private AudioManager3 audioManager;
 
@@ -27,10 +28,10 @@ public class LevelManager3 : MonoBehaviour
         // Asign DialogueBox component
         dialogueBox = dialogues.GetComponent<DialogueBox>();
 
-        // Hide Henri Character at Starting
+        // Hide 
         henriCharacter.gameObject.SetActive(false);
-
-        lendemain.SetActive(false);
+        clock.SetActive(false);
+        callSignals.SetActive(false);
 
         // Index for checking the current IndexDialogue of DialogueSystemScript script 
         indexCount = 999;
@@ -77,10 +78,11 @@ public class LevelManager3 : MonoBehaviour
     {
         // Waiting before starting
         yield return new WaitForSeconds(1f);
-        lendemain.SetActive(true);
 
-        yield return new WaitForSeconds(3f);
-        lendemain.SetActive(false);
+        // Clock Animation
+        clock.SetActive(true);
+        yield return new WaitForSeconds(4f);
+        clock.SetActive(false);
 
         // Mathias pick up the phone animation
         mathiasAnimator.SetTrigger("CallStarting");
@@ -88,7 +90,9 @@ public class LevelManager3 : MonoBehaviour
 
         // Phone sound playing
         audioManager.PlayPhoneSound(true);
-        yield return new WaitForSeconds(8f);
+        yield return new WaitForSeconds(1f);
+        callSignals.SetActive(true);
+        yield return new WaitForSeconds(7f);
 
         // Fad In Animation Henri
         henriCharacter.gameObject.SetActive(true);
@@ -99,6 +103,7 @@ public class LevelManager3 : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         // End phone sound
+        callSignals.SetActive(false);
         audioManager.PlayPhoneSound(false);
         yield return new WaitForSeconds(2f);
 

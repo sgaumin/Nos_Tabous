@@ -210,7 +210,6 @@ MonoBehaviour:
   isLetter: 0
   isHenriLetter: 0
   isChecked: 0
-  canBeSelected: 0
   commentsBox: {fileID: 657689672}
   lettersBox: {fileID: 568012079}
 --- !u!61 &39014562
@@ -458,7 +457,6 @@ MonoBehaviour:
   isLetter: 0
   isHenriLetter: 0
   isChecked: 0
-  canBeSelected: 0
   commentsBox: {fileID: 657689672}
   lettersBox: {fileID: 568012079}
 --- !u!61 &136052355
@@ -506,18 +504,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &171282982 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3924336103191431838, guid: 9010abfc53cd8cd4bb4697835cd9bae0,
-    type: 3}
-  m_PrefabInstance: {fileID: 3924336103563641819}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26b85d16dd44a1a4ba80da97002dc2df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &204932087
 GameObject:
   m_ObjectHideFlags: 0
@@ -651,7 +637,6 @@ MonoBehaviour:
   isLetter: 0
   isHenriLetter: 0
   isChecked: 0
-  canBeSelected: 0
   commentsBox: {fileID: 657689672}
   lettersBox: {fileID: 568012079}
 --- !u!1 &352934240
@@ -777,7 +762,6 @@ MonoBehaviour:
   isLetter: 1
   isHenriLetter: 0
   isChecked: 0
-  canBeSelected: 0
   commentsBox: {fileID: 657689672}
   lettersBox: {fileID: 568012079}
 --- !u!61 &352934244
@@ -904,8 +888,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 171282982}
-        m_MethodName: QuitGame
+      - m_Target: {fileID: 2040533864}
+        m_MethodName: LaunchFinalSteps
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1678,7 +1662,6 @@ MonoBehaviour:
   isLetter: 1
   isHenriLetter: 1
   isChecked: 0
-  canBeSelected: 0
   commentsBox: {fileID: 657689672}
   lettersBox: {fileID: 568012079}
 --- !u!212 &1865365802
@@ -1765,7 +1748,7 @@ Animator:
   m_GameObject: {fileID: 1865365799}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: fa7606f9d76d3f349a9f7623701ea58c, type: 2}
+  m_Controller: {fileID: 9100000, guid: 33f684611c0af3c4483a4e6b77041da6, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

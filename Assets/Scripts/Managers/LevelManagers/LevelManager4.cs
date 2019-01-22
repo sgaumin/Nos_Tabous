@@ -45,6 +45,7 @@ public class LevelManager4 : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(DialogueSystemScript.indexDialogue);
         // Check if the choice is Tabou and set the animation
         if (DialogueSystemScript.isTabou)
             StartCoroutine(TabouStepLevel());
@@ -65,16 +66,16 @@ public class LevelManager4 : MonoBehaviour
         }
 
         // Mathias Speaking Steps
-        if (indexCount == 2 || indexCount == 6 || indexCount == 9 || indexCount == 11 || indexCount == 14 || indexCount == 16 || indexCount == 18 || indexCount == 21)
+        if (indexCount == 2 || indexCount == 3 || indexCount == 4 || indexCount == 6 || indexCount == 9 || indexCount == 11 || indexCount == 14 || indexCount == 16 || indexCount == 18 || indexCount ==19 || indexCount == 21)
             StartCoroutine(MathiasTalking());
 
         // Jade Speaking Steps
-        if (indexCount == 1 || indexCount == 5 || indexCount == 10 || indexCount == 12 || indexCount == 15 || indexCount == 17 || indexCount == 19 || indexCount == 20 || indexCount == 22)
+        if (indexCount == 1 || indexCount == 5 || indexCount == 7 || indexCount == 10 || indexCount == 12 || indexCount == 15 || indexCount == 17 || indexCount == 20 || indexCount == 22)
             StartCoroutine(JadeTalking());
 
         // facing right Jade's animation
-        if (indexCount == 7)
-            StartCoroutine(JadeFacingRight());
+        /*if (indexCount == 6)
+            StartCoroutine(JadeFacingRight());*/
 
         // End Level
         if (indexCount == 22)

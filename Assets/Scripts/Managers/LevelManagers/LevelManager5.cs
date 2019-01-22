@@ -76,16 +76,22 @@ public class LevelManager5 : MonoBehaviour
         }
 
         // Mathias Speaking Steps
-        if (indexCount == 1 || indexCount == 3 || indexCount == 5 || indexCount == 8 || indexCount == 10 || indexCount == 12 || indexCount == 15 || indexCount == 21)
+        if (indexCount == 1 || indexCount == 3 || indexCount == 5 || indexCount == 8 || indexCount == 10 || indexCount == 11 || indexCount == 12 || indexCount == 15 || indexCount == 18)
             StartCoroutine(MathiasTalking());
+
+        //Mathias Angry
+        // if(indexCount== 15)
+
+        //Mathias Tres Angry
+        //if(indexCount == 16)
 
         // Sylvie Speaking Steps
         if (indexCount == 2 || indexCount == 4 || indexCount == 9)
             StartCoroutine(sylvieTalking());
 
         // Henri Speaking Steps
-        if (indexCount == 14 || indexCount == 17)
-            StartCoroutine(sylvieTalking());
+        if (/*indexCount == 6 ||*/ indexCount == 14 || indexCount == 17)
+            StartCoroutine(HenriTalking());
 
         // Entrance Henri
         if (indexCount == 6)
@@ -142,6 +148,7 @@ public class LevelManager5 : MonoBehaviour
         {
             // Set sylvie idle animation
             sylvieAnimator.SetTrigger("ResetBack");
+           
             henriAnimator.SetTrigger("ResetBack");
             yield return new WaitForSeconds(0.5f);
         }
@@ -225,6 +232,7 @@ public class LevelManager5 : MonoBehaviour
 
         // sylvie Fad Out animation
         sylvieAnimator.SetTrigger("FadOut");
+        henriAnimator.SetTrigger("FadOut");
 
         // Hide Texts into the dialogues box
         dialogueBox.ShowTexts(false);

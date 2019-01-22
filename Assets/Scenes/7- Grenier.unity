@@ -450,37 +450,37 @@ PrefabInstance:
         type: 3}
       propertyPath: DialogueContent
       value: 
-      objectReference: {fileID: 11400000, guid: 0e642d8bd9d2caf438d58a854e0511ce,
+      objectReference: {fileID: 11400000, guid: 34a273ed7054a5d4580bf70a91ae88e1,
         type: 2}
     - target: {fileID: 5937179895550561074, guid: ba662aafc2f9ccf40bb6caad531fa548,
         type: 3}
       propertyPath: DialogueContent
       value: 
-      objectReference: {fileID: 11400000, guid: 0e642d8bd9d2caf438d58a854e0511ce,
+      objectReference: {fileID: 11400000, guid: 34a273ed7054a5d4580bf70a91ae88e1,
         type: 2}
     - target: {fileID: 5937179896412478350, guid: ba662aafc2f9ccf40bb6caad531fa548,
         type: 3}
       propertyPath: DialogueContent
       value: 
-      objectReference: {fileID: 11400000, guid: 0e642d8bd9d2caf438d58a854e0511ce,
+      objectReference: {fileID: 11400000, guid: 34a273ed7054a5d4580bf70a91ae88e1,
         type: 2}
     - target: {fileID: 5937179896611505842, guid: ba662aafc2f9ccf40bb6caad531fa548,
         type: 3}
       propertyPath: DialogueContent
       value: 
-      objectReference: {fileID: 11400000, guid: 0e642d8bd9d2caf438d58a854e0511ce,
+      objectReference: {fileID: 11400000, guid: 34a273ed7054a5d4580bf70a91ae88e1,
         type: 2}
     - target: {fileID: 5937179896220560658, guid: ba662aafc2f9ccf40bb6caad531fa548,
         type: 3}
       propertyPath: DialogueContent
       value: 
-      objectReference: {fileID: 11400000, guid: 0e642d8bd9d2caf438d58a854e0511ce,
+      objectReference: {fileID: 11400000, guid: 34a273ed7054a5d4580bf70a91ae88e1,
         type: 2}
     - target: {fileID: 5937179897194157792, guid: ba662aafc2f9ccf40bb6caad531fa548,
         type: 3}
       propertyPath: DialogueContent
       value: 
-      objectReference: {fileID: 11400000, guid: 0e642d8bd9d2caf438d58a854e0511ce,
+      objectReference: {fileID: 11400000, guid: 34a273ed7054a5d4580bf70a91ae88e1,
         type: 2}
     - target: {fileID: 5937179896754259201, guid: ba662aafc2f9ccf40bb6caad531fa548,
         type: 3}

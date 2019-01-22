@@ -19,7 +19,7 @@ public class DialogueSystemScript : MonoBehaviour
 
     private bool FadeInNotOut;
     private bool IsReady;
-    private float opacity;
+    public static float opacity;
 
     // Start is called before the first frame update
     void Start()

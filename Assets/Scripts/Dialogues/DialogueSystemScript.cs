@@ -139,7 +139,7 @@ public class DialogueSystemScript : MonoBehaviour
         {
             if (FadeInNotOut)
             {
-                opacity += Time.deltaTime;
+                opacity += Time.deltaTime*2;
                 if (opacity >= 1f)
                 {
                     opacity = 1;
@@ -150,7 +150,7 @@ public class DialogueSystemScript : MonoBehaviour
             }
             else
             {
-                opacity -= Time.deltaTime;
+                opacity -= Time.deltaTime*2;
                 if (opacity <= 0f)
                 {
                     opacity = 0;

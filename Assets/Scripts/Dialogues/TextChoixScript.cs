@@ -65,7 +65,7 @@ public class TextChoixScript : MonoBehaviour, IPointerDownHandler, IPointerEnter
         {
             if (FadeInNotOut)
             {
-                opacity += Time.deltaTime;
+                opacity += Time.deltaTime*2;
                 if (opacity >= 1f)
                 {
                     opacity = 1;
@@ -75,7 +75,7 @@ public class TextChoixScript : MonoBehaviour, IPointerDownHandler, IPointerEnter
             }
             else
             {
-                opacity -= Time.deltaTime;
+                opacity -= Time.deltaTime*2;
                 if (opacity <= 0f)
                 {
                     opacity = 0;

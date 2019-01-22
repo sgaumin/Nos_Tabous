@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/3- Excuses.unity
     guid: 36e5dae8672c8214faa3565efdfe6cae
   - enabled: 1
+    path: Assets/Scenes/4- Voiture.unity
+    guid: 07336b39ba63c564c80fcaaa9360a3e4
+  - enabled: 1
     path: Assets/Scenes/7- Grenier.unity
     guid: ae7633255ec6aed4699837700b42ce5a
   - enabled: 1

@@ -235,7 +235,7 @@ public class LevelManager2 : MonoBehaviour
         Animator dialoguesAnimator = dialogues.GetComponent<Animator>();
         dialoguesAnimator.SetTrigger("FadOut");
         Animator dialoguesNameAnimator = nameDialogues.GetComponent<Animator>();
-        dialoguesAnimator.SetTrigger("FadOut");
+        dialoguesNameAnimator.SetTrigger("FadOut");
 
         yield return new WaitForSeconds(0.5f);
 

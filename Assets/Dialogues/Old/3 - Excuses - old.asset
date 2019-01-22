@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb12cf43435f20740ae47f48c120dd47, type: 3}
+  m_Name: 3 - Excuses - old
+  m_EditorClassIdentifier: 
+  startingIndex: 0
+  ElementList:
+  - WhoIsSpeaking: 
+    Content: '... allo ? Papa ?'
+    IsThereChoices: 0
+    Couleur: {r: 0, g: 0, b: 0, a: 0}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 1
+  - WhoIsSpeaking: 
+    Content: Allo, oui ! Bonjour Mathias !
+    IsThereChoices: 0
+    Couleur: {r: 0, g: 0, b: 0, a: 0}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 2
+  - WhoIsSpeaking: 
+    Content: "Ouais, salut. Je t\u2019appelle parce que, euh\u2026"
+    IsThereChoices: 1
+    Couleur: {r: 0, g: 0, b: 0, a: 0}
+    Branching:
+      ChoiceList:
+      - Content: "On s\u2019est s\xE9par\xE9 avec Caroline."
+        FollowUpDialogueElement: 9
+        IsTabou: 1
+        IsThere: 0
+        LessTabouContent: "J\u2019ai \xE9t\xE9 un peu maladroit hier soir au t\xE9l\xE9phone."
+      - Content: Je me pose des questions.
+        FollowUpDialogueElement: 9
+        IsTabou: 1
+        IsThere: 1
+        LessTabouContent: "J\u2019ai \xE9t\xE9 un peu maladroit hier soir au t\xE9l\xE9phone."
+      - Content: "J\u2019aimerais qu\u2019on parle, toi et moi."
+        FollowUpDialogueElement: 9
+        IsTabou: 1
+        IsThere: 1
+        LessTabouContent: "J\u2019ai \xE9t\xE9 un peu maladroit hier soir au t\xE9l\xE9phone."
+    FollowUpDialogueElement: 3
+  - WhoIsSpeaking: 
+    Content: "T\u2019en fais pas, faut croire qu\u2019on a tous des hauts et des bas."
+    IsThereChoices: 0
+    Couleur: {r: 0, g: 0, b: 0, a: 0}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 4
+  - WhoIsSpeaking: 
+    Content: "Oui, faut croire... et, hm\u2026 Je voulais te demander\u2026 est-ce
+      que\u2026 est-ce que je pourrai rester quelques jours de plus ?"
+    IsThereChoices: 0
+    Couleur: {r: 0, g: 0, b: 0, a: 0}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 5
+  - WhoIsSpeaking: 
+    Content: "Ahah, mais bien sur ! Qu\u2019est-ce qui t\u2019arrive ? \xC7a va pas
+      poser probl\xE8me avec le boulot ?"
+    IsThereChoices: 0
+    Couleur: {r: 0, g: 0, b: 0, a: 0}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 6
+  - WhoIsSpeaking: 
+    Content: "Nan nan, t\u2019inqui\xE8te, c\u2019est\u2026 je me suis arrang\xE9."
+    IsThereChoices: 0
+    Couleur: {r: 0, g: 0, b: 0, a: 0}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 7
+  - WhoIsSpeaking: 
+    Content: "Ah, d\u2019accord ! Eh ben c\u2019est\u2026 c\u2019est super ! Tu pourras
+      m\u2019aider pour 2-3 bricoles."
+    IsThereChoices: 0
+    Couleur: {r: 0, g: 0, b: 0, a: 0}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 8
+  - WhoIsSpeaking: 
+    Content: "Euh, on verra ouais. Je dois y aller l\xE0, d\xE9poser Jade \xE0 l\u2019\xE9cole.
+      \xC0 ce soir."
+    IsThereChoices: 0
+    Couleur: {r: 0, g: 0, b: 0, a: 0}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 8
+  - WhoIsSpeaking: 
+    Content: "J\u2019ai \xE9t\xE9 un peu maladroit hier soir au t\xE9l\xE9phone."
+    IsThereChoices: 0
+    Couleur: {r: 0, g: 0, b: 0, a: 0}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 3

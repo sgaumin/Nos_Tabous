@@ -6,7 +6,12 @@ public class LevelManager3 : MonoBehaviour
 {
     [SerializeField] private Animator mathiasAnimator;
     [SerializeField] private Animator henriAnimator;
+
+    // Dialogue Box Assets
     [SerializeField] private GameObject dialogues;
+    [SerializeField] private GameObject nameDialogues;
+
+    // Objects
     [SerializeField] private GameObject clock;
     [SerializeField] private GameObject callSignals;
 
@@ -66,7 +71,7 @@ public class LevelManager3 : MonoBehaviour
             StartCoroutine(SecondStepLevel());
 
         // Henri Speaking Steps
-        if (indexCount == 1 || indexCount == 3 || indexCount == 5 || indexCount == 7 )
+        if (indexCount == 1 || indexCount == 3 || indexCount == 5 || indexCount == 7)
             StartCoroutine(ThirdStepLevel());
 
         // Final Step
@@ -202,6 +207,9 @@ public class LevelManager3 : MonoBehaviour
         Animator dialoguesAnimator = dialogues.GetComponent<Animator>();
         dialoguesAnimator.SetTrigger("FadOut");
 
+        Animator dialoguesNameAnimator = nameDialogues.GetComponent<Animator>();
+        dialoguesAnimator.SetTrigger("FadOut");
+
         // Quit PLay Mode
         yield return new WaitForSeconds(2f);
         GameSystem.instance.QuitGame(); ;
@@ -215,10 +223,16 @@ public class LevelManager3 : MonoBehaviour
         if (dialogues != null)
         {
             if (activated)
+            {
                 dialogues.SetActive(true);
+                nameDialogues.SetActive(true);
+            }
 
             if (!activated)
+            {
                 dialogues.SetActive(false);
+                nameDialogues.SetActive(false);
+            }
         }
     }
 }

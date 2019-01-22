@@ -6,7 +6,10 @@ public class LevelManager2 : MonoBehaviour
     [SerializeField] private Animator mathiasAnimator;
     [SerializeField] private Animator carolineAnimator;
     [SerializeField] private Animator background;
+
+    // UI
     [SerializeField] private GameObject dialogues;
+    [SerializeField] private GameObject nameDialogues;
 
     [SerializeField] private AudioManager2 audioManager;
 
@@ -231,6 +234,9 @@ public class LevelManager2 : MonoBehaviour
         // Animation FadOut dialogues box
         Animator dialoguesAnimator = dialogues.GetComponent<Animator>();
         dialoguesAnimator.SetTrigger("FadOut");
+        Animator dialoguesNameAnimator = nameDialogues.GetComponent<Animator>();
+        dialoguesAnimator.SetTrigger("FadOut");
+
         yield return new WaitForSeconds(0.5f);
 
         // Background fad out animation
@@ -247,10 +253,16 @@ public class LevelManager2 : MonoBehaviour
         if (dialogues != null)
         {
             if (activated)
+            {
                 dialogues.SetActive(true);
+                nameDialogues.SetActive(true);
+            }
 
             if (!activated)
+            {
                 dialogues.SetActive(false);
+                nameDialogues.SetActive(false);
+            }
         }
     }
 }

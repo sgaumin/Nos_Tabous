@@ -12,225 +12,138 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb12cf43435f20740ae47f48c120dd47, type: 3}
   m_Name: 1 - Appel
   m_EditorClassIdentifier: 
-  startingIndex: 0
+  startingIndex: 1
   ElementList:
-  - WhoIsSpeaking: Papa
-    Content: "Bonjour Mathias, comment \xE7a va ? \nTu as repens\xE9 \xE0 notre invitation
-      ?  \n\n"
+  - WhoIsSpeaking: 
+    Content: "ERROR ! \n Si vous arrivez \xE0 cette embranchement, cela signifie que
+      quelque chose s'est mal pass\xE9, o\xF9 que vous avez explorer du contenu en
+      cours de construction. Appuyez sur n'importe quelle touche pour revenir au d\xE9but."
     IsThereChoices: 0
-    Couleur: {r: 0, g: 1, b: 0.105447054, a: 1}
+    Couleur: {r: 0, g: 0, b: 0, a: 0}
     Branching:
       ChoiceList: []
-    FollowUpDialogueElement: 1
-  - WhoIsSpeaking: Papa
-    Content: "\xC7a fait longtemps qu\u2019on s\u2019est pas retrouv\xE9 tous ensemble
-      \xE0 la maison, et puis \xE7a serait l\u2019occasion qu\u2019on revoit Jade
-      si elle a envie.  \n\n\xC7a nous ferait vraiment plaisir. "
+    FollowUpDialogueElement: 0
+  - WhoIsSpeaking: Henri
+    Content: "Bonjour Mathias. Comment \xE7a va ?"
     IsThereChoices: 0
-    Couleur: {r: 0, g: 1, b: 0.11449838, a: 1}
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList: []
-    FollowUpDialogueElement: 2
-  - WhoIsSpeaking: Moi
-    Content: Ah oui.. euh...
+    FollowUpDialogueElement: 13
+  - WhoIsSpeaking: Henri
+    Content: "Peut \xEAtre, vous pourriez passer ce week-end ?"
     IsThereChoices: 1
-    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Couleur: {r: 0.6, g: 1, b: 0.8000001, a: 1}
     Branching:
       ChoiceList:
-      - Content: "Tu tombes mal, on peut en reparler plus tard ? C\u2019est pas le
-          meilleur moment."
-        FollowUpDialogueElement: 11
+      - Content: On peut en reparler plus tard.
+        FollowUpDialogueElement: 3
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
-      - Content: "Je sais pas si j\u2019ai envie de venir."
-        FollowUpDialogueElement: 12
-        IsTabou: 1
-        IsThere: 1
-        LessTabouContent: "Je sais pas si\u2026 j\u2019aurais assez de temps. Avec
-          le travail, tout \xE7a."
-      - Content: "\xC0 propos de Caroline.."
-        FollowUpDialogueElement: 13
+      - Content: Je ne sais pas si j'ai envie de te voir.
+        FollowUpDialogueElement: 4
         IsTabou: 1
         IsThere: 0
-        LessTabouContent: Euh...
-      - Content: "C\u2019est trop tard pour essayer de jouer le papa mod\xE8le."
-        FollowUpDialogueElement: 14
+        LessTabouContent: Je ne sais pas si j'aurais le temps.
+      - Content: "Je voulais te parler de Caroline. \xC7a ne va pas trop bien en ce
+          moment."
+        FollowUpDialogueElement: 0
         IsTabou: 1
         IsThere: 0
-        LessTabouContent: "C\u2019est trop tard pour\u2026 s\u2019organiser. Pour
-          le trajet."
-    FollowUpDialogueElement: 3
-  - WhoIsSpeaking: Papa
-    Content: "Oh mais c\u2019est dommage, tu nous manques tu sais."
-    IsThereChoices: 0
-    Couleur: {r: 0, g: 1, b: 0.071077585, a: 1}
-    Branching:
-      ChoiceList: []
-    FollowUpDialogueElement: 4
-  - WhoIsSpeaking: Moi
-    Content: '...'
-    IsThereChoices: 1
-    Couleur: {r: 1, g: 1, b: 1, a: 1}
-    Branching:
-      ChoiceList:
-      - Content: Vous aussi vous me manquez.
-        FollowUpDialogueElement: 16
-        IsTabou: 0
-        IsThere: 1
-        LessTabouContent: '
-
-'
-      - Content: "\u2026"
-        FollowUpDialogueElement: 16
-        IsTabou: 0
-        IsThere: 1
         LessTabouContent: 
-    FollowUpDialogueElement: 5
-  - WhoIsSpeaking: Papa
-    Content: "On te demande pas un grand effort, \r\nJuste de venir voir tes vieux
-      parents de temps en temps\u2026\r\n"
+      - Content: "Trop tard pour jouer le papa mod\xE8le."
+        FollowUpDialogueElement: 5
+        IsTabou: 1
+        IsThere: 0
+        LessTabouContent: Trop tard pour s'organiser
+    FollowUpDialogueElement: 0
+  - WhoIsSpeaking: Mathias
+    Content: "Tu tombes mal, on peut en reparler plus tard, papa ? C'est pas trop
+      le moment, l\xE0."
     IsThereChoices: 0
-    Couleur: {r: 0, g: 1, b: 0.083981514, a: 1}
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 6
-  - WhoIsSpeaking: Moi
-    Content: '...'
-    IsThereChoices: 1
+  - WhoIsSpeaking: Mathias
+    Content: Je sais pas si ... j'aurais le temps. J'ai beaucoup de travail en ce
+      moment.
+    IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
-      ChoiceList:
-      - Content: "Ma m\xE8re, je veux bien... "
-        FollowUpDialogueElement: 21
-        IsTabou: 1
-        IsThere: 1
-        LessTabouContent: "Ma m\xE8re, je veux bien. T\u2019as jamais vraiment \xE9t\xE9
-          un p\xE8re pour moi."
-      - Content: "T\u2019as\u2026 *soupire* Juste, laisse moi tranquille pour le moment"
-        FollowUpDialogueElement: 18
-        IsTabou: 0
-        IsThere: 1
-        LessTabouContent: 
-      - Content: "C\u2019est juste l\u2019effort de trop en ce moment. Surtout depuis
-          ce qui se passe avec Caroline."
-        FollowUpDialogueElement: 19
-        IsTabou: 1
-        IsThere: 0
-        LessTabouContent: "C\u2019est juste l\u2019effort de trop en ce moment."
-      - Content: "J\u2019ai pas le temps d\u2019en discuter maintenant, d\xE9sol\xE9."
-        FollowUpDialogueElement: 20
-        IsTabou: 0
-        IsThere: 1
-        LessTabouContent: 
-    FollowUpDialogueElement: 7
-  - WhoIsSpeaking: Pap
-    Content: "Ah, euh\u2026 tr\xE8s bien. \r\nTiens nous au courant si jamais tu changes
-      d\u2019avis !\r\n"
+      ChoiceList: []
+    FollowUpDialogueElement: 6
+  - WhoIsSpeaking: Mathias
+    Content: C'est trop tard pour ... s'organiser. Vous habitez loin.
     IsThereChoices: 0
-    Couleur: {r: 0, g: 1, b: 0.10835743, a: 1}
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
-    FollowUpDialogueElement: 8
-  - WhoIsSpeaking: Moi
-    Content: "Voil\xE0, on va dire \xE7a comme \xE7a. Salut."
+    FollowUpDialogueElement: 6
+  - WhoIsSpeaking: Henri
+    Content: C'est dommage... Tu nous manques, tu sais.
+    IsThereChoices: 1
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList:
+      - Content: Tu me manques aussi. (Mentir)
+        FollowUpDialogueElement: 7
+        IsTabou: 0
+        IsThere: 1
+        LessTabouContent: 
+      - Content: "Tu me manques aussi. (Dire la v\xE9rit\xE9)"
+        FollowUpDialogueElement: 8
+        IsTabou: 1
+        IsThere: 0
+        LessTabouContent: '...'
+    FollowUpDialogueElement: 0
+  - WhoIsSpeaking: Mathias
+    Content: Tu me manques aussi, papa.
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 9
-  - WhoIsSpeaking: Papa
-    Content: "Bonne soir\xE9e, embra- "
+  - WhoIsSpeaking: Mathias
+    Content: '...'
     IsThereChoices: 0
-    Couleur: {r: 0.074186325, g: 1, b: 0, a: 1}
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 9
+  - WhoIsSpeaking: Henri
+    Content: Tiens nous au courant si jamais tu changes d'avis !
+    IsThereChoices: 0
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 10
-  - WhoIsSpeaking: Moi
-    Content: '*CLIC* Embrasse mon cul.'
+  - WhoIsSpeaking: Mathias
+    Content: "Voil\xE0, on va dire comme \xE7a. Salut."
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
-    FollowUpDialogueElement: 10
-  - WhoIsSpeaking: Moi
-    Content: "Tu tombes mal, on peut en reparler plus tard ? C\u2019est pas le meilleur
-      moment."
+    FollowUpDialogueElement: 11
+  - WhoIsSpeaking: Henri
+    Content: "Bonne soir\xE9e, embras-. *CLIC*"
+    IsThereChoices: 0
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 12
+  - WhoIsSpeaking: Mathias
+    Content: Embrasse mon cul.
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
-    FollowUpDialogueElement: 3
-  - WhoIsSpeaking: Moi
-    Content: "Je sais pas si\u2026 j\u2019aurais assez de temps. Avec le travail,
-      tout \xE7a."
+    FollowUpDialogueElement: 12
+  - WhoIsSpeaking: Mathias
+    Content: Bonjour Papa.
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
-    FollowUpDialogueElement: 3
-  - WhoIsSpeaking: Moi
-    Content: Euh... je ne sais pas quoi te dire...
-    IsThereChoices: 0
-    Couleur: {r: 1, g: 1, b: 1, a: 1}
-    Branching:
-      ChoiceList: []
-    FollowUpDialogueElement: 3
-  - WhoIsSpeaking: Moi
-    Content: "C\u2019est trop tard pour\u2026 s\u2019organiser. Pour le trajet."
-    IsThereChoices: 0
-    Couleur: {r: 1, g: 1, b: 1, a: 1}
-    Branching:
-      ChoiceList: []
-    FollowUpDialogueElement: 3
-  - WhoIsSpeaking: Moi
-    Content: Euh.. Je ne sais pas quoi te dire...
-    IsThereChoices: 0
-    Couleur: {r: 1, g: 1, b: 1, a: 1}
-    Branching:
-      ChoiceList: []
-    FollowUpDialogueElement: 5
-  - WhoIsSpeaking: Moi
-    Content: "\u2026"
-    IsThereChoices: 0
-    Couleur: {r: 1, g: 1, b: 1, a: 1}
-    Branching:
-      ChoiceList: []
-    FollowUpDialogueElement: 5
-  - WhoIsSpeaking: Moi
-    Content: "Ma m\xE8re, je veux bien... T\u2019as jamais vraiment \xE9t\xE9 un p\xE8re
-      pour moi"
-    IsThereChoices: 0
-    Couleur: {r: 1, g: 1, b: 1, a: 1}
-    Branching:
-      ChoiceList: []
-    FollowUpDialogueElement: 7
-  - WhoIsSpeaking: Moi
-    Content: "T\u2019as\u2026 *soupire* Juste, laisse moi tranquille pour le moment"
-    IsThereChoices: 0
-    Couleur: {r: 1, g: 1, b: 1, a: 1}
-    Branching:
-      ChoiceList: []
-    FollowUpDialogueElement: 7
-  - WhoIsSpeaking: Moi
-    Content: "C\u2019est juste l\u2019effort de trop en ce moment."
-    IsThereChoices: 0
-    Couleur: {r: 1, g: 1, b: 1, a: 1}
-    Branching:
-      ChoiceList: []
-    FollowUpDialogueElement: 7
-  - WhoIsSpeaking: Moi
-    Content: "J\u2019ai pas le temps d\u2019en discuter maintenant, d\xE9sol\xE9."
-    IsThereChoices: 0
-    Couleur: {r: 1, g: 1, b: 1, a: 1}
-    Branching:
-      ChoiceList: []
-    FollowUpDialogueElement: 7
-  - WhoIsSpeaking: Moi
-    Content: "Ma m\xE8re, je veux bien. T\u2019as jamais vraiment \xE9t\xE9 un p\xE8re
-      pour moi."
-    IsThereChoices: 0
-    Couleur: {r: 1, g: 1, b: 1, a: 1}
-    Branching:
-      ChoiceList: []
-    FollowUpDialogueElement: 7
+    FollowUpDialogueElement: 2

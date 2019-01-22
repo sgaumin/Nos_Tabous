@@ -67,7 +67,7 @@ public class LevelManager1 : MonoBehaviour
             StartCoroutine(HenriTalkingStep());
 
         // Final Step
-        if (indexCount == 11)
+        if (indexCount == 12)
             StartCoroutine(LastStepLevel());
     }
 
@@ -183,6 +183,9 @@ public class LevelManager1 : MonoBehaviour
 
         // Animation FadOut dialogues box
         Animator dialoguesAnimator = dialogues.GetComponent<Animator>();
+        dialoguesAnimator.SetTrigger("FadOut");
+
+        Animator dialoguesNameAnimator = nameDialogues.GetComponent<Animator>();
         dialoguesAnimator.SetTrigger("FadOut");
 
         // Quit PLay Mode

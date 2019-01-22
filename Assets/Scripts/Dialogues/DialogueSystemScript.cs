@@ -99,6 +99,22 @@ public class DialogueSystemScript : MonoBehaviour
         if (updateText)
         {
             clickedChoice = -1;
+            if (updateIsTotal)
+            {
+                if (indexDialogue != indexDialogueNew)
+                {
+                    AudioManagerClic.instance.GetComponent<AudioSource>().pitch = 1f;
+                    AudioManagerClic.instance.PlayClicSound();
+                }
+                
+            }
+            else
+            {
+                AudioManagerClic.instance.GetComponent<AudioSource>().pitch = 0.8f;
+                AudioManagerClic.instance.PlayClicSound();
+            }
+           
+
             if (0 < indexDialogueNew && indexDialogueNew < DialogueContent.ElementList.Count)
             {
                 indexDialogue = indexDialogueNew;
@@ -108,6 +124,7 @@ public class DialogueSystemScript : MonoBehaviour
                 indexDialogue = 0;
             }
 
+           
             UpdateText();
         }
     }
@@ -119,16 +136,7 @@ public class DialogueSystemScript : MonoBehaviour
         text = string.Concat(text, "\n");
         if (DialogueContent.startingIndex != indexDialogue)
         {
-            if (updateIsTotal)
-            {
-                AudioManagerClic.instance.GetComponent<AudioSource>().pitch = 1f;
-                AudioManagerClic.instance.PlayClicSound();
-            }
-            else
-            {
-                AudioManagerClic.instance.GetComponent<AudioSource>().pitch = 0.8f;
-                AudioManagerClic.instance.PlayClicSound();
-            }
+            
         }
         
         

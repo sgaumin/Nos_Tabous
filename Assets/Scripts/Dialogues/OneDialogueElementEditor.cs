@@ -238,15 +238,7 @@ public class OneDialogueElementEditor : EditorWindow
         DialogueElementList = CreateDialogueElementList.Create();
         if (DialogueElementList)
         {
-            DialogueElementList.ElementList = new List<OneDialogueElement>();
-            DialogueElementList.startingIndex = 1;
-
-            OneDialogueElement newElement = new OneDialogueElement();
-            newElement.IsThereChoices = false;
-            newElement.Content = "ERROR ! \n Si vous arrivez à cette embranchement, cela signifie que quelque chose s'est mal passé, où que vous avez explorer du contenu en cours de construction. Appuyez sur n'importe quelle touche pour revenir au début.";
-            newElement.Branching = new OneDialogueBranching();
-            newElement.FollowUpDialogueElement = 0;
-            DialogueElementList.ElementList.Add(newElement);
+            
 
             AddElement();
             string relPath = AssetDatabase.GetAssetPath(DialogueElementList);

@@ -736,6 +736,48 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5937179895550561074, guid: ba662aafc2f9ccf40bb6caad531fa548,
+        type: 3}
+      propertyPath: DialogueContent
+      value: 
+      objectReference: {fileID: 11400000, guid: 8087fcc412a589a47a3be66c9482a86d,
+        type: 2}
+    - target: {fileID: 5937179895712527295, guid: ba662aafc2f9ccf40bb6caad531fa548,
+        type: 3}
+      propertyPath: DialogueContent
+      value: 
+      objectReference: {fileID: 11400000, guid: 8087fcc412a589a47a3be66c9482a86d,
+        type: 2}
+    - target: {fileID: 5937179896220560658, guid: ba662aafc2f9ccf40bb6caad531fa548,
+        type: 3}
+      propertyPath: DialogueContent
+      value: 
+      objectReference: {fileID: 11400000, guid: 8087fcc412a589a47a3be66c9482a86d,
+        type: 2}
+    - target: {fileID: 5937179896412478350, guid: ba662aafc2f9ccf40bb6caad531fa548,
+        type: 3}
+      propertyPath: DialogueContent
+      value: 
+      objectReference: {fileID: 11400000, guid: 8087fcc412a589a47a3be66c9482a86d,
+        type: 2}
+    - target: {fileID: 5937179896611505842, guid: ba662aafc2f9ccf40bb6caad531fa548,
+        type: 3}
+      propertyPath: DialogueContent
+      value: 
+      objectReference: {fileID: 11400000, guid: 8087fcc412a589a47a3be66c9482a86d,
+        type: 2}
+    - target: {fileID: 5937179896754259200, guid: ba662aafc2f9ccf40bb6caad531fa548,
+        type: 3}
+      propertyPath: DialogueContent
+      value: 
+      objectReference: {fileID: 11400000, guid: 8087fcc412a589a47a3be66c9482a86d,
+        type: 2}
+    - target: {fileID: 5937179897194157792, guid: ba662aafc2f9ccf40bb6caad531fa548,
+        type: 3}
+      propertyPath: DialogueContent
+      value: 
+      objectReference: {fileID: 11400000, guid: 8087fcc412a589a47a3be66c9482a86d,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba662aafc2f9ccf40bb6caad531fa548, type: 3}
 --- !u!1001 &8494087086919759150

@@ -1,0 +1,221 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb12cf43435f20740ae47f48c120dd47, type: 3}
+  m_Name: 4 Voiture v2
+  m_EditorClassIdentifier: 
+  startingIndex: 1
+  ElementList:
+  - WhoIsSpeaking: 
+    Content: "ERROR ! \n Si vous arrivez \xE0 cette embranchement, cela signifie que
+      quelque chose s'est mal pass\xE9, o\xF9 que vous avez explorer du contenu en
+      cours de construction. Appuyez sur n'importe quelle touche pour revenir au d\xE9but."
+    IsThereChoices: 0
+    Couleur: {r: 0, g: 0, b: 0, a: 0}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 0
+  - WhoIsSpeaking: Jade
+    Content: "Papa, tout va bien avec Caroline ? J'vous ai entendu vous disputer hier
+      soir\u2026"
+    IsThereChoices: 1
+    Couleur: {r: 0.4407333, g: 0.601, b: 0.12019999, a: 1}
+    Branching:
+      ChoiceList:
+      - Content: "J\u2019ai pas envie d\u2019en discuter."
+        FollowUpDialogueElement: 2
+        IsTabou: 0
+        IsThere: 1
+        LessTabouContent: 
+      - Content: "C\u2019est des affaires d\u2019adultes."
+        FollowUpDialogueElement: 3
+        IsTabou: 0
+        IsThere: 1
+        LessTabouContent: 
+      - Content: "Elle m\u2019a quitt\xE9."
+        FollowUpDialogueElement: 4
+        IsTabou: 1
+        IsThere: 0
+        LessTabouContent: "\xC7a va aller."
+      - Content: "Elle a p\xE9t\xE9 un c\xE2ble..."
+        FollowUpDialogueElement: 0
+        IsTabou: 1
+        IsThere: 0
+        LessTabouContent: 
+    FollowUpDialogueElement: 0
+  - WhoIsSpeaking: Mathias
+    Content: "C'est compliqu\xE9. J'ai pas envie d'en discuter."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 5
+  - WhoIsSpeaking: Mathias
+    Content: "Tu sais les parents des fois \xE7a se met en col\xE8re, mais c\u2019est
+      rien de grave."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 5
+  - WhoIsSpeaking: Mathias
+    Content: "Oui, enfin, non\u2026 \xC7a va s\u2019arranger."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 5
+  - WhoIsSpeaking: Jade
+    Content: "Tu sais Papa, je suis plus une gamine. Je peux comprendre\u2026"
+    IsThereChoices: 0
+    Couleur: {r: 0.44313726, g: 0.6039216, b: 0.12156863, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 6
+  - WhoIsSpeaking: Mathias
+    Content: "Moi, je suis pas derri\xE8re ton dos, \xE0 te demander comment \xE7a
+      se passe avec les gar\xE7ons !"
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 7
+  - WhoIsSpeaking: Jade
+    Content: "Mais tu m\u2019\xE9coutes jamais quand je te parle !"
+    IsThereChoices: 0
+    Couleur: {r: 0.44313726, g: 0.6039216, b: 0.12156863, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 8
+  - WhoIsSpeaking: Jade
+    Content: "T\u2019es chiant des fois papa..."
+    IsThereChoices: 0
+    Couleur: {r: 0.44313726, g: 0.6039216, b: 0.12156863, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 9
+  - WhoIsSpeaking: Mathias
+    Content: '...'
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 10
+  - WhoIsSpeaking: Jade
+    Content: '...'
+    IsThereChoices: 0
+    Couleur: {r: 0.44313726, g: 0.6039216, b: 0.12156863, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 11
+  - WhoIsSpeaking: Mathias
+    Content: "Bon, au fait... je vais chez Papi Mami ce soir. Je partirai dans l\u2019apr\xE8s-midi,
+      tu veux venir avec moi ?"
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 12
+  - WhoIsSpeaking: Jade
+    Content: "... \xE7a va pas \xEAtre possible, tu sais bien que c\u2019est Maman
+      qui me r\xE9cup\xE8re ce soir."
+    IsThereChoices: 0
+    Couleur: {r: 0.44313726, g: 0.6039216, b: 0.12156863, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 13
+  - WhoIsSpeaking: Jade
+    Content: Tu comptes ramener un cadeau pour une fois ?
+    IsThereChoices: 0
+    Couleur: {r: 0.44313726, g: 0.6039216, b: 0.12156863, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 14
+  - WhoIsSpeaking: Mathias
+    Content: Bof.
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 15
+  - WhoIsSpeaking: Jade
+    Content: "Fais un effort. \xC7a fait combien de temps que tu ne leur as pas offert
+      quelque chose ?"
+    IsThereChoices: 1
+    Couleur: {r: 0.44313726, g: 0.6039216, b: 0.12156863, a: 1}
+    Branching:
+      ChoiceList:
+      - Content: "No\xEBl dernier."
+        FollowUpDialogueElement: 16
+        IsTabou: 0
+        IsThere: 1
+        LessTabouContent: 
+      - Content: "Mon p\xE8re n\u2019a jamais fait d\u2019effort pour moi."
+        FollowUpDialogueElement: 0
+        IsTabou: 1
+        IsThere: 0
+        LessTabouContent: 
+      - Content: Laisse moi tranquille.
+        FollowUpDialogueElement: 19
+        IsTabou: 1
+        IsThere: 1
+        LessTabouContent: "Laisse moi m\u2019en occuper."
+    FollowUpDialogueElement: 16
+  - WhoIsSpeaking: Mathias
+    Content: "Ben je leur ai offert un bouquin No\xEBl dernier, quand m\xEAme."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 17
+  - WhoIsSpeaking: Jade
+    Content: "Papa, \xE7a fait 4 ans que tu as pas fait No\xEBl avec eux."
+    IsThereChoices: 0
+    Couleur: {r: 0.44313726, g: 0.6039216, b: 0.12156863, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 18
+  - WhoIsSpeaking: Mathias
+    Content: '...'
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 20
+  - WhoIsSpeaking: Mathias
+    Content: "Laisse moi m'occuper de \xE7a. Je g\xE8re."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 20
+  - WhoIsSpeaking: Jade
+    Content: "Bon tu peux me d\xE9poser ici, embrasse Papi et Mami pour moi."
+    IsThereChoices: 0
+    Couleur: {r: 0.44313726, g: 0.6039216, b: 0.12156863, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 21
+  - WhoIsSpeaking: Mathias
+    Content: "Passe le bonjour \xE0 ta m\xE8re de ma part. Ah et euh\u2026 demande
+      lui si je peux l\u2019appeler dans la semaine. Pas un mot sur Caroline."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 22
+  - WhoIsSpeaking: Jade
+    Content: "C\u2019est \xE7a ouais ! Bisous papa, je file !"
+    IsThereChoices: 0
+    Couleur: {r: 0.44313726, g: 0.6039216, b: 0.12156863, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 22

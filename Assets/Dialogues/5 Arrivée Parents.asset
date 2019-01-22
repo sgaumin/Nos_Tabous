@@ -1,0 +1,177 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb12cf43435f20740ae47f48c120dd47, type: 3}
+  m_Name: "5 Arriv\xE9e Parents"
+  m_EditorClassIdentifier: 
+  startingIndex: 1
+  ElementList:
+  - WhoIsSpeaking: 
+    Content: "ERROR ! \n Si vous arrivez \xE0 cette embranchement, cela signifie que
+      quelque chose s'est mal pass\xE9, o\xF9 que vous avez explorer du contenu en
+      cours de construction. Appuyez sur n'importe quelle touche pour revenir au d\xE9but."
+    IsThereChoices: 0
+    Couleur: {r: 0, g: 0, b: 0, a: 0}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 0
+  - WhoIsSpeaking: Mathias
+    Content: "Salut M\u2019man."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 2
+  - WhoIsSpeaking: Sylvie
+    Content: "Bonjour Mathias ! Oh, comment \xE7a me fait plaisir de te voir !"
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 0.53333336, b: 0.8666667, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 3
+  - WhoIsSpeaking: Mathias
+    Content: "Je me suis gar\xE9, et en voyant le jardin, je me suis revu en train
+      de jouer au foot contre la cl\xF4ture."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 4
+  - WhoIsSpeaking: Sylvie
+    Content: "Je me souviens que tu avais cass\xE9 la vitre de la cuisine lorsque
+      nous \xE9tions dans l\u2019ancienne maison. Ah \xE7a, ton p\xE8re \xE9tait furieux
+      !"
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 0.53333336, b: 0.8666667, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 5
+  - WhoIsSpeaking: Mathias
+    Content: "Oui, oui... je me souviens surtout des claques que j\u2019ai re\xE7ues."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 6
+  - WhoIsSpeaking: Henri
+    Content: "Oh bonjour Mathias, comment vas-tu ? Je suis\u2026 je suis tr\xE8s content
+      de te voir !"
+    IsThereChoices: 0
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 7
+  - WhoIsSpeaking: Henri
+    Content: Les filles ne sont pas avec toi ?
+    IsThereChoices: 0
+    Couleur: {r: 0.53333336, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 8
+  - WhoIsSpeaking: Mathias
+    Content: "Non. Jade est chez sa m\xE8re."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 9
+  - WhoIsSpeaking: Sylvie
+    Content: Et Caroline ?
+    IsThereChoices: 1
+    Couleur: {r: 1, g: 0.53333336, b: 0.8666667, a: 1}
+    Branching:
+      ChoiceList:
+      - Content: "Qu\u2019est ce qu\u2019elle a, Caroline ?"
+        FollowUpDialogueElement: 10
+        IsTabou: 1
+        IsThere: 0
+        LessTabouContent: Caroline va bien.
+      - Content: Elle ne viendra pas.
+        FollowUpDialogueElement: 11
+        IsTabou: 0
+        IsThere: 1
+        LessTabouContent: 
+      - Content: Elle est partie.
+        FollowUpDialogueElement: 12
+        IsTabou: 1
+        IsThere: 0
+        LessTabouContent: "Elle est partie en voyage d\u2019affaire."
+    FollowUpDialogueElement: 0
+  - WhoIsSpeaking: Mathias
+    Content: "Caroline\u2026 \xC7a va."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 13
+  - WhoIsSpeaking: Mathias
+    Content: Caroline ne viendra pas.
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 13
+  - WhoIsSpeaking: Mathias
+    Content: "Non. Elle est partie\u2026 en voyage\u2026 pour le boulot."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 13
+  - WhoIsSpeaking: Mathias
+    Content: "On peut parler d\u2019autre chose ?"
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 14
+  - WhoIsSpeaking: Henri
+    Content: "Tu es s\xFBr que \xE7a va ? Tu as l\u2019air bizarre. C\u2019est le
+      trajet, c\u2019est \xE7a ? Sylvie, va lui pr\xE9parer une tisane, \xE7a va le
+      requinquer. Je vais t\u2019aider \xE0 monter tes valises."
+    IsThereChoices: 0
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 15
+  - WhoIsSpeaking: Mathias
+    Content: "J\u2019en ai marre de ta fausse bienveillance, Papa !"
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 16
+  - WhoIsSpeaking: Mathias
+    Content: "T\u2019as jamais \xE9t\xE9 l\xE0 pour moi, \xE7a sert \xE0 rien de commencer
+      maintenant. Il fallait y penser quand j\u2019\xE9tais gamin, quand j\u2019avais
+      besoin d\u2019un p\xE8re ! Il fallait que tu me montres l\u2019exemple, il fallait
+      que tu viennes avec moi au foot, il fallait m\u2019encourager quand j\u2019avais
+      des doutes ! C\u2019est trop tard, je suis plus un enfant aujourd\u2019hui,
+      et j\u2019ai certainement pas besoin de ton aide !"
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 17
+  - WhoIsSpeaking: Henri
+    Content: '...'
+    IsThereChoices: 0
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 18
+  - WhoIsSpeaking: Mathias
+    Content: "Bon... je vais me coucher. Bonne soir\xE9e Maman."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 18

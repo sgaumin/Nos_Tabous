@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb12cf43435f20740ae47f48c120dd47, type: 3}
-  m_Name: DialogueElementList
+  m_Name: 1 Appel v2
   m_EditorClassIdentifier: 
   startingIndex: 1
   ElementList:
@@ -23,3 +23,146 @@ MonoBehaviour:
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 0
+  - WhoIsSpeaking: Henri
+    Content: Bonjour Mathias !
+    IsThereChoices: 0
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 2
+  - WhoIsSpeaking: Mathias
+    Content: Bonjour Papa.
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 3
+  - WhoIsSpeaking: Henri
+    Content: "Comment \xE7a va ?"
+    IsThereChoices: 1
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList:
+      - Content: "J\u2019ai des probl\xE8mes avec ma femme."
+        FollowUpDialogueElement: 4
+        IsTabou: 1
+        IsThere: 0
+        LessTabouContent: Tout le monde va bien.
+      - Content: Pas super.
+        FollowUpDialogueElement: 5
+        IsTabou: 1
+        IsThere: 0
+        LessTabouContent: Super.
+    FollowUpDialogueElement: 3
+  - WhoIsSpeaking: Mathias
+    Content: "\xC7a va. Jade et \u2026 Caroline aussi."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 6
+  - WhoIsSpeaking: Mathias
+    Content: "\u2026 Super."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 6
+  - WhoIsSpeaking: Henri
+    Content: "Tu as repens\xE9 \xE0 notre invitation ? \r\n\xC7a fait longtemps qu\u2019on
+      s\u2019est pas retrouv\xE9 tous ensemble \xE0 la maison, et puis \xE7a serait
+      l\u2019occasion qu\u2019on revoit les filles, si elles ont envie.\r\n"
+    IsThereChoices: 0
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 7
+  - WhoIsSpeaking: Henri
+    Content: "Peut \xEAtre que vous pourriez passer ce week-end ?"
+    IsThereChoices: 1
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList:
+      - Content: "Trop tard pour jouer le p\xE8re mod\xE8le."
+        FollowUpDialogueElement: 0
+        IsTabou: 1
+        IsThere: 0
+        LessTabouContent: 
+      - Content: J'ai pas vraiment envie.
+        FollowUpDialogueElement: 0
+        IsTabou: 1
+        IsThere: 0
+        LessTabouContent: 
+      - Content: On peut en reparler plus tard ?
+        FollowUpDialogueElement: 8
+        IsTabou: 0
+        IsThere: 1
+        LessTabouContent: 
+    FollowUpDialogueElement: 0
+  - WhoIsSpeaking: Mathias
+    Content: "Tu tombes mal. On peut en reparler plus tard, papa ? C\u2019est pas
+      trop le moment, l\xE0."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 9
+  - WhoIsSpeaking: Henri
+    Content: C'est dommage... Tu nous manques, tu sais.
+    IsThereChoices: 1
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList:
+      - Content: Tu me manques aussi.
+        FollowUpDialogueElement: 0
+        IsTabou: 1
+        IsThere: 0
+        LessTabouContent: 
+      - Content: "... c\u2019est \xE7a."
+        FollowUpDialogueElement: 10
+        IsTabou: 0
+        IsThere: 1
+        LessTabouContent: 
+    FollowUpDialogueElement: 0
+  - WhoIsSpeaking: Mathias
+    Content: "... C'est \xE7a."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 11
+  - WhoIsSpeaking: Mathias
+    Content: '...'
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 12
+  - WhoIsSpeaking: Henri
+    Content: "Tiens nous au courant si jamais tu changes d\u2019avis !"
+    IsThereChoices: 0
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 13
+  - WhoIsSpeaking: Mathias
+    Content: "Voil\xE0, on va dire \xE7a comme \xE7a. Salut."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 14
+  - WhoIsSpeaking: Henri
+    Content: "Bonne soir\xE9e, embra- *CLIC*"
+    IsThereChoices: 0
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 15
+  - WhoIsSpeaking: Mathias
+    Content: Embrasse mon cul.
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 15

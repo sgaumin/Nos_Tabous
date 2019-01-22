@@ -45,7 +45,7 @@ public class LevelManager7 : MonoBehaviour
 
         indexCount = DialogueSystemScript.indexDialogue;
 
-        if ((indexCount == 2 || indexCount == 0) && isStarting)
+        if (isStarting)
         {
             DialogueSystemScript.indexDialogue = 0; // TO report
             indexCount = 0;
@@ -73,15 +73,16 @@ public class LevelManager7 : MonoBehaviour
         mathiasCharacter.Flip();
 
         //// Stairs sound playing
-        audioManager.PlayStairsSound(true);
-        yield return new WaitForSeconds(audioManager.lenghtSound - 1f);
+        //audioManager.PlayStairsSound(true);
+        //yield return new WaitForSeconds(audioManager.lenghtSound - 1f);
 
-        // Door sound playing
-        audioManager.PlayOpenDoorSound(true);
-        yield return new WaitForSeconds(2.5f);
+        //// Door sound playing
+        //audioManager.PlayOpenDoorSound(true);
+        //yield return new WaitForSeconds(2.5f);
 
         // Show the background at starting
         background.gameObject.SetActive(true);
+        background.GetComponent<SpriteRenderer>().color = new Color(110f/255f, 110f/255f, 110f/255f);
         yield return new WaitForSeconds(2f);
 
         // Show dialogues box 
@@ -97,6 +98,9 @@ public class LevelManager7 : MonoBehaviour
 
     IEnumerator MathiasTalkingStep()
     {
+        if (indexCount == 2)
+            background.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f);
+
         // Set Mathias calling talking animation
         mathiasAnimator.SetTrigger("BackTalking");
         yield return new WaitForSeconds(2f);

@@ -54,7 +54,7 @@ public class LevelManager6 : MonoBehaviour
 
         indexCount = DialogueSystemScript.indexDialogue;
 
-        if ((indexCount == 10 || indexCount == 0) && isStarting)
+        if (isStarting)
         {
             //DialogueSystemScript.indexDialogue = 0; // TO report
             indexCount = 0;

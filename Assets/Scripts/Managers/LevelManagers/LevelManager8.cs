@@ -164,6 +164,9 @@ public class LevelManager8 : MonoBehaviour
         fadScreen.SetTrigger("FadOut");
         yield return new WaitForSeconds(2f);
 
+        // Load Next scene
+        GameSystem.instance.PlayNextScene();
+
         // End of coroutine
         yield break;
     }

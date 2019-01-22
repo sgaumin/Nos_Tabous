@@ -64,12 +64,16 @@ public class LevelManager1 : MonoBehaviour
         if (indexCount == 2 || indexCount == 4 || indexCount == 5 || indexCount == 8 || indexCount == 10 || indexCount == 13)
             StartCoroutine(MathiasTalkingStep());
 
-        //// Mathias Anger
-        //if (indexCount == 10)
-        //    StartCoroutine(AngerStepLevel());
+        // Mathias Anger
+        if (indexCount == 15)
+            StartCoroutine(AngerStepLevel());
+
+        // Mathias AngryIdle
+        // if(indexCount == 14)
+        //      
 
         // Henri Talking
-        if (indexCount == 1 || indexCount == 3 || indexCount == 6 || indexCount == 9 || indexCount == 12 || indexCount == 14)
+        if (indexCount == 1 || indexCount == 3 || indexCount == 6  || indexCount == 9 || indexCount == 12 || indexCount == 14)
             StartCoroutine(HenriTalkingStep());
 
         // Final Step
@@ -137,7 +141,7 @@ public class LevelManager1 : MonoBehaviour
     {
         // Set Henri calling idle animation
         henriAnimator.SetTrigger("BackCallIdle");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
 
         // Set Mathias calling talking animation
         mathiasAnimator.SetTrigger("CallTalking");
@@ -154,7 +158,7 @@ public class LevelManager1 : MonoBehaviour
             mathiasAnimator.SetTrigger("CallIdle");
 
             // Set Henri calling talking animation
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.2f);
             henriAnimator.SetTrigger("BackCallTalking");
         }
 

@@ -59,30 +59,35 @@ public class LevelManager2 : MonoBehaviour
         // TO DO: Implement more flexible IF statement regarding previous previous scnene loading and indexCount was not reset
         if (isStarting)
         {
-            //DialogueSystemScript.indexDialogue = 0; // TO report
-            indexCount = 0;
-            StartCoroutine(StartLevel());
+            DialogueSystemScript.indexDialogue = 1; // TO report
+            
+            indexCount = 1;
             isStarting = false;
+            StartCoroutine(StartLevel());
+
         }
 
         // Mathias Speaking Steps
-        if (indexCount == 2 || indexCount == 4 || indexCount == 6 || indexCount == 8 || indexCount == 10 
-            || indexCount == 12 || indexCount == 15 || indexCount == 17 || indexCount == 19 || indexCount == 20 
-            || indexCount == 24 || indexCount == 26)
+        if (indexCount == 6 || indexCount == 10 || indexCount == 12 || indexCount == 17 || indexCount == 19 || indexCount == 20 || indexCount == 21)
             StartCoroutine(MathiasTalking());
 
-        //// Mathias Anger Steps
-        //if (indexCount == 1 || indexCount == 6 || indexCount == 8)
-        //    StartCoroutine(MathiasAnger());
+        // Mathias Anger Steps
+        if (indexCount == 2 || indexCount == 15)
+            StartCoroutine(MathiasAnger());
 
-        //// Mathias Very Anger Steps
-        //if (indexCount == 10)
-        //    StartCoroutine(VeryAngerStepLevel());
+        //// Mathias IdleAnger
+        //if (indexCount == 16)
+
+        // Mathias Surpris
+        // if (indexCount ==7|| indexCount == 18 || indexCount == 25 || indexCount ==26)
+
+        //Mathias Tristoun
+        // if (indexCount == 27 || indexCount == 28 || indexCount == 29)
 
         // Caroline Speaking Steps
         if (indexCount == 1 || indexCount == 3 || indexCount == 5 || indexCount == 7 || indexCount == 9 
-            || indexCount == 11 || indexCount == 13 || indexCount == 14 || indexCount == 18
-            || indexCount == 21 || indexCount == 22 || indexCount == 23 || indexCount == 27)
+            || indexCount == 11 || indexCount == 13 || indexCount == 16 || indexCount == 18
+            || indexCount == 22 || indexCount == 27 )
             StartCoroutine(CarolineTalking());
 
         if (indexCount == 28)
@@ -206,6 +211,18 @@ public class LevelManager2 : MonoBehaviour
         // Waiting time
         yield return new WaitForSeconds(2f);
 
+        // Hide Texts into the dialogues box
+        dialogueBox.ShowTexts(false);
+        yield return new WaitForSeconds(0.5f);
+
+        // Animation FadOut dialogues box
+        Animator dialoguesAnimator = dialogues.GetComponent<Animator>();
+        dialoguesAnimator.SetTrigger("FadOut");
+        Animator dialoguesNameAnimator = nameDialogues.GetComponent<Animator>();
+        dialoguesNameAnimator.SetTrigger("FadOut");
+
+        yield return new WaitForSeconds(0.5f);
+
         // Flip Mathias
         mathiasCharacter.Flip();
         //mathiasAnimator.SetTrigger("Reset");
@@ -236,17 +253,7 @@ public class LevelManager2 : MonoBehaviour
         mathiasAnimator.SetTrigger("Reset");
         yield return new WaitForSeconds(0.5f);
 
-        // Hide Texts into the dialogues box
-        dialogueBox.ShowTexts(false);
-        yield return new WaitForSeconds(0.5f);
-
-        // Animation FadOut dialogues box
-        Animator dialoguesAnimator = dialogues.GetComponent<Animator>();
-        dialoguesAnimator.SetTrigger("FadOut");
-        Animator dialoguesNameAnimator = nameDialogues.GetComponent<Animator>();
-        dialoguesNameAnimator.SetTrigger("FadOut");
-
-        yield return new WaitForSeconds(0.5f);
+       
 
         // Background fad out animation
         background.SetTrigger("FadOut");

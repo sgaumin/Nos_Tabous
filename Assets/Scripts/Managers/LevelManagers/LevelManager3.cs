@@ -67,11 +67,11 @@ public class LevelManager3 : MonoBehaviour
         }
 
         // Mathias Speaking Steps
-        if (indexCount == 2 || indexCount == 4 || indexCount == 6)
+        if (/*indexCount == 1 ||*/ indexCount == 4 || indexCount == 9 || indexCount == 12 || indexCount == 15 || indexCount == 17)
             StartCoroutine(SecondStepLevel());
 
         // Henri Speaking Steps
-        if (indexCount == 1 || indexCount == 3 || indexCount == 5 || indexCount == 7)
+        if (indexCount == 2 || indexCount == 11 || indexCount == 14 || indexCount == 16)
             StartCoroutine(ThirdStepLevel());
 
         // Final Step

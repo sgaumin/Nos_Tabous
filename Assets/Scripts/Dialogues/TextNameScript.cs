@@ -9,6 +9,7 @@ public class TextNameScript : MonoBehaviour
 {
 
     public OneDialogueElementList DialogueContent;
+    private Color Couleur;
 
     // Start is called before the first frame update
     void Start()
@@ -19,9 +20,10 @@ public class TextNameScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        Couleur = DialogueContent.ElementList[DialogueSystemScript.indexDialogue].Couleur;
+        Couleur.a = DialogueSystemScript.opacity;
         gameObject.GetComponent<Text>().fontSize = BestFitScript.fontsize*6/5;
-        gameObject.GetComponent<Text>().color = DialogueContent.ElementList[DialogueSystemScript.indexDialogue].Couleur;
+        gameObject.GetComponent<Text>().color = Couleur;
         gameObject.GetComponent<Text>().text = DialogueContent.ElementList[DialogueSystemScript.indexDialogue].WhoIsSpeaking;
     }
 }

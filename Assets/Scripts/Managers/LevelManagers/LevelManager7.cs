@@ -74,13 +74,13 @@ public class LevelManager7 : MonoBehaviour
         mathiasAnimator.SetTrigger("Back");
         mathiasCharacter.Flip();
 
-        //// Stairs sound playing
-        //audioManager.PlayStairsSound(true);
-        //yield return new WaitForSeconds(audioManager.lenghtSound - 1f);
+        // Stairs sound playing
+        audioManager.PlayStairsSound(true);
+        yield return new WaitForSeconds(audioManager.lenghtSound - 1f);
 
-        //// Door sound playing
-        //audioManager.PlayOpenDoorSound(true);
-        //yield return new WaitForSeconds(2.5f);
+        // Door sound playing
+        audioManager.PlayOpenDoorSound(true);
+        yield return new WaitForSeconds(2.5f);
 
         // Show the background at starting
         background.gameObject.SetActive(true);

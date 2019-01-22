@@ -75,7 +75,7 @@ public class LevelManager3 : MonoBehaviour
             StartCoroutine(ThirdStepLevel());
 
         // Final Step
-        if (indexCount == 8)
+        if (indexCount == 18)
             StartCoroutine(LastStepLevel());
     }
 

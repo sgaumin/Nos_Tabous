@@ -15,7 +15,7 @@ MonoBehaviour:
   startingIndex: 1
   ElementList:
   - WhoIsSpeaking: 
-    Content: "ERROR ! \n Si vous arrivez \xE0 cette embranchement, cela signifie que
+    Content: "ERROR !\n Si vous arrivez \xE0 cette embranchement, cela signifie que
       quelque chose s'est mal pass\xE9, o\xF9 que vous avez explorer du contenu en
       cours de construction. Appuyez sur n'importe quelle touche pour revenir au d\xE9but."
     IsThereChoices: 0
@@ -218,4 +218,11 @@ MonoBehaviour:
     Couleur: {r: 0.44313726, g: 0.6039216, b: 0.12156863, a: 1}
     Branching:
       ChoiceList: []
-    FollowUpDialogueElement: 22
+    FollowUpDialogueElement: 23
+  - WhoIsSpeaking: 
+    Content: 
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 23

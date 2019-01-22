@@ -86,7 +86,7 @@ MonoBehaviour:
       - Content: "Trop tard pour jouer le p\xE8re mod\xE8le."
         FollowUpDialogueElement: 0
         IsTabou: 1
-        IsThere: 0
+        IsThere: 1
         LessTabouContent: 
       - Content: J'ai pas vraiment envie.
         FollowUpDialogueElement: 0
@@ -165,4 +165,11 @@ MonoBehaviour:
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
-    FollowUpDialogueElement: 15
+    FollowUpDialogueElement: 16
+  - WhoIsSpeaking: 
+    Content: ' '
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 16

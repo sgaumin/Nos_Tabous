@@ -39,6 +39,8 @@ public class LevelManager7 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(DialogueSystemScript.indexDialogue);
+
         // Set Animation and Sound according to the Dialogue Index
         if (DialogueSystemScript.indexDialogue == indexCount)
             return;
@@ -54,15 +56,15 @@ public class LevelManager7 : MonoBehaviour
         }
 
         // Mathias Speaking Steps
-        if (indexCount == 1 || indexCount == 2)
+        if (indexCount == 1 || indexCount == 2 || indexCount == 3 || indexCount == 4)
             StartCoroutine(MathiasTalkingStep());
 
-        // Open Box
-        if (indexCount == 3)
+        //// Open Box
+        if (indexCount == 9)
             StartCoroutine(LastStepLevel(false));
 
-        // End Game
-        if (indexCount == 4)
+        // Quit
+        if (indexCount == 7)
             StartCoroutine(LastStepLevel(true));
     }
 
@@ -98,7 +100,7 @@ public class LevelManager7 : MonoBehaviour
 
     IEnumerator MathiasTalkingStep()
     {
-        if (indexCount == 2)
+        if (indexCount == 4)
             background.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f);
 
         // Set Mathias calling talking animation

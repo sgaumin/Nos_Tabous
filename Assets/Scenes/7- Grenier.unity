@@ -516,7 +516,7 @@ PrefabInstance:
         type: 3}
       propertyPath: DialogueContent
       value: 
-      objectReference: {fileID: 11400000, guid: 0e642d8bd9d2caf438d58a854e0511ce,
+      objectReference: {fileID: 11400000, guid: 34a273ed7054a5d4580bf70a91ae88e1,
         type: 2}
     - target: {fileID: 5165934685886004839, guid: ba662aafc2f9ccf40bb6caad531fa548,
         type: 3}

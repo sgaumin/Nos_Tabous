@@ -206,7 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8101e9936b174d438a292719607c750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comment: Mariage
+  comment: "C\u2019est la photo de mariage de mes parents.\r\n\r\nElle est d\xE9chir\xE9e\u2026
+    pile au milieu. Qui a os\xE9 faire \xE7a ?\r"
   isLetter: 0
   isHenriLetter: 0
   isChecked: 0
@@ -453,7 +454,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8101e9936b174d438a292719607c750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comment: Foot
+  comment: "On dirait\u2026 Papa ! \r\n\r\nY\u2019a une date derri\xE8re, il devait
+    tout juste avoir vingt ans.\r\n\r\nJe ne savais pas qu\u2019il avait fait du foot
+    lui aussi, pourquoi il m\u2019en a jamais parl\xE9 ?\r\n\r\nEt, qui est cet homme
+    avec lui ? Ils ont l\u2019air assez proches.\r"
   isLetter: 0
   isHenriLetter: 0
   isChecked: 0
@@ -633,7 +637,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8101e9936b174d438a292719607c750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comment: Ceinture
+  comment: "Oul\xE0, pourquoi j\u2019ai ouvert cette bo\xEEte\u2026 je ne pr\xE9f\xE8re
+    pas imaginer Maman porter \xE7a\u2026 \r\n\r\nJe ne vais jamais voir mes parents
+    de la m\xEAme fa\xE7on maintenant..\r"
   isLetter: 0
   isHenriLetter: 0
   isChecked: 0
@@ -1169,7 +1175,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: 
+  m_Text: "Oh merde, sur quoi je suis tomb\xE9 ?..."
 --- !u!222 &657689673
 CanvasRenderer:
   m_ObjectHideFlags: 0

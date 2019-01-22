@@ -1393,12 +1393,12 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5937179896754259207, guid: ba662aafc2f9ccf40bb6caad531fa548,
+    - target: {fileID: 5937179895712527289, guid: ba662aafc2f9ccf40bb6caad531fa548,
         type: 3}
       propertyPath: m_FontData.m_BestFit
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5937179895712527289, guid: ba662aafc2f9ccf40bb6caad531fa548,
+    - target: {fileID: 5937179896754259207, guid: ba662aafc2f9ccf40bb6caad531fa548,
         type: 3}
       propertyPath: m_FontData.m_BestFit
       value: 0

@@ -1239,5 +1239,20 @@ PrefabInstance:
       propertyPath: m_FontData.m_BestFit
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5937179896754259207, guid: ba662aafc2f9ccf40bb6caad531fa548,
+        type: 3}
+      propertyPath: m_FontData.m_BestFit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6127244814527835633, guid: ba662aafc2f9ccf40bb6caad531fa548,
+        type: 3}
+      propertyPath: m_Text
+      value: "T\u2019as jamais \xE9t\xE9 l\xE0 pour moi, \xE7a sert \xE0 rien de commencer
+        maintenant. Il fallait y penser quand j\u2019\xE9tais gamin, quand j\u2019avais
+        besoin d\u2019un p\xE8re ! Il fallait que tu me montres l\u2019exemple, il
+        fallait que tu viennes avec moi au foot, il fallait m\u2019encourager quand
+        j\u2019avais des doutes ! C\u2019est trop tard, je suis plus un enfant aujourd\u2019hui,
+        et j\u2019ai certainement pas besoin de ton aide !\nVoiture\nVoiture\nVoiture\nVoiture"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba662aafc2f9ccf40bb6caad531fa548, type: 3}

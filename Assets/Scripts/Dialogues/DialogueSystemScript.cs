@@ -17,6 +17,9 @@ public class DialogueSystemScript : MonoBehaviour
     private bool updateIsTotal;
     public static int numberedChoiceMode = 2; //0 means : no number. 1 means : 1. 3. 4. if 2 has disappear. 2 means : 3. becomes 2., and 4. becomes 3., if 2 has disappear.
 
+    private bool FadeInNotOut;
+    private bool IsReady;
+    private float opacity;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +27,8 @@ public class DialogueSystemScript : MonoBehaviour
         
         indexDialogue = DialogueContent.startingIndex;
         indexDialogueNew = DialogueContent.startingIndex;
-
+        IsReady = false;
+        FadeInNotOut = true;
         indexChoix = 0;
         clickedChoice = -1;
 
@@ -37,7 +41,7 @@ public class DialogueSystemScript : MonoBehaviour
         }
 
         //DialogueContent.ElementList[0].FollowUpDialogueElement = DialogueContent.startingIndex;
-
+        opacity = 0;
         UpdateText();
     }
 
@@ -45,87 +49,114 @@ public class DialogueSystemScript : MonoBehaviour
     void Update()
     {
         gameObject.GetComponent<Text>().fontSize = BestFitScript.fontsize;
-        updateText = false;
-        updateIsTotal = false;
 
-        if (DialogueContent.ElementList[indexDialogue].IsThereChoices)
+        if (IsReady)
         {
-            indexChoix = 1;
-            isTabou = false;
+            updateText = false;
+            updateIsTotal = false;
 
-            for (int i = 0; i < DialogueContent.ElementList[indexDialogue].Branching.ChoiceList.Count; i++)
+            if (DialogueContent.ElementList[indexDialogue].IsThereChoices)
             {
-                if (DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].IsThere || DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].LessTabouContent != "")
-                {
+                indexChoix = 1;
+                isTabou = false;
 
-                    if ((numberedChoiceMode != 1 && (Input.GetKeyDown(indexChoix.ToString()) || Input.GetKeyDown(string.Concat("[", indexChoix.ToString(), "]")))) || (Input.GetKeyDown((i + 1).ToString()) || Input.GetKeyDown(string.Concat("[", (i + 1).ToString(), "]"))) || (clickedChoice == indexChoix))
+                for (int i = 0; i < DialogueContent.ElementList[indexDialogue].Branching.ChoiceList.Count; i++)
+                {
+                    if (DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].IsThere || DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].LessTabouContent != "")
                     {
-                        clickedChoice = -1;
-                        if (DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].IsTabou && DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].IsThere)
+
+                        if ((numberedChoiceMode != 1 && (Input.GetKeyDown(indexChoix.ToString()) || Input.GetKeyDown(string.Concat("[", indexChoix.ToString(), "]")))) || (Input.GetKeyDown((i + 1).ToString()) || Input.GetKeyDown(string.Concat("[", (i + 1).ToString(), "]"))) || (clickedChoice == indexChoix))
                         {
-                            DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].IsThere = false;
-                            updateText = true;
-                            updateIsTotal = false;
-                            isTabou = true;
+                            clickedChoice = -1;
+                            if (DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].IsTabou && DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].IsThere)
+                            {
+                                DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].IsThere = false;
+                                updateText = true;
+                                updateIsTotal = false;
+                                isTabou = true;
+                            }
+                            else
+                            {
+                                indexDialogueNew = DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].FollowUpDialogueElement;
+                                updateText = true;
+                                updateIsTotal = true;
+                            }
                         }
-                        else
-                        {
-                            indexDialogueNew = DialogueContent.ElementList[indexDialogue].Branching.ChoiceList[i].FollowUpDialogueElement;
-                            updateText = true;
-                            updateIsTotal = true;
-                        }
+                        indexChoix++;
                     }
-                    indexChoix++;
+                }
+                if (indexChoix == 1 && Input.anyKeyDown)
+                {
+                    indexDialogueNew = DialogueContent.ElementList[indexDialogue].FollowUpDialogueElement;
+                    updateText = true;
+                    updateIsTotal = true;
+                    clickedChoice = -1;
                 }
             }
-            if (indexChoix == 1 && Input.anyKeyDown)
+            else
             {
-                indexDialogueNew = DialogueContent.ElementList[indexDialogue].FollowUpDialogueElement;
-                updateText = true;
-                updateIsTotal = true;
+                if (Input.anyKeyDown)
+                {
+                    indexDialogueNew = DialogueContent.ElementList[indexDialogue].FollowUpDialogueElement;
+                    updateText = true;
+                    updateIsTotal = true;
+                    clickedChoice = -1;
+                }
+            }
+            if (updateText)
+            {
                 clickedChoice = -1;
+                if (updateIsTotal)
+                {
+                    if (indexDialogue != indexDialogueNew)
+                    {
+                        AudioManagerClic.instance.GetComponent<AudioSource>().pitch = 1f;
+                        AudioManagerClic.instance.PlayClicSound();
+                    }
+                    if (0 >= indexDialogueNew || indexDialogueNew >= DialogueContent.ElementList.Count)
+                    {
+                        indexDialogueNew = 0;
+                    }
+                    IsReady = false;
+                    FadeInNotOut = false;
+                }
+                else
+                {
+                    AudioManagerClic.instance.GetComponent<AudioSource>().pitch = 0.8f;
+                    AudioManagerClic.instance.PlayClicSound();
+                }
+
+
+                
+
+
+                UpdateText();
             }
         }
         else
         {
-            if (Input.anyKeyDown)
+            if (FadeInNotOut)
             {
-                indexDialogueNew = DialogueContent.ElementList[indexDialogue].FollowUpDialogueElement;
-                updateText = true;
-                updateIsTotal = true;
-                clickedChoice = -1;
-            }
-        }
-        if (updateText)
-        {
-            clickedChoice = -1;
-            if (updateIsTotal)
-            {
-                if (indexDialogue != indexDialogueNew)
+                opacity += Time.deltaTime;
+                if (opacity >= 1f)
                 {
-                    AudioManagerClic.instance.GetComponent<AudioSource>().pitch = 1f;
-                    AudioManagerClic.instance.PlayClicSound();
+                    opacity = 1;
+                    IsReady = true;
+                    FadeInNotOut = false;
                 }
-                
+                UpdateText();
             }
             else
             {
-                AudioManagerClic.instance.GetComponent<AudioSource>().pitch = 0.8f;
-                AudioManagerClic.instance.PlayClicSound();
+                opacity -= Time.deltaTime;
+                if (opacity <= 0f)
+                {
+                    opacity = 0;
+                    indexDialogue = indexDialogueNew;
+                    FadeInNotOut = true;
+                }
+                UpdateText();
             }
-           
-
-            if (0 < indexDialogueNew && indexDialogueNew < DialogueContent.ElementList.Count)
-            {
-                indexDialogue = indexDialogueNew;
-            }
-            else
-            {
-                indexDialogue = 0;
-            }
-
-           
-            UpdateText();
         }
     }
 
@@ -138,8 +169,8 @@ public class DialogueSystemScript : MonoBehaviour
         {
             
         }
-        
-        
+
+
         /*
         if (DialogueContent.ElementList[indexDialogue].IsThereChoices)
         {
@@ -156,7 +187,10 @@ public class DialogueSystemScript : MonoBehaviour
                  
             }
         }*/
-        gameObject.GetComponent<Text>().color = DialogueContent.ElementList[indexDialogue].Couleur;
+        Color Couleur;
+        Couleur = DialogueContent.ElementList[indexDialogue].Couleur;
+        Couleur.a = opacity;
+        gameObject.GetComponent<Text>().color = Couleur;
         gameObject.GetComponent<Text>().text = text;
         
     }

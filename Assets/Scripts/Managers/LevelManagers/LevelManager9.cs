@@ -75,18 +75,20 @@ public class LevelManager9 : MonoBehaviour
         }
 
         // Mathias Speaking Steps
-        if (indexCount == 2 || indexCount == 5)
+        if ( indexCount == 5)
             StartCoroutine(MathiasTalking());
 
         // Mathias Surpris
-        // if(indexCount =1)
+        if (indexCount == 1)
+            StartCoroutine(MathiasSurprised());
 
         //Mathias Triste
-        // if(indexCount = 4)
-        //pensez à reset henri
+         if(indexCount == 4)
+            StartCoroutine(MathiasSad());
 
         //henri et Sylvie surpris
-        // if(indexCount =5)
+        if (indexCount == 5)
+            StartCoroutine(GrandParentsSurprised());
 
         // henry Speaking Steps
         if (indexCount == 1 || indexCount == 3)
@@ -166,11 +168,44 @@ public class LevelManager9 : MonoBehaviour
         yield break;
     }
 
+    IEnumerator MathiasSurprised()
+    {
+        // Set henry idle animation
+        henryAnimator.SetTrigger("Reset");
+        yield return new WaitForSeconds(0.2f);
+
+        // Mathias Idle animation
+        mathiasAnimator.SetTrigger("Surprised");
+
+        // Coroutine End
+        yield break;
+    }
+
+    IEnumerator MathiasSad()
+    {
+        // Set henry idle animation
+        henryAnimator.SetTrigger("Reset");
+        yield return new WaitForSeconds(0.2f);
+
+        // Mathias Idle animation
+        mathiasAnimator.SetTrigger("Sad");
+
+        // Coroutine End
+        yield break;
+    }
+
+    IEnumerator GrandParentsSurprised()
+    {
+        yield return new WaitForSeconds(0.2f);
+        henryAnimator.SetTrigger("Surprised");
+        sylvieAnimator.SetTrigger("Surprised");
+    }
+
     IEnumerator FinalStepLevel()
     {
         // Set Henry & Mathias idle animation
-        mathiasAnimator.SetTrigger("Reset");
-        henryAnimator.SetTrigger("Reset");
+        //mathiasAnimator.SetTrigger("Reset");
+        //henryAnimator.SetTrigger("Reset");
         yield return new WaitForSeconds(0.5f);
 
         // Hide Texts into the dialogues box
@@ -206,11 +241,11 @@ public class LevelManager9 : MonoBehaviour
 
     IEnumerator TabouStepLevel()
     {
-        mathiasAnimator.SetTrigger("CallIdle");
-        mathiasAnimator.SetTrigger("CallTabou");
+        mathiasAnimator.SetTrigger("Reset");
+        mathiasAnimator.SetTrigger("Tabou");
 
         yield return new WaitForSeconds(0.2f);
-        mathiasAnimator.SetTrigger("CallTalking");
+        mathiasAnimator.SetTrigger("Talking");
 
         // Coroutine End
         yield break;

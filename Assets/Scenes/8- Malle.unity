@@ -288,6 +288,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1265405180}
   - {fileID: 1601521911}
   - {fileID: 1911836666}
   - {fileID: 1362576458}
@@ -598,14 +599,13 @@ MonoBehaviour:
     es le monde pour moi. Avant de te rencontrer, je m\u2019ignorais ; \xEAtre avec
     toi c\u2019\xE9tait rena\xEEtre. Tu m\u2019as rendu fier de ce que j\u2019\xE9tais,
     tu as remplac\xE9 mes cauchemars par tes sourires. Jamais je n\u2019avais pu me
-    sentir aussi vivant qu\u2019en ta pr\xE9sence. Mon corps, mon coeur et mon esprit
-    seront pour l\u2019\xE9ternit\xE9 empreints de ton corps, de ton coeur et de ton
-    esprit. Tu laisses une absence sur mon \xEAtre, mais ne t\u2019en veux pas, c\u2019est
-    l\u2019absence de toi qui me d\xE9fini. C\u2019est l\u2019absence de toi qui comble
-    les manques \xE0 ma vie. C\u2019est l\u2019absence de toi qui me rappelle avec
-    une pr\xE9cision criminelle le souvenir de ta pr\xE9sence, et personne ne pourra
-    m\u2019arracher ce cadeau \xE9ternel que tu m\u2019as fait.\r\n\r\nAvec toi \xE0
-    jamais,\r\n\r\nTon Andr\xE9.\r"
+    sentir aussi vivant qu\u2019en ta pr\xE9sence. Mon coeur gardera pour l\u2019\xE9ternit\xE9
+    l\u2019empreinte de ton coeur. Tu laisses une absence sur mon \xEAtre, mais ne
+    t\u2019en veux pas, c\u2019est l\u2019absence de toi qui me d\xE9fini. C\u2019est
+    l\u2019absence de toi qui comble les manques \xE0 ma vie. C\u2019est l\u2019absence
+    de toi qui me rappelle avec une pr\xE9cision criminelle le souvenir de ta pr\xE9sence,
+    et personne ne pourra m\u2019arracher ce cadeau \xE9ternel que tu m\u2019as fait.\r\n\r\nAvec
+    toi \xE0 jamais,\r\n\r\nTon Andr\xE9.\r"
 --- !u!222 &194489526
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -953,7 +953,7 @@ RectTransform:
   m_Children:
   - {fileID: 1234263693}
   m_Father: {fileID: 97281944}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -1163,7 +1163,7 @@ RectTransform:
   m_Children:
   - {fileID: 194489524}
   m_Father: {fileID: 97281944}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2, y: 0.05}
   m_AnchorMax: {x: 0.8, y: 0.95}
@@ -1559,7 +1559,7 @@ RectTransform:
   m_Children:
   - {fileID: 568012078}
   m_Father: {fileID: 97281944}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.2, y: 0.05}
   m_AnchorMax: {x: 0.8, y: 0.95}
@@ -1682,6 +1682,80 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1234263692}
   m_CullTransparentMesh: 0
+--- !u!1 &1265405179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1265405180}
+  - component: {fileID: 1265405182}
+  - component: {fileID: 1265405181}
+  m_Layer: 5
+  m_Name: Contour Dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1265405180
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265405179}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 97281944}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.24, y: 0}
+  m_AnchorMax: {x: 0.76, y: 0.28}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0}
+--- !u!114 &1265405181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265405179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.78431374}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+--- !u!222 &1265405182
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265405179}
+  m_CullTransparentMesh: 0
 --- !u!1 &1362576457
 GameObject:
   m_ObjectHideFlags: 0
@@ -1714,7 +1788,7 @@ RectTransform:
   m_Children:
   - {fileID: 657689670}
   m_Father: {fileID: 97281944}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.25, y: 0}
   m_AnchorMax: {x: 0.75, y: 0.25}
@@ -1747,7 +1821,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1362576457}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
@@ -1808,7 +1882,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 97281944}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -2155,7 +2229,7 @@ RectTransform:
   m_Children:
   - {fileID: 1749644986}
   m_Father: {fileID: 97281944}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.25, y: 0}
   m_AnchorMax: {x: 0.75, y: 0.25}
@@ -2188,7 +2262,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1911836665}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 

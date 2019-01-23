@@ -75,6 +75,15 @@ public class LevelManager4 : MonoBehaviour
         if (indexCount == 1 || indexCount == 5 || indexCount == 7 || indexCount == 10 || indexCount == 12 || indexCount == 15 || indexCount == 17 || indexCount == 20 || indexCount == 22)
             StartCoroutine(JadeTalking());
 
+        //Mathias Angry
+        //if(indexCount = 6)
+
+        // Mathias Surpris
+        //if(indexCount = 7 || indexCount 17)
+
+        //Mathias Reset
+        //if(indexCount = 8)
+
         // facing right Jade's animation
         /*if (indexCount == 6)
             StartCoroutine(JadeFacingRight());*/

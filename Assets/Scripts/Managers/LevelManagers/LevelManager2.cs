@@ -79,10 +79,10 @@ public class LevelManager2 : MonoBehaviour
         //if (indexCount == 16)
 
         // Mathias Surpris
-        // if (indexCount ==7|| indexCount == 18 || indexCount == 25 || indexCount ==26)
+        // if (indexCount ==7|| indexCount == 18 || indexCount == 25 )
 
         //Mathias Tristoun
-        // if (indexCount == 27 || indexCount == 28 || indexCount == 29)
+        // if (indexCount == 27)
 
         // Caroline Speaking Steps
         if (indexCount == 1 || indexCount == 3 || indexCount == 5 || indexCount == 7 || indexCount == 9 

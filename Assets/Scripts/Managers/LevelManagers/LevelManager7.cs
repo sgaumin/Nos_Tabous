@@ -58,7 +58,7 @@ public class LevelManager7 : MonoBehaviour
         }
 
         // Mathias Speaking Steps
-        if (indexCount == 1 || indexCount == 2 || indexCount == 3 || indexCount == 4)
+        if (indexCount == 1 || indexCount == 2 || indexCount == 3 || indexCount == 4 || indexCount == 5 || indexCount == 6)
             StartCoroutine(MathiasTalkingStep());
 
         //// Open Box
@@ -123,7 +123,7 @@ public class LevelManager7 : MonoBehaviour
 
         // Set Mathias calling talking animation
         mathiasAnimator.SetTrigger("BackTalking");
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         // Set Mathias calling talking animation
         mathiasAnimator.SetTrigger("Back");

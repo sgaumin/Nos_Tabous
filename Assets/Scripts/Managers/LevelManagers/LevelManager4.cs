@@ -6,6 +6,8 @@ public class LevelManager4 : MonoBehaviour
     [SerializeField] private Animator mathiasAnimator;
     [SerializeField] private Animator jadeAnimator;
     [SerializeField] private Animator car;
+    [SerializeField] private Animator insideCar;
+
 
     // UI
     [SerializeField] private GameObject dialogues;
@@ -110,7 +112,10 @@ public class LevelManager4 : MonoBehaviour
         // Play car ambience sound
         audioManager.PlayAmbianceSound(true);
         yield return new WaitForSeconds(0.5f);
-        car.enabled = true;
+
+        // Add animation by parents to characters
+        mathiasCharacter.transform.SetParent(insideCar.transform);
+        jadeCharacter.transform.SetParent(insideCar.transform);
 
         // Coroutine End
         yield break;
@@ -197,7 +202,10 @@ public class LevelManager4 : MonoBehaviour
         jadeAnimator.SetTrigger("Reset");
 
         // Stop car animation
-        car.enabled = false;
+        car.SetTrigger("Idle");
+        // Stop animation by parents to characters
+        mathiasCharacter.transform.SetParent(null);
+        jadeCharacter.transform.SetParent(null);
 
         // Waiting time
         yield return new WaitForSeconds(2f);
@@ -207,6 +215,10 @@ public class LevelManager4 : MonoBehaviour
 
         // jade Fad Out animation
         jadeAnimator.SetTrigger("FadOut");
+        yield return new WaitForSeconds(2f);
+
+        // Fad Out Car
+        car.SetTrigger("FadOut");
 
         // Hide Texts into the dialogues box
         dialogueBox.ShowTexts(false);

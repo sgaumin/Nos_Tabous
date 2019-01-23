@@ -13,7 +13,7 @@ public class LevelManager9 : MonoBehaviour
     // UI
     [SerializeField] private GameObject dialogues;
     [SerializeField] private GameObject nameDialogues;
-    [SerializeField] private GameObject fadOutScreen;
+    [SerializeField] private Animator fadOutScreen;
 
     private Character mathiasCharacter;
     private Character henryCharacter;
@@ -39,11 +39,12 @@ public class LevelManager9 : MonoBehaviour
         dialogueBox = dialogues.GetComponent<DialogueBox>();
 
         // Hide
+        mathiasCharacter.gameObject.SetActive(false);
         henryCharacter.gameObject.SetActive(false);
         sylvieCharacter.gameObject.SetActive(false);
         background.gameObject.SetActive(false);
 
-        fadOutScreen.SetActive(false);
+        //fadOutScreen.SetActive(false);
 
         // Index for checking the current IndexDialogue of DialogueSystemScript script 
         indexCount = 999;
@@ -85,6 +86,9 @@ public class LevelManager9 : MonoBehaviour
     IEnumerator StartLevel()
     {
         // Waiting time
+        yield return new WaitForSeconds(1f);
+        mathiasCharacter.gameObject.SetActive(true);
+        mathiasAnimator.SetBool("IsFadIn", true);
         yield return new WaitForSeconds(1f);
 
         // Show Background
@@ -166,7 +170,7 @@ public class LevelManager9 : MonoBehaviour
         mathiasAnimator.SetTrigger("FadOut");
         yield return new WaitForSeconds(1f);
 
-        fadOutScreen.SetActive(true);
+        fadOutScreen.SetTrigger("FadOut");
         yield return new WaitForSeconds(2f);
 
         // Coroutine End

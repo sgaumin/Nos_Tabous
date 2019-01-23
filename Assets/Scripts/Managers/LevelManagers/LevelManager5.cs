@@ -78,14 +78,16 @@ public class LevelManager5 : MonoBehaviour
         }
 
         // Mathias Speaking Steps
-        if (indexCount == 1 || indexCount == 3 || indexCount == 5 || indexCount == 8 || indexCount == 10 || indexCount == 11 || indexCount == 12 || indexCount == 15 || indexCount == 18)
+        if (indexCount == 1 || indexCount == 3 || indexCount == 5 || indexCount == 8 || indexCount == 10 || indexCount == 11 || indexCount == 12 )
             StartCoroutine(MathiasTalking());
 
         //Mathias Angry
-        // if(indexCount== 15)
+        if (indexCount == 15)
+            StartCoroutine(MathiasAnger());
 
         //Mathias Tres Angry
-        //if(indexCount == 16)
+        if (indexCount == 16)
+            StartCoroutine(MathiasVeryAnger());
 
         // Sylvie Speaking Steps
         if (indexCount == 2 || indexCount == 4 || indexCount == 9)
@@ -100,7 +102,7 @@ public class LevelManager5 : MonoBehaviour
             StartCoroutine(HenriEntrance());
 
         // End Level
-        if (indexCount == 18)
+        if (indexCount == 19)
             StartCoroutine(FinalStepLevel());
     }
 
@@ -164,13 +166,45 @@ public class LevelManager5 : MonoBehaviour
         {
             // Set sylvie idle animation
             sylvieAnimator.SetTrigger("ResetBack");
-           
+
             henriAnimator.SetTrigger("ResetBack");
             yield return new WaitForSeconds(0.5f);
         }
 
         // Set Mathias talking animation
         mathiasAnimator.SetTrigger("Talking");
+
+        // Coroutine End
+        yield break;
+    }
+
+    IEnumerator MathiasAnger()
+    {
+        // Set sylvie idle animation
+        sylvieAnimator.SetTrigger("ResetBack");
+
+        henriAnimator.SetTrigger("ResetBack");
+        yield return new WaitForSeconds(0.5f);
+
+        // Set Mathias talking animation
+        mathiasAnimator.SetTrigger("Anger");
+
+        // Coroutine End
+        yield break;
+    }
+
+    IEnumerator MathiasVeryAnger()
+    {
+        // Set sylvie idle animation
+        sylvieAnimator.SetTrigger("ResetBack");
+
+        henriAnimator.SetTrigger("ResetBack");
+        yield return new WaitForSeconds(0.5f);
+
+        // Set Mathias talking animation
+        mathiasAnimator.SetTrigger("Reset");
+        yield return new WaitForSeconds(0.2f);
+        mathiasAnimator.SetTrigger("VeryAnger");
 
         // Coroutine End
         yield break;
@@ -245,6 +279,7 @@ public class LevelManager5 : MonoBehaviour
     {
         // Reset Mathias animation
         mathiasAnimator.SetTrigger("Reset");
+        henriAnimator.SetTrigger("ResetBack");
 
         // sylvie Fad Out animation
         sylvieAnimator.SetTrigger("FadOut");

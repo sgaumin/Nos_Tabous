@@ -90,8 +90,8 @@ public class LevelManager4 : MonoBehaviour
             StartCoroutine(MathiasReset());
 
         // facing right Jade's animation
-        /*if (indexCount == 6)
-            StartCoroutine(JadeFacingRight());*/
+        if (indexCount == 6)
+            StartCoroutine(JadeFacingRight());
 
         // End Level
         if (indexCount == 22)
@@ -165,10 +165,7 @@ public class LevelManager4 : MonoBehaviour
 
     IEnumerator MathiasAnger()
     {
-        // Set Caroline calling idle animation
-        jadeAnimator.SetTrigger("Reset");
-        yield return new WaitForSeconds(0.5f);
-
+        
         // Set Mathias calling anger animation
         mathiasAnimator.SetTrigger("Anger");
 
@@ -217,9 +214,7 @@ public class LevelManager4 : MonoBehaviour
 
     IEnumerator JadeFacingRight() {
 
-        // Set Mathias  idle animation
-        if (indexCount != 1)
-            mathiasAnimator.SetTrigger("Reset");
+        
 
         // Set jade  talking animation
         yield return new WaitForSeconds(0.5f);

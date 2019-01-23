@@ -85,7 +85,7 @@ public class LevelManager3 : MonoBehaviour
 
         // Clock Animation
         clock.SetActive(true);
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(3f);
         clock.SetActive(false);
 
         // Mathias pick up the phone animation

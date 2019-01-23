@@ -13,6 +13,8 @@ public class LevelManager6 : MonoBehaviour
     [SerializeField] private GameObject dialogues;
     [SerializeField] private GameObject nameDialogues;
 
+    [SerializeField] private GameObject clock;
+
     private Character mathiasCharacter;
     private Character sylvieCharacter;
 
@@ -37,6 +39,7 @@ public class LevelManager6 : MonoBehaviour
         // Hide
         sylvieCharacter.gameObject.SetActive(false);
         background.gameObject.SetActive(false);
+        clock.SetActive(false);
 
         // Index for checking the current IndexDialogue of DialogueSystemScript script 
         indexCount = 999;
@@ -121,6 +124,12 @@ public class LevelManager6 : MonoBehaviour
     IEnumerator StartLevel()
     {
         yield return new WaitForSeconds(1f);
+
+        // Clock Animation
+        clock.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        clock.SetActive(false);
+        yield return new WaitForSeconds(0.5f);
 
         // Show Background
         background.gameObject.SetActive(true);

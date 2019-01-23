@@ -87,7 +87,7 @@ public class LevelManager2 : MonoBehaviour
             StartCoroutine(ResetCaro());
 
         //Mathias Tristoun
-        if (indexCount == 27)
+        if (indexCount == 26)
             StartCoroutine(MathiasSad());
 
         // Caroline Speaking Steps

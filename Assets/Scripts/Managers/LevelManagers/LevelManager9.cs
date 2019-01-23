@@ -95,9 +95,13 @@ public class LevelManager9 : MonoBehaviour
         background.gameObject.SetActive(true);
         yield return new WaitForSeconds(1f);
 
-        // Show Henry & Sylvie Characters
+        // Show Henry & Sylvie Characters facing
         henryCharacter.gameObject.SetActive(true);
         sylvieCharacter.gameObject.SetActive(true);
+
+        henryAnimator.SetBool("IsFadInFacing", true);
+        sylvieAnimator.SetBool("IsFadInFacing", true);
+
         yield return new WaitForSeconds(1f);
 
         // Show dialogues box 
@@ -113,15 +117,12 @@ public class LevelManager9 : MonoBehaviour
 
     IEnumerator HenryTalking()
     {
-        // Mathias Idle animation
-        if (indexCount != 1)
-        {
-            mathiasAnimator.SetTrigger("Reset");
-            yield return new WaitForSeconds(0.5f);
+        // Set Mathias Animation
+        mathiasAnimator.SetTrigger("Reset");
+        yield return new WaitForSeconds(0.5f);
 
-        }
         // Set henry  talking animation
-        henryAnimator.SetTrigger("BackTalking");
+        henryAnimator.SetTrigger("Talking");
 
         // Coroutine End
         yield break;
@@ -130,7 +131,7 @@ public class LevelManager9 : MonoBehaviour
     IEnumerator MathiasTalking()
     {
         // Set henry idle animation
-        henryAnimator.SetTrigger("ResetBack");
+        henryAnimator.SetTrigger("Reset");
         yield return new WaitForSeconds(0.5f);
 
         // Mathias Idle animation
@@ -144,7 +145,7 @@ public class LevelManager9 : MonoBehaviour
     {
         // Set Henry & Mathias idle animation
         mathiasAnimator.SetTrigger("Reset");
-        henryAnimator.SetTrigger("ResetBack");
+        henryAnimator.SetTrigger("Reset");
         yield return new WaitForSeconds(0.5f);
 
         // Hide Texts into the dialogues box
@@ -166,7 +167,7 @@ public class LevelManager9 : MonoBehaviour
         // Characters Fad Out animation
         henryAnimator.SetTrigger("FadOut");
         sylvieAnimator.SetTrigger("FadOut");
-        
+
         mathiasAnimator.SetTrigger("FadOut");
         yield return new WaitForSeconds(1f);
 

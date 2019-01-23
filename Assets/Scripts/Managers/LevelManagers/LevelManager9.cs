@@ -56,6 +56,10 @@ public class LevelManager9 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // Check if the choice is Tabou and set the animation
+        if (DialogueSystemScript.isTabou)
+            StartCoroutine(TabouStepLevel());
+
         // Set Animation and Sound according to the Dialogue Index
         if (DialogueSystemScript.indexDialogue == indexCount)
             return;
@@ -87,6 +91,10 @@ public class LevelManager9 : MonoBehaviour
         // henry Speaking Steps
         if (indexCount == 1 || indexCount == 3)
             StartCoroutine(HenryTalking());
+
+        // Reset Animations
+        if (indexCount == 4)
+            ResetAnimations();
 
         // End Level
         if (indexCount == 6)
@@ -123,6 +131,13 @@ public class LevelManager9 : MonoBehaviour
 
         // Coroutine End
         yield break;
+    }
+
+    void ResetAnimations()
+    {
+        // Set Mathias Animation
+        mathiasAnimator.SetTrigger("Reset");
+        henryAnimator.SetTrigger("Reset");
     }
 
     IEnumerator HenryTalking()
@@ -175,17 +190,29 @@ public class LevelManager9 : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         // Characters Fad Out animation
-        henryAnimator.SetTrigger("FadOut");
-        sylvieAnimator.SetTrigger("FadOut");
+        //henryAnimator.SetTrigger("FadOut");
+        //sylvieAnimator.SetTrigger("FadOut");
 
-        mathiasAnimator.SetTrigger("FadOut");
-        yield return new WaitForSeconds(1f);
+        //mathiasAnimator.SetTrigger("FadOut");
+        //yield return new WaitForSeconds(1f);
 
         fadOutScreen.SetTrigger("FadOut");
         yield return new WaitForSeconds(2f);
 
         // Coroutine End
         GameSystem.instance.PlayNextScene();
+        yield break;
+    }
+
+    IEnumerator TabouStepLevel()
+    {
+        mathiasAnimator.SetTrigger("CallIdle");
+        mathiasAnimator.SetTrigger("CallTabou");
+
+        yield return new WaitForSeconds(0.2f);
+        mathiasAnimator.SetTrigger("CallTalking");
+
+        // Coroutine End
         yield break;
     }
 

@@ -903,7 +903,7 @@ MonoBehaviour:
   background: {fileID: 1874401327}
   dialogues: {fileID: 790579831}
   nameDialogues: {fileID: 790579830}
-  fadOutScreen: {fileID: 1991678078}
+  fadOutScreen: {fileID: 1991678082}
 --- !u!1 &1077386663531074272
 GameObject:
   m_ObjectHideFlags: 0

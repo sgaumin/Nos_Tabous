@@ -86,7 +86,7 @@ public class LevelManager8 : MonoBehaviour
         isAllClickable(false);
 
         // Show Henri's letter
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         henriLetter.gameObject.SetActive(true);
 
         // Hide dialogueBox

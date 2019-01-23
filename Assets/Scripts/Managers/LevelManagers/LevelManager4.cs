@@ -70,7 +70,7 @@ public class LevelManager4 : MonoBehaviour
         }
 
         // Mathias Speaking Steps
-        if (indexCount == 2 || indexCount == 3 || indexCount == 4 || indexCount == 6 || indexCount == 9 || indexCount == 11 || indexCount == 14 || indexCount == 16 || indexCount == 18 || indexCount ==19 || indexCount == 21)
+        if (indexCount == 2 || indexCount == 3 || indexCount == 4  || indexCount == 9 || indexCount == 11 || indexCount == 14 || indexCount == 16 || indexCount == 18 || indexCount ==19 || indexCount == 21)
             StartCoroutine(MathiasTalking());
 
         // Jade Speaking Steps
@@ -78,13 +78,16 @@ public class LevelManager4 : MonoBehaviour
             StartCoroutine(JadeTalking());
 
         //Mathias Angry
-        //if(indexCount = 6)
+        if(indexCount == 6)
+            StartCoroutine(MathiasAnger());
 
         // Mathias Surpris
-        //if(indexCount = 7 || indexCount 17)
+        if(indexCount == 7 || indexCount == 17)
+            StartCoroutine(MathiasSurprised());
 
         //Mathias Reset
-        //if(indexCount = 8)
+        if(indexCount == 8)
+            StartCoroutine(MathiasReset());
 
         // facing right Jade's animation
         /*if (indexCount == 6)
@@ -155,6 +158,44 @@ public class LevelManager4 : MonoBehaviour
 
         // Set Mathias talking animation
         mathiasAnimator.SetTrigger("Talking");
+
+        // Coroutine End
+        yield break;
+    }
+
+    IEnumerator MathiasAnger()
+    {
+        // Set Caroline calling idle animation
+        jadeAnimator.SetTrigger("Reset");
+        yield return new WaitForSeconds(0.5f);
+
+        // Set Mathias calling anger animation
+        mathiasAnimator.SetTrigger("Anger");
+
+        // Coroutine End
+        yield break;
+    }
+
+    IEnumerator MathiasSurprised()
+    {
+        // Set Caroline calling idle animation
+        mathiasAnimator.SetTrigger("Reset");
+        yield return new WaitForSeconds(0.5f);
+
+        // Set Mathias calling anger animation
+        mathiasAnimator.SetTrigger("Surprised");
+
+        // Coroutine End
+        yield break;
+    }
+
+    IEnumerator MathiasReset()
+    {
+        // Set Caroline calling idle animation
+        mathiasAnimator.SetTrigger("Reset");
+        yield return new WaitForSeconds(0.5f);
+
+        
 
         // Coroutine End
         yield break;

@@ -9,6 +9,8 @@ public class LevelManager7 : MonoBehaviour
     [SerializeField] private Animator background;
     [SerializeField] private GameObject nameDialogues;
 
+    [SerializeField] private Transform initialPosition;
+
     [SerializeField] private AudioManager7 audioManager;
 
     private Character mathiasCharacter;
@@ -70,6 +72,22 @@ public class LevelManager7 : MonoBehaviour
 
     IEnumerator StartLevel()
     {
+        // Set the good position
+        float time = 1f;
+        float elapsedTime = 0;
+        Vector3 startingPos = mathiasCharacter.transform.position;
+
+        while (elapsedTime < time)
+        {
+
+            mathiasCharacter.transform.position = Vector3.Lerp(startingPos, initialPosition.position, (elapsedTime / time));
+
+            elapsedTime += Time.deltaTime;
+
+            yield return null;
+        }
+        yield return new WaitForSeconds(1f);
+
         // Flip Mathias and play Back animation
         mathiasAnimator.SetTrigger("Back");
         mathiasCharacter.Flip();

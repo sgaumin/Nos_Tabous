@@ -12,6 +12,8 @@ public class LevelManager5 : MonoBehaviour
 
     [SerializeField] private AudioManager5 audioManager;
 
+    [SerializeField] private Transform initialPosition;
+
     // UI
     [SerializeField] private GameObject dialogues;
     [SerializeField] private GameObject nameDialogues;
@@ -104,15 +106,29 @@ public class LevelManager5 : MonoBehaviour
 
     IEnumerator StartLevel()
     {
-        yield return new WaitForSeconds(1f);
-
         // Play wind sound
         audioManager.PlayWindSound(true);
         yield return new WaitForSeconds(3f);
 
+        // Set the good position
+        float time = 1f;
+        float elapsedTime = 0;
+        Vector3 startingPos = mathiasCharacter.transform.position;
+
+        while (elapsedTime < time)
+        {
+
+            mathiasCharacter.transform.position = Vector3.Lerp(startingPos, initialPosition.position, (elapsedTime / time));
+
+            elapsedTime += Time.deltaTime;
+
+            yield return null;
+        }
+        yield return new WaitForSeconds(1f);
+
         // Play foot sound
         audioManager.PlayFootSound(true);
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(6f);
 
         // Play knock sound
         audioManager.PlayKnockSound(true);

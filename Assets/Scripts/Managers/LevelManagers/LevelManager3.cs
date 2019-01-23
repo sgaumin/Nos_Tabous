@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LevelManager3 : MonoBehaviour
@@ -177,7 +176,7 @@ public class LevelManager3 : MonoBehaviour
 
         // Mathias talking animation for last dialogue
         mathiasAnimator.SetTrigger("CallTalking");
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         // Mathias stop talking animation
         mathiasAnimator.SetTrigger("CallIdle");
@@ -189,11 +188,11 @@ public class LevelManager3 : MonoBehaviour
 
         // Animation hang up Henri
         henriAnimator.SetTrigger("BackCallEnding");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.05f);
 
         // Animation FadOut Henri
         henriAnimator.SetTrigger("FadOut");
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
 
         // Mathias hang up animation
         mathiasAnimator.SetTrigger("CallEnding");
@@ -208,7 +207,7 @@ public class LevelManager3 : MonoBehaviour
         dialoguesAnimator.SetTrigger("FadOut");
 
         Animator dialoguesNameAnimator = nameDialogues.GetComponent<Animator>();
-        dialoguesAnimator.SetTrigger("FadOut");
+        dialoguesNameAnimator.SetTrigger("FadOut");
 
         // Quit PLay Mode
         yield return new WaitForSeconds(2f);

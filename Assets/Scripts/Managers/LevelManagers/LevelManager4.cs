@@ -13,6 +13,8 @@ public class LevelManager4 : MonoBehaviour
     [SerializeField] private GameObject dialogues;
     [SerializeField] private GameObject nameDialogues;
 
+    [SerializeField] private Transform initialPosition;
+
     [SerializeField] private AudioManager4 audioManager;
 
     private Character mathiasCharacter;
@@ -61,8 +63,8 @@ public class LevelManager4 : MonoBehaviour
         // TO DO: Implement more flexible IF statement regarding previous previous scnene loading and indexCount was not reset
         if (isStarting)
         {
-            //DialogueSystemScript.indexDialogue = 0; // TO report
-            indexCount = 0;
+            DialogueSystemScript.indexDialogue = 1; // TO report
+            indexCount = 1;
             StartCoroutine(StartLevel());
             isStarting = false;
         }
@@ -95,6 +97,21 @@ public class LevelManager4 : MonoBehaviour
 
     IEnumerator StartLevel()
     {
+        yield return new WaitForSeconds(1f);
+
+        // Set the good position
+        float time = 1f;
+        float elapsedTime = 0;
+        Vector3 startingPos = mathiasCharacter.transform.position;
+
+        while (elapsedTime < time) {
+
+            mathiasCharacter.transform.position = Vector3.Lerp(startingPos, initialPosition.position, (elapsedTime / time));
+
+            elapsedTime += Time.deltaTime;
+
+            yield return null;
+        }
         yield return new WaitForSeconds(1f);
 
         // Play car starting sound
@@ -215,6 +232,9 @@ public class LevelManager4 : MonoBehaviour
         // Stop animation by parents to characters
         mathiasCharacter.transform.SetParent(null);
         jadeCharacter.transform.SetParent(null);
+
+        // Stop ambiance sound
+        audioManager.PlayAmbianceSound(false);
 
         // Waiting time
         yield return new WaitForSeconds(2f);

@@ -76,13 +76,19 @@ public class LevelManager2 : MonoBehaviour
             StartCoroutine(MathiasAnger());
 
         //// Mathias IdleAnger
-        //if (indexCount == 16)
+        if (indexCount == 16)
+            StartCoroutine(MathiasIdleAnger());
 
         // Mathias Surpris
-        // if (indexCount ==7|| indexCount == 18 || indexCount == 25 )
+         if (indexCount ==7|| indexCount == 18 || indexCount == 25 )
+            StartCoroutine(MathiasSurprised());
+
+        if (indexCount == 8)
+            StartCoroutine(ResetCaro());
 
         //Mathias Tristoun
-        // if (indexCount == 27)
+        if (indexCount == 27)
+            StartCoroutine(MathiasSad());
 
         // Caroline Speaking Steps
         if (indexCount == 1 || indexCount == 3 || indexCount == 5 || indexCount == 7 || indexCount == 9 
@@ -190,6 +196,55 @@ public class LevelManager2 : MonoBehaviour
         yield break;
     }
 
+    IEnumerator MathiasIdleAnger()
+    {
+        // Set Caroline calling idle animation
+        mathiasAnimator.SetTrigger("Reset");
+        yield return new WaitForSeconds(0.5f);
+
+        // Set Mathias calling anger animation
+        mathiasAnimator.SetTrigger("AngerIdle");
+
+        // Coroutine End
+        yield break;
+    }
+
+    IEnumerator ResetCaro()
+    {
+        // Set Caroline calling idle animation
+        carolineAnimator.SetTrigger("Reset");
+        yield return new WaitForSeconds(0.5f);
+
+
+        // Coroutine End
+        yield break;
+    }
+
+    IEnumerator MathiasSurprised()
+    {
+        // Set Caroline calling idle animation
+        mathiasAnimator.SetTrigger("Reset");
+        yield return new WaitForSeconds(0.5f);
+
+        // Set Mathias calling anger animation
+        mathiasAnimator.SetTrigger("Surprised");
+
+        // Coroutine End
+        yield break;
+    }
+
+    IEnumerator MathiasSad()
+    {
+        // Set Caroline calling idle animation
+        mathiasAnimator.SetTrigger("Reset");
+        yield return new WaitForSeconds(0.5f);
+
+        // Set Mathias calling anger animation
+        mathiasAnimator.SetTrigger("Sad");
+
+        // Coroutine End
+        yield break;
+    }
     IEnumerator VeryAngerStepLevel()
     {
         // Set Caroline calling idle animation

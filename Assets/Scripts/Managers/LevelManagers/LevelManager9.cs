@@ -71,8 +71,18 @@ public class LevelManager9 : MonoBehaviour
         }
 
         // Mathias Speaking Steps
-        if (indexCount == 2 || indexCount == 4)
+        if (indexCount == 2 || indexCount == 5)
             StartCoroutine(MathiasTalking());
+
+        // Mathias Surpris
+        // if(indexCount =1)
+
+        //Mathias Triste
+        // if(indexCount = 4)
+        //pensez à reset henri
+
+        //henri et Sylvie surpris
+        // if(indexCount =5)
 
         // henry Speaking Steps
         if (indexCount == 1 || indexCount == 3)

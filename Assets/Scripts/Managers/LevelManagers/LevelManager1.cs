@@ -69,8 +69,9 @@ public class LevelManager1 : MonoBehaviour
             StartCoroutine(AngerStepLevel());
 
         // Mathias AngryIdle
-        // if(indexCount == 14)
-        //      
+        if (indexCount == 14)
+            AngerIdleStep();
+
 
         // Henri Talking
         if (indexCount == 1 || indexCount == 3 || indexCount == 6  || indexCount == 9 || indexCount == 12 || indexCount == 14)
@@ -176,7 +177,7 @@ public class LevelManager1 : MonoBehaviour
         mathiasAnimator.SetTrigger("CallIdle");
         yield return new WaitForSeconds(0.2f);
         mathiasAnimator.SetTrigger("CallEnding");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
 
         // Set Mathias Anger animation
         mathiasAnimator.SetTrigger("AngerIdle");
@@ -238,6 +239,12 @@ public class LevelManager1 : MonoBehaviour
 
         // Coroutine End
         yield break;
+    }
+
+    void AngerIdleStep()
+    {
+        // Set Mathias calling anger animation
+        mathiasAnimator.SetTrigger("CallAngerIdle");
     }
 
     // TO DO: Create a Utilities class with this Method used by all Level Managers

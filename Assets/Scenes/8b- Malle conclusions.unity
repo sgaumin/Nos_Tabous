@@ -541,13 +541,13 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Alors Papa s\u2019est enfui apr\xE8s ma naissance\u2026 Il cherchait Andr\xE9.\r\n\r\nEt
+  m_Text: "Alors Papa s\u2019est enfui apr\xE8s ma naissance... Il cherchait Andr\xE9.\r\n\r\nEt
     Maman savait qu\u2019il \xE9tait homosexuel, leur famille - mes grands-parents
     - ne voulait pas accepter qu\u2019il le soit et ont arrang\xE9 leur mariage. \r\n\r\nVoil\xE0
-    pourquoi je n\u2019ai quasiment jamais vu le reste de ma famille\u2026 ils n\u2019ont
-    pas trouv\xE9 leur place avec eux. \xC7a explique aussi nos d\xE9m\xE9nagements\u2026
-    \r\n\r\nPapa \xE9tait bien amoureux de Maman, au final. Il l\u2019aime. Et\u2026
-    il\u2026 il m\u2019aime. Il n\u2019a jamais vraiment eu de p\xE8re non plus\u2026\r\n\r\n\u2026\r\n\r\n\u2026
+    pourquoi je n\u2019ai quasiment jamais vu le reste de ma famille... ils n\u2019ont
+    pas trouv\xE9 leur place avec eux. \xC7a explique aussi nos d\xE9m\xE9nagements...
+    \r\n\r\nPapa \xE9tait bien amoureux de Maman, au final. Il l\u2019aime. Et...
+    il... il m\u2019aime. Il n\u2019a jamais vraiment eu de p\xE8re non plus...\n\r\n...\n\r\n...
     je ferais mieux de descendre.\r"
 --- !u!222 &2038318732
 CanvasRenderer:

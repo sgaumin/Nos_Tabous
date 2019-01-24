@@ -32,7 +32,7 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 2
   - WhoIsSpeaking: Mathias
-    Content: Mmh.. Ok Maman.
+    Content: Mmh... Ok Maman.
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:

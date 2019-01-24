@@ -24,8 +24,8 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 0
   - WhoIsSpeaking: Jade
-    Content: "Papa, tout va bien avec Caroline ? J'vous ai entendu vous disputer hier
-      soir\u2026"
+    Content: Papa, tout va bien avec Caroline ? J'vous ai entendu vous disputer hier
+      soir...
     IsThereChoices: 1
     Couleur: {r: 0.4407333, g: 0.601, b: 0.12019999, a: 1}
     Branching:
@@ -67,14 +67,14 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 5
   - WhoIsSpeaking: Mathias
-    Content: "Oui, enfin, non\u2026 \xC7a va s\u2019arranger."
+    Content: "Oui, enfin, non... \xC7a va s\u2019arranger."
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 5
   - WhoIsSpeaking: Jade
-    Content: "Tu sais Papa, je suis plus une gamine. Je peux comprendre\u2026"
+    Content: Tu sais Papa, je suis plus une gamine. Je peux comprendre...
     IsThereChoices: 0
     Couleur: {r: 0.44313726, g: 0.6039216, b: 0.12156863, a: 1}
     Branching:
@@ -205,8 +205,8 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 21
   - WhoIsSpeaking: Mathias
-    Content: "Passe le bonjour \xE0 ta m\xE8re de ma part. Ah et euh\u2026 demande
-      lui si je peux l\u2019appeler dans la semaine. Pas un mot sur Caroline."
+    Content: "Passe le bonjour \xE0 ta m\xE8re de ma part. Ah et euh... demande lui
+      si je peux l\u2019appeler dans la semaine. Pas un mot sur Caroline."
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:

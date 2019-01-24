@@ -206,7 +206,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8101e9936b174d438a292719607c750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comment: "C\u2019est la photo de mariage de mes parents.\r\n\r\nElle est d\xE9chir\xE9e\u2026
+  comment: "C\u2019est la photo de mariage de mes parents.\r\n\r\nElle est d\xE9chir\xE9e...
     pile au milieu. Qui a os\xE9 faire \xE7a ?\r"
   isLetter: 0
   isHenriLetter: 0
@@ -457,9 +457,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8101e9936b174d438a292719607c750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comment: "On dirait\u2026 Papa ! \r\n\r\nY\u2019a une date derri\xE8re, il devait
-    tout juste avoir vingt ans.\r\n\r\nJe ne savais pas qu\u2019il avait fait du foot
-    lui aussi, pourquoi il m\u2019en a jamais parl\xE9 ?\r\n\r\nEt, qui est cet homme
+  comment: "On dirait... Papa ! \r\n\r\nY\u2019a une date derri\xE8re, il devait tout
+    juste avoir vingt ans.\r\n\r\nJe ne savais pas qu\u2019il avait fait du foot lui
+    aussi, pourquoi il m\u2019en a jamais parl\xE9 ?\r\n\r\nEt, qui est cet homme
     avec lui ? Ils ont l\u2019air assez proches.\r"
   isLetter: 0
   isHenriLetter: 0
@@ -605,7 +605,7 @@ MonoBehaviour:
     l\u2019absence de toi qui comble les manques \xE0 ma vie. C\u2019est l\u2019absence
     de toi qui me rappelle avec une pr\xE9cision criminelle le souvenir de ta pr\xE9sence,
     et personne ne pourra m\u2019arracher ce cadeau \xE9ternel que tu m\u2019as fait.\r\n\r\nAvec
-    toi \xE0 jamais,\r\n\r\nTon Andr\xE9.\r"
+    toi \xE0 jamais,\r\n\r\nTon Andr\xE9.\r\n\n"
 --- !u!222 &194489526
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -743,9 +743,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8101e9936b174d438a292719607c750, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  comment: "Oul\xE0, pourquoi j\u2019ai ouvert cette bo\xEEte\u2026 je ne pr\xE9f\xE8re
-    pas imaginer Maman porter \xE7a\u2026 \r\n\r\nJe ne vais jamais voir mes parents
-    de la m\xEAme fa\xE7on maintenant..\r"
+  comment: "Oul\xE0, pourquoi j\u2019ai ouvert cette bo\xEEte... je ne pr\xE9f\xE8re
+    pas imaginer Maman porter \xE7a... \r\n\r\nJe ne vais jamais voir mes parents
+    de la m\xEAme fa\xE7on maintenant..."
   isLetter: 0
   isHenriLetter: 0
   isChecked: 0
@@ -1996,9 +1996,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "On dirait\u2026 Papa ! \r\n\r\nY\u2019a une date derri\xE8re, il devait
-    tout juste avoir vingt ans.\r\n\r\nJe ne savais pas qu\u2019il avait fait du foot
-    lui aussi, pourquoi il m\u2019en a jamais parl\xE9 ?\r\n\r\nEt, qui est cet homme
+  m_Text: "On dirait... Papa ! \r\n\r\nY\u2019a une date derri\xE8re, il devait tout
+    juste avoir vingt ans.\r\n\r\nJe ne savais pas qu\u2019il avait fait du foot lui
+    aussi, pourquoi il m\u2019en a jamais parl\xE9 ?\r\n\r\nEt, qui est cet homme
     avec lui ? Ils ont l\u2019air assez proches.\r"
 --- !u!222 &1749644985
 CanvasRenderer:
@@ -2088,17 +2088,17 @@ MonoBehaviour:
     t\u2019a fallu pour que nous coupions finalement les ponts avec eux. Ta plus belle
     preuve d\u2019amour aura \xE9t\xE9 de toujours t\u2019\xEAtre tenue \xE0 mes c\xF4t\xE9s.
     Comme je regrette qu\u2019il ait \xE9t\xE9 n\xE9cessaire que je m\u2019\xE9loigne
-    de toi pour m\u2019en rendre compte...\r\n\r\nLa v\xE9rit\xE9, c\u2019est que
-    j\u2019ai pris peur de mes nouvelles responsabilit\xE9s, en tant que p\xE8re.
-    J\u2019aime notre enfant plus que tout au monde, et en m\xEAme temps je crains
-    de ne pas \xEAtre \xE0 la hauteur. Comment \xEAtre un mod\xE8le pour lui quand
-    je n\u2019en ai jamais eu ? J\u2019ai \xE9t\xE9 beaucoup d\xE9\xE7u par mon p\xE8re,
-    et je ne veux pas reproduire les m\xEAmes erreurs. Je ne veux pas voir notre fils
-    souffrir comme j\u2019ai souffert.\r\n\r\nMon absence ne r\xE9soudra pas ces probl\xE8mes.
-    C\u2019est pourquoi j\u2019ai r\xE9alis\xE9 que ma place \xE9tait aupr\xE8s de
-    toi et de Mathias, et j\u2019esp\xE8re que nous pourrons continuer \xE0 affronter
-    les \xE9preuves de la vie ensemble. Si tu le souhaites, nous formerons \xE0 nouveau
-    une famille.\r\n\r\nJe t\u2019aime,\r\nHenri\r"
+    de toi pour m\u2019en rendre compte.\n\r\nLa v\xE9rit\xE9, c\u2019est que j\u2019ai
+    pris peur de mes nouvelles responsabilit\xE9s, en tant que p\xE8re. J\u2019aime
+    notre enfant plus que tout au monde, et en m\xEAme temps je crains de ne pas \xEAtre
+    \xE0 la hauteur. Comment \xEAtre un mod\xE8le pour lui quand je n\u2019en ai jamais
+    eu ? J\u2019ai \xE9t\xE9 beaucoup d\xE9\xE7u par mon p\xE8re, et je ne veux pas
+    reproduire les m\xEAmes erreurs. Je ne veux pas voir notre fils souffrir comme
+    j\u2019ai souffert.\r\n\r\nMon absence ne r\xE9soudra pas ces probl\xE8mes. C\u2019est
+    pourquoi j\u2019ai r\xE9alis\xE9 que ma place \xE9tait aupr\xE8s de toi et de
+    Mathias, et j\u2019esp\xE8re que nous pourrons continuer \xE0 affronter les \xE9preuves
+    de la vie ensemble. Si tu le souhaites, nous formerons \xE0 nouveau une famille.\r\n\r\nJe
+    t\u2019aime,\r\nHenri\r"
   isLetter: 1
   isHenriLetter: 1
   isChecked: 0

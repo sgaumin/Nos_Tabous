@@ -45,22 +45,22 @@ MonoBehaviour:
     Branching:
       ChoiceList:
       - Content: J'ai vu des choses en haut, et je ne comprends pas tout...
-        FollowUpDialogueElement: 0
+        FollowUpDialogueElement: 4
         IsTabou: 1
         IsThere: 0
         LessTabouContent: 
       - Content: "Caroline m'a quitt\xE9. C'\xE9tait horrible. ..."
-        FollowUpDialogueElement: 0
+        FollowUpDialogueElement: 4
         IsTabou: 1
         IsThere: 0
         LessTabouContent: 
       - Content: "Je ne me reconnais plus. Je ne sais plus o\xF9 j'en suis."
-        FollowUpDialogueElement: 0
+        FollowUpDialogueElement: 4
         IsTabou: 1
         IsThere: 0
         LessTabouContent: 
       - Content: J'ai besoin de vous parler. Je n'en peux plus.
-        FollowUpDialogueElement: 0
+        FollowUpDialogueElement: 4
         IsTabou: 1
         IsThere: 0
         LessTabouContent: 

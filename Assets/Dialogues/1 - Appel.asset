@@ -51,18 +51,18 @@ MonoBehaviour:
       - Content: Pas super.
         FollowUpDialogueElement: 5
         IsTabou: 1
-        IsThere: 0
+        IsThere: 1
         LessTabouContent: Super.
     FollowUpDialogueElement: 3
   - WhoIsSpeaking: Mathias
-    Content: "\xC7a va. Jade et \u2026 Caroline aussi."
+    Content: "\xC7a va. Jade et ... Caroline aussi."
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 6
   - WhoIsSpeaking: Mathias
-    Content: "\u2026 Super."
+    Content: '... Super.'
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
@@ -84,21 +84,21 @@ MonoBehaviour:
     Branching:
       ChoiceList:
       - Content: "Trop tard pour jouer le p\xE8re mod\xE8le."
-        FollowUpDialogueElement: 0
+        FollowUpDialogueElement: 8
         IsTabou: 1
-        IsThere: 1
+        IsThere: 0
         LessTabouContent: 
       - Content: J'ai pas vraiment envie.
-        FollowUpDialogueElement: 0
+        FollowUpDialogueElement: 8
         IsTabou: 1
         IsThere: 0
         LessTabouContent: 
       - Content: On peut en reparler plus tard ?
         FollowUpDialogueElement: 8
         IsTabou: 0
-        IsThere: 1
+        IsThere: 0
         LessTabouContent: 
-    FollowUpDialogueElement: 0
+    FollowUpDialogueElement: 8
   - WhoIsSpeaking: Mathias
     Content: "Tu tombes mal. On peut en reparler plus tard, papa ? C\u2019est pas
       trop le moment, l\xE0."
@@ -116,7 +116,7 @@ MonoBehaviour:
       - Content: Tu me manques aussi.
         FollowUpDialogueElement: 0
         IsTabou: 1
-        IsThere: 0
+        IsThere: 1
         LessTabouContent: 
       - Content: "... c\u2019est \xE7a."
         FollowUpDialogueElement: 10

@@ -62,7 +62,7 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 6
   - WhoIsSpeaking: Henri
-    Content: "Oh bonjour Mathias, comment vas-tu ? Je suis\u2026 je suis tr\xE8s content
+    Content: "Oh bonjour Mathias, comment vas-tu ? Je suis... je suis tr\xE8s content
       de te voir !"
     IsThereChoices: 0
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
@@ -106,7 +106,7 @@ MonoBehaviour:
         LessTabouContent: "Elle est partie en voyage d\u2019affaire."
     FollowUpDialogueElement: 0
   - WhoIsSpeaking: Mathias
-    Content: "Caroline\u2026 \xC7a va."
+    Content: "Caroline... \xC7a va."
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
@@ -120,7 +120,7 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 13
   - WhoIsSpeaking: Mathias
-    Content: "Non. Elle est partie\u2026 en voyage\u2026 pour le boulot."
+    Content: Non. Elle est partie... en voyage... pour le boulot.
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:

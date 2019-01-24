@@ -139,14 +139,14 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 15
   - WhoIsSpeaking: Mathias
-    Content: "Nan nan, t\u2019inqui\xE8tes, c\u2019est\u2026 je me suis arrang\xE9."
+    Content: "Nan nan, t\u2019inqui\xE8tes, c\u2019est... je me suis arrang\xE9."
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 16
   - WhoIsSpeaking: Henri
-    Content: "Ah, d\u2019accord ! Eh ben c\u2019est\u2026 c\u2019est super ! Tu pourras
+    Content: "Ah, d\u2019accord ! Eh ben c\u2019est... c\u2019est super ! Tu pourras
       m\u2019aider pour deux ou trois bricoles."
     IsThereChoices: 0
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
@@ -154,8 +154,8 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 17
   - WhoIsSpeaking: Mathias
-    Content: "Euh, on verra ouais. Je dois y aller l\xE0\u2026 d\xE9poser Jade \xE0
-      l\u2019\xE9cole. \xC0 ce soir. *click*"
+    Content: "Euh, on verra ouais. Je dois y aller l\xE0... d\xE9poser Jade au lyc\xE9e.
+      \xC0 ce soir. *click*"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:

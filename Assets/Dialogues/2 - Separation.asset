@@ -192,7 +192,7 @@ MonoBehaviour:
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
-      - Content: "\u2026 tu crois vraiment que je suis homo ?"
+      - Content: '... tu crois vraiment que je suis homo ?'
         FollowUpDialogueElement: 21
         IsTabou: 1
         IsThere: 1
@@ -207,7 +207,7 @@ MonoBehaviour:
     FollowUpDialogueElement: 22
   - WhoIsSpeaking: Mathias
     Content: "Ah ah. C\u2019est une blague ! Mais comment tu peux sortir des conneries
-      pareilles\u2026"
+      pareilles..."
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
@@ -223,7 +223,7 @@ MonoBehaviour:
   - WhoIsSpeaking: Caroline
     Content: "C\u2019est \xE7a, esquive tes probl\xE8mes et fuis la discussion, comme
       d\u2019habitude. Qu\u2019est-ce que tu peux m\u2019\xE9nerver quand t\u2019es
-      comme \xE7a\u2026"
+      comme \xE7a..."
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 0.53333336, a: 1}
     Branching:
@@ -251,17 +251,17 @@ MonoBehaviour:
     Branching:
       ChoiceList:
       - Content: "Tu ne peux pas faire \xE7a !"
-        FollowUpDialogueElement: 0
+        FollowUpDialogueElement: 26
         IsTabou: 1
         IsThere: 1
         LessTabouContent: 
       - Content: "Je te d\xE9teste !"
-        FollowUpDialogueElement: 0
+        FollowUpDialogueElement: 26
         IsTabou: 1
         IsThere: 1
         LessTabouContent: 
       - Content: Mais je t'aime !
-        FollowUpDialogueElement: 0
+        FollowUpDialogueElement: 26
         IsTabou: 1
         IsThere: 1
         LessTabouContent: 
@@ -270,7 +270,7 @@ MonoBehaviour:
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
-    FollowUpDialogueElement: 0
+    FollowUpDialogueElement: 26
   - WhoIsSpeaking: Mathias
     Content: '...'
     IsThereChoices: 0

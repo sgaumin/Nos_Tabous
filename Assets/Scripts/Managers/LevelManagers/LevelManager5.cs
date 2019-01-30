@@ -56,8 +56,6 @@ public class LevelManager5 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(DialogueSystemScript.indexDialogue);
-
         // Check if the choice is Tabou and set the animation
         if (DialogueSystemScript.isTabou)
             StartCoroutine(TabouStepLevel());

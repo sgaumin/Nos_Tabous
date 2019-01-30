@@ -41,8 +41,6 @@ public class LevelManager7 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(DialogueSystemScript.indexDialogue);
-
         // Set Animation and Sound according to the Dialogue Index
         if (DialogueSystemScript.indexDialogue == indexCount)
             return;

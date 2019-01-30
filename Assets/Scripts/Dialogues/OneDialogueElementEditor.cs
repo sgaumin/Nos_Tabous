@@ -89,7 +89,6 @@ public class OneDialogueElementEditor : EditorWindow
 
             GUILayout.EndHorizontal();
             if (DialogueElementList.ElementList == null)
-                Debug.Log("wtf");
             if (DialogueElementList.ElementList.Count > 0)
             {
                 GUILayout.BeginHorizontal();

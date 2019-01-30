@@ -44,8 +44,6 @@ public class LevelManager1 : MonoBehaviour
     // TO DO: Create a Delegate function on DialogueSystemScript for isTabou & indexDialogue variables
     private void Update()
     {
-        Debug.Log(DialogueSystemScript.indexDialogue);
-
         // Check if the choice is Tabou and set the animation
         if (DialogueSystemScript.isTabou)
             StartCoroutine(TabouStepLevel());

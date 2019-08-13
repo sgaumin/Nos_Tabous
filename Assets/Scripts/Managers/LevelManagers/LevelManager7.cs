@@ -12,7 +12,7 @@ public class LevelManager7 : MonoBehaviour
 
 	[SerializeField] private Transform initialPosition;
 
-	[SerializeField] private AudioManager7 audioManager;
+	[SerializeField] private AudioPlayer7 audioManager;
 
 	private Character mathiasCharacter;
 	private DialogueBox dialogueBox;
@@ -21,7 +21,7 @@ public class LevelManager7 : MonoBehaviour
 	private bool isStarting = true;
 
 	// Start is called before the first frame update
-	void Start()
+	private void Start()
 	{
 		// Asign Character components
 		mathiasCharacter = mathiasAnimator.gameObject.GetComponent<Character>();
@@ -40,11 +40,13 @@ public class LevelManager7 : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void Update()
+	private void Update()
 	{
 		// Set Animation and Sound according to the Dialogue Index
 		if (DialogueSystemScript.indexDialogue == indexCount)
+		{
 			return;
+		}
 
 		indexCount = DialogueSystemScript.indexDialogue;
 
@@ -58,18 +60,24 @@ public class LevelManager7 : MonoBehaviour
 
 		// Mathias Speaking Steps
 		if (indexCount == 1 || indexCount == 2 || indexCount == 3 || indexCount == 4 || indexCount == 5 || indexCount == 6)
+		{
 			StartCoroutine(MathiasTalkingStep());
+		}
 
 		//// Open Box
 		if (indexCount == 9)
+		{
 			StartCoroutine(LastStepLevel(false));
+		}
 
 		// Quit
 		if (indexCount == 7)
+		{
 			StartCoroutine(LastStepLevel(true));
+		}
 	}
 
-	IEnumerator StartLevel()
+	private IEnumerator StartLevel()
 	{
 		mathiasCharacter.transform.DOMove(initialPosition.position, 1f, false).SetEase(Ease.InOutSine);
 		yield return new WaitForSeconds(1f);
@@ -80,7 +88,7 @@ public class LevelManager7 : MonoBehaviour
 
 		// Stairs sound playing
 		audioManager.PlayStairsSound(true);
-		yield return new WaitForSeconds(audioManager.lenghtSound - 1f);
+		yield return new WaitForSeconds(audioManager.StairsSoundLenght - 1f);
 
 		// Door sound playing
 		audioManager.PlayOpenDoorSound(true);
@@ -102,10 +110,12 @@ public class LevelManager7 : MonoBehaviour
 		yield break;
 	}
 
-	IEnumerator MathiasTalkingStep()
+	private IEnumerator MathiasTalkingStep()
 	{
 		if (indexCount == 4)
+		{
 			background.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f);
+		}
 
 		// Set Mathias calling talking animation
 		mathiasAnimator.SetTrigger("BackTalking");
@@ -118,7 +128,7 @@ public class LevelManager7 : MonoBehaviour
 		yield break;
 	}
 
-	IEnumerator LastStepLevel(bool isEnd)
+	private IEnumerator LastStepLevel(bool isEnd)
 	{
 		// Box sound playing
 		if (!isEnd)
@@ -153,13 +163,15 @@ public class LevelManager7 : MonoBehaviour
 		}
 
 		if (!isEnd)
+		{
 			GameSystem.Instance.LoadNextScene();
+		}
 
 		// Coroutine End
 		yield break;
 	}
 
-	void ShowDialogues(bool activated)
+	private void ShowDialogues(bool activated)
 	{
 		if (dialogues != null)
 		{

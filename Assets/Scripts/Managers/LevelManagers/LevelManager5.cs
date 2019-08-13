@@ -10,7 +10,7 @@ public class LevelManager5 : MonoBehaviour
 
 	[SerializeField] private Animator background;
 
-	[SerializeField] private AudioManager5 audioManager;
+	[SerializeField] private AudioPlayer5 audioManager;
 
 	[SerializeField] private Transform initialPosition;
 
@@ -28,7 +28,7 @@ public class LevelManager5 : MonoBehaviour
 	private bool isStarting = true;
 
 	// Start is called before the first frame update
-	void Start()
+	private void Start()
 	{
 		// Deactivate fad in animation for Mathias
 		mathiasAnimator.SetBool("IsFadIn", false);
@@ -54,15 +54,19 @@ public class LevelManager5 : MonoBehaviour
 	}
 
 	// Update is called once per frame
-	void Update()
+	private void Update()
 	{
 		// Check if the choice is Tabou and set the animation
 		if (DialogueSystemScript.isTabou)
+		{
 			StartCoroutine(TabouStepLevel());
+		}
 
 		// Set Animation and Sound according to the Dialogue Index
 		if (DialogueSystemScript.indexDialogue == indexCount)
+		{
 			return;
+		}
 
 		indexCount = DialogueSystemScript.indexDialogue;
 
@@ -77,34 +81,48 @@ public class LevelManager5 : MonoBehaviour
 
 		// Mathias Speaking Steps
 		if (indexCount == 1 || indexCount == 3 || indexCount == 5 || indexCount == 8 || indexCount == 10 || indexCount == 11 || indexCount == 12)
+		{
 			StartCoroutine(MathiasTalking());
+		}
 
 		//Mathias Angry
 		if (indexCount == 15)
+		{
 			StartCoroutine(MathiasAnger());
+		}
 
 		//Mathias Tres Angry
 		if (indexCount == 16)
+		{
 			StartCoroutine(MathiasVeryAnger());
+		}
 
 		// Sylvie Speaking Steps
 		if (indexCount == 2 || indexCount == 4 || indexCount == 9)
+		{
 			StartCoroutine(sylvieTalking());
+		}
 
 		// Henri Speaking Steps
 		if (/*indexCount == 6 ||*/ indexCount == 14 || indexCount == 17)
+		{
 			StartCoroutine(HenriTalking());
+		}
 
 		// Entrance Henri
 		if (indexCount == 6)
+		{
 			StartCoroutine(HenriEntrance());
+		}
 
 		// End Level
 		if (indexCount == 19)
+		{
 			StartCoroutine(FinalStepLevel());
+		}
 	}
 
-	IEnumerator StartLevel()
+	private IEnumerator StartLevel()
 	{
 		// Play wind sound
 		audioManager.PlayWindSound(true);
@@ -143,7 +161,7 @@ public class LevelManager5 : MonoBehaviour
 		yield break;
 	}
 
-	IEnumerator MathiasTalking()
+	private IEnumerator MathiasTalking()
 	{
 		if (indexCount != 1)
 		{
@@ -161,7 +179,7 @@ public class LevelManager5 : MonoBehaviour
 		yield break;
 	}
 
-	IEnumerator MathiasAnger()
+	private IEnumerator MathiasAnger()
 	{
 		// Set sylvie idle animation
 		sylvieAnimator.SetTrigger("ResetBack");
@@ -176,7 +194,7 @@ public class LevelManager5 : MonoBehaviour
 		yield break;
 	}
 
-	IEnumerator MathiasVeryAnger()
+	private IEnumerator MathiasVeryAnger()
 	{
 		// Set sylvie idle animation
 		sylvieAnimator.SetTrigger("ResetBack");
@@ -193,7 +211,7 @@ public class LevelManager5 : MonoBehaviour
 		yield break;
 	}
 
-	IEnumerator sylvieTalking()
+	private IEnumerator sylvieTalking()
 	{
 		// Set Mathias  idle animation
 		mathiasAnimator.SetTrigger("Reset");
@@ -207,7 +225,7 @@ public class LevelManager5 : MonoBehaviour
 		yield break;
 	}
 
-	IEnumerator HenriTalking()
+	private IEnumerator HenriTalking()
 	{
 		mathiasAnimator.SetTrigger("Reset");
 		//sylvieAnimator.SetTrigger("ResetBack");
@@ -220,7 +238,7 @@ public class LevelManager5 : MonoBehaviour
 		yield break;
 	}
 
-	IEnumerator HenriEntrance()
+	private IEnumerator HenriEntrance()
 	{
 		// Show Henri
 		henriCharacter.gameObject.SetActive(true);
@@ -232,7 +250,7 @@ public class LevelManager5 : MonoBehaviour
 		yield break;
 	}
 
-	IEnumerator TabouStepLevel()
+	private IEnumerator TabouStepLevel()
 	{
 		// Retrieve the current animation state
 		AnimatorClipInfo[] m_CurrentClipInfo;
@@ -246,19 +264,25 @@ public class LevelManager5 : MonoBehaviour
 
 		// Set the same animation as the start of this dialogue
 		if (m_ClipName == "Mathias_Talking")
+		{
 			mathiasAnimator.SetTrigger("Talking");
+		}
 
 		if (m_ClipName == "Mathias_Anger")
+		{
 			mathiasAnimator.SetTrigger("Anger");
+		}
 
 		if (m_ClipName == "Mathias_VeryAnger")
+		{
 			mathiasAnimator.SetTrigger("VeryAnger");
+		}
 
 		// Coroutine End
 		yield break;
 	}
 
-	IEnumerator FinalStepLevel()
+	private IEnumerator FinalStepLevel()
 	{
 		// Reset Mathias animation
 		mathiasAnimator.SetTrigger("Reset");
@@ -289,7 +313,7 @@ public class LevelManager5 : MonoBehaviour
 		yield break;
 	}
 
-	void ShowDialogues(bool activated)
+	private void ShowDialogues(bool activated)
 	{
 		if (dialogues != null)
 		{

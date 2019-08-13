@@ -16,7 +16,7 @@ public class LevelManager4 : MonoBehaviour
 
 	[SerializeField] private Transform initialPosition;
 
-	[SerializeField] private AudioManager4 audioManager;
+	[SerializeField] private AudioPlayer4 audioManager;
 
 	private Character mathiasCharacter;
 	private Character jadeCharacter;
@@ -25,7 +25,7 @@ public class LevelManager4 : MonoBehaviour
 
 	private bool isStarting = true;
 
-	void Start()
+	private void Start()
 	{
 		// Deactivate fad in animation for Mathias
 		mathiasAnimator.SetBool("IsFadIn", false);
@@ -48,15 +48,19 @@ public class LevelManager4 : MonoBehaviour
 		ShowDialogues(false);
 	}
 
-	void Update()
+	private void Update()
 	{
 		// Check if the choice is Tabou and set the animation
 		if (DialogueSystemScript.isTabou)
+		{
 			StartCoroutine(TabouStepLevel());
+		}
 
 		// Set Animation and Sound according to the Dialogue Index
 		if (DialogueSystemScript.indexDialogue == indexCount)
+		{
 			return;
+		}
 
 		indexCount = DialogueSystemScript.indexDialogue;
 
@@ -71,34 +75,48 @@ public class LevelManager4 : MonoBehaviour
 
 		// Mathias Speaking Steps
 		if (indexCount == 2 || indexCount == 3 || indexCount == 4 || indexCount == 9 || indexCount == 11 || indexCount == 14 || indexCount == 16 || indexCount == 18 || indexCount == 19 || indexCount == 21)
+		{
 			StartCoroutine(MathiasTalking());
+		}
 
 		// Jade Speaking Steps
 		if (indexCount == 1 || indexCount == 5 || indexCount == 7 || indexCount == 10 || indexCount == 12 || indexCount == 15 || indexCount == 17 || indexCount == 20 || indexCount == 22)
+		{
 			StartCoroutine(JadeTalking());
+		}
 
 		//Mathias Angry
 		if (indexCount == 6)
+		{
 			StartCoroutine(MathiasAnger());
+		}
 
 		// Mathias Surpris
 		if (indexCount == 7 || indexCount == 17)
+		{
 			StartCoroutine(MathiasSurprised());
+		}
 
 		//Mathias Reset
 		if (indexCount == 8)
+		{
 			StartCoroutine(MathiasReset());
+		}
 
 		// facing right Jade's animation
 		if (indexCount == 6)
+		{
 			StartCoroutine(JadeFacingRight());
+		}
 
 		// End Level
 		if (indexCount == 22)
+		{
 			StartCoroutine(FinalStepLevel());
+		}
 	}
 
-	IEnumerator StartLevel()
+	private IEnumerator StartLevel()
 	{
 		yield return new WaitForSeconds(1f);
 		mathiasCharacter.transform.DOMove(initialPosition.position, 1f, false).SetEase(Ease.InOutSine);
@@ -137,7 +155,7 @@ public class LevelManager4 : MonoBehaviour
 		yield break;
 	}
 
-	IEnumerator MathiasTalking()
+	private IEnumerator MathiasTalking()
 	{
 		// Set jade idle animation
 		jadeAnimator.SetTrigger("Reset");
@@ -150,7 +168,7 @@ public class LevelManager4 : MonoBehaviour
 		yield break;
 	}
 
-	IEnumerator MathiasAnger()
+	private IEnumerator MathiasAnger()
 	{
 
 		// Set Mathias calling anger animation
@@ -160,7 +178,7 @@ public class LevelManager4 : MonoBehaviour
 		yield break;
 	}
 
-	IEnumerator MathiasSurprised()
+	private IEnumerator MathiasSurprised()
 	{
 		// Set Caroline calling idle animation
 		mathiasAnimator.SetTrigger("Reset");
@@ -173,7 +191,7 @@ public class LevelManager4 : MonoBehaviour
 		yield break;
 	}
 
-	IEnumerator MathiasReset()
+	private IEnumerator MathiasReset()
 	{
 		// Set Caroline calling idle animation
 		mathiasAnimator.SetTrigger("Reset");
@@ -185,11 +203,13 @@ public class LevelManager4 : MonoBehaviour
 		yield break;
 	}
 
-	IEnumerator JadeTalking()
+	private IEnumerator JadeTalking()
 	{
 		// Set Mathias  idle animation
 		if (indexCount != 1)
+		{
 			mathiasAnimator.SetTrigger("Reset");
+		}
 
 		// Set jade  talking animation
 		yield return new WaitForSeconds(0.5f);
@@ -199,7 +219,7 @@ public class LevelManager4 : MonoBehaviour
 		yield break;
 	}
 
-	IEnumerator JadeFacingRight()
+	private IEnumerator JadeFacingRight()
 	{
 
 
@@ -212,7 +232,7 @@ public class LevelManager4 : MonoBehaviour
 		yield break;
 	}
 
-	IEnumerator TabouStepLevel()
+	private IEnumerator TabouStepLevel()
 	{
 		// Retrieve the current animation state
 		AnimatorClipInfo[] m_CurrentClipInfo;
@@ -226,19 +246,25 @@ public class LevelManager4 : MonoBehaviour
 
 		// Set the same animation as the start of this dialogue
 		if (m_ClipName == "Mathias_Talking")
+		{
 			mathiasAnimator.SetTrigger("Talking");
+		}
 
 		if (m_ClipName == "Mathias_Anger")
+		{
 			mathiasAnimator.SetTrigger("Anger");
+		}
 
 		if (m_ClipName == "Mathias_VeryAnger")
+		{
 			mathiasAnimator.SetTrigger("VeryAnger");
+		}
 
 		// Coroutine End
 		yield break;
 	}
 
-	IEnumerator FinalStepLevel()
+	private IEnumerator FinalStepLevel()
 	{
 		// Set jade  talking animation
 		yield return new WaitForSeconds(0.5f);
@@ -294,7 +320,7 @@ public class LevelManager4 : MonoBehaviour
 		yield break;
 	}
 
-	void ShowDialogues(bool activated)
+	private void ShowDialogues(bool activated)
 	{
 		if (dialogues != null)
 		{

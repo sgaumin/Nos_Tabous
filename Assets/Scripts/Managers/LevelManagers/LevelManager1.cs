@@ -11,7 +11,7 @@ public class LevelManager1 : MonoBehaviour
     [SerializeField] private GameObject dialogues;
     [SerializeField] private GameObject nameDialogues;
 
-    [SerializeField] private AudioManager1 audioManager;
+    [SerializeField] private AudioPlayer1 audioManager;
 
     private Character mathiasCharacter;
     private Character henriCharacter;

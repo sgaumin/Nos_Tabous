@@ -14,7 +14,7 @@ public class LevelManager8b : MonoBehaviour
 
         yield return new WaitForSeconds(20f);
 
-        GameSystem.instance.PlayNextScene();
+        GameSystem.Instance.LoadNextScene();
 
         yield break;
     }

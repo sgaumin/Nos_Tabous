@@ -6,7 +6,7 @@ public class MenuManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            GameSystem.instance.LoadSceneByName("7- Grenier");
+            GameSystem.Instance.LoadSceneByName("7- Grenier");
         }
     }
 }

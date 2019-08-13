@@ -3,67 +3,38 @@ using UnityEngine.SceneManagement;
 
 public class GameSystem : MonoBehaviour
 {
-    // Singleton
-    public static GameSystem instance = null;
+	public static GameSystem Instance { get; private set; }
 
-    // State of the Game
-    public enum gameStates { Playing, Pause, End };
-    public gameStates gameState = gameStates.Playing;
+	public const string MenuName = "0b- Menu";
 
-    // To Update according to main Menu name scene
-    public const string MenuName = "0b- Menu";
+	protected void Awake()
+	{
+		if (Instance == null)
+		{
+			Instance = this;
+		}
+		else if (Instance != null)
+		{
+			Destroy(gameObject);
+		}
+	}
 
-    void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
+	public void LoadSceneByName(string scene) => SceneManager.LoadScene(scene);
 
-        }
-        else if (instance != null)
-        {
-            Destroy(gameObject);
-        }
+	public void LoadSceneByIndex(int buildIndexNumber) => SceneManager.LoadScene(buildIndexNumber);
 
-       // DontDestroyOnLoad(gameObject);
-    }
+	public void ReloadScene() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
-    // Allow to load a scene by its name
-    public void LoadSceneByName(string scene)
-    {
-        SceneManager.LoadScene(scene);
-    }
+	public void LoadNextScene() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
-    // Allow to load a scene by its name
-    public void LoadSceneByIndex(int buildIndexNumber)
-    {
-        SceneManager.LoadScene(buildIndexNumber);
-    }
+	public void LoadMenu() => LoadSceneByName(MenuName);
 
-    // Relaod the actual scene
-    public void ReloadScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    //  Play the next scene present in the build
-    public void PlayNextScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    public void LoadMenu()
-    {
-        LoadSceneByName(MenuName);
-    }
-
-    // Quit the game
-    public void QuitGame()
-    {
-        #if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-        #else
+	public void QuitGame()
+	{
+#if UNITY_EDITOR
+		UnityEditor.EditorApplication.isPlaying = false;
+#else
             Application.Quit();
-        #endif
-    }
+#endif
+	}
 }

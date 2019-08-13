@@ -6,7 +6,7 @@ public class EndManager : MonoBehaviour
     void Update()
     {
         if (Input.GetMouseButtonDown(0)) {
-            GameSystem.instance.LoadMenu();
+            GameSystem.Instance.LoadMenu();
         }
     }
 }

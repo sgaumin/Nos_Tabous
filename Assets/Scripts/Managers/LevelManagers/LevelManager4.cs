@@ -301,7 +301,7 @@ public class LevelManager4 : MonoBehaviour
         yield return new WaitForSeconds(2f);
 
         // Coroutine End
-        GameSystem.instance.PlayNextScene();
+        GameSystem.Instance.LoadNextScene();
         yield break;
     }
 

@@ -208,7 +208,7 @@ public class LevelManager1 : MonoBehaviour
 
         // Quit PLay Mode
         yield return new WaitForSeconds(2f);
-        GameSystem.instance.PlayNextScene();
+        GameSystem.Instance.LoadNextScene();
 
         // Coroutine End
         yield break;

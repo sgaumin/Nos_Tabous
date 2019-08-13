@@ -161,11 +161,11 @@ public class LevelManager7 : MonoBehaviour
             mathiasAnimator.SetTrigger("BackFadOut");
             yield return new WaitForSeconds(2f);
 
-            GameSystem.instance.LoadSceneByName("10- Fin");
+            GameSystem.Instance.LoadSceneByName("10- Fin");
         }
 
         if (!isEnd)
-            GameSystem.instance.PlayNextScene();
+            GameSystem.Instance.LoadNextScene();
 
         // Coroutine End
         yield break;

@@ -1,0 +1,170 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb12cf43435f20740ae47f48c120dd47, type: 3}
+  m_Name: 3 - Excuses
+  m_EditorClassIdentifier: 
+  startingIndex: 1
+  ElementList:
+  - WhoIsSpeaking: 
+    Content: "ERROR ! \n Si vous arrivez \xE0 cette embranchement, cela signifie que
+      quelque chose s'est mal pass\xE9, o\xF9 que vous avez explorer du contenu en
+      cours de construction. Appuyez sur n'importe quelle touche pour revenir au d\xE9but."
+    IsThereChoices: 0
+    Couleur: {r: 0, g: 0, b: 0, a: 0}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 0
+  - WhoIsSpeaking: Mathias
+    Content: "... all\xF4 ? Papa ?"
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 2
+  - WhoIsSpeaking: Henri
+    Content: "All\xF4, oui ! Bonjour Mathias !"
+    IsThereChoices: 0
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 3
+  - WhoIsSpeaking: Henri
+    Content: "Il est un peu t\xF4t. Qu\u2019est ce qui se passe ? Comment \xE7a va
+      ?"
+    IsThereChoices: 1
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList:
+      - Content: "On s\u2019est s\xE9par\xE9 avec Caroline."
+        FollowUpDialogueElement: 0
+        IsTabou: 1
+        IsThere: 0
+        LessTabouContent: 
+      - Content: "C\u2019est pas la question."
+        FollowUpDialogueElement: 4
+        IsTabou: 1
+        IsThere: 0
+        LessTabouContent: Tout va bien.
+      - Content: Je viens vous voir.
+        FollowUpDialogueElement: 9
+        IsTabou: 0
+        IsThere: 1
+        LessTabouContent: 
+    FollowUpDialogueElement: 0
+  - WhoIsSpeaking: Mathias
+    Content: Rien
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 5
+  - WhoIsSpeaking: Mathias
+    Content: '...'
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 6
+  - WhoIsSpeaking: Mathias
+    Content: Tout va bien.
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 7
+  - WhoIsSpeaking: Mathias
+    Content: '...'
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 8
+  - WhoIsSpeaking: Mathias
+    Content: Je pensais venir vous voir ce soir.
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 11
+  - WhoIsSpeaking: Mathias
+    Content: '...'
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 10
+  - WhoIsSpeaking: Mathias
+    Content: "J\u2019ai chang\xE9 d\u2019avis. Je vais venir vous voir ce soir."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 11
+  - WhoIsSpeaking: Henri
+    Content: Ahah, quelle bonne nouvelle ! Finalement tu viens alors ! Tu restes dormir
+      ?
+    IsThereChoices: 0
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 12
+  - WhoIsSpeaking: Mathias
+    Content: '...'
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 13
+  - WhoIsSpeaking: Mathias
+    Content: Je pense que je vais rester quelques jours, oui.
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 14
+  - WhoIsSpeaking: Henri
+    Content: "\xC7a va pas poser probl\xE8me avec le boulot ?"
+    IsThereChoices: 0
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 15
+  - WhoIsSpeaking: Mathias
+    Content: "Nan nan, t\u2019inqui\xE8tes, c\u2019est... je me suis arrang\xE9."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 16
+  - WhoIsSpeaking: Henri
+    Content: "Ah, d\u2019accord ! Eh ben c\u2019est... c\u2019est super ! Tu pourras
+      m\u2019aider pour deux ou trois bricoles."
+    IsThereChoices: 0
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 17
+  - WhoIsSpeaking: Mathias
+    Content: "Euh, on verra ouais. Je dois y aller l\xE0... d\xE9poser Jade au lyc\xE9e.
+      \xC0 ce soir. *click*"
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 18
+  - WhoIsSpeaking: 
+    Content: 
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 18

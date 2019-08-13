@@ -1,36 +1,26 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
+[RequireComponent(typeof(AudioSource))]
 public class AudioManagerClic : MonoBehaviour
 {
-    // Singleton
-    public static AudioManagerClic instance;
-    private AudioSource son;
+	public static AudioManagerClic Instance { get; private set; }
 
-    void Awake()
-    {
-        if (instance == null)
-        {
-            instance = this;
+	private AudioSource audioSource;
 
-        }
-        else if (instance != null)
-        {
-            Destroy(gameObject);
-        }
+	void Awake()
+	{
+		if (Instance == null)
+		{
+			Instance = this;
+		}
+		else if (Instance != null)
+		{
+			Destroy(gameObject);
+		}
+		DontDestroyOnLoad(gameObject);
+	}
 
-        DontDestroyOnLoad(gameObject);
-    }
+	protected void Start() => audioSource = GetComponent<AudioSource>();
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        son = GetComponent<AudioSource>();
-    }
-
-    public void PlayClicSound()
-    {
-        son.Play();
-    }
+	public void PlayClicSound() => audioSource.Play();
 }

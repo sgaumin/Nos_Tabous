@@ -1,197 +1,194 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class LevelManager8 : MonoBehaviour
 {
-    [SerializeField] private GrenierObjects henriLetter;
-    [SerializeField] private GameObject commentsBox;
-    [SerializeField] private GameObject lettersBox;
-    [SerializeField] private Animator fadScreen;
-    [SerializeField] private Button quitButton;
+	[SerializeField] private GrenierObjects henriLetter;
+	[SerializeField] private GameObject commentsBox;
+	[SerializeField] private GameObject lettersBox;
+	[SerializeField] private Animator fadScreen;
+	[SerializeField] private Button quitButton;
 
-    private GrenierObjects[] grenierObjects;
+	private GrenierObjects[] grenierObjects;
 
-    private int countObject;
-    private int currentStep;
+	private int countObject;
+	private int currentStep;
 
 
-    // TO DO: BUG si on terminer par selectionner la lettre d'André
-    void Start()
-    {
-        // Hide Henri's letter
-        henriLetter.gameObject.SetActive(false);
+	// TO DO: BUG si on terminer par selectionner la lettre d'André
+	void Start()
+	{
+		// Hide Henri's letter
+		henriLetter.gameObject.SetActive(false);
 
-        // Reteive all objects
-        grenierObjects = FindObjectsOfType<GrenierObjects>();
-        countObject = grenierObjects.Length;
+		// Reteive all objects
+		grenierObjects = FindObjectsOfType<GrenierObjects>();
+		countObject = grenierObjects.Length;
 
-        // Hide UI
-        commentsBox.SetActive(false);
-        lettersBox.SetActive(false);
-        quitButton.gameObject.SetActive(false);
+		// Hide UI
+		commentsBox.SetActive(false);
+		lettersBox.SetActive(false);
+		quitButton.gameObject.SetActive(false);
 
-        // Starting level scripting
-        StartCoroutine(StartStep());
+		// Starting level scripting
+		StartCoroutine(StartStep());
 
-        currentStep = 0;
-    }
+		currentStep = 0;
+	}
 
-    void Update()
-    {
-        // If all objects is checked
-        if (currentStep == 1)
-            if (!isAllChecked())
-            {
-                return;
-            }
-            else
-            {
-                if (currentStep != 2)
-                {
-                    // Show Henri's letter
-                    currentStep = 3;
-                    StartCoroutine(ShowHenriLetter());
-                    return;
-                }
-            }
+	void Update()
+	{
+		// If all objects is checked
+		if (currentStep == 1)
+			if (!isAllChecked())
+			{
+				return;
+			}
+			else
+			{
+				if (currentStep != 2)
+				{
+					// Show Henri's letter
+					currentStep = 3;
+					StartCoroutine(ShowHenriLetter());
+					return;
+				}
+			}
 
-        // If Andre's letter is checked
-        if (currentStep == 2)
-        {
-            if (Input.anyKeyDown)
-            {
-                currentStep = 1;
-                StartCoroutine(HideLetter());
-            }
-        }
-    }
+		// If Andre's letter is checked
+		if (currentStep == 2)
+		{
+			if (Input.anyKeyDown)
+			{
+				currentStep = 1;
+				StartCoroutine(HideLetter());
+			}
+		}
+	}
 
-    IEnumerator StartStep()
-    {
-        yield return new WaitForSeconds(1f);
-        commentsBox.SetActive(true);
+	IEnumerator StartStep()
+	{
+		yield return new WaitForSeconds(1f);
+		commentsBox.SetActive(true);
 
-        // Increase step
-        currentStep++;
+		// Increase step
+		currentStep++;
 
-        // End of coroutine
-        yield break;
-    }
+		// End of coroutine
+		yield break;
+	}
 
-    IEnumerator ShowHenriLetter()
-    {
-        // Stop click interactions
-        yield return new WaitForSeconds(0.2f);
-        isAllClickable(false);
+	IEnumerator ShowHenriLetter()
+	{
+		// Stop click interactions
+		yield return new WaitForSeconds(0.2f);
+		SetAllClickable(false);
 
-        // Show Henri's letter
-        yield return new WaitForSeconds(3f);
-        henriLetter.gameObject.SetActive(true);
+		// Show Henri's letter
+		yield return new WaitForSeconds(3f);
+		henriLetter.gameObject.SetActive(true);
 
-        // Hide dialogueBox
-        commentsBox.SetActive(false);
+		// Hide dialogueBox
+		commentsBox.SetActive(false);
 
-        // End of coroutine
-        yield break;
-    }
+		// End of coroutine
+		yield break;
+	}
 
-    public IEnumerator ShowLetter(bool isHenriLetter)
-    {
-        // Hide dialogueBox
-        commentsBox.SetActive(false);
+	public IEnumerator ShowLetter(bool isHenriLetter)
+	{
+		// Hide dialogueBox
+		commentsBox.SetActive(false);
 
-        // Show lettersBox
-        lettersBox.SetActive(true);
+		// Show lettersBox
+		lettersBox.SetActive(true);
 
-        // Stop click interactions
-        yield return new WaitForSeconds(0.2f);
-        henriLetter.GetComponent<GrenierObjects>().CanBeSelected = false;
-        isAllClickable(false);
+		// Stop click interactions
+		yield return new WaitForSeconds(0.2f);
+		henriLetter.GetComponent<GrenierObjects>().CanBeSelected = false;
+		SetAllClickable(false);
 
-        // Andre's Letter step
-        if (!isHenriLetter)
-            currentStep = 2;
+		// Andre's Letter step
+		if (!isHenriLetter)
+			currentStep = 2;
 
-        if (isHenriLetter) {
-            // Henri's letter step
-            currentStep = 4;
+		if (isHenriLetter)
+		{
+			// Henri's letter step
+			currentStep = 4;
 
-            // Show Quit Button
-            yield return new WaitForSeconds(0.2f);
-            quitButton.gameObject.SetActive(true);
-        }
+			// Show Quit Button
+			yield return new WaitForSeconds(0.2f);
+			quitButton.gameObject.SetActive(true);
+		}
 
-        // End of coroutine
-        yield break;
-    }
+		// End of coroutine
+		yield break;
+	}
 
-    public IEnumerator HideLetter()
-    {
-        // Hide dialogueBox
-        commentsBox.SetActive(true);
+	public IEnumerator HideLetter()
+	{
+		// Hide dialogueBox
+		commentsBox.SetActive(true);
 
-        // Hide lettersBox
-        lettersBox.SetActive(false);
+		// Hide lettersBox
+		lettersBox.SetActive(false);
 
-        // Allow click interaction
-        yield return new WaitForSeconds(0.2f);
-        isAllClickable(true);
+		// Allow click interaction
+		yield return new WaitForSeconds(0.2f);
+		SetAllClickable(true);
 
-        // End of coroutine
-        yield break;
-    }
+		// End of coroutine
+		yield break;
+	}
 
-    public void LaunchFinalSteps() {
-        StartCoroutine(FinalStep());
-    }
+	public void LaunchFinalSteps()
+	{
+		StartCoroutine(FinalStep());
+	}
 
-    IEnumerator FinalStep()
-    {
-        // Waiting time
-        yield return new WaitForSeconds(1f);
+	IEnumerator FinalStep()
+	{
+		// Waiting time
+		yield return new WaitForSeconds(1f);
 
-        // Hide quit button
-        quitButton.gameObject.SetActive(false);
+		// Hide quit button
+		quitButton.gameObject.SetActive(false);
 
-        // Hide dialogue box
-        commentsBox.SetActive(false);
-        
-        // Hide lettersBox
-        lettersBox.SetActive(false);
+		// Hide dialogue box
+		commentsBox.SetActive(false);
 
-        // fad Out animation
-        fadScreen.SetTrigger("FadOut");
-        yield return new WaitForSeconds(2f);
+		// Hide lettersBox
+		lettersBox.SetActive(false);
 
-        // Load Next scene
-        GameSystem.Instance.LoadNextScene();
+		// fad Out animation
+		fadScreen.SetTrigger("FadOut");
+		yield return new WaitForSeconds(2f);
 
-        // End of coroutine
-        yield break;
-    }
+		// Load Next scene
+		GameSystem.Instance.LoadNextScene();
 
-    // Check if all objects is checked
-    bool isAllChecked()
-    {
-        int compteur = 0;
-        foreach (GrenierObjects grenierObject in grenierObjects)
-        {
-            if (grenierObject.isChecked)
-                compteur++;
-        }
+		// End of coroutine
+		yield break;
+	}
 
-        if (compteur == countObject)
-            return true;
+	// Check if all objects is checked
+	bool isAllChecked()
+	{
+		int compteur = 0;
+		foreach (GrenierObjects grenierObject in grenierObjects)
+		{
+			if (grenierObject.IsChecked)
+				compteur++;
+		}
 
-        return false;
-    }
+		if (compteur == countObject)
+			return true;
 
-    void isAllClickable(bool value)
-    {
-        foreach (GrenierObjects grenierObject in grenierObjects)
-        {
-            grenierObject.CanBeSelected = value;
-        }
-    }
+		return false;
+	}
+
+	void SetAllClickable(bool value) => Array.ForEach(grenierObjects, x => x.CanBeSelected = value);
 }

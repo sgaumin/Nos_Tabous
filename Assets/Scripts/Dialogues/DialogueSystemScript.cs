@@ -112,8 +112,8 @@ public class DialogueSystemScript : MonoBehaviour
                 {
                     if (indexDialogue != indexDialogueNew)
                     {
-                        AudioManagerClic.instance.GetComponent<AudioSource>().pitch = 1f;
-                        AudioManagerClic.instance.PlayClicSound();
+                        AudioManagerClic.Instance.GetComponent<AudioSource>().pitch = 1f;
+                        AudioManagerClic.Instance.PlayClicSound();
                     }
                     if (0 >= indexDialogueNew || indexDialogueNew >= DialogueContent.ElementList.Count)
                     {
@@ -124,8 +124,8 @@ public class DialogueSystemScript : MonoBehaviour
                 }
                 else
                 {
-                    AudioManagerClic.instance.GetComponent<AudioSource>().pitch = 0.8f;
-                    AudioManagerClic.instance.PlayClicSound();
+                    AudioManagerClic.Instance.GetComponent<AudioSource>().pitch = 0.8f;
+                    AudioManagerClic.Instance.PlayClicSound();
                 }
 
 

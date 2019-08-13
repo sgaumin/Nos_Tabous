@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4842126553154551133}
-  - component: {fileID: 2891692335444144743}
   - component: {fileID: 7149945509188048161}
+  - component: {fileID: 2891692335444144743}
   m_Layer: 0
   m_Name: AudioManagerClic
   m_TagString: Untagged
@@ -32,6 +32,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7149945509188048161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312229576990242743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e38dbf4fde76ed4aa4d4315d78c5b70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &2891692335444144743
 AudioSource:
   m_ObjectHideFlags: 0
@@ -128,15 +140,3 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7149945509188048161
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 312229576990242743}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e38dbf4fde76ed4aa4d4315d78c5b70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

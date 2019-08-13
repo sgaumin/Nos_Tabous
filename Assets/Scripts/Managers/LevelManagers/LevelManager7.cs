@@ -1,191 +1,179 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using UnityEngine;
 
 public class LevelManager7 : MonoBehaviour
 {
-    [SerializeField] private Animator mathiasAnimator;
-    [SerializeField] private GameObject dialogues;
+	[SerializeField] private Animator mathiasAnimator;
+	[SerializeField] private GameObject dialogues;
 
-    [SerializeField] private Animator background;
-    [SerializeField] private GameObject nameDialogues;
+	[SerializeField] private Animator background;
+	[SerializeField] private GameObject nameDialogues;
 
-    [SerializeField] private Transform initialPosition;
+	[SerializeField] private Transform initialPosition;
 
-    [SerializeField] private AudioManager7 audioManager;
+	[SerializeField] private AudioManager7 audioManager;
 
-    private Character mathiasCharacter;
-    private DialogueBox dialogueBox;
-    private int indexCount;
+	private Character mathiasCharacter;
+	private DialogueBox dialogueBox;
+	private int indexCount;
 
-    private bool isStarting = true;
+	private bool isStarting = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        // Asign Character components
-        mathiasCharacter = mathiasAnimator.gameObject.GetComponent<Character>();
+	// Start is called before the first frame update
+	void Start()
+	{
+		// Asign Character components
+		mathiasCharacter = mathiasAnimator.gameObject.GetComponent<Character>();
 
-        // Asign DialogueBox component
-        dialogueBox = dialogues.GetComponent<DialogueBox>();
+		// Asign DialogueBox component
+		dialogueBox = dialogues.GetComponent<DialogueBox>();
 
-        // Hide the background at starting
-        background.gameObject.SetActive(false);
+		// Hide the background at starting
+		background.gameObject.SetActive(false);
 
-        // Index for checking the current IndexDialogue of DialogueSystemScript script 
-        indexCount = 999;
+		// Index for checking the current IndexDialogue of DialogueSystemScript script 
+		indexCount = 999;
 
-        // Hide Dialogue Box
-        ShowDialogues(false);
-    }
+		// Hide Dialogue Box
+		ShowDialogues(false);
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
-        // Set Animation and Sound according to the Dialogue Index
-        if (DialogueSystemScript.indexDialogue == indexCount)
-            return;
+	// Update is called once per frame
+	void Update()
+	{
+		// Set Animation and Sound according to the Dialogue Index
+		if (DialogueSystemScript.indexDialogue == indexCount)
+			return;
 
-        indexCount = DialogueSystemScript.indexDialogue;
+		indexCount = DialogueSystemScript.indexDialogue;
 
-        if (isStarting)
-        {
-            DialogueSystemScript.indexDialogue = 0; // TO report
-            indexCount = 0;
-            StartCoroutine(StartLevel());
-            isStarting = false;
-        }
+		if (isStarting)
+		{
+			DialogueSystemScript.indexDialogue = 0; // TO report
+			indexCount = 0;
+			StartCoroutine(StartLevel());
+			isStarting = false;
+		}
 
-        // Mathias Speaking Steps
-        if (indexCount == 1 || indexCount == 2 || indexCount == 3 || indexCount == 4 || indexCount == 5 || indexCount == 6)
-            StartCoroutine(MathiasTalkingStep());
+		// Mathias Speaking Steps
+		if (indexCount == 1 || indexCount == 2 || indexCount == 3 || indexCount == 4 || indexCount == 5 || indexCount == 6)
+			StartCoroutine(MathiasTalkingStep());
 
-        //// Open Box
-        if (indexCount == 9)
-            StartCoroutine(LastStepLevel(false));
+		//// Open Box
+		if (indexCount == 9)
+			StartCoroutine(LastStepLevel(false));
 
-        // Quit
-        if (indexCount == 7)
-            StartCoroutine(LastStepLevel(true));
-    }
+		// Quit
+		if (indexCount == 7)
+			StartCoroutine(LastStepLevel(true));
+	}
 
-    IEnumerator StartLevel()
-    {
-        // Set the good position
-        float time = 1f;
-        float elapsedTime = 0;
-        Vector3 startingPos = mathiasCharacter.transform.position;
+	IEnumerator StartLevel()
+	{
+		mathiasCharacter.transform.DOMove(initialPosition.position, 1f, false).SetEase(Ease.InOutSine);
+		yield return new WaitForSeconds(1f);
 
-        while (elapsedTime < time)
-        {
+		// Flip Mathias and play Back animation
+		mathiasAnimator.SetTrigger("Back");
+		mathiasCharacter.Flip();
 
-            mathiasCharacter.transform.position = Vector3.Lerp(startingPos, initialPosition.position, (elapsedTime / time));
+		// Stairs sound playing
+		audioManager.PlayStairsSound(true);
+		yield return new WaitForSeconds(audioManager.lenghtSound - 1f);
 
-            elapsedTime += Time.deltaTime;
+		// Door sound playing
+		audioManager.PlayOpenDoorSound(true);
+		yield return new WaitForSeconds(2.5f);
 
-            yield return null;
-        }
-        yield return new WaitForSeconds(1f);
+		// Show the background at starting
+		background.gameObject.SetActive(true);
+		background.GetComponent<SpriteRenderer>().color = new Color(110f / 255f, 110f / 255f, 110f / 255f);
+		yield return new WaitForSeconds(2f);
 
-        // Flip Mathias and play Back animation
-        mathiasAnimator.SetTrigger("Back");
-        mathiasCharacter.Flip();
+		// Show dialogues box 
+		ShowDialogues(true);
+		yield return new WaitForSeconds(0.5f);
 
-        // Stairs sound playing
-        audioManager.PlayStairsSound(true);
-        yield return new WaitForSeconds(audioManager.lenghtSound - 1f);
+		// Show Texts into the dialogues box
+		dialogueBox.ShowTexts(true);
 
-        // Door sound playing
-        audioManager.PlayOpenDoorSound(true);
-        yield return new WaitForSeconds(2.5f);
+		// Coroutine End
+		yield break;
+	}
 
-        // Show the background at starting
-        background.gameObject.SetActive(true);
-        background.GetComponent<SpriteRenderer>().color = new Color(110f/255f, 110f/255f, 110f/255f);
-        yield return new WaitForSeconds(2f);
+	IEnumerator MathiasTalkingStep()
+	{
+		if (indexCount == 4)
+			background.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f);
 
-        // Show dialogues box 
-        ShowDialogues(true);
-        yield return new WaitForSeconds(0.5f);
+		// Set Mathias calling talking animation
+		mathiasAnimator.SetTrigger("BackTalking");
+		yield return new WaitForSeconds(1f);
 
-        // Show Texts into the dialogues box
-        dialogueBox.ShowTexts(true);
+		// Set Mathias calling talking animation
+		mathiasAnimator.SetTrigger("Back");
 
-        // Coroutine End
-        yield break;
-    }
+		// Coroutine End
+		yield break;
+	}
 
-    IEnumerator MathiasTalkingStep()
-    {
-        if (indexCount == 4)
-            background.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f);
+	IEnumerator LastStepLevel(bool isEnd)
+	{
+		// Box sound playing
+		if (!isEnd)
+		{
+			audioManager.PlayOpenBoxSound(true);
+			yield return new WaitForSeconds(2f);
+		}
 
-        // Set Mathias calling talking animation
-        mathiasAnimator.SetTrigger("BackTalking");
-        yield return new WaitForSeconds(1f);
+		// Hide Texts into the dialogues box
+		dialogueBox.ShowTexts(false);
+		yield return new WaitForSeconds(0.5f);
 
-        // Set Mathias calling talking animation
-        mathiasAnimator.SetTrigger("Back");
+		// Animation FadOut dialogues box
+		Animator dialoguesAnimator = dialogues.GetComponent<Animator>();
+		dialoguesAnimator.SetTrigger("FadOut");
+		Animator dialoguesNameAnimator = nameDialogues.GetComponent<Animator>();
+		dialoguesNameAnimator.SetTrigger("FadOut");
+		yield return new WaitForSeconds(0.5f);
 
-        // Coroutine End
-        yield break;
-    }
+		// Background fad out animation
+		background.SetTrigger("FadOut");
+		yield return new WaitForSeconds(1f);
 
-    IEnumerator LastStepLevel(bool isEnd)
-    {
-        // Box sound playing
-        if (!isEnd)
-        {
-            audioManager.PlayOpenBoxSound(true);
-            yield return new WaitForSeconds(2f);
-        }
+		// Load end Game Screen is End
+		if (isEnd)
+		{
+			// Hide Mathias 
+			mathiasAnimator.SetTrigger("BackFadOut");
+			yield return new WaitForSeconds(2f);
 
-        // Hide Texts into the dialogues box
-        dialogueBox.ShowTexts(false);
-        yield return new WaitForSeconds(0.5f);
+			GameSystem.Instance.LoadSceneByName("10- Fin");
+		}
 
-        // Animation FadOut dialogues box
-        Animator dialoguesAnimator = dialogues.GetComponent<Animator>();
-        dialoguesAnimator.SetTrigger("FadOut");
-        Animator dialoguesNameAnimator = nameDialogues.GetComponent<Animator>();
-        dialoguesNameAnimator.SetTrigger("FadOut");
-        yield return new WaitForSeconds(0.5f);
+		if (!isEnd)
+			GameSystem.Instance.LoadNextScene();
 
-        // Background fad out animation
-        background.SetTrigger("FadOut");
-        yield return new WaitForSeconds(1f);
+		// Coroutine End
+		yield break;
+	}
 
-        // Load end Game Screen is End
-        if (isEnd)
-        {
-            // Hide Mathias 
-            mathiasAnimator.SetTrigger("BackFadOut");
-            yield return new WaitForSeconds(2f);
+	void ShowDialogues(bool activated)
+	{
+		if (dialogues != null)
+		{
+			if (activated)
+			{
+				dialogues.SetActive(true);
+				nameDialogues.SetActive(true);
+			}
 
-            GameSystem.Instance.LoadSceneByName("10- Fin");
-        }
-
-        if (!isEnd)
-            GameSystem.Instance.LoadNextScene();
-
-        // Coroutine End
-        yield break;
-    }
-
-    void ShowDialogues(bool activated)
-    {
-        if (dialogues != null)
-        {
-            if (activated)
-            {
-                dialogues.SetActive(true);
-                nameDialogues.SetActive(true);
-            }
-
-            if (!activated)
-            {
-                dialogues.SetActive(false);
-                nameDialogues.SetActive(false);
-            }
-        }
-    }
+			if (!activated)
+			{
+				dialogues.SetActive(false);
+				nameDialogues.SetActive(false);
+			}
+		}
+	}
 }

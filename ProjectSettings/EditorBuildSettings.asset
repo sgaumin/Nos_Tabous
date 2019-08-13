@@ -6,45 +6,45 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/0a- Splash Screen.unity
+    path: Assets/_Scenes/0a- Splash Screen.unity
     guid: 172dfb1b983812c4dbb263dc616b3bd6
   - enabled: 1
-    path: Assets/Scenes/0c- Credits.unity
+    path: Assets/_Scenes/0c- Credits.unity
     guid: 245f7e86079e1df4a9e0de63bdc28b71
   - enabled: 1
-    path: Assets/Scenes/0b- Menu.unity
+    path: Assets/_Scenes/0b- Menu.unity
     guid: 0c7fa640b1a60f54494d287a8c5cce91
   - enabled: 1
-    path: Assets/Scenes/1- Appel.unity
+    path: Assets/_Scenes/1- Appel.unity
     guid: d35df22434470fb4fa68c3154a9129a7
   - enabled: 1
-    path: Assets/Scenes/2- Separation.unity
+    path: Assets/_Scenes/2- Separation.unity
     guid: 4aefb3d29ecc012418758309047a5df5
   - enabled: 1
-    path: Assets/Scenes/3- Excuses.unity
+    path: Assets/_Scenes/3- Excuses.unity
     guid: 36e5dae8672c8214faa3565efdfe6cae
   - enabled: 1
-    path: Assets/Scenes/4- Voiture.unity
+    path: Assets/_Scenes/4- Voiture.unity
     guid: 07336b39ba63c564c80fcaaa9360a3e4
   - enabled: 1
-    path: Assets/Scenes/5- Retour.unity
+    path: Assets/_Scenes/5- Retour.unity
     guid: 67ab4956d89630a43b2450a14429c315
   - enabled: 1
-    path: Assets/Scenes/6- Avant Grenier.unity
+    path: Assets/_Scenes/6- Avant Grenier.unity
     guid: e6fc87605b0a8b2489a492501dce3674
   - enabled: 1
-    path: Assets/Scenes/7- Grenier.unity
+    path: Assets/_Scenes/7- Grenier.unity
     guid: ae7633255ec6aed4699837700b42ce5a
   - enabled: 1
-    path: Assets/Scenes/8- Malle.unity
+    path: Assets/_Scenes/8- Malle.unity
     guid: 427df45c1b6ee4a439adcb3800b56aec
   - enabled: 1
-    path: Assets/Scenes/8b- Malle conclusions.unity
+    path: Assets/_Scenes/8b- Malle conclusions.unity
     guid: 6e2c7c24f4289b34c9ad12de70f5be97
   - enabled: 1
-    path: Assets/Scenes/9- Apres Grenier.unity
+    path: Assets/_Scenes/9- Apres Grenier.unity
     guid: f6eb91159e121fa41a502398c04eca83
   - enabled: 1
-    path: Assets/Scenes/10- Fin.unity
+    path: Assets/_Scenes/10- Fin.unity
     guid: fe24a3e632f434e45958dccbfc30d433
   m_configObjects: {}

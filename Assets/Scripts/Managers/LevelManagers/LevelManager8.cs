@@ -5,6 +5,15 @@ using UnityEngine.UI;
 
 public class LevelManager8 : MonoBehaviour
 {
+	private enum LevelState
+	{
+		Zero,
+		First,
+		Second,
+		Third,
+		Fourth
+	}
+
 	[SerializeField] private GrenierObjects henriLetter;
 	[SerializeField] private GameObject commentsBox;
 	[SerializeField] private GameObject lettersBox;
@@ -13,19 +22,16 @@ public class LevelManager8 : MonoBehaviour
 
 	private GrenierObjects[] grenierObjects;
 
-	private int countObject;
-	private int currentStep;
-
+	private LevelState currentStep = LevelState.First;
 
 	// TO DO: BUG si on terminer par selectionner la lettre d'André
-	void Start()
+	protected void Start()
 	{
 		// Hide Henri's letter
 		henriLetter.gameObject.SetActive(false);
 
 		// Reteive all objects
 		grenierObjects = FindObjectsOfType<GrenierObjects>();
-		countObject = grenierObjects.Length;
 
 		// Hide UI
 		commentsBox.SetActive(false);
@@ -35,52 +41,47 @@ public class LevelManager8 : MonoBehaviour
 		// Starting level scripting
 		StartCoroutine(StartStep());
 
-		currentStep = 0;
+		currentStep = LevelState.Zero;
 	}
 
-	void Update()
+	protected void Update()
 	{
 		// If all objects is checked
-		if (currentStep == 1)
-			if (!isAllChecked())
+		if (currentStep == LevelState.First)
+			if (!IsAllObjectsChecked())
 			{
 				return;
 			}
 			else
 			{
-				if (currentStep != 2)
+				if (currentStep != LevelState.Second)
 				{
 					// Show Henri's letter
-					currentStep = 3;
+					currentStep = LevelState.Third;
 					StartCoroutine(ShowHenriLetter());
 					return;
 				}
 			}
 
 		// If Andre's letter is checked
-		if (currentStep == 2)
+		if (currentStep == LevelState.Second)
 		{
 			if (Input.anyKeyDown)
 			{
-				currentStep = 1;
+				currentStep = LevelState.First;
 				StartCoroutine(HideLetter());
 			}
 		}
 	}
 
-	IEnumerator StartStep()
+	private IEnumerator StartStep()
 	{
 		yield return new WaitForSeconds(1f);
 		commentsBox.SetActive(true);
-
-		// Increase step
-		currentStep++;
-
-		// End of coroutine
-		yield break;
+		currentStep = LevelState.First;
 	}
 
-	IEnumerator ShowHenriLetter()
+	private IEnumerator ShowHenriLetter()
 	{
 		// Stop click interactions
 		yield return new WaitForSeconds(0.2f);
@@ -92,9 +93,6 @@ public class LevelManager8 : MonoBehaviour
 
 		// Hide dialogueBox
 		commentsBox.SetActive(false);
-
-		// End of coroutine
-		yield break;
 	}
 
 	public IEnumerator ShowLetter(bool isHenriLetter)
@@ -110,22 +108,20 @@ public class LevelManager8 : MonoBehaviour
 		henriLetter.GetComponent<GrenierObjects>().CanBeSelected = false;
 		SetAllClickable(false);
 
-		// Andre's Letter step
-		if (!isHenriLetter)
-			currentStep = 2;
-
 		if (isHenriLetter)
 		{
 			// Henri's letter step
-			currentStep = 4;
+			currentStep = LevelState.Fourth;
 
 			// Show Quit Button
 			yield return new WaitForSeconds(0.2f);
 			quitButton.gameObject.SetActive(true);
 		}
-
-		// End of coroutine
-		yield break;
+		else
+		{
+			// Andre's Letter step
+			currentStep = LevelState.Second;
+		}
 	}
 
 	public IEnumerator HideLetter()
@@ -139,17 +135,11 @@ public class LevelManager8 : MonoBehaviour
 		// Allow click interaction
 		yield return new WaitForSeconds(0.2f);
 		SetAllClickable(true);
-
-		// End of coroutine
-		yield break;
 	}
 
-	public void LaunchFinalSteps()
-	{
-		StartCoroutine(FinalStep());
-	}
+	private void LaunchFinalSteps() => StartCoroutine(FinalStep());
 
-	IEnumerator FinalStep()
+	private IEnumerator FinalStep()
 	{
 		// Waiting time
 		yield return new WaitForSeconds(1f);
@@ -169,26 +159,10 @@ public class LevelManager8 : MonoBehaviour
 
 		// Load Next scene
 		GameSystem.Instance.LoadNextScene();
-
-		// End of coroutine
-		yield break;
 	}
 
 	// Check if all objects is checked
-	bool isAllChecked()
-	{
-		int compteur = 0;
-		foreach (GrenierObjects grenierObject in grenierObjects)
-		{
-			if (grenierObject.IsChecked)
-				compteur++;
-		}
+	private bool IsAllObjectsChecked() => Array.TrueForAll(grenierObjects, x => x.IsChecked);
 
-		if (compteur == countObject)
-			return true;
-
-		return false;
-	}
-
-	void SetAllClickable(bool value) => Array.ForEach(grenierObjects, x => x.CanBeSelected = value);
+	private void SetAllClickable(bool value) => Array.ForEach(grenierObjects, x => x.CanBeSelected = value);
 }

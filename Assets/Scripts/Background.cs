@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System.Collections;
 using UnityEngine;
 
 public class Background : MonoBehaviour
@@ -13,7 +14,15 @@ public class Background : MonoBehaviour
 		sprite.DOFade(0f, 0f);
 	}
 
-	public void FadIn() => sprite.DOFade(1f, 1f);
+	public IEnumerator FadIn()
+	{
+		Tween fad = sprite.DOFade(1f, 1f);
+		yield return fad.WaitForCompletion(true);
+	}
 
-	public void FadOut() => sprite.DOFade(0f, 1f);
+	public IEnumerator FadOut()
+	{
+		Tween fad = sprite.DOFade(0f, 1f);
+		yield return fad.WaitForCompletion(true);
+	}
 }

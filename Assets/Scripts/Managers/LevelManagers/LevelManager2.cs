@@ -122,8 +122,7 @@ public class LevelManager2 : LevelSequence
 		mathiasCharacter.Flip();
 		yield return new WaitForSeconds(0.5f);
 
-		background.FadIn();
-		yield return new WaitForSeconds(1f);
+		StartCoroutine(background.FadIn());
 
 		// Caroline start talking animation
 		carolineAnimator.SetTrigger("Talking");

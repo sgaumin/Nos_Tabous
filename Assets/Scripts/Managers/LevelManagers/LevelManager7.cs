@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelManager7 : LevelSequence
 {
 	[SerializeField] private Animator mathiasAnimator;
-	[SerializeField] private Animator background;
+	[SerializeField] private Background background;
 
 	[SerializeField] private Transform initialPosition;
 
@@ -21,9 +21,6 @@ public class LevelManager7 : LevelSequence
 	{
 		// Asign Character components
 		mathiasCharacter = mathiasAnimator.gameObject.GetComponent<Character>();
-
-		// Hide the background at starting
-		background.gameObject.SetActive(false);
 
 		// Index for checking the current IndexDialogue of DialogueSystemScript script 
 		indexCount = 999;
@@ -87,9 +84,8 @@ public class LevelManager7 : LevelSequence
 		audioManager.PlayOpenDoorSound(true);
 		yield return new WaitForSeconds(2.5f);
 
-		// Show the background at starting
-		background.gameObject.SetActive(true);
-		background.GetComponent<SpriteRenderer>().color = new Color(110f / 255f, 110f / 255f, 110f / 255f);
+		background.GetComponent<SpriteRenderer>().color = new Color(110f / 255f, 110f / 255f, 110f / 255f, 0f);
+		StartCoroutine(background.FadIn());
 		yield return new WaitForSeconds(2f);
 
 		// Show dialogues box 
@@ -135,8 +131,7 @@ public class LevelManager7 : LevelSequence
 		yield return new WaitForSeconds(0.5f);
 
 		// Background fad out animation
-		background.SetTrigger("FadOut");
-		yield return new WaitForSeconds(1f);
+		StartCoroutine(background.FadOut());
 
 		// Load end Game Screen is End
 		if (isEnd)

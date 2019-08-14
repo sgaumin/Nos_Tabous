@@ -6,7 +6,7 @@ public class LevelManager6 : LevelSequence
 	[SerializeField] private Animator mathiasAnimator;
 	[SerializeField] private Animator sylvieAnimator;
 
-	[SerializeField] private Animator background;
+	[SerializeField] private Background background;
 
 	[SerializeField] private GameObject clock;
 
@@ -29,7 +29,6 @@ public class LevelManager6 : LevelSequence
 
 		// Hide
 		sylvieCharacter.gameObject.SetActive(false);
-		background.gameObject.SetActive(false);
 		clock.SetActive(false);
 
 		// Index for checking the current IndexDialogue of DialogueSystemScript script 
@@ -102,8 +101,7 @@ public class LevelManager6 : LevelSequence
 		yield return new WaitForSeconds(0.5f);
 
 		// Background fad out animation
-		background.SetTrigger("FadOut");
-		yield return new WaitForSeconds(2f);
+		StartCoroutine(background.FadOut());
 
 		// Coroutine End
 		GameSystem.Instance.LoadNextScene();
@@ -121,8 +119,7 @@ public class LevelManager6 : LevelSequence
 		yield return new WaitForSeconds(0.5f);
 
 		// Show Background
-		background.gameObject.SetActive(true);
-		yield return new WaitForSeconds(1f);
+		StartCoroutine(background.FadIn());
 
 		// Show sylvie Character
 		sylvieCharacter.gameObject.SetActive(true);

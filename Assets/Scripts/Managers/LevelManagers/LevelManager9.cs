@@ -7,7 +7,7 @@ public class LevelManager9 : LevelSequence
 	[SerializeField] private Animator henryAnimator;
 	[SerializeField] private Animator sylvieAnimator;
 
-	[SerializeField] private Animator background;
+	[SerializeField] private Background background;
 
 	// UI
 	[SerializeField] private Animator fadOutScreen;
@@ -104,8 +104,7 @@ public class LevelManager9 : LevelSequence
 		yield return new WaitForSeconds(1f);
 
 		// Show Background
-		background.gameObject.SetActive(true);
-		yield return new WaitForSeconds(1f);
+		StartCoroutine(background.FadIn());
 
 		// Show Henry & Sylvie Characters facing
 		henryCharacter.gameObject.SetActive(true);
@@ -208,15 +207,7 @@ public class LevelManager9 : LevelSequence
 		yield return new WaitForSeconds(0.5f);
 
 		// Background fad out animation
-		background.SetTrigger("FadOut");
-		yield return new WaitForSeconds(2f);
-
-		// Characters Fad Out animation
-		//henryAnimator.SetTrigger("FadOut");
-		//sylvieAnimator.SetTrigger("FadOut");
-
-		//mathiasAnimator.SetTrigger("FadOut");
-		//yield return new WaitForSeconds(1f);
+		StartCoroutine(background.FadOut());
 
 		fadOutScreen.SetTrigger("FadOut");
 		yield return new WaitForSeconds(2f);

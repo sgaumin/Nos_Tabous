@@ -8,7 +8,6 @@ public class LevelManager1 : LevelSequence
 	[SerializeField] private Animator mathiasAnimator;
 	[SerializeField] private Animator henriAnimator;
 	[SerializeField] private Image disclaimer;
-	[SerializeField] private GameObject nameDialogues;
 
 	[SerializeField] private AudioPlayer1 audioManager;
 
@@ -189,8 +188,6 @@ public class LevelManager1 : LevelSequence
 		// Animation FadOut dialogues box
 		Animator dialoguesAnimator = DialogueBox.Instance.GetComponent<Animator>();
 		dialoguesAnimator.SetTrigger("FadOut");
-		Animator dialoguesNameAnimator = nameDialogues.GetComponent<Animator>();
-		dialoguesNameAnimator.SetTrigger("FadOut");
 
 		// Quit PLay Mode
 		yield return new WaitForSeconds(2f);

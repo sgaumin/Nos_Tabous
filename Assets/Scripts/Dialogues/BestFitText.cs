@@ -5,5 +5,5 @@ public class BestFitText : MonoBehaviour
 {
 	public static int BestFitFrontSize { get; private set; }
 
-	private void Start() => BestFitFrontSize = GetComponent<Text>().cachedTextGenerator.fontSizeUsedForBestFit;
+	private void Update() => BestFitFrontSize = GetComponent<Text>().cachedTextGenerator.fontSizeUsedForBestFit;
 }

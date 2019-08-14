@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class TextChoixScript : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
 	[SerializeField] private int ChoiceNumber;
-	[SerializeField] private OneDialogueElementList DialogueContent;
 
 	private string text;
 	private int indexChoice;
@@ -16,6 +15,8 @@ public class TextChoixScript : MonoBehaviour, IPointerDownHandler, IPointerEnter
 	private bool FadeInNotOut;
 	private float opacity;
 	private int indexDialogueSave;
+
+	public OneDialogueElementList DialogueContent { get; set; }
 
 	void Start()
 	{

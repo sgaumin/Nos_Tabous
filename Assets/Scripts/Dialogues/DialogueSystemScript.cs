@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class DialogueSystemScript : MonoBehaviour
 {
-	public OneDialogueElementList DialogueContent;
 	public static int indexDialogue;
 	public static bool isTabou;
 
@@ -19,6 +18,8 @@ public class DialogueSystemScript : MonoBehaviour
 	private bool IsReady;
 	public static float opacity;
 	public static int choiceToFadeOut;
+
+	public OneDialogueElementList DialogueContent { get; set; }
 
 	void Start()
 	{

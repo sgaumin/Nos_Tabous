@@ -11,6 +11,9 @@ public class LevelManager1 : LevelSequence
 
 	[SerializeField] private AudioPlayer1 audioManager;
 
+	[Header("Debug")]
+	[SerializeField] private bool skipDisclaimer;
+
 	private Character mathiasCharacter;
 	private Character henriCharacter;
 	private int indexCount;
@@ -80,9 +83,12 @@ public class LevelManager1 : LevelSequence
 		yield return new WaitForSeconds(1f);
 
 		//Show Disclaimer
-		disclaimer.gameObject.SetActive(true);
-		yield return new WaitForSeconds(13f);
-		disclaimer.gameObject.SetActive(false);
+		if (!skipDisclaimer)
+		{
+			disclaimer.gameObject.SetActive(true);
+			yield return new WaitForSeconds(13f);
+			disclaimer.gameObject.SetActive(false);
+		}
 
 		// Show Henri
 		yield return new WaitForSeconds(2f);

@@ -93,7 +93,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChoiceNumber: 1
-  DialogueContent: {fileID: 0}
 --- !u!1 &5937179895712527291
 GameObject:
   m_ObjectHideFlags: 0
@@ -280,7 +279,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChoiceNumber: 4
-  DialogueContent: {fileID: 0}
 --- !u!1 &5937179896412478346
 GameObject:
   m_ObjectHideFlags: 0
@@ -374,7 +372,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChoiceNumber: 2
-  DialogueContent: {fileID: 0}
 --- !u!1 &5937179896451719409
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,7 +583,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChoiceNumber: 3
-  DialogueContent: {fileID: 0}
 --- !u!1 &5937179896754259202
 GameObject:
   m_ObjectHideFlags: 0
@@ -869,13 +865,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6087e04a9d3597b45a4d03f800a339f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textDialogues:
-  - {fileID: 5937179895550561228}
-  - {fileID: 5937179896412478344}
-  - {fileID: 5937179896611504460}
-  - {fileID: 5937179896220560684}
-  - {fileID: 5937179895712527289}
-  - {fileID: 5937179896754259207}
+  language: 0
+  french: {fileID: 11400000, guid: 3ae2a1b502cd43f42ae961fadb7e3c88, type: 2}
+  english: {fileID: 11400000, guid: 0812bcf5ecd1e6e4ca71267158ab382b, type: 2}
+  japanese: {fileID: 0}
+  sentence: {fileID: 5937179895712527295}
+  name: {fileID: 5937179896754259200}
+  choices:
+  - {fileID: 5937179895550561074}
+  - {fileID: 5937179896412478350}
+  - {fileID: 5937179896611505842}
+  - {fileID: 5937179896220560658}
 --- !u!1 &7102421948084648644
 GameObject:
   m_ObjectHideFlags: 0

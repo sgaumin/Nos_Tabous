@@ -1,266 +1,224 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class LevelManager1 : MonoBehaviour
+public class LevelManager1 : LevelSequence
 {
-    // TO DO: Create an abract class to avoid repetition in variables between all LevelManager
-    // TO DO: Create objet Event per Step
-    [SerializeField] private Animator mathiasAnimator;
-    [SerializeField] private Animator henriAnimator;
-    [SerializeField] private GameObject disclaimer;
-    [SerializeField] private GameObject dialogues;
-    [SerializeField] private GameObject nameDialogues;
+	// TO DO: Create an abract class to avoid repetition in variables between all LevelManager
+	[SerializeField] private Animator mathiasAnimator;
+	[SerializeField] private Animator henriAnimator;
+	[SerializeField] private Image disclaimer;
+	[SerializeField] private GameObject nameDialogues;
 
-    [SerializeField] private AudioPlayer1 audioManager;
+	[SerializeField] private AudioPlayer1 audioManager;
 
-    private Character mathiasCharacter;
-    private Character henriCharacter;
-    private DialogueBox dialogueBox;
-    private int indexCount;
+	private Character mathiasCharacter;
+	private Character henriCharacter;
+	private int indexCount;
 
-    void Start()
-    {
-        // Asign Character components
-        mathiasCharacter = mathiasAnimator.gameObject.GetComponent<Character>();
-        henriCharacter = henriAnimator.gameObject.GetComponent<Character>();
+	void Start()
+	{
+		// Asign Character components
+		mathiasCharacter = mathiasAnimator.gameObject.GetComponent<Character>();
+		henriCharacter = henriAnimator.gameObject.GetComponent<Character>();
 
-        // Asign DialogueBox component
-        dialogueBox = dialogues.GetComponent<DialogueBox>();
+		// Hide Mathias & Henri Character at Starting
+		mathiasCharacter.gameObject.SetActive(false);
+		henriCharacter.gameObject.SetActive(false);
 
-        // Hide Mathias & Henri Character at Starting
-        mathiasCharacter.gameObject.SetActive(false);
-        henriCharacter.gameObject.SetActive(false);
+		// Hide
+		disclaimer.gameObject.SetActive(false);
 
-        // Hide
-        disclaimer.SetActive(false);
+		// Index for checking the current IndexDialogue of DialogueSystemScript script 
+		indexCount = 999;
 
-        // Index for checking the current IndexDialogue of DialogueSystemScript script 
-        indexCount = 999;
+		// Hide Dialogue Box
+		ShowDialogues(false);
+	}
 
-        // Hide Dialogue Box
-        ShowDialogues(false);
-    }
+	// TO DO: Create a Delegate function on DialogueSystemScript for isTabou & indexDialogue variables
+	private void Update()
+	{
+		// Check if the choice is Tabou and set the animation
+		if (DialogueSystemScript.isTabou)
+			StartCoroutine(TabouStepLevel());
 
-    // TO DO: Create a Delegate function on DialogueSystemScript for isTabou & indexDialogue variables
-    private void Update()
-    {
-        // Check if the choice is Tabou and set the animation
-        if (DialogueSystemScript.isTabou)
-            StartCoroutine(TabouStepLevel());
+		// Set Animation and Sound according to the Dialogue Index
+		if (DialogueSystemScript.indexDialogue == indexCount)
+			return;
 
-        // Set Animation and Sound according to the Dialogue Index
-        if (DialogueSystemScript.indexDialogue == indexCount)
-            return;
+		indexCount = DialogueSystemScript.indexDialogue;
 
-        indexCount = DialogueSystemScript.indexDialogue;
+		// Start Level scripting
+		if (indexCount == 0)
+			StartCoroutine(StartLevel());
 
-        // Start Level scripting
-        if (indexCount == 0)
-            StartCoroutine(StartLevel());
+		// Mathias Talking
+		if (indexCount == 2 || indexCount == 4 || indexCount == 5 || indexCount == 8 || indexCount == 10 || indexCount == 13)
+			StartCoroutine(MathiasTalkingStep());
 
-        // Mathias Talking
-        if (indexCount == 2 || indexCount == 4 || indexCount == 5 || indexCount == 8 || indexCount == 10 || indexCount == 13)
-            StartCoroutine(MathiasTalkingStep());
+		// Mathias Anger
+		if (indexCount == 15)
+			StartCoroutine(AngerStepLevel());
 
-        // Mathias Anger
-        if (indexCount == 15)
-            StartCoroutine(AngerStepLevel());
-
-        // Mathias AngryIdle
-        if (indexCount == 14)
-            AngerIdleStep();
+		// Mathias AngryIdle
+		if (indexCount == 14)
+			AngerIdleStep();
 
 
-        // Henri Talking
-        if (indexCount == 1 || indexCount == 3 || indexCount == 6  || indexCount == 9 || indexCount == 12 || indexCount == 14)
-            StartCoroutine(HenriTalkingStep());
+		// Henri Talking
+		if (indexCount == 1 || indexCount == 3 || indexCount == 6 || indexCount == 9 || indexCount == 12 || indexCount == 14)
+			StartCoroutine(HenriTalkingStep());
 
-        // Final Step
-        if (indexCount == 15)
-            StartCoroutine(LastStepLevel());
-    }
+		// Final Step
+		if (indexCount == 15)
+			StartCoroutine(LastStepLevel());
+	}
 
-    IEnumerator StartLevel()
-    {
-        // Waiting before starting
-        yield return new WaitForSeconds(1f);
+	IEnumerator StartLevel()
+	{
+		// Waiting before starting
+		yield return new WaitForSeconds(1f);
 
-        //Show Disclaimer
-        disclaimer.SetActive(true);
-        yield return new WaitForSeconds(13f);
-        disclaimer.SetActive(false);
+		//Show Disclaimer
+		disclaimer.gameObject.SetActive(true);
+		yield return new WaitForSeconds(13f);
+		disclaimer.gameObject.SetActive(false);
 
-        // Show Henri
-        yield return new WaitForSeconds(2f);
-        henriCharacter.gameObject.SetActive(true);
+		// Show Henri
+		yield return new WaitForSeconds(2f);
+		henriCharacter.gameObject.SetActive(true);
 
-        // Henri phone call animation
-        yield return new WaitForSeconds(2f);
-        henriAnimator.SetTrigger("BackCallStarting");
+		// Henri phone call animation
+		yield return new WaitForSeconds(2f);
+		henriAnimator.SetTrigger("BackCallStarting");
 
-        // Phone sound playing
-        yield return new WaitForSeconds(1f);
-        audioManager.PlayPhoneSound(true);
+		// Phone sound playing
+		yield return new WaitForSeconds(1f);
+		audioManager.PlayPhoneSound(true);
 
-        // Show Mathias character
-        yield return new WaitForSeconds(2f);
-        mathiasCharacter.gameObject.SetActive(true);
+		// Show Mathias character
+		yield return new WaitForSeconds(2f);
+		mathiasCharacter.gameObject.SetActive(true);
 
-        // Activate fad in animation for Mathias
-        mathiasAnimator.SetBool("IsFadIn", true);
+		// Activate fad in animation for Mathias
+		mathiasAnimator.SetBool("IsFadIn", true);
 
-        // Mathias pick up the phone animation
-        yield return new WaitForSeconds(2f);
-        mathiasAnimator.SetTrigger("CallStarting");
+		// Mathias pick up the phone animation
+		yield return new WaitForSeconds(2f);
+		mathiasAnimator.SetTrigger("CallStarting");
 
-        // End phone sound
-        audioManager.PlayPhoneSound(false);
-        yield return new WaitForSeconds(0.5f);
+		// End phone sound
+		audioManager.PlayPhoneSound(false);
+		yield return new WaitForSeconds(0.5f);
 
-        // Henri turn
-        henriCharacter.Flip();
-        yield return new WaitForSeconds(1f);
+		// Henri turn
+		henriCharacter.Flip();
+		yield return new WaitForSeconds(1f);
 
-        // Henri start talking animation
-        henriAnimator.SetTrigger("BackCallTalking");
-        yield return new WaitForSeconds(0.5f);
+		// Henri start talking animation
+		henriAnimator.SetTrigger("BackCallTalking");
+		yield return new WaitForSeconds(0.5f);
 
-        // Show dialogues box 
-        ShowDialogues(true);
-        yield return new WaitForSeconds(0.5f);
+		// Show dialogues box 
+		ShowDialogues(true);
+		yield return new WaitForSeconds(0.5f);
 
-        // Show Texts into the dialogues box
-        dialogueBox.ShowTexts(true);
+		// Show Texts into the dialogues box
+		DialogueBox.Instance.ShowTexts(true);
+	}
 
-        // Coroutine End
-        yield break;
-    }
+	IEnumerator MathiasTalkingStep()
+	{
+		// Set Henri calling idle animation
+		henriAnimator.SetTrigger("BackCallIdle");
+		yield return new WaitForSeconds(0.2f);
 
-    IEnumerator MathiasTalkingStep()
-    {
-        // Set Henri calling idle animation
-        henriAnimator.SetTrigger("BackCallIdle");
-        yield return new WaitForSeconds(0.2f);
+		// Set Mathias calling talking animation
+		mathiasAnimator.SetTrigger("CallTalking");
+	}
 
-        // Set Mathias calling talking animation
-        mathiasAnimator.SetTrigger("CallTalking");
+	IEnumerator HenriTalkingStep()
+	{
+		// Set Mathias calling idle animation
+		if (indexCount != 1)
+		{
+			mathiasAnimator.SetTrigger("CallIdle");
 
-        // Coroutine End
-        yield break;
-    }
+			// Set Henri calling talking animation
+			yield return new WaitForSeconds(0.2f);
+			henriAnimator.SetTrigger("BackCallTalking");
+		}
+	}
 
-    IEnumerator HenriTalkingStep()
-    {
-        // Set Mathias calling idle animation
-        if (indexCount != 1)
-        {
-            mathiasAnimator.SetTrigger("CallIdle");
+	IEnumerator LastStepLevel()
+	{
+		// Set Henri calling idle animation
+		henriAnimator.SetTrigger("BackCallIdle");
+		yield return new WaitForSeconds(0.2f);
 
-            // Set Henri calling talking animation
-            yield return new WaitForSeconds(0.2f);
-            henriAnimator.SetTrigger("BackCallTalking");
-        }
+		// Animation hang up Mathias
+		mathiasAnimator.SetTrigger("CallIdle");
+		yield return new WaitForSeconds(0.2f);
+		mathiasAnimator.SetTrigger("CallEnding");
+		yield return new WaitForSeconds(0.2f);
 
-        // Coroutine End
-        yield break;
-    }
+		// Set Mathias Anger animation
+		mathiasAnimator.SetTrigger("AngerIdle");
+		yield return new WaitForSeconds(1.5f);
 
-    IEnumerator LastStepLevel()
-    {
-        // Set Henri calling idle animation
-        henriAnimator.SetTrigger("BackCallIdle");
-        yield return new WaitForSeconds(0.2f);
+		// Henri turn
+		henriCharacter.Flip();
+		yield return new WaitForSeconds(1f);
 
-        // Animation hang up Mathias
-        mathiasAnimator.SetTrigger("CallIdle");
-        yield return new WaitForSeconds(0.2f);
-        mathiasAnimator.SetTrigger("CallEnding");
-        yield return new WaitForSeconds(0.2f);
+		// Animation hang up Henri
+		henriAnimator.SetTrigger("BackCallEnding");
+		yield return new WaitForSeconds(1f);
 
-        // Set Mathias Anger animation
-        mathiasAnimator.SetTrigger("AngerIdle");
-        yield return new WaitForSeconds(1.5f);
+		// Animation FadOut Henri
+		henriAnimator.SetTrigger("FadOut");
+		yield return new WaitForSeconds(2f);
 
-        // Henri turn
-        henriCharacter.Flip();
-        yield return new WaitForSeconds(1f);
+		// Set Mathias Anger animation
+		mathiasAnimator.SetTrigger("Reset");
 
-        // Animation hang up Henri
-        henriAnimator.SetTrigger("BackCallEnding");
-        yield return new WaitForSeconds(1f);
+		// Hide Texts into the dialogues box
+		DialogueBox.Instance.ShowTexts(false);
+		yield return new WaitForSeconds(0.5f);
 
-        // Animation FadOut Henri
-        henriAnimator.SetTrigger("FadOut");
-        yield return new WaitForSeconds(2f);
+		// Animation FadOut dialogues box
+		Animator dialoguesAnimator = DialogueBox.Instance.GetComponent<Animator>();
+		dialoguesAnimator.SetTrigger("FadOut");
+		Animator dialoguesNameAnimator = nameDialogues.GetComponent<Animator>();
+		dialoguesNameAnimator.SetTrigger("FadOut");
 
-        // Set Mathias Anger animation
-        mathiasAnimator.SetTrigger("Reset");
+		// Quit PLay Mode
+		yield return new WaitForSeconds(2f);
+		GameSystem.Instance.LoadNextScene();
+	}
 
-        // Hide Texts into the dialogues box
-        dialogueBox.ShowTexts(false);
-        yield return new WaitForSeconds(0.5f);
+	IEnumerator TabouStepLevel()
+	{
+		mathiasAnimator.SetTrigger("CallIdle");
+		mathiasAnimator.SetTrigger("CallTabou");
 
-        // Animation FadOut dialogues box
-        Animator dialoguesAnimator = dialogues.GetComponent<Animator>();
-        dialoguesAnimator.SetTrigger("FadOut");
-        Animator dialoguesNameAnimator = nameDialogues.GetComponent<Animator>();
-        dialoguesNameAnimator.SetTrigger("FadOut");
+		yield return new WaitForSeconds(0.2f);
+		mathiasAnimator.SetTrigger("CallTalking");
+	}
 
-        // Quit PLay Mode
-        yield return new WaitForSeconds(2f);
-        GameSystem.Instance.LoadNextScene();
+	IEnumerator AngerStepLevel()
+	{
+		// Set Henri calling idle animation
+		henriAnimator.SetTrigger("BackCallIdle");
+		yield return new WaitForSeconds(0.5f);
 
-        // Coroutine End
-        yield break;
-    }
+		// Set Mathias calling anger animation
+		mathiasAnimator.SetTrigger("CallAnger");
+	}
 
-    IEnumerator TabouStepLevel()
-    {
-        mathiasAnimator.SetTrigger("CallIdle");
-        mathiasAnimator.SetTrigger("CallTabou");
-
-        yield return new WaitForSeconds(0.2f);
-        mathiasAnimator.SetTrigger("CallTalking");
-
-        // Coroutine End
-        yield break;
-    }
-
-    IEnumerator AngerStepLevel()
-    {
-        // Set Henri calling idle animation
-        henriAnimator.SetTrigger("BackCallIdle");
-        yield return new WaitForSeconds(0.5f);
-
-        // Set Mathias calling anger animation
-        mathiasAnimator.SetTrigger("CallAnger");
-
-        // Coroutine End
-        yield break;
-    }
-
-    void AngerIdleStep()
-    {
-        // Set Mathias calling anger animation
-        mathiasAnimator.SetTrigger("CallAngerIdle");
-    }
-
-    // TO DO: Create a Utilities class with this Method used by all Level Managers
-    void ShowDialogues(bool activated)
-    {
-        if (dialogues != null)
-        {
-            if (activated)
-            {
-                dialogues.SetActive(true);
-                nameDialogues.SetActive(true);
-            }
-
-            if (!activated)
-            {
-                dialogues.SetActive(false);
-                nameDialogues.SetActive(false);
-            }
-        }
-    }
+	void AngerIdleStep()
+	{
+		// Set Mathias calling anger animation
+		mathiasAnimator.SetTrigger("CallAngerIdle");
+	}
 }

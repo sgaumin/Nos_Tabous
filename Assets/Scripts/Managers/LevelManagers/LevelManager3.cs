@@ -1,14 +1,10 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class LevelManager3 : MonoBehaviour
+public class LevelManager3 : LevelSequence
 {
 	[SerializeField] private Animator mathiasAnimator;
 	[SerializeField] private Animator henriAnimator;
-
-	// Dialogue Box Assets
-	[SerializeField] private GameObject dialogues;
-	[SerializeField] private GameObject nameDialogues;
 
 	// Objects
 	[SerializeField] private GameObject clock;
@@ -18,7 +14,7 @@ public class LevelManager3 : MonoBehaviour
 
 	private Character mathiasCharacter;
 	private Character henriCharacter;
-	private DialogueBox dialogueBox;
+
 	private int indexCount;
 
 	private bool isStarting = true;
@@ -28,9 +24,6 @@ public class LevelManager3 : MonoBehaviour
 		// Asign Character components
 		mathiasCharacter = mathiasAnimator.gameObject.GetComponent<Character>();
 		henriCharacter = henriAnimator.gameObject.GetComponent<Character>();
-
-		// Asign DialogueBox component
-		dialogueBox = dialogues.GetComponent<DialogueBox>();
 
 		// Hide 
 		henriCharacter.gameObject.SetActive(false);
@@ -134,10 +127,7 @@ public class LevelManager3 : MonoBehaviour
 		yield return new WaitForSeconds(0.5f);
 
 		// Show Texts into the dialogues box
-		dialogueBox.ShowTexts(true);
-
-		// Coroutine End
-		yield break;
+		DialogueBox.Instance.ShowTexts(true);
 	}
 
 	private IEnumerator SecondStepLevel()
@@ -148,9 +138,6 @@ public class LevelManager3 : MonoBehaviour
 
 		// Set Mathias calling talking animation
 		mathiasAnimator.SetTrigger("CallTalking");
-
-		// Coroutine End
-		yield break;
 	}
 
 	private IEnumerator ThirdStepLevel()
@@ -161,9 +148,6 @@ public class LevelManager3 : MonoBehaviour
 		// Set Henri calling talking animation
 		yield return new WaitForSeconds(0.5f);
 		henriAnimator.SetTrigger("BackCallTalking");
-
-		// Coroutine End
-		yield break;
 	}
 
 	private IEnumerator TabouStepLevel()
@@ -173,9 +157,6 @@ public class LevelManager3 : MonoBehaviour
 
 		yield return new WaitForSeconds(0.2f);
 		mathiasAnimator.SetTrigger("CallTalking");
-
-		// Coroutine End
-		yield break;
 	}
 
 	private IEnumerator LastStepLevel()
@@ -209,15 +190,12 @@ public class LevelManager3 : MonoBehaviour
 		yield return new WaitForSeconds(0.5f);
 
 		// Hide Texts into the dialogues box
-		dialogueBox.ShowTexts(false);
+		DialogueBox.Instance.ShowTexts(false);
 		yield return new WaitForSeconds(0.5f);
 
 		// Animation FadOut dialogues box
-		Animator dialoguesAnimator = dialogues.GetComponent<Animator>();
+		Animator dialoguesAnimator = DialogueBox.Instance.GetComponent<Animator>();
 		dialoguesAnimator.SetTrigger("FadOut");
-
-		Animator dialoguesNameAnimator = nameDialogues.GetComponent<Animator>();
-		dialoguesNameAnimator.SetTrigger("FadOut");
 
 		// Quit PLay Mode
 		yield return new WaitForSeconds(2f);
@@ -225,23 +203,5 @@ public class LevelManager3 : MonoBehaviour
 
 		// Coroutine End
 		yield break;
-	}
-
-	private void ShowDialogues(bool activated)
-	{
-		if (dialogues != null)
-		{
-			if (activated)
-			{
-				dialogues.SetActive(true);
-				nameDialogues.SetActive(true);
-			}
-
-			if (!activated)
-			{
-				dialogues.SetActive(false);
-				nameDialogues.SetActive(false);
-			}
-		}
 	}
 }

@@ -2,20 +2,16 @@
 using System.Collections;
 using UnityEngine;
 
-public class LevelManager7 : MonoBehaviour
+public class LevelManager7 : LevelSequence
 {
 	[SerializeField] private Animator mathiasAnimator;
-	[SerializeField] private GameObject dialogues;
-
 	[SerializeField] private Animator background;
-	[SerializeField] private GameObject nameDialogues;
 
 	[SerializeField] private Transform initialPosition;
 
 	[SerializeField] private AudioPlayer7 audioManager;
 
 	private Character mathiasCharacter;
-	private DialogueBox dialogueBox;
 	private int indexCount;
 
 	private bool isStarting = true;
@@ -25,9 +21,6 @@ public class LevelManager7 : MonoBehaviour
 	{
 		// Asign Character components
 		mathiasCharacter = mathiasAnimator.gameObject.GetComponent<Character>();
-
-		// Asign DialogueBox component
-		dialogueBox = dialogues.GetComponent<DialogueBox>();
 
 		// Hide the background at starting
 		background.gameObject.SetActive(false);
@@ -104,10 +97,7 @@ public class LevelManager7 : MonoBehaviour
 		yield return new WaitForSeconds(0.5f);
 
 		// Show Texts into the dialogues box
-		dialogueBox.ShowTexts(true);
-
-		// Coroutine End
-		yield break;
+		DialogueBox.Instance.ShowTexts(true);
 	}
 
 	private IEnumerator MathiasTalkingStep()
@@ -138,14 +128,10 @@ public class LevelManager7 : MonoBehaviour
 		}
 
 		// Hide Texts into the dialogues box
-		dialogueBox.ShowTexts(false);
+		DialogueBox.Instance.ShowTexts(false);
 		yield return new WaitForSeconds(0.5f);
 
 		// Animation FadOut dialogues box
-		Animator dialoguesAnimator = dialogues.GetComponent<Animator>();
-		dialoguesAnimator.SetTrigger("FadOut");
-		Animator dialoguesNameAnimator = nameDialogues.GetComponent<Animator>();
-		dialoguesNameAnimator.SetTrigger("FadOut");
 		yield return new WaitForSeconds(0.5f);
 
 		// Background fad out animation
@@ -165,27 +151,6 @@ public class LevelManager7 : MonoBehaviour
 		if (!isEnd)
 		{
 			GameSystem.Instance.LoadNextScene();
-		}
-
-		// Coroutine End
-		yield break;
-	}
-
-	private void ShowDialogues(bool activated)
-	{
-		if (dialogues != null)
-		{
-			if (activated)
-			{
-				dialogues.SetActive(true);
-				nameDialogues.SetActive(true);
-			}
-
-			if (!activated)
-			{
-				dialogues.SetActive(false);
-				nameDialogues.SetActive(false);
-			}
 		}
 	}
 }

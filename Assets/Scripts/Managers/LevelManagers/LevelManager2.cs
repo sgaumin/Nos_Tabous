@@ -1,21 +1,16 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class LevelManager2 : MonoBehaviour
+public class LevelManager2 : LevelSequence
 {
 	[SerializeField] private Animator mathiasAnimator;
 	[SerializeField] private Animator carolineAnimator;
-	[SerializeField] private Animator background;
-
-	// UI
-	[SerializeField] private GameObject dialogues;
-	[SerializeField] private GameObject nameDialogues;
+	[SerializeField] private Background background;
 
 	[SerializeField] private AudioPlayer2 audioManager;
 
 	private Character mathiasCharacter;
 	private Character carolineCharacter;
-	private DialogueBox dialogueBox;
 	private int indexCount;
 
 	private bool isStarting = true;
@@ -28,9 +23,6 @@ public class LevelManager2 : MonoBehaviour
 		// Asign Character components
 		mathiasCharacter = mathiasAnimator.gameObject.GetComponent<Character>();
 		carolineCharacter = carolineAnimator.gameObject.GetComponent<Character>();
-
-		// Asign DialogueBox component
-		dialogueBox = dialogues.GetComponent<DialogueBox>();
 
 		// Hide Caroline Character at Starting
 		carolineCharacter.gameObject.SetActive(false);
@@ -120,7 +112,6 @@ public class LevelManager2 : MonoBehaviour
 
 	private IEnumerator StartLevel()
 	{
-
 		yield return new WaitForSeconds(2f);
 
 		// Show Caroline Character
@@ -131,6 +122,9 @@ public class LevelManager2 : MonoBehaviour
 		mathiasCharacter.Flip();
 		yield return new WaitForSeconds(0.5f);
 
+		background.FadIn();
+		yield return new WaitForSeconds(1f);
+
 		// Caroline start talking animation
 		carolineAnimator.SetTrigger("Talking");
 		yield return new WaitForSeconds(0.5f);
@@ -140,10 +134,7 @@ public class LevelManager2 : MonoBehaviour
 		yield return new WaitForSeconds(0.5f);
 
 		// Show Texts into the dialogues box
-		dialogueBox.ShowTexts(true);
-
-		// Coroutine End
-		yield break;
+		DialogueBox.Instance.ShowTexts(true);
 	}
 
 	private IEnumerator MathiasTalking()
@@ -154,9 +145,6 @@ public class LevelManager2 : MonoBehaviour
 
 		// Set Mathias talking animation
 		mathiasAnimator.SetTrigger("Talking");
-
-		// Coroutine End
-		yield break;
 	}
 
 	private IEnumerator CarolineTalking()
@@ -170,9 +158,6 @@ public class LevelManager2 : MonoBehaviour
 			yield return new WaitForSeconds(0.5f);
 			carolineAnimator.SetTrigger("Talking");
 		}
-
-		// Coroutine End
-		yield break;
 	}
 
 	private IEnumerator TabouStepLevel()
@@ -202,9 +187,6 @@ public class LevelManager2 : MonoBehaviour
 		{
 			mathiasAnimator.SetTrigger("VeryAnger");
 		}
-
-		// Coroutine End
-		yield break;
 	}
 
 	private IEnumerator MathiasAnger()
@@ -215,9 +197,6 @@ public class LevelManager2 : MonoBehaviour
 
 		// Set Mathias calling anger animation
 		mathiasAnimator.SetTrigger("Anger");
-
-		// Coroutine End
-		yield break;
 	}
 
 	private IEnumerator MathiasIdleAnger()
@@ -228,9 +207,6 @@ public class LevelManager2 : MonoBehaviour
 
 		// Set Mathias calling anger animation
 		mathiasAnimator.SetTrigger("AngerIdle");
-
-		// Coroutine End
-		yield break;
 	}
 
 	private IEnumerator ResetCaro()
@@ -238,10 +214,6 @@ public class LevelManager2 : MonoBehaviour
 		// Set Caroline calling idle animation
 		carolineAnimator.SetTrigger("Reset");
 		yield return new WaitForSeconds(0.5f);
-
-
-		// Coroutine End
-		yield break;
 	}
 
 	private IEnumerator MathiasSurprised()
@@ -252,9 +224,6 @@ public class LevelManager2 : MonoBehaviour
 
 		// Set Mathias calling anger animation
 		mathiasAnimator.SetTrigger("Surprised");
-
-		// Coroutine End
-		yield break;
 	}
 
 	private IEnumerator MathiasSad()
@@ -265,9 +234,6 @@ public class LevelManager2 : MonoBehaviour
 
 		// Set Mathias calling anger animation
 		mathiasAnimator.SetTrigger("Sad");
-
-		// Coroutine End
-		yield break;
 	}
 
 	private IEnumerator VeryAngerStepLevel()
@@ -278,9 +244,6 @@ public class LevelManager2 : MonoBehaviour
 
 		// Set Mathias calling anger animation
 		mathiasAnimator.SetTrigger("VeryAnger");
-
-		// Coroutine End
-		yield break;
 	}
 
 	private IEnumerator FinalStepLevel()
@@ -292,14 +255,12 @@ public class LevelManager2 : MonoBehaviour
 		yield return new WaitForSeconds(2f);
 
 		// Hide Texts into the dialogues box
-		dialogueBox.ShowTexts(false);
+		DialogueBox.Instance.ShowTexts(false);
 		yield return new WaitForSeconds(0.5f);
 
 		// Animation FadOut dialogues box
-		Animator dialoguesAnimator = dialogues.GetComponent<Animator>();
+		Animator dialoguesAnimator = DialogueBox.Instance.GetComponent<Animator>();
 		dialoguesAnimator.SetTrigger("FadOut");
-		Animator dialoguesNameAnimator = nameDialogues.GetComponent<Animator>();
-		dialoguesNameAnimator.SetTrigger("FadOut");
 
 		yield return new WaitForSeconds(0.5f);
 
@@ -333,32 +294,11 @@ public class LevelManager2 : MonoBehaviour
 		mathiasAnimator.SetTrigger("Reset");
 		yield return new WaitForSeconds(0.5f);
 
-
-
 		// Background fad out animation
-		background.SetTrigger("FadOut");
+		background.FadOut();
 		yield return new WaitForSeconds(2f);
 
 		// Coroutine End
 		GameSystem.Instance.LoadNextScene();
-		yield break;
-	}
-
-	private void ShowDialogues(bool activated)
-	{
-		if (dialogues != null)
-		{
-			if (activated)
-			{
-				dialogues.SetActive(true);
-				nameDialogues.SetActive(true);
-			}
-
-			if (!activated)
-			{
-				dialogues.SetActive(false);
-				nameDialogues.SetActive(false);
-			}
-		}
 	}
 }

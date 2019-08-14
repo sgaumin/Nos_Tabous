@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelManager8 : MonoBehaviour
+public class LevelManager8 : LevelSequence
 {
 	private enum LevelState
 	{

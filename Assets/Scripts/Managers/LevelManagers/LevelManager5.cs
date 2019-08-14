@@ -2,29 +2,22 @@
 using System.Collections;
 using UnityEngine;
 
-public class LevelManager5 : MonoBehaviour
+public class LevelManager5 : LevelSequence
 {
 	[SerializeField] private Animator mathiasAnimator;
 	[SerializeField] private Animator sylvieAnimator;
 	[SerializeField] private Animator henriAnimator;
-
 	[SerializeField] private Animator background;
 
 	[SerializeField] private AudioPlayer5 audioManager;
 
 	[SerializeField] private Transform initialPosition;
 
-	// UI
-	[SerializeField] private GameObject dialogues;
-	[SerializeField] private GameObject nameDialogues;
-
 	private Character mathiasCharacter;
 	private Character sylvieCharacter;
 	private Character henriCharacter;
 
-	private DialogueBox dialogueBox;
 	private int indexCount;
-
 	private bool isStarting = true;
 
 	// Start is called before the first frame update
@@ -37,9 +30,6 @@ public class LevelManager5 : MonoBehaviour
 		mathiasCharacter = mathiasAnimator.gameObject.GetComponent<Character>();
 		sylvieCharacter = sylvieAnimator.gameObject.GetComponent<Character>();
 		henriCharacter = henriAnimator.gameObject.GetComponent<Character>();
-
-		// Asign DialogueBox component
-		dialogueBox = dialogues.GetComponent<DialogueBox>();
 
 		// Hide
 		sylvieCharacter.gameObject.SetActive(false);
@@ -155,7 +145,7 @@ public class LevelManager5 : MonoBehaviour
 		yield return new WaitForSeconds(0.5f);
 
 		// Show Texts into the dialogues box
-		dialogueBox.ShowTexts(true);
+		DialogueBox.Instance.ShowTexts(true);
 
 		// Coroutine End
 		yield break;
@@ -293,13 +283,13 @@ public class LevelManager5 : MonoBehaviour
 		henriAnimator.SetTrigger("FadOut");
 
 		// Hide Texts into the dialogues box
-		dialogueBox.ShowTexts(false);
+		DialogueBox.Instance.ShowTexts(false);
 		yield return new WaitForSeconds(0.5f);
 
 		// Animation FadOut dialogues box
-		Animator dialoguesAnimator = dialogues.GetComponent<Animator>();
+		Animator dialoguesAnimator = DialogueBox.Instance.GetComponent<Animator>();
 		dialoguesAnimator.SetTrigger("FadOut");
-		Animator dialoguesNameAnimator = nameDialogues.GetComponent<Animator>();
+		Animator dialoguesNameAnimator = DialogueBox.Instance.GetComponent<Animator>();
 		dialoguesNameAnimator.SetTrigger("FadOut");
 
 		yield return new WaitForSeconds(0.5f);
@@ -308,26 +298,6 @@ public class LevelManager5 : MonoBehaviour
 		background.SetTrigger("FadOut");
 		yield return new WaitForSeconds(2f);
 
-		// Coroutine End
 		GameSystem.Instance.LoadNextScene();
-		yield break;
-	}
-
-	private void ShowDialogues(bool activated)
-	{
-		if (dialogues != null)
-		{
-			if (activated)
-			{
-				dialogues.SetActive(true);
-				nameDialogues.SetActive(true);
-			}
-
-			if (!activated)
-			{
-				dialogues.SetActive(false);
-				nameDialogues.SetActive(false);
-			}
-		}
 	}
 }

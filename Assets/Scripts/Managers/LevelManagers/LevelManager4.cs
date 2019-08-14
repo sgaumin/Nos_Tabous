@@ -2,17 +2,12 @@
 using System.Collections;
 using UnityEngine;
 
-public class LevelManager4 : MonoBehaviour
+public class LevelManager4 : LevelSequence
 {
 	[SerializeField] private Animator mathiasAnimator;
 	[SerializeField] private Animator jadeAnimator;
 	[SerializeField] private Animator car;
 	[SerializeField] private Animator insideCar;
-
-
-	// UI
-	[SerializeField] private GameObject dialogues;
-	[SerializeField] private GameObject nameDialogues;
 
 	[SerializeField] private Transform initialPosition;
 
@@ -20,7 +15,7 @@ public class LevelManager4 : MonoBehaviour
 
 	private Character mathiasCharacter;
 	private Character jadeCharacter;
-	private DialogueBox dialogueBox;
+
 	private int indexCount;
 
 	private bool isStarting = true;
@@ -33,9 +28,6 @@ public class LevelManager4 : MonoBehaviour
 		// Asign Character components
 		mathiasCharacter = mathiasAnimator.gameObject.GetComponent<Character>();
 		jadeCharacter = jadeAnimator.gameObject.GetComponent<Character>();
-
-		// Asign DialogueBox component
-		dialogueBox = dialogues.GetComponent<DialogueBox>();
 
 		// Hide
 		jadeCharacter.gameObject.SetActive(false);
@@ -141,7 +133,7 @@ public class LevelManager4 : MonoBehaviour
 		yield return new WaitForSeconds(0.5f);
 
 		// Show Texts into the dialogues box
-		dialogueBox.ShowTexts(true);
+		DialogueBox.Instance.ShowTexts(true);
 
 		// Play car ambience sound
 		audioManager.PlayAmbianceSound(true);
@@ -300,14 +292,11 @@ public class LevelManager4 : MonoBehaviour
 		car.SetTrigger("FadOut");
 
 		// Hide Texts into the dialogues box
-		dialogueBox.ShowTexts(false);
 		yield return new WaitForSeconds(0.5f);
 
 		// Animation FadOut dialogues box
-		Animator dialoguesAnimator = dialogues.GetComponent<Animator>();
+		Animator dialoguesAnimator = DialogueBox.Instance.GetComponent<Animator>();
 		dialoguesAnimator.SetTrigger("FadOut");
-		Animator dialoguesNameAnimator = nameDialogues.GetComponent<Animator>();
-		dialoguesNameAnimator.SetTrigger("FadOut");
 
 		yield return new WaitForSeconds(0.5f);
 
@@ -315,26 +304,6 @@ public class LevelManager4 : MonoBehaviour
 		car.SetTrigger("FadOut");
 		yield return new WaitForSeconds(2f);
 
-		// Coroutine End
 		GameSystem.Instance.LoadNextScene();
-		yield break;
-	}
-
-	private void ShowDialogues(bool activated)
-	{
-		if (dialogues != null)
-		{
-			if (activated)
-			{
-				dialogues.SetActive(true);
-				nameDialogues.SetActive(true);
-			}
-
-			if (!activated)
-			{
-				dialogues.SetActive(false);
-				nameDialogues.SetActive(false);
-			}
-		}
 	}
 }

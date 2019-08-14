@@ -6,6 +6,7 @@ public class GameSystem : MonoBehaviour
 	public static GameSystem Instance { get; private set; }
 
 	public const string MenuName = "0b- Menu";
+	public const string CreditsName = "0c- Credits";
 
 	protected void Awake()
 	{
@@ -24,6 +25,8 @@ public class GameSystem : MonoBehaviour
 	public void LoadNextScene() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
 	public void LoadMenu() => LoadSceneByName(MenuName);
+
+	public void LoadCredits() => LoadSceneByName(CreditsName);
 
 	public void QuitGame()
 	{

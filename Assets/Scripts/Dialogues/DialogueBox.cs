@@ -1,23 +1,14 @@
-﻿using System.Collections;
+﻿using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class DialogueBox : MonoBehaviour
 {
-    [SerializeField] private Text[] textDialogues;
+	public static DialogueBox Instance { get; private set; }
 
-    public void ShowTexts(bool show) {
-        for (int i = 0; i < textDialogues.Length; i++)
-        {
-            if (show)
-            {
-                textDialogues[i].gameObject.SetActive(true);
-            }
-            else
-            {
-                textDialogues[i].gameObject.SetActive(false);
-            }
-        }
-    }
+	[SerializeField] private Text[] textDialogues;
 
+	private void Awake() => Instance = this;
+
+	public void ShowTexts(bool show) => Array.ForEach(textDialogues, x => x.gameObject.SetActive(show));
 }

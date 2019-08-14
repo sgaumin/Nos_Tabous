@@ -418,6 +418,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: UIDialogueBox
       objectReference: {fileID: 0}
+    - target: {fileID: 5937179897133231396, guid: ba662aafc2f9ccf40bb6caad531fa548,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5937179897133231403, guid: ba662aafc2f9ccf40bb6caad531fa548,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -559,36 +564,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: c751610b83e3eff4fa75b50df14c4a97,
         type: 2}
-    - target: {fileID: 5937179896754259201, guid: ba662aafc2f9ccf40bb6caad531fa548,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5937179896754259201, guid: ba662aafc2f9ccf40bb6caad531fa548,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5937179896754259201, guid: ba662aafc2f9ccf40bb6caad531fa548,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5937179896754259201, guid: ba662aafc2f9ccf40bb6caad531fa548,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5937179896754259201, guid: ba662aafc2f9ccf40bb6caad531fa548,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5937179896754259201, guid: ba662aafc2f9ccf40bb6caad531fa548,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5937179896754259200, guid: ba662aafc2f9ccf40bb6caad531fa548,
         type: 3}
       propertyPath: DialogueContent
@@ -627,12 +602,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba662aafc2f9ccf40bb6caad531fa548, type: 3}
---- !u!1 &802181820 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5937179896451719409, guid: ba662aafc2f9ccf40bb6caad531fa548,
-    type: 3}
-  m_PrefabInstance: {fileID: 802181819}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &870344510
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,25 +748,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &945000184
-Animator:
-  serializedVersion: 3
+--- !u!114 &945000184
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 945000181}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 18e5af391a7b2cc40b756da689455fc3, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f7f80dd7bfea204badd5dc14f9f9872, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadDuration: 1
 --- !u!1 &1194935218
 GameObject:
   m_ObjectHideFlags: 0
@@ -1482,8 +1445,6 @@ MonoBehaviour:
   mathiasAnimator: {fileID: 1077386663531074277}
   carolineAnimator: {fileID: 1297893795490742547}
   background: {fileID: 945000184}
-  dialogues: {fileID: 802181820}
-  nameDialogues: {fileID: 2057819658}
   audioManager: {fileID: 1868717103}
 --- !u!1001 &2055455640
 PrefabInstance:
@@ -1554,12 +1515,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e525e6f5b1373b4b9b3f8b1d71af81a, type: 3}
---- !u!1 &2057819658 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5937179897051539427, guid: ba662aafc2f9ccf40bb6caad531fa548,
-    type: 3}
-  m_PrefabInstance: {fileID: 802181819}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2096557912
 GameObject:
   m_ObjectHideFlags: 0

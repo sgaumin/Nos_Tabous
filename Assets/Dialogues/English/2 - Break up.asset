@@ -24,39 +24,39 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 0
   - WhoIsSpeaking: Caroline
-    Content: "Bon, Mathias, on peut parler ? Qui tu appelais ? Encore ton p\xE8re
-      ?"
+    Content: Well then, Mathias can we talk? With who did you phone called? Still
+      you father?
     IsThereChoices: 1
     Couleur: {r: 1, g: 1, b: 0.53333336, a: 1}
     Branching:
       ChoiceList:
-      - Content: "Ne parle pas comme \xE7a de mon p\xE8re."
+      - Content: "Don\u2019t speak about my dad like that."
         FollowUpDialogueElement: 2
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
-      - Content: "\xC7a n\u2019est pas tes affaires."
+      - Content: "It\u2019s not your business."
         FollowUpDialogueElement: 6
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
-      - Content: Oui. Il est chiant en ce moment.
+      - Content: Yeah. He is boring these days.
         FollowUpDialogueElement: 10
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
     FollowUpDialogueElement: 0
   - WhoIsSpeaking: Mathias
-    Content: "Ne parle pas de lui sur ce ton l\xE0. Si t'es de mauvaise humeur, va
-      te calmer, on parlera apr\xE8s."
+    Content: "Don\u2019t speak about him like that. If you are in bad mood, just go
+      out sometime and we\u2019ll talking after that again."
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 3
   - WhoIsSpeaking: Caroline
-    Content: "On peut jamais rien dire quand il s'agit de ton p\xE8re. T'as vraiment
-      un probl\xE8me."
+    Content: "Like everytime i can\u2019t ever said something about your father. You
+      really have some issue with him."
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 0.53333336, a: 1}
     Branching:
@@ -70,23 +70,22 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 5
   - WhoIsSpeaking: Caroline
-    Content: J'ai besoin qu'on parle de nous.
+    Content: I need to talk about us.
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 0.53333336, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 12
   - WhoIsSpeaking: Mathias
-    Content: "\xC7a ne te regarde pas qui j\u2019appelle."
+    Content: "Who can i called it\u2019s not your problem."
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 7
   - WhoIsSpeaking: Caroline
-    Content: "C\u2019est toujours ton p\xE8re ! T\u2019as un vrai probl\xE8me avec
-      lui. Si t\u2019es pas capable de le r\xE9soudre, \xE7a sert \xE0 rien de te
-      venger sur moi."
+    Content: "Always your father! You really got some issue with him. If you can\u2019t
+      resolve it, it\u2019s useless to scold me."
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 0.53333336, a: 1}
     Branching:
@@ -100,167 +99,161 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 9
   - WhoIsSpeaking: Caroline
-    Content: "On peut parler de nous, ou il faut encore que tu appelles ton p\xE8re
-      ?"
+    Content: So can we talk about us, or you had to call him again?
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 0.53333336, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 12
   - WhoIsSpeaking: Mathias
-    Content: "Oui. Il voudrait qu'on vienne d\xEEner demain soir. Il est chiant en
-      ce moment."
+    Content: Yes. He would like we come take dinner tomorrow night. He is annoying
+      nowadays.
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 11
   - WhoIsSpeaking: Caroline
-    Content: "J\u2019en ai marre de parler de ton p\xE8re. \xC7a arr\xEAte jamais
-      ! Si t\u2019as un probl\xE8me avec lui, parles-en avec lui. J\u2019ai besoin
-      qu\u2019on parle de nous, l\xE0."
+    Content: "I\u2019m getting sick of speak about your father. It\u2019s endless!
+      If your have some problem with him, talk with him. I really need to speak about
+      us now!"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 0.53333336, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 12
   - WhoIsSpeaking: Mathias
-    Content: "... J'ai pas de probl\xE8me avec mon p\xE8re, qu'est ce que tu racontes
-      ?..."
+    Content: "...I ain\u2019t got problem with my father, can\u2019t understand what
+      you\u2019re saying\u2026\r\n"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 13
   - WhoIsSpeaking: Caroline
-    Content: "Mais bordel, mais enl\xE8ve toi la merde de devant les yeux ! \r\nJ\u2019essaie
-      de te parler de nous et toi tu... et puis merde, \xE7a y est, j\u2019en ai d\xE9j\xE0
-      marre."
+    Content: "Oh god, please for one time in your life act like an adult!\r\nI try
+      to talk about us and you\u2026 you just, oh shit, okay okay i\u2019m already
+      pissed off."
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 0.53333336, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 14
   - WhoIsSpeaking: Caroline
-    Content: "Pourtant j\u2019ai fait des efforts, avec toi, avec ta fille et \xE7a
-      n\u2019a pas \xE9t\xE9 facile pour moi, j\u2019ai souffert \xE0 cause de toi,
-      pour nous..."
+    Content: "And yet i try to do my best with you, with your daughter too, for us\u2026\r"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 0.53333336, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 15
   - WhoIsSpeaking: Mathias
-    Content: "C\u2019est \xE7a, t\u2019as qu\u2019\xE0 te placer comme victime, comme
-      d\u2019habitude. C\u2019est facile de rejeter la faute sur les autres. Tu te
-      remets jamais en question ?"
+    Content: "That\u2019s it, you just had to act like a victim, as always. It\u2019s
+      easy to blame other and never questions yourself.\r\n"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 16
   - WhoIsSpeaking: Caroline
-    Content: "Je ne me remets jamais en question ? Tu crois pas que c\u2019est \xE0
-      ton tour, de t\u2019en poser, des questions ? Tu crois que j\u2019ai pas remarqu\xE9
-      comment t\u2019\xE9tais avec ton pote, l\u2019autre jour ?"
+    Content: "Never questions myself? You don\u2019t think it\u2019s your turn to
+      question yourself? Do you think i didn\u2019t saw you with your buddy and how
+      your acted last day?\r"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 0.53333336, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 17
   - WhoIsSpeaking: Mathias
-    Content: "Attends, qu\u2019est-ce que tu insinues l\xE0 exactement ?"
+    Content: Wait, what are you imply, in point of fact?
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 18
   - WhoIsSpeaking: Caroline
-    Content: "Tu sais tr\xE8s bien ce que j\u2019insinue, seulement tu veux pas ouvrir
-      les yeux : tu es peut-\xEAtre homosexuel refoul\xE9, Mathias !"
+    Content: "You pretty well know what i imply, but still you don\u2019t want to
+      open your eyes: You are probably gay, Mathias!\r"
     IsThereChoices: 1
     Couleur: {r: 1, g: 1, b: 0.53333336, a: 1}
     Branching:
       ChoiceList:
-      - Content: "Mais je hais les p\xE9d\xE9s !"
+      - Content: But i hate faggs!
         FollowUpDialogueElement: 19
         IsTabou: 1
-        IsThere: 1
-        LessTabouContent: "Mais je ne suis pas p\xE9d\xE9 !"
-      - Content: Ah ! La blague !
+        IsThere: 0
+        LessTabouContent: "But i ain\u2019t gay!"
+      - Content: Aha! So funny!
         FollowUpDialogueElement: 20
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
-      - Content: '... tu crois vraiment que je suis homo ?'
+      - Content: "\u2026 are you really thinking i\u2019m gay?"
         FollowUpDialogueElement: 21
         IsTabou: 1
         IsThere: 1
-        LessTabouContent: Non.
+        LessTabouContent: No way.
     FollowUpDialogueElement: 0
   - WhoIsSpeaking: Mathias
-    Content: "Tu sais mieux que tout le monde que je ne suis pas p\xE9d\xE9 !"
+    Content: "You know better than anyone that i can\u2019t be gay!"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 22
   - WhoIsSpeaking: Mathias
-    Content: "Ah ah. C\u2019est une blague ! Mais comment tu peux sortir des conneries
-      pareilles..."
+    Content: "Ah ah. This joke. How can you said bullshit like that\u2026"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 22
   - WhoIsSpeaking: Mathias
-    Content: "Tu regardes trop la t\xE9l\xE9. Je ne suis pas homo."
+    Content: "You watched the T.V. too much. I\u2019m not gay.\r\n"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 22
   - WhoIsSpeaking: Caroline
-    Content: "C\u2019est \xE7a, esquive tes probl\xE8mes et fuis la discussion, comme
-      d\u2019habitude. Qu\u2019est-ce que tu peux m\u2019\xE9nerver quand t\u2019es
-      comme \xE7a..."
+    Content: "Like you said, avoid the problem and avoid the conversation, like always.
+      How much can you pissed me off.\r\n"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 0.53333336, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 23
   - WhoIsSpeaking: Caroline
-    Content: "\xC9coute, je vais \xEAtre directe, on se parle plus, on s\u2019\xE9coute
-      plus."
+    Content: "Listen, i\u2019ll be straight to the point, we don\u2019t talk, we don\u2019t
+      listen each other."
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 0.53333336, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 24
   - WhoIsSpeaking: Caroline
-    Content: On baise plus.
+    Content: "We don\u2019t fuck."
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 0.53333336, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 25
   - WhoIsSpeaking: Caroline
-    Content: "C\u2019est fini entre nous."
+    Content: "It\u2019s over."
     IsThereChoices: 1
     Couleur: {r: 1, g: 1, b: 0.53333336, a: 1}
     Branching:
       ChoiceList:
-      - Content: "Tu ne peux pas faire \xE7a !"
+      - Content: "You can\u2019t do that!"
         FollowUpDialogueElement: 26
         IsTabou: 1
         IsThere: 1
         LessTabouContent: 
-      - Content: "Je te d\xE9teste !"
+      - Content: I hate you!
         FollowUpDialogueElement: 26
         IsTabou: 1
         IsThere: 1
         LessTabouContent: 
-      - Content: Mais je t'aime !
+      - Content: But i love you!
         FollowUpDialogueElement: 26
         IsTabou: 1
         IsThere: 1
@@ -279,8 +272,8 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 27
   - WhoIsSpeaking: Caroline
-    Content: "J\u2019en ai marre de faire ta psy, je me barre d\xE8s ce soir, et je
-      pense que \xE7a sert \xE0 rien d\u2019essayer de me rappeler."
+    Content: "I\u2019m done, i can\u2019t be you psychologist anymore. I leave tonight,
+      don\u2019t try to call me."
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 0.53333336, a: 1}
     Branching:

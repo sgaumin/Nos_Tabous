@@ -37,7 +37,7 @@ public class LevelManager4 : LevelSequence
 		indexCount = 999;
 
 		// Hide Dialogue Box
-		ShowDialogues(false);
+		ShowDialogueBoxBackground(false);
 	}
 
 	private void Update()
@@ -129,7 +129,7 @@ public class LevelManager4 : LevelSequence
 		car.SetTrigger("Move");
 
 		// Show dialogues box 
-		ShowDialogues(true);
+		ShowDialogueBoxBackground(true);
 		yield return new WaitForSeconds(0.5f);
 
 		// Show Texts into the dialogues box

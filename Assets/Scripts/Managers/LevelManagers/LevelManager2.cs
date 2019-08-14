@@ -31,7 +31,7 @@ public class LevelManager2 : LevelSequence
 		indexCount = 999;
 
 		// Hide Dialogue Box
-		ShowDialogues(false);
+		ShowDialogueBoxBackground(false);
 	}
 
 	private void Update()
@@ -129,7 +129,7 @@ public class LevelManager2 : LevelSequence
 		yield return new WaitForSeconds(0.5f);
 
 		// Show dialogues box 
-		ShowDialogues(true);
+		ShowDialogueBoxBackground(true);
 		yield return new WaitForSeconds(0.5f);
 
 		// Show Texts into the dialogues box

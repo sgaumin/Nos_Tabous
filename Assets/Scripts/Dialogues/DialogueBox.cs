@@ -1,5 +1,7 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DialogueBox : MonoBehaviour
 {
@@ -24,12 +26,14 @@ public class DialogueBox : MonoBehaviour
 	[SerializeField] private TextNameScript name;
 	[SerializeField] private TextChoixScript[] choices;
 
+	[Header("Backgrounds")]
+	[SerializeField] private Image[] backgrounds;
+
 	private void Awake()
 	{
 		Instance = this;
 		SetDialogueFile();
 	}
-
 
 	public void ShowTexts(bool show)
 	{
@@ -37,6 +41,8 @@ public class DialogueBox : MonoBehaviour
 		name.gameObject.SetActive(show);
 		Array.ForEach(choices, x => x.gameObject.SetActive(show));
 	}
+
+	public void FadBackground(bool fadIn) => Array.ForEach(backgrounds, x => x.DOFade(fadIn ? 1f : 0f, 1f));
 
 	private void SetDialogueFile()
 	{

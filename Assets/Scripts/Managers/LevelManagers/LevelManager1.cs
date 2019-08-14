@@ -35,7 +35,7 @@ public class LevelManager1 : LevelSequence
 		indexCount = 999;
 
 		// Hide Dialogue Box
-		ShowDialogues(false);
+		ShowDialogueBoxBackground(false);
 	}
 
 	// TO DO: Create a Delegate function on DialogueSystemScript for isTabou & indexDialogue variables
@@ -126,7 +126,7 @@ public class LevelManager1 : LevelSequence
 		yield return new WaitForSeconds(0.5f);
 
 		// Show dialogues box 
-		ShowDialogues(true);
+		ShowDialogueBoxBackground(true);
 		yield return new WaitForSeconds(0.5f);
 
 		// Show Texts into the dialogues box
@@ -192,8 +192,7 @@ public class LevelManager1 : LevelSequence
 		yield return new WaitForSeconds(0.5f);
 
 		// Animation FadOut dialogues box
-		Animator dialoguesAnimator = DialogueBox.Instance.GetComponent<Animator>();
-		dialoguesAnimator.SetTrigger("FadOut");
+		DialogueBox.Instance.FadBackground(false);
 
 		// Quit PLay Mode
 		yield return new WaitForSeconds(2f);

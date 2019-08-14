@@ -875,6 +875,9 @@ MonoBehaviour:
   - {fileID: 5937179896412478350}
   - {fileID: 5937179896611505842}
   - {fileID: 5937179896220560658}
+  backgrounds:
+  - {fileID: 5937179897051539425}
+  - {fileID: 5937179896451719415}
 --- !u!1 &7102421948084648644
 GameObject:
   m_ObjectHideFlags: 0

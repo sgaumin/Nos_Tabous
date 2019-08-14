@@ -39,7 +39,7 @@ public class LevelManager5 : LevelSequence
 		indexCount = 999;
 
 		// Hide Dialogue Box
-		ShowDialogues(false);
+		ShowDialogueBoxBackground(false);
 	}
 
 	// Update is called once per frame
@@ -139,7 +139,7 @@ public class LevelManager5 : LevelSequence
 		yield return new WaitForSeconds(1f);
 
 		// Show dialogues box 
-		ShowDialogues(true);
+		ShowDialogueBoxBackground(true);
 		yield return new WaitForSeconds(0.5f);
 
 		// Show Texts into the dialogues box

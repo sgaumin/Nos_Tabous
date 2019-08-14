@@ -185,7 +185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea096c08168153d47aa9303cdff0a940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogueContent: {fileID: 0}
 --- !u!1 &5937179896220560686
 GameObject:
   m_ObjectHideFlags: 0
@@ -866,8 +865,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   language: 0
-  french: {fileID: 11400000, guid: 3ae2a1b502cd43f42ae961fadb7e3c88, type: 2}
-  english: {fileID: 11400000, guid: 0812bcf5ecd1e6e4ca71267158ab382b, type: 2}
+  french: {fileID: 0}
+  english: {fileID: 0}
   japanese: {fileID: 0}
   sentence: {fileID: 5937179895712527295}
   name: {fileID: 5937179896754259200}

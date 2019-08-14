@@ -270,7 +270,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChoiceNumber: 2
-  DialogueContent: {fileID: 11400000, guid: c751610b83e3eff4fa75b50df14c4a97, type: 2}
 --- !u!114 &404940482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,7 +362,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea096c08168153d47aa9303cdff0a940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogueContent: {fileID: 11400000, guid: c751610b83e3eff4fa75b50df14c4a97, type: 2}
 --- !u!114 &657689672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -600,6 +598,18 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 894860065569132485, guid: ba662aafc2f9ccf40bb6caad531fa548,
+        type: 3}
+      propertyPath: english
+      value: 
+      objectReference: {fileID: 11400000, guid: c9b00e05185a0a14f8eebd5253d7b38e,
+        type: 2}
+    - target: {fileID: 894860065569132485, guid: ba662aafc2f9ccf40bb6caad531fa548,
+        type: 3}
+      propertyPath: french
+      value: 
+      objectReference: {fileID: 11400000, guid: c751610b83e3eff4fa75b50df14c4a97,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba662aafc2f9ccf40bb6caad531fa548, type: 3}
 --- !u!1 &870344510
@@ -812,7 +822,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChoiceNumber: 4
-  DialogueContent: {fileID: 11400000, guid: c751610b83e3eff4fa75b50df14c4a97, type: 2}
 --- !u!114 &1194935221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -912,12 +921,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6087e04a9d3597b45a4d03f800a339f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textDialogues:
-  - {fileID: 657689672}
-  - {fileID: 1702262622}
-  - {fileID: 404940482}
-  - {fileID: 2096557915}
-  - {fileID: 1194935221}
+  language: 0
+  french: {fileID: 0}
+  english: {fileID: 0}
+  japanese: {fileID: 0}
+  sentence: {fileID: 0}
+  name: {fileID: 0}
+  choices: []
 --- !u!95 &1362576460
 Animator:
   serializedVersion: 3
@@ -1050,7 +1060,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChoiceNumber: 1
-  DialogueContent: {fileID: 11400000, guid: c751610b83e3eff4fa75b50df14c4a97, type: 2}
 --- !u!114 &1702262622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1566,7 +1575,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChoiceNumber: 3
-  DialogueContent: {fileID: 11400000, guid: c751610b83e3eff4fa75b50df14c4a97, type: 2}
 --- !u!114 &2096557915
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -369,20 +369,20 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 894860065569132485, guid: ba662aafc2f9ccf40bb6caad531fa548,
+        type: 3}
+      propertyPath: english
+      value: 
+      objectReference: {fileID: 11400000, guid: b3383ace108c7f9428c6bce436a8f487,
+        type: 2}
+    - target: {fileID: 894860065569132485, guid: ba662aafc2f9ccf40bb6caad531fa548,
+        type: 3}
+      propertyPath: french
+      value: 
+      objectReference: {fileID: 11400000, guid: 8d1a6bc11b154bc47b08f0ce036a0dd8,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba662aafc2f9ccf40bb6caad531fa548, type: 3}
---- !u!1 &790579830 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5937179897051539427, guid: ba662aafc2f9ccf40bb6caad531fa548,
-    type: 3}
-  m_PrefabInstance: {fileID: 790579829}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &790579831 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5937179896451719409, guid: ba662aafc2f9ccf40bb6caad531fa548,
-    type: 3}
-  m_PrefabInstance: {fileID: 790579829}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &870344510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,8 +1217,6 @@ MonoBehaviour:
   jadeAnimator: {fileID: 7196615968552167549}
   car: {fileID: 1856933787}
   insideCar: {fileID: 1126395191}
-  dialogues: {fileID: 790579831}
-  nameDialogues: {fileID: 790579830}
   initialPosition: {fileID: 77555604}
   audioManager: {fileID: 1868717103}
 --- !u!1 &1077386663531074272

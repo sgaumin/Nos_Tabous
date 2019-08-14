@@ -220,12 +220,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &296957600 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5937179897051539427, guid: ba662aafc2f9ccf40bb6caad531fa548,
-    type: 3}
-  m_PrefabInstance: {fileID: 8852790823757164486}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &870344510
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,8 +792,8 @@ MonoBehaviour:
   mathiasAnimator: {fileID: 1077386663531074277}
   henriAnimator: {fileID: 8554242887335753590}
   disclaimer: {fileID: 1765944949}
-  nameDialogues: {fileID: 296957600}
   audioManager: {fileID: 1868717104}
+  skipDisclaimer: 0
 --- !u!1 &1077386663531074272
 GameObject:
   m_ObjectHideFlags: 0
@@ -1320,6 +1314,18 @@ PrefabInstance:
       propertyPath: DialogueContent
       value: 
       objectReference: {fileID: 11400000, guid: 3ae2a1b502cd43f42ae961fadb7e3c88,
+        type: 2}
+    - target: {fileID: 894860065569132485, guid: ba662aafc2f9ccf40bb6caad531fa548,
+        type: 3}
+      propertyPath: french
+      value: 
+      objectReference: {fileID: 11400000, guid: 3ae2a1b502cd43f42ae961fadb7e3c88,
+        type: 2}
+    - target: {fileID: 894860065569132485, guid: ba662aafc2f9ccf40bb6caad531fa548,
+        type: 3}
+      propertyPath: english
+      value: 
+      objectReference: {fileID: 11400000, guid: 0812bcf5ecd1e6e4ca71267158ab382b,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba662aafc2f9ccf40bb6caad531fa548, type: 3}

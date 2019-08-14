@@ -349,7 +349,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChoiceNumber: 2
-  DialogueContent: {fileID: 0}
 --- !u!114 &404940482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,7 +553,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea096c08168153d47aa9303cdff0a940, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DialogueContent: {fileID: 0}
 --- !u!114 &657689672
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -663,12 +661,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1191713458 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5937179897051539427, guid: ba662aafc2f9ccf40bb6caad531fa548,
-    type: 3}
-  m_PrefabInstance: {fileID: 1959686694}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1194935218
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,7 +712,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChoiceNumber: 4
-  DialogueContent: {fileID: 0}
 --- !u!114 &1194935221
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -820,12 +811,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6087e04a9d3597b45a4d03f800a339f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textDialogues:
-  - {fileID: 657689672}
-  - {fileID: 1702262622}
-  - {fileID: 404940482}
-  - {fileID: 2096557915}
-  - {fileID: 1194935221}
+  language: 0
+  french: {fileID: 0}
+  english: {fileID: 0}
+  japanese: {fileID: 0}
+  sentence: {fileID: 0}
+  name: {fileID: 0}
+  choices: []
 --- !u!95 &1362576460
 Animator:
   serializedVersion: 3
@@ -958,7 +950,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChoiceNumber: 1
-  DialogueContent: {fileID: 0}
 --- !u!114 &1702262622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1429,14 +1420,20 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 894860065569132485, guid: ba662aafc2f9ccf40bb6caad531fa548,
+        type: 3}
+      propertyPath: english
+      value: 
+      objectReference: {fileID: 11400000, guid: 238cd9e6832f3ca4aab15bc4571acd46,
+        type: 2}
+    - target: {fileID: 894860065569132485, guid: ba662aafc2f9ccf40bb6caad531fa548,
+        type: 3}
+      propertyPath: french
+      value: 
+      objectReference: {fileID: 11400000, guid: 665ecba33667a774c90c5e836fd3122e,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba662aafc2f9ccf40bb6caad531fa548, type: 3}
---- !u!1 &1959686695 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5937179896451719409, guid: ba662aafc2f9ccf40bb6caad531fa548,
-    type: 3}
-  m_PrefabInstance: {fileID: 1959686694}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1976107556
 GameObject:
   m_ObjectHideFlags: 0
@@ -1680,8 +1677,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mathiasAnimator: {fileID: 1077386663531074277}
   henriAnimator: {fileID: 483565368}
-  dialogues: {fileID: 1959686695}
-  nameDialogues: {fileID: 1191713458}
   clock: {fileID: 1991667455}
   callSignals: {fileID: 1976107556}
   audioManager: {fileID: 1868717103}
@@ -1736,7 +1731,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ChoiceNumber: 3
-  DialogueContent: {fileID: 0}
 --- !u!114 &2096557915
 MonoBehaviour:
   m_ObjectHideFlags: 0

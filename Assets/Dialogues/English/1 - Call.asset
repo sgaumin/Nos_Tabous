@@ -24,108 +24,107 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 0
   - WhoIsSpeaking: Henri
-    Content: Bonjour Mathias !
+    Content: Hey Mathias!
     IsThereChoices: 0
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 2
   - WhoIsSpeaking: Mathias
-    Content: Bonjour Papa.
+    Content: Hi daddy.
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 3
   - WhoIsSpeaking: Henri
-    Content: "Comment \xE7a va ?"
+    Content: How are you doing?
     IsThereChoices: 1
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList:
-      - Content: "J\u2019ai des probl\xE8mes avec ma femme."
+      - Content: I had some argue with my wife.
         FollowUpDialogueElement: 4
         IsTabou: 1
-        IsThere: 0
-        LessTabouContent: Tout le monde va bien.
-      - Content: Pas super.
+        IsThere: 1
+        LessTabouContent: "We\u2019re all great."
+      - Content: "I\u2019ve been better."
         FollowUpDialogueElement: 5
         IsTabou: 1
         IsThere: 1
-        LessTabouContent: Super.
+        LessTabouContent: "I\u2019m good."
     FollowUpDialogueElement: 3
   - WhoIsSpeaking: Mathias
-    Content: "\xC7a va. Jade et ... Caroline aussi."
+    Content: "Doing well. Jade and\u2026 Caroline too."
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 6
   - WhoIsSpeaking: Mathias
-    Content: '... Super.'
+    Content: "\u2026 good."
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 6
   - WhoIsSpeaking: Henri
-    Content: "Tu as repens\xE9 \xE0 notre invitation ? \r\n\xC7a fait longtemps qu\u2019on
-      s\u2019est pas retrouv\xE9 tous ensemble \xE0 la maison, et puis \xE7a serait
-      l\u2019occasion qu\u2019on revoit les filles, si elles ont envie.\r\n"
+    Content: "Did you reconsider our invitation?\r\nIt\u2019s been a while we didn\u2019t
+      gathering all the family at the house, then it ll\u2019 be the opportunity to
+      meet the girls, if they ll\u2019 be glad to.\r"
     IsThereChoices: 0
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 7
   - WhoIsSpeaking: Henri
-    Content: "Peut \xEAtre que vous pourriez passer ce week-end ?"
+    Content: Perhaps you could stay all the week end?
     IsThereChoices: 1
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList:
-      - Content: "Trop tard pour jouer le p\xE8re mod\xE8le."
+      - Content: "It\u2019s too late for playing the perfect dad."
         FollowUpDialogueElement: 8
         IsTabou: 1
-        IsThere: 0
+        IsThere: 1
         LessTabouContent: 
-      - Content: J'ai pas vraiment envie.
+      - Content: "I really don\u2019t want."
         FollowUpDialogueElement: 8
         IsTabou: 1
-        IsThere: 0
+        IsThere: 1
         LessTabouContent: 
-      - Content: On peut en reparler plus tard ?
+      - Content: "Maybe, let\u2019s talk after?"
         FollowUpDialogueElement: 8
         IsTabou: 0
-        IsThere: 0
+        IsThere: 1
         LessTabouContent: 
     FollowUpDialogueElement: 8
   - WhoIsSpeaking: Mathias
-    Content: "Tu tombes mal. On peut en reparler plus tard, papa ? C\u2019est pas
-      trop le moment, l\xE0."
+    Content: '...Can we talk about this later, Dad?'
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 9
   - WhoIsSpeaking: Henri
-    Content: C'est dommage... Tu nous manques, tu sais.
+    Content: "That\u2019s lame... We miss you, you know."
     IsThereChoices: 1
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList:
-      - Content: Tu me manques aussi.
+      - Content: I miss you too.
         FollowUpDialogueElement: 0
         IsTabou: 1
         IsThere: 1
         LessTabouContent: 
-      - Content: "... c\u2019est \xE7a."
+      - Content: "...that\u2019s it."
         FollowUpDialogueElement: 10
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
     FollowUpDialogueElement: 0
   - WhoIsSpeaking: Mathias
-    Content: "... C'est \xE7a."
+    Content: "...that\u2019s it."
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
@@ -139,28 +138,28 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 12
   - WhoIsSpeaking: Henri
-    Content: "Tiens nous au courant si jamais tu changes d\u2019avis !"
+    Content: Give us some news if you change your mind!
     IsThereChoices: 0
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 13
   - WhoIsSpeaking: Mathias
-    Content: "Voil\xE0, on va dire \xE7a comme \xE7a. Salut."
+    Content: "That\u2019s it. Let\u2019s saying that. Bye."
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 14
   - WhoIsSpeaking: Henri
-    Content: "Bonne soir\xE9e, embra- *CLIC*"
+    Content: Have a good night, kiss th- CLIC
     IsThereChoices: 0
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 15
   - WhoIsSpeaking: Mathias
-    Content: Embrasse mon cul.
+    Content: Kiss my ass.
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:

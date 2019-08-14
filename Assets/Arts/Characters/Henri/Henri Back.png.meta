@@ -1,11 +1,15 @@
 fileFormatVersion: 2
 guid: 83178bf3aa321a148b2911403337120b
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Henri Back_0
-    21300002: Henri Back_1
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Henri Back_0
+  - first:
+      213: 21300002
+    second: Henri Back_1
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -62,23 +66,23 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 40
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 40
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -112,6 +116,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: dfebf8375ecf886418a429629181c61b
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -132,6 +137,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 6fb12b80a4f53ae40b270444954a8d38
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -140,10 +146,12 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 8322015c5ce077d45860553c3e8c37a5
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

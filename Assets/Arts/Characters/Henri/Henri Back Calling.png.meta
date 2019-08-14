@@ -1,17 +1,33 @@
 fileFormatVersion: 2
 guid: 20aa91fbb89284b4d96238a25cd243d8
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Henri Back Calling_0
-    21300002: Henri Back Calling_1
-    21300004: Henri Back Calling_2
-    21300006: Henri Back Calling_3
-    21300008: Henri Back Calling_4
-    21300010: Henri Back Calling_5
-    21300012: Henri Back Calling_6
-    21300014: Henri Back Calling_7
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Henri Back Calling_0
+  - first:
+      213: 21300002
+    second: Henri Back Calling_1
+  - first:
+      213: 21300004
+    second: Henri Back Calling_2
+  - first:
+      213: 21300006
+    second: Henri Back Calling_3
+  - first:
+      213: 21300008
+    second: Henri Back Calling_4
+  - first:
+      213: 21300010
+    second: Henri Back Calling_5
+  - first:
+      213: 21300012
+    second: Henri Back Calling_6
+  - first:
+      213: 21300014
+    second: Henri Back Calling_7
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -68,23 +84,23 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 40
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 40
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -118,6 +134,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 24b53ce6ea846d940900a4cd1adb468c
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -138,6 +155,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: c8140d2e4c62cc2468b80d09a5f11ceb
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -158,6 +176,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: f5166dd9f1037a34cac0bb44368e6cde
+      internalID: 21300004
       vertices: []
       indices: 
       edges: []
@@ -178,6 +197,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 4b59ef6dd6933614ab23ccd7d15297c4
+      internalID: 21300006
       vertices: []
       indices: 
       edges: []
@@ -198,6 +218,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 3b0f03355c819694cafbe36975b70b95
+      internalID: 21300008
       vertices: []
       indices: 
       edges: []
@@ -218,6 +239,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 2ac52c345625dc740be41968f52e02c6
+      internalID: 21300010
       vertices: []
       indices: 
       edges: []
@@ -238,6 +260,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: aa3cfed096117224eb4bde8cf3ae1d53
+      internalID: 21300012
       vertices: []
       indices: 
       edges: []
@@ -258,6 +281,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 8204a5df7512ef34c913002e87c67188
+      internalID: 21300014
       vertices: []
       indices: 
       edges: []
@@ -266,10 +290,12 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: f52f3bb195c4bec43b5e0889225b1068
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

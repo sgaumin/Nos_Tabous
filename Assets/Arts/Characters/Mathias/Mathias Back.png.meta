@@ -1,11 +1,15 @@
 fileFormatVersion: 2
 guid: d6b86c6bfdec0d442a9ae351d16e544a
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Mathias Back_0
-    21300002: Mathias Back_1
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Mathias Back_0
+  - first:
+      213: 21300002
+    second: Mathias Back_1
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -62,23 +66,23 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 40
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 40
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -112,6 +116,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: f00c221c7877ec34f8fa1f5f84027149
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -132,6 +137,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 9602c09c1d7fdb546b6c2a8339944601
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -140,10 +146,12 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 64583e62dd3cabc47838f9f88cb43c95
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

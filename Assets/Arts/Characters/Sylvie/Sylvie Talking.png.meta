@@ -1,14 +1,24 @@
 fileFormatVersion: 2
 guid: 58170c63b35da6843a99d9e0f8a085e0
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: Sylvie Talking_0
-    21300002: Sylvie Talking_1
-    21300004: Sylvie Talking_2
-    21300006: Sylvie Talking_3
-    21300008: Sylvie Talking_4
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: Sylvie Talking_0
+  - first:
+      213: 21300002
+    second: Sylvie Talking_1
+  - first:
+      213: 21300004
+    second: Sylvie Talking_2
+  - first:
+      213: 21300006
+    second: Sylvie Talking_3
+  - first:
+      213: 21300008
+    second: Sylvie Talking_4
   externalObjects: {}
-  serializedVersion: 7
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -65,23 +75,23 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 2
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 40
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
   - serializedVersion: 2
     buildTarget: Standalone
-    maxTextureSize: 1024
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 2
     compressionQuality: 40
-    crunchedCompression: 1
+    crunchedCompression: 0
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -115,6 +125,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: b1e1e0bc1df22e5448fc2b908ab8d772
+      internalID: 21300000
       vertices: []
       indices: 
       edges: []
@@ -135,6 +146,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 5aa8fccb42b317143b9c8c5422ccdf07
+      internalID: 21300002
       vertices: []
       indices: 
       edges: []
@@ -155,6 +167,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 0717f8630d92ff2439b93021748c7bf3
+      internalID: 21300004
       vertices: []
       indices: 
       edges: []
@@ -175,6 +188,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: eabb542717b7dc14795911f98919e570
+      internalID: 21300006
       vertices: []
       indices: 
       edges: []
@@ -195,6 +209,7 @@ TextureImporter:
       tessellationDetail: 0
       bones: []
       spriteID: 44bcc8cdc87e7ea4fba52e55f671862c
+      internalID: 21300008
       vertices: []
       indices: 
       edges: []
@@ -203,10 +218,12 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: c97b5c5caa5f2144e965b62aeb88e9be
+    internalID: 0
     vertices: []
     indices: 
     edges: []
     weights: []
+    secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

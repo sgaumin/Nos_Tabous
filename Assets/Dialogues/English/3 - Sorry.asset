@@ -24,37 +24,36 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 0
   - WhoIsSpeaking: Mathias
-    Content: "... all\xF4 ? Papa ?"
+    Content: '...hello? Dad?'
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 2
   - WhoIsSpeaking: Henri
-    Content: "All\xF4, oui ! Bonjour Mathias !"
+    Content: "Morning! Mathias!\r"
     IsThereChoices: 0
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 3
   - WhoIsSpeaking: Henri
-    Content: "Il est un peu t\xF4t. Qu\u2019est ce qui se passe ? Comment \xE7a va
-      ?"
+    Content: "It\u2019s still very early. Something happened? Alright?"
     IsThereChoices: 1
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList:
-      - Content: "On s\u2019est s\xE9par\xE9 avec Caroline."
+      - Content: We broke up with Caroline
         FollowUpDialogueElement: 0
         IsTabou: 1
         IsThere: 0
         LessTabouContent: 
-      - Content: "C\u2019est pas la question."
+      - Content: "It\u2019s not the question."
         FollowUpDialogueElement: 4
         IsTabou: 1
         IsThere: 0
-        LessTabouContent: Tout va bien.
-      - Content: Je viens vous voir.
+        LessTabouContent: "I\u2019m well."
+      - Content: I come to see you.
         FollowUpDialogueElement: 9
         IsTabou: 0
         IsThere: 1
@@ -75,7 +74,7 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 6
   - WhoIsSpeaking: Mathias
-    Content: Tout va bien.
+    Content: Nothing.
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
@@ -89,7 +88,7 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 8
   - WhoIsSpeaking: Mathias
-    Content: Je pensais venir vous voir ce soir.
+    Content: I thought, i could come see you tonight.
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
@@ -103,15 +102,14 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 10
   - WhoIsSpeaking: Mathias
-    Content: "J\u2019ai chang\xE9 d\u2019avis. Je vais venir vous voir ce soir."
+    Content: "I changed my mind. I\u2019ll coming to see you tonight.\r\n"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 11
   - WhoIsSpeaking: Henri
-    Content: Ahah, quelle bonne nouvelle ! Finalement tu viens alors ! Tu restes dormir
-      ?
+    Content: So such good news! You come finally! Are you spending the night at home?
     IsThereChoices: 0
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
@@ -125,37 +123,37 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 13
   - WhoIsSpeaking: Mathias
-    Content: Je pense que je vais rester quelques jours, oui.
+    Content: "Yes, I think I\u2019ll stay some days.\r"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 14
   - WhoIsSpeaking: Henri
-    Content: "\xC7a va pas poser probl\xE8me avec le boulot ?"
+    Content: Is it alright with your job?
     IsThereChoices: 0
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 15
   - WhoIsSpeaking: Mathias
-    Content: "Nan nan, t\u2019inqui\xE8tes, c\u2019est... je me suis arrang\xE9."
+    Content: "Yeah, yeah don\u2019t worry. I... I made arrangement.\r"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 16
   - WhoIsSpeaking: Henri
-    Content: "Ah, d\u2019accord ! Eh ben c\u2019est... c\u2019est super ! Tu pourras
-      m\u2019aider pour deux ou trois bricoles."
+    Content: "Ok, good! So well, it\u2019s\u2026 great! You could help me for some
+      stuff?\r"
     IsThereChoices: 0
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 17
   - WhoIsSpeaking: Mathias
-    Content: "Euh, on verra ouais. Je dois y aller l\xE0... d\xE9poser Jade au lyc\xE9e.
-      \xC0 ce soir. *click*"
+    Content: "Well, okay i guess. I have to go now\u2026 bring Jade to the school.
+      See you tonight. \r\nCLIC\r\n"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:

@@ -24,42 +24,41 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 0
   - WhoIsSpeaking: Henri
-    Content: Merci, tu sais, je suis bien content que tu puisses nous aider.
+    Content: Thanks, you know, I appreciate that you can help us.
     IsThereChoices: 0
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 2
   - WhoIsSpeaking: Mathias
-    Content: Euh... Pas de souci ...
+    Content: "Euh\u2026 No problem\u2026"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 3
   - WhoIsSpeaking: Henri
-    Content: "Bon sang. Tu es tout p\xE2le. Qu\u2019est-ce qui s\u2019est pass\xE9
-      ?"
+    Content: "For goodness. You are so white. What happened?\r"
     IsThereChoices: 1
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList:
-      - Content: J'ai vu des choses en haut, et je ne comprends pas tout...
+      - Content: "I saw some stuff upstairs, and i don\u2019t  very well understand\u2026"
         FollowUpDialogueElement: 4
         IsTabou: 1
         IsThere: 0
         LessTabouContent: 
-      - Content: "Caroline m'a quitt\xE9. C'\xE9tait horrible. ..."
+      - Content: Caroline left me. Was terrible...
         FollowUpDialogueElement: 4
         IsTabou: 1
         IsThere: 0
         LessTabouContent: 
-      - Content: "Je ne me reconnais plus. Je ne sais plus o\xF9 j'en suis."
+      - Content: "I don\u2019t recognize myself anymore. I\u2019m lost."
         FollowUpDialogueElement: 4
         IsTabou: 1
         IsThere: 0
         LessTabouContent: 
-      - Content: J'ai besoin de vous parler. Je n'en peux plus.
+      - Content: "I need to talk with you. Can\u2019t stand anymore."
         FollowUpDialogueElement: 4
         IsTabou: 1
         IsThere: 0
@@ -73,7 +72,7 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 5
   - WhoIsSpeaking: Mathias
-    Content: "J\u2019ai tellement de chose \xE0 vous dire."
+    Content: There are so many things I need to tell you.
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:

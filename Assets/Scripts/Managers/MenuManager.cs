@@ -8,7 +8,11 @@ public class MenuManager : MonoBehaviour
 
 	private TranslationText[] traductions;
 
-	private void Start() => traductions = FindObjectsOfType<TranslationText>();
+	private void Start()
+	{
+		traductions = FindObjectsOfType<TranslationText>();
+		dropdown.value = LanguageData.LanguageIndex;
+	}
 
 	private void Update()
 	{
@@ -24,14 +28,17 @@ public class MenuManager : MonoBehaviour
 		{
 			case 0:
 				LanguageData.Language = Languages.English;
+				LanguageData.LanguageIndex = 0;
 				break;
 
 			case 1:
 				LanguageData.Language = Languages.French;
+				LanguageData.LanguageIndex = 1;
 				break;
 
 			case 2:
 				LanguageData.Language = Languages.Japanese;
+				LanguageData.LanguageIndex = 2;
 				break;
 		}
 

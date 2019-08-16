@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class TranslationText : MonoBehaviour
@@ -13,10 +14,15 @@ public class TranslationText : MonoBehaviour
 	public string japaneseContent;
 
 	private Text text;
+	private TextMeshPro textPro;
+	private TextMeshProUGUI textProUGUI;
 
 	private void Start()
 	{
 		text = GetComponent<Text>();
+		textPro = GetComponent<TextMeshPro>();
+		textProUGUI = GetComponent<TextMeshProUGUI>();
+
 		UpdateTraduction();
 	}
 
@@ -25,13 +31,46 @@ public class TranslationText : MonoBehaviour
 		switch (LanguageData.Language)
 		{
 			case Languages.French:
-				text.text = frenchContent;
+				if (text != null)
+				{
+					text.text = frenchContent;
+				}
+				else if (textPro != null)
+				{
+					textPro.text = frenchContent;
+				}
+				else if (textProUGUI != null)
+				{
+					textProUGUI.text = frenchContent;
+				}
 				break;
 			case Languages.English:
-				text.text = englishContent;
+				if (text != null)
+				{
+					text.text = englishContent;
+				}
+				else if (textPro != null)
+				{
+					textPro.text = englishContent;
+				}
+				else if (textProUGUI != null)
+				{
+					textProUGUI.text = englishContent;
+				}
 				break;
 			case Languages.Japanese:
-				text.text = japaneseContent;
+				if (text != null)
+				{
+					text.text = japaneseContent;
+				}
+				else if (textPro != null)
+				{
+					textPro.text = japaneseContent;
+				}
+				else if (textProUGUI != null)
+				{
+					textProUGUI.text = japaneseContent;
+				}
 				break;
 		}
 	}

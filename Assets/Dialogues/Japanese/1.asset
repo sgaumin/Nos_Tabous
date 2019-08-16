@@ -1,0 +1,174 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb12cf43435f20740ae47f48c120dd47, type: 3}
+  m_Name: 1
+  m_EditorClassIdentifier: 
+  startingIndex: 1
+  ElementList:
+  - WhoIsSpeaking: 
+    Content: "ERROR ! \n Si vous arrivez \xE0 cette embranchement, cela signifie que
+      quelque chose s'est mal pass\xE9, o\xF9 que vous avez explorer du contenu en
+      cours de construction. Appuyez sur n'importe quelle touche pour revenir au d\xE9but."
+    IsThereChoices: 0
+    Couleur: {r: 0, g: 0, b: 0, a: 0}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 0
+  - WhoIsSpeaking: Henri
+    Content: Hey Mathias!
+    IsThereChoices: 0
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 2
+  - WhoIsSpeaking: Mathias
+    Content: Hi daddy.
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 3
+  - WhoIsSpeaking: Henri
+    Content: How are you doing?
+    IsThereChoices: 1
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList:
+      - Content: I had some argue with my wife.
+        FollowUpDialogueElement: 4
+        IsTabou: 1
+        IsThere: 1
+        LessTabouContent: "We\u2019re all great."
+      - Content: "I\u2019ve been better."
+        FollowUpDialogueElement: 5
+        IsTabou: 1
+        IsThere: 1
+        LessTabouContent: "I\u2019m good."
+    FollowUpDialogueElement: 3
+  - WhoIsSpeaking: Mathias
+    Content: "Doing well. Jade and\u2026 Caroline too."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 6
+  - WhoIsSpeaking: Mathias
+    Content: "\u2026 good."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 6
+  - WhoIsSpeaking: Henri
+    Content: "Did you reconsider our invitation?\r\nIt\u2019s been a while we didn\u2019t
+      gathering all the family at the house, then it ll\u2019 be the opportunity to
+      meet the girls, if they ll\u2019 be glad to.\r"
+    IsThereChoices: 0
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 7
+  - WhoIsSpeaking: Henri
+    Content: Perhaps you could stay all the week end?
+    IsThereChoices: 1
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList:
+      - Content: "It\u2019s too late for playing the perfect dad."
+        FollowUpDialogueElement: 8
+        IsTabou: 1
+        IsThere: 1
+        LessTabouContent: 
+      - Content: "I really don\u2019t want."
+        FollowUpDialogueElement: 8
+        IsTabou: 1
+        IsThere: 1
+        LessTabouContent: 
+      - Content: "Maybe, let\u2019s talk after?"
+        FollowUpDialogueElement: 8
+        IsTabou: 0
+        IsThere: 1
+        LessTabouContent: 
+    FollowUpDialogueElement: 8
+  - WhoIsSpeaking: Mathias
+    Content: '...Can we talk about this later, Dad?'
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 9
+  - WhoIsSpeaking: Henri
+    Content: "That\u2019s lame... We miss you, you know."
+    IsThereChoices: 1
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList:
+      - Content: I miss you too.
+        FollowUpDialogueElement: 0
+        IsTabou: 1
+        IsThere: 1
+        LessTabouContent: 
+      - Content: "...that\u2019s it."
+        FollowUpDialogueElement: 10
+        IsTabou: 0
+        IsThere: 1
+        LessTabouContent: 
+    FollowUpDialogueElement: 0
+  - WhoIsSpeaking: Mathias
+    Content: "...that\u2019s it."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 11
+  - WhoIsSpeaking: Mathias
+    Content: '...'
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 12
+  - WhoIsSpeaking: Henri
+    Content: Give us some news if you change your mind!
+    IsThereChoices: 0
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 13
+  - WhoIsSpeaking: Mathias
+    Content: "That\u2019s it. Let\u2019s saying that. Bye."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 14
+  - WhoIsSpeaking: Henri
+    Content: Have a good night, kiss th- CLIC
+    IsThereChoices: 0
+    Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 15
+  - WhoIsSpeaking: Mathias
+    Content: Kiss my ass.
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 16
+  - WhoIsSpeaking: 
+    Content: ' '
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 16

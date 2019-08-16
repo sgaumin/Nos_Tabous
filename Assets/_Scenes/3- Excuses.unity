@@ -811,6 +811,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6087e04a9d3597b45a4d03f800a339f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useLanguageData: 0
   language: 0
   french: {fileID: 0}
   english: {fileID: 0}
@@ -1330,6 +1331,12 @@ PrefabInstance:
       propertyPath: english
       value: 
       objectReference: {fileID: 11400000, guid: 238cd9e6832f3ca4aab15bc4571acd46,
+        type: 2}
+    - target: {fileID: 894860065569132485, guid: ba662aafc2f9ccf40bb6caad531fa548,
+        type: 3}
+      propertyPath: japanese
+      value: 
+      objectReference: {fileID: 11400000, guid: 479c4fc57fc5aab40802a69eeb7f337d,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba662aafc2f9ccf40bb6caad531fa548, type: 3}

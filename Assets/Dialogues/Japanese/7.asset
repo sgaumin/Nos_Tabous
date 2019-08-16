@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb12cf43435f20740ae47f48c120dd47, type: 3}
+  m_Name: 7
+  m_EditorClassIdentifier: 
+  startingIndex: 1
+  ElementList:
+  - WhoIsSpeaking: 
+    Content: "ERROR ! \n Si vous arrivez \xE0 cette embranchement, cela signifie que
+      quelque chose s'est mal pass\xE9, o\xF9 que vous avez explorer du contenu en
+      cours de construction. Appuyez sur n'importe quelle touche pour revenir au d\xE9but."
+    IsThereChoices: 0
+    Couleur: {r: 0, g: 0, b: 0, a: 0}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 0
+  - WhoIsSpeaking: Mathias
+    Content: "Can\u2019t see anything here.\r"
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 2
+  - WhoIsSpeaking: Mathias
+    Content: So, where is the light?
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 3
+  - WhoIsSpeaking: Mathias
+    Content: "Seems it\u2019s this thing."
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 4
+  - WhoIsSpeaking: Mathias
+    Content: What is this shit?
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 5
+  - WhoIsSpeaking: Mathias
+    Content: "They had better throw all these old stuff\u2026"
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 6
+  - WhoIsSpeaking: Mathias
+    Content: "What they can put inside this big chest?\r\n"
+    IsThereChoices: 1
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList:
+      - Content: '[Action] Open the chest.'
+        FollowUpDialogueElement: 8
+        IsTabou: 0
+        IsThere: 1
+        LessTabouContent: 
+      - Content: '[Action] Comeback in first floor.'
+        FollowUpDialogueElement: 7
+        IsTabou: 0
+        IsThere: 1
+        LessTabouContent: 
+    FollowUpDialogueElement: 0
+  - WhoIsSpeaking: 
+    Content: 
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 7
+  - WhoIsSpeaking: Mathias
+    Content: Oh crap, what the hell i just find?...
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 9
+  - WhoIsSpeaking: 
+    Content: 
+    IsThereChoices: 0
+    Couleur: {r: 1, g: 1, b: 1, a: 1}
+    Branching:
+      ChoiceList: []
+    FollowUpDialogueElement: 9

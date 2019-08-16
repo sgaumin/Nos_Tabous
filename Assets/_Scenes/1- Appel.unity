@@ -1327,5 +1327,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 0812bcf5ecd1e6e4ca71267158ab382b,
         type: 2}
+    - target: {fileID: 894860065569132485, guid: ba662aafc2f9ccf40bb6caad531fa548,
+        type: 3}
+      propertyPath: japanese
+      value: 
+      objectReference: {fileID: 11400000, guid: c57f1f57e1c7a294d8a36d4d4fc01893,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba662aafc2f9ccf40bb6caad531fa548, type: 3}

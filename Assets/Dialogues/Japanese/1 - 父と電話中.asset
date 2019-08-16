@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb12cf43435f20740ae47f48c120dd47, type: 3}
-  m_Name: 1
+  m_Name: "1 - \u7236\u3068\u96FB\u8A71\u4E2D"
   m_EditorClassIdentifier: 
   startingIndex: 1
   ElementList:
@@ -23,143 +23,141 @@ MonoBehaviour:
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 0
-  - WhoIsSpeaking: Henri
-    Content: Hey Mathias!
+  - WhoIsSpeaking: "\u30A2\u30F3\u30EA"
+    Content: "\u3082\u3057\u3082\u3057\u3001\u30DE\u30C6\u30A3\u30A2\u30B9\uFF01"
     IsThereChoices: 0
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 2
-  - WhoIsSpeaking: Mathias
-    Content: Hi daddy.
+  - WhoIsSpeaking: "\u30DE\u30C6\u30A3\u30A2\u30B9"
+    Content: "\u3042\u3063\u3001\u7236\u3055\u3093\u3002"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 3
-  - WhoIsSpeaking: Henri
-    Content: How are you doing?
+  - WhoIsSpeaking: "\u30A2\u30F3\u30EA"
+    Content: "\u5143\u6C17\uFF1F"
     IsThereChoices: 1
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList:
-      - Content: I had some argue with my wife.
+      - Content: "\u307E\u3042\u307E\u3042\u3001\u5B9F\u306F\u6700\u8FD1\u3001\u30AD\u30E3\u30ED\u30EA\u30F3\u3068\u3046\u307E\u304F\u3044\u3063\u3066\u3044\u306A\u3044\u611F\u3058\u3002"
         FollowUpDialogueElement: 4
         IsTabou: 1
         IsThere: 1
-        LessTabouContent: "We\u2019re all great."
-      - Content: "I\u2019ve been better."
+        LessTabouContent: "\u3046\u3093\u3001\u307F \u3093\u306A\u5143\u6C17\u3060\u3088\u3002"
+      - Content: "\u3042\u3093\u307E\u308A\u5143\u6C17\u3058\u3083\u306A\u3044"
         FollowUpDialogueElement: 5
         IsTabou: 1
         IsThere: 1
-        LessTabouContent: "I\u2019m good."
+        LessTabouContent: "\u5143\u6C17\u5143\u6C17\uFF01\u3000...\u5143\u6C17\u3060\u3088"
     FollowUpDialogueElement: 3
-  - WhoIsSpeaking: Mathias
-    Content: "Doing well. Jade and\u2026 Caroline too."
+  - WhoIsSpeaking: "\u30DE\u30C6\u30A3\u30A2\u30B9"
+    Content: "\u3046\u3093\u3001\u307F\u3093\u306A\u5143\u6C17\u3060\u3088\u3002\u3000\u5143\u6C17\u3001\u30B8\u30A7\u30A4\u30C9\u3082...\u30AD\u30E3\u30ED\u30EA\u30F3\u3082\u3002"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 6
-  - WhoIsSpeaking: Mathias
-    Content: "\u2026 good."
+  - WhoIsSpeaking: "\u30DE\u30C6\u30A3\u30A2\u30B9"
+    Content: "\u5143\u6C17\u5143\u6C17\uFF01\u3000...\u5143\u6C17\u3060\u3088\u3002"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 6
-  - WhoIsSpeaking: Henri
-    Content: "Did you reconsider our invitation?\r\nIt\u2019s been a while we didn\u2019t
-      gathering all the family at the house, then it ll\u2019 be the opportunity to
-      meet the girls, if they ll\u2019 be glad to.\r"
+  - WhoIsSpeaking: "\u30A2\u30F3\u30EA"
+    Content: "\u3055\u3063\u304D\u306E\u8A98\u3044\u3063\u3066\u8003\u3048\u305F\uFF1F\r\n\r\n\u5BB6\u3067\u307F\u3093\u306A\u304C\u63C3\u3046\u3063\u3066\u304B\u306A\u308A\u4E45\u3005\u3060\u3088\u306D\uFF01\u305D\u308C\u306B\u6BCD\u3055\u3093\u306F\u30B8\u30A7\u30A4\u30C9\u3068\u30AD\u30E3\u30ED\u30EA\u30F3\u306B\u3059\u3054\u304F\u4F1A\u3044\u305F\u304C\u3063\u3066\u3044\u308B\u3088\u3002\u3082\u3057\u3001\u305D\u3063\u3061\u304C\u3088\u304B\u3063\u305F\u3089...\u3002\r"
     IsThereChoices: 0
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 7
-  - WhoIsSpeaking: Henri
-    Content: Perhaps you could stay all the week end?
+  - WhoIsSpeaking: "\u30A2\u30F3\u30EA"
+    Content: "\u4ECA\u9031\u672B\u306F\u3069\u3046\uFF1F"
     IsThereChoices: 1
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList:
-      - Content: "It\u2019s too late for playing the perfect dad."
+      - Content: "\u4FFA\u3001\u5B8C\u74A7\u306A\u30D1\u30D1\u3092\u6F14\u3058\u308B\u306E\u306F\u3082\u3046\u3060\u3081\u3002"
         FollowUpDialogueElement: 8
         IsTabou: 1
         IsThere: 1
         LessTabouContent: 
-      - Content: "I really don\u2019t want."
+      - Content: "\u3042\u3093\u307E\u884C\u304D\u305F\u304F\u306A\u3044\u306A\u3002"
         FollowUpDialogueElement: 8
         IsTabou: 1
         IsThere: 1
         LessTabouContent: 
-      - Content: "Maybe, let\u2019s talk after?"
+      - Content: "\u5F8C\u3067\u3053\u306E\u8A71\u3057\u3066\u3044\u3044"
         FollowUpDialogueElement: 8
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
     FollowUpDialogueElement: 8
-  - WhoIsSpeaking: Mathias
-    Content: '...Can we talk about this later, Dad?'
+  - WhoIsSpeaking: "\u30DE\u30C6\u30A3\u30A2\u30B9"
+    Content: "\u60AA\u3044\u3051\u3069\u3001\u4ECA\u306F\u3061\u3087\u3063\u3068...\u4ECA\u5EA6\u8A71\u3057\u3066\u304A\u3053\u3046\u304B\uFF1F"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 9
-  - WhoIsSpeaking: Henri
-    Content: "That\u2019s lame... We miss you, you know."
+  - WhoIsSpeaking: "\u30A2\u30F3\u30EA"
+    Content: "\u3042\u3063\u3001\u305D\u30FC\u304B\u2026\u3002\u5BC2\u3057\u3044\u306A\u3002"
     IsThereChoices: 1
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList:
-      - Content: I miss you too.
+      - Content: "\u3053\u3063\u3061\u3082\u5BC2\u3057\u3044\u3002"
         FollowUpDialogueElement: 0
         IsTabou: 1
         IsThere: 1
         LessTabouContent: 
-      - Content: "...that\u2019s it."
+      - Content: "...\u305D\u3046\u3002...\u305D\u3046\u3002"
         FollowUpDialogueElement: 10
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
     FollowUpDialogueElement: 0
-  - WhoIsSpeaking: Mathias
-    Content: "...that\u2019s it."
+  - WhoIsSpeaking: "\u30DE\u30C6\u30A3\u30A2\u30B9"
+    Content: "...\u305D\u3046\u3002...\u305D\u3046\u3002"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 11
-  - WhoIsSpeaking: Mathias
+  - WhoIsSpeaking: "\u30DE\u30C6\u30A3\u30A2\u30B9"
     Content: '...'
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 12
-  - WhoIsSpeaking: Henri
-    Content: Give us some news if you change your mind!
+  - WhoIsSpeaking: "\u30A2\u30F3\u30EA"
+    Content: "\u3082\u3057\u884C\u3051\u305D\u3046\u306A\u3089\u3001\u6559\u3048\u3066\u306D\uFF01"
     IsThereChoices: 0
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 13
-  - WhoIsSpeaking: Mathias
-    Content: "That\u2019s it. Let\u2019s saying that. Bye."
+  - WhoIsSpeaking: "\u30DE\u30C6\u30A3\u30A2\u30B9"
+    Content: "\u5206\u304B\u3063\u305F\u3002\u305D\u306E\u6642\u306F\u8A00\u3046\u3002\u3058\u3083\u3042\u3002"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 14
-  - WhoIsSpeaking: Henri
-    Content: Have a good night, kiss th- CLIC
+  - WhoIsSpeaking: "\u30A2\u30F3\u30EA"
+    Content: "\u307E\u305F\u306D\u3001\u307F\u3093\u306A\u306B\u3088\u308D\u3057\u304F"
     IsThereChoices: 0
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 15
-  - WhoIsSpeaking: Mathias
-    Content: Kiss my ass.
+  - WhoIsSpeaking: "\u30DE\u30C6\u30A3\u30A2\u30B9"
+    Content: "\u3056\u3051\u3093\u306A\u3088\uFF01"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:

@@ -24,15 +24,15 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 0
   - WhoIsSpeaking: Sylvie
-    Content: "Tiens, Mathias, s\u2019il te pla\xEEt, tu pourrais aller changer l\u2019ampoule
-      du grenier ? Elle est cass\xE9e."
+    Content: "Oh, Mathias, please, can you change the light in the attic? It\u2019s
+      broken."
     IsThereChoices: 0
     Couleur: {r: 1, g: 0.53333336, b: 0.8666667, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 2
   - WhoIsSpeaking: Mathias
-    Content: Mmh... Ok Maman.
+    Content: Hum, ok mom.
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:

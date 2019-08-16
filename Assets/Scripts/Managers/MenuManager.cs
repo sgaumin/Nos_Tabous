@@ -1,9 +1,14 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
 	[SerializeField] private Dropdown dropdown;
+
+	private TranslationText[] traductions;
+
+	private void Start() => traductions = FindObjectsOfType<TranslationText>();
 
 	private void Update()
 	{
@@ -29,5 +34,7 @@ public class MenuManager : MonoBehaviour
 				LanguageData.Language = Languages.Japanese;
 				break;
 		}
+
+		Array.ForEach(traductions, x => x.UpdateTraduction());
 	}
 }

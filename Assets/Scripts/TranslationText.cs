@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class TraductionsText : MonoBehaviour
+public class TranslationText : MonoBehaviour
 {
 	[TextArea(3, 10)]
 	public string frenchContent;

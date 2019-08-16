@@ -5,15 +5,10 @@ using UnityEngine.UI;
 
 public class DialogueBox : MonoBehaviour
 {
-	private enum Languages
-	{
-		French,
-		English,
-		Japanese
-	}
-
 	public static DialogueBox Instance { get; private set; }
 
+	[Header("Debug")]
+	[SerializeField] private bool useLanguageData;
 	[SerializeField] private Languages language = Languages.French;
 
 	[Header("Dialogues")]
@@ -47,17 +42,35 @@ public class DialogueBox : MonoBehaviour
 	private void SetDialogueFile()
 	{
 		OneDialogueElementList currentLanguage = null;
-		switch (language)
+		if (useLanguageData)
 		{
-			case Languages.English:
-				currentLanguage = english;
-				break;
-			case Languages.French:
-				currentLanguage = french;
-				break;
-			case Languages.Japanese:
-				currentLanguage = japanese;
-				break;
+			switch (LanguageData.Language)
+			{
+				case Languages.English:
+					currentLanguage = english;
+					break;
+				case Languages.French:
+					currentLanguage = french;
+					break;
+				case Languages.Japanese:
+					currentLanguage = japanese;
+					break;
+			}
+		}
+		else
+		{
+			switch (language)
+			{
+				case Languages.English:
+					currentLanguage = english;
+					break;
+				case Languages.French:
+					currentLanguage = french;
+					break;
+				case Languages.Japanese:
+					currentLanguage = japanese;
+					break;
+			}
 		}
 
 		sentence.DialogueContent = currentLanguage ?? french;

@@ -150,7 +150,7 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 14
   - WhoIsSpeaking: "\u30A2\u30F3\u30EA"
-    Content: "\u307E\u305F\u306D\u3001\u307F\u3093\u306A\u306B\u3088\u308D\u3057\u304F"
+    Content: "\u307E\u305F\u306D\u3001\u307F\u3093\u306A\u306B\u3088\u308D\u3057\u304F\n\u30AC\u30C1\u30E3\u30F3"
     IsThereChoices: 0
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bb12cf43435f20740ae47f48c120dd47, type: 3}
-  m_Name: 3
+  m_Name: "3 - \u7236\u3068\u96FB\u8A71\u4E2D"
   m_EditorClassIdentifier: 
   startingIndex: 1
   ElementList:
@@ -23,137 +23,135 @@ MonoBehaviour:
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 0
-  - WhoIsSpeaking: Mathias
-    Content: '...hello? Dad?'
+  - WhoIsSpeaking: " \u30DE\u30C6\u30A3\u30A2\u30B9"
+    Content: "...\u3082\u3057\u3082\u3057\uFF1F\u7236\u3055\u3093\uFF1F"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 2
-  - WhoIsSpeaking: Henri
-    Content: "Morning! Mathias!\r"
+  - WhoIsSpeaking: "\u30A2\u30F3\u30EA"
+    Content: "\u65E9\u3044\u306A"
     IsThereChoices: 0
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 3
-  - WhoIsSpeaking: Henri
-    Content: "It\u2019s still very early. Something happened? Alright?"
+  - WhoIsSpeaking: "\u30A2\u30F3\u30EA"
+    Content: "\u306A\u3093\u304B\u3042\u3063\u305F\uFF1F\u5927\u4E08\u592B\uFF1F"
     IsThereChoices: 1
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList:
-      - Content: We broke up with Caroline
+      - Content: "\u30AD\u30E3\u30ED\u30EA\u30F3\u3068\u5225\u308C\u305F\u3002"
         FollowUpDialogueElement: 0
         IsTabou: 1
         IsThere: 0
         LessTabouContent: 
-      - Content: "It\u2019s not the question."
+      - Content: "\u3044\u3084\u3002"
         FollowUpDialogueElement: 4
         IsTabou: 1
         IsThere: 0
-        LessTabouContent: "I\u2019m well."
-      - Content: I come to see you.
+        LessTabouContent: "\u5927\u4E08\u592B\u3001\u5927\u4E08\u592B\u3002"
+      - Content: "\u4ECA\u6669\u4F1A\u3044\u306B\u884C\u304F\u3088\u3002"
         FollowUpDialogueElement: 9
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
     FollowUpDialogueElement: 0
-  - WhoIsSpeaking: Mathias
-    Content: Rien
+  - WhoIsSpeaking: " \u30DE\u30C6\u30A3\u30A2\u30B9"
+    Content: "\u5927\u4E08\u592B\u3001\u5927\u4E08\u592B\u3002"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 5
-  - WhoIsSpeaking: Mathias
+  - WhoIsSpeaking: " \u30DE\u30C6\u30A3\u30A2\u30B9"
     Content: '...'
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 6
-  - WhoIsSpeaking: Mathias
-    Content: Nothing.
+  - WhoIsSpeaking: " \u30DE\u30C6\u30A3\u30A2\u30B9"
+    Content: "\u5927\u4E08\u592B\u3002"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 7
-  - WhoIsSpeaking: Mathias
+  - WhoIsSpeaking: " \u30DE\u30C6\u30A3\u30A2\u30B9"
     Content: '...'
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 8
-  - WhoIsSpeaking: Mathias
-    Content: I thought, i could come see you tonight.
+  - WhoIsSpeaking: " \u30DE\u30C6\u30A3\u30A2\u30B9"
+    Content: "\u7D50\u5C40\u3001\u4ECA\u6669\u4F1A\u3044\u306B\u884C\u304F\u3064\u3082\u308A\u3060\u3088\u3002"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 11
-  - WhoIsSpeaking: Mathias
+  - WhoIsSpeaking: " \u30DE\u30C6\u30A3\u30A2\u30B9"
     Content: '...'
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 10
-  - WhoIsSpeaking: Mathias
-    Content: "I changed my mind. I\u2019ll coming to see you tonight.\r\n"
+  - WhoIsSpeaking: " \u30DE\u30C6\u30A3\u30A2\u30B9"
+    Content: "\u7D50\u5C40\u3001\u4ECA\u6669\u4F1A\u3044\u306B\u884C\u304F\u3064\u3082\u308A\u3060\u3088\u3002\n"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 11
-  - WhoIsSpeaking: Henri
-    Content: So such good news! You come finally! Are you spending the night at home?
+  - WhoIsSpeaking: "\u30A2\u30F3\u30EA"
+    Content: "\u304A\u30FC\u3001\u3044\u3044\u306A\uFF01\u6765\u308B\u306D\uFF01\u3053\u3063\u3061\u3067\u6CCA\u307E\u308B\u306E\u304B\uFF1F"
     IsThereChoices: 0
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 12
-  - WhoIsSpeaking: Mathias
+  - WhoIsSpeaking: " \u30DE\u30C6\u30A3\u30A2\u30B9"
     Content: '...'
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 13
-  - WhoIsSpeaking: Mathias
-    Content: "Yes, I think I\u2019ll stay some days.\r"
+  - WhoIsSpeaking: " \u30DE\u30C6\u30A3\u30A2\u30B9"
+    Content: "\u3046\u3093\u3001\u6570\u65E5\u3050\u3089\u3044\u3044\u308B\u3068\u601D\u3046"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 14
-  - WhoIsSpeaking: Henri
-    Content: Is it alright with your job?
+  - WhoIsSpeaking: "\u30A2\u30F3\u30EA"
+    Content: "\u305D\u3063\u304B\u3001\u4ED5\u4E8B\u306F\u5927\u4E08\u592B\uFF1F"
     IsThereChoices: 0
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 15
-  - WhoIsSpeaking: Mathias
-    Content: "Yeah, yeah don\u2019t worry. I... I made arrangement.\r"
+  - WhoIsSpeaking: " \u30DE\u30C6\u30A3\u30A2\u30B9"
+    Content: "\u3044\u3084\u3001\u3044\u3044\u3088\u3002\u3044\u3044\u3088\u3002\u3042\u306E...\u554F\u984C\u306A\u3044\u3063\u3066"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 16
-  - WhoIsSpeaking: Henri
-    Content: "Ok, good! So well, it\u2019s\u2026 great! You could help me for some
-      stuff?\r"
+  - WhoIsSpeaking: "\u30A2\u30F3\u30EA"
+    Content: "\u305D\u3046\u306A\u3093\u3060\uFF01\u3058\u3083...\u3070\u3063\u3061\u308A\u3060\u306A\uFF01\u3068\u3053\u308D\u3067\u3001\u3046\u3061\u3067\u306A\u3093\u304B\u624B\u4F1D\u3048\u306A\u3044\u304B\uFF1F"
     IsThereChoices: 0
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 17
-  - WhoIsSpeaking: Mathias
-    Content: "Well, okay i guess. I have to go now\u2026 bring Jade to the school.
-      See you tonight. \r\nCLIC\r\n"
+  - WhoIsSpeaking: " \u30DE\u30C6\u30A3\u30A2\u30B9"
+    Content: "\u3048\u3063\u3068\u3001\u624B\u4F1D\u3048\u308B\u304B\u306A\u3002\u305D\u308C\u3058\u3083...\u30B8\u30A7\u30A4\u30C9\u5B66\u6821\u3067\u9023\u308C\u3063\u3066\u3044\u304B\u306A\u304D\u3083\u3002\u3058\u3083\u4ECA\u6669\u306D\u3002\n\u30AC\u30C1\u30E3\u30F3\n"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:

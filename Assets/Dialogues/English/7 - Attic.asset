@@ -24,52 +24,52 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 0
   - WhoIsSpeaking: Mathias
-    Content: On y voit rien, ici.
+    Content: "Can\u2019t see anything here.\r"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 2
   - WhoIsSpeaking: Mathias
-    Content: "Bon, o\xF9 est la lampe ?"
+    Content: So, where is the light?
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 3
   - WhoIsSpeaking: Mathias
-    Content: "\xC7a doit \xEAtre \xE7a."
+    Content: "Seems it\u2019s this thing."
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 4
   - WhoIsSpeaking: Mathias
-    Content: C'est quoi ce bordel ?
+    Content: What is this shit?
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 5
   - WhoIsSpeaking: Mathias
-    Content: Ils feraient mieux de jeter leurs vieux trucs...
+    Content: "They had better throw all these old stuff\u2026"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 6
   - WhoIsSpeaking: Mathias
-    Content: Qu'est ce qu'ils peuvent bien ranger dans cette grande malle ?
+    Content: "What they can put inside this big chest?\r\n"
     IsThereChoices: 1
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList:
-      - Content: '[Action] Ouvrir la malle'
+      - Content: '[Action] Open the chest.'
         FollowUpDialogueElement: 8
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
-      - Content: "[Action] Retourner au rez de chauss\xE9e."
+      - Content: '[Action] Comeback in first floor.'
         FollowUpDialogueElement: 7
         IsTabou: 0
         IsThere: 1
@@ -83,7 +83,7 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 7
   - WhoIsSpeaking: Mathias
-    Content: "Oh merde, sur quoi je suis tomb\xE9 ?..."
+    Content: Oh crap, what the hell i just find?...
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:

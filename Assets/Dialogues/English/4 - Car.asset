@@ -24,79 +24,78 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 0
   - WhoIsSpeaking: Jade
-    Content: Papa, tout va bien avec Caroline ? J'vous ai entendu vous disputer hier
-      soir...
+    Content: "Daddy, something happened with Caroline? I heard you argue yesterday
+      night\u2026"
     IsThereChoices: 1
     Couleur: {r: 0.4407333, g: 0.601, b: 0.12019999, a: 1}
     Branching:
       ChoiceList:
-      - Content: "J\u2019ai pas envie d\u2019en discuter."
+      - Content: "I don\u2019t want to talk."
         FollowUpDialogueElement: 2
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
-      - Content: "C\u2019est des affaires d\u2019adultes."
+      - Content: "It\u2019s adult business."
         FollowUpDialogueElement: 3
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
-      - Content: "Elle m\u2019a quitt\xE9."
+      - Content: She leave me.
         FollowUpDialogueElement: 4
         IsTabou: 1
         IsThere: 0
-        LessTabouContent: "\xC7a va aller."
-      - Content: "Elle a p\xE9t\xE9 un c\xE2ble..."
+        LessTabouContent: It will be alright.
+      - Content: "She lost her mind\u2026"
         FollowUpDialogueElement: 0
         IsTabou: 1
         IsThere: 0
         LessTabouContent: 
     FollowUpDialogueElement: 0
   - WhoIsSpeaking: Mathias
-    Content: "C'est compliqu\xE9. J'ai pas envie d'en discuter."
+    Content: "It\u2019s complicated. I don\u2019t really want to talk about."
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 5
   - WhoIsSpeaking: Mathias
-    Content: "Tu sais les parents des fois \xE7a se met en col\xE8re, mais c\u2019est
-      rien de grave."
+    Content: Sometimes parents get angry too you know, but nothing serious.
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 5
   - WhoIsSpeaking: Mathias
-    Content: "Oui, enfin, non... \xC7a va s\u2019arranger."
+    Content: "Yeah, well, no\u2026"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 5
   - WhoIsSpeaking: Jade
-    Content: Tu sais Papa, je suis plus une gamine. Je peux comprendre...
+    Content: "You know I\u2019m not a child anymore daddy. I can understand."
     IsThereChoices: 0
     Couleur: {r: 0.44313726, g: 0.6039216, b: 0.12156863, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 6
   - WhoIsSpeaking: Mathias
-    Content: "Moi, je suis pas derri\xE8re ton dos, \xE0 te demander comment \xE7a
-      se passe avec les gar\xE7ons !"
+    Content: "Look, I\u2019m not behind your back all the time and ask you how it
+      does with guys!"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 7
   - WhoIsSpeaking: Jade
-    Content: "Mais tu m\u2019\xE9coutes jamais quand je te parle !"
+    Content: But you never listen to me when i talk to you!
     IsThereChoices: 0
     Couleur: {r: 0.44313726, g: 0.6039216, b: 0.12156863, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 8
   - WhoIsSpeaking: Jade
-    Content: "T\u2019es chiant des fois papa..."
+    Content: "So annoying dad\u2026"
     IsThereChoices: 0
     Couleur: {r: 0.44313726, g: 0.6039216, b: 0.12156863, a: 1}
     Branching:
@@ -117,67 +116,65 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 11
   - WhoIsSpeaking: Mathias
-    Content: "Bon, au fait... je vais chez Papi Mami ce soir. Je partirai dans l\u2019apr\xE8s-midi,
-      tu veux venir avec moi ?"
+    Content: "Well, by the way\u2026 I\u2019m going to grandpa\u2019s and grandma\u2019s
+      home tonight. I go during the afternoon, shall you join?"
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 12
   - WhoIsSpeaking: Jade
-    Content: "... \xE7a va pas \xEAtre possible, tu sais bien que c\u2019est Maman
-      qui me r\xE9cup\xE8re ce soir."
+    Content: "\u2026 can\u2019t be possible you know, tonight i go to mom\u2019s home."
     IsThereChoices: 0
     Couleur: {r: 0.44313726, g: 0.6039216, b: 0.12156863, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 13
   - WhoIsSpeaking: Jade
-    Content: Tu comptes ramener un cadeau pour une fois ?
+    Content: Will you bring some gift this time?
     IsThereChoices: 0
     Couleur: {r: 0.44313726, g: 0.6039216, b: 0.12156863, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 14
   - WhoIsSpeaking: Mathias
-    Content: Bof.
+    Content: Mah.
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 15
   - WhoIsSpeaking: Jade
-    Content: "Fais un effort. \xC7a fait combien de temps que tu ne leur as pas offert
-      quelque chose ?"
+    Content: Make an effort. When was last time you bring something to them?
     IsThereChoices: 1
     Couleur: {r: 0.44313726, g: 0.6039216, b: 0.12156863, a: 1}
     Branching:
       ChoiceList:
-      - Content: "No\xEBl dernier."
+      - Content: Last Christmas.
         FollowUpDialogueElement: 16
         IsTabou: 0
         IsThere: 1
         LessTabouContent: 
-      - Content: "Mon p\xE8re n\u2019a jamais fait d\u2019effort pour moi."
+      - Content: 'My father never made an effort for me. '
         FollowUpDialogueElement: 0
         IsTabou: 1
         IsThere: 0
         LessTabouContent: 
-      - Content: Laisse moi tranquille.
+      - Content: Leave me alone.
         FollowUpDialogueElement: 19
         IsTabou: 1
         IsThere: 1
-        LessTabouContent: "Laisse moi m\u2019en occuper."
+        LessTabouContent: Let me work on it.
     FollowUpDialogueElement: 16
   - WhoIsSpeaking: Mathias
-    Content: "Ben je leur ai offert un bouquin No\xEBl dernier, quand m\xEAme."
+    Content: Well, i given one book last Christmas i mean.
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 17
   - WhoIsSpeaking: Jade
-    Content: "Papa, \xE7a fait 4 ans que tu as pas fait No\xEBl avec eux."
+    Content: "Daddy, last Christmas with them will be 4 years ago.\r\n"
     IsThereChoices: 0
     Couleur: {r: 0.44313726, g: 0.6039216, b: 0.12156863, a: 1}
     Branching:
@@ -191,29 +188,29 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 20
   - WhoIsSpeaking: Mathias
-    Content: "Laisse moi m'occuper de \xE7a. Je g\xE8re."
+    Content: Let me handle that.
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 20
   - WhoIsSpeaking: Jade
-    Content: "Bon tu peux me d\xE9poser ici, embrasse Papi et Mami pour moi."
+    Content: Well drop me off here, kiss grandma and grandpa for me.
     IsThereChoices: 0
     Couleur: {r: 0.44313726, g: 0.6039216, b: 0.12156863, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 21
   - WhoIsSpeaking: Mathias
-    Content: "Passe le bonjour \xE0 ta m\xE8re de ma part. Ah et euh... demande lui
-      si je peux l\u2019appeler dans la semaine. Pas un mot sur Caroline."
+    Content: "Said hi to your mother for me. Ah and hum\u2026 Ask if i can call her
+      next week. Above all don\u2019t mention Caroline. "
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:
       ChoiceList: []
     FollowUpDialogueElement: 22
   - WhoIsSpeaking: Jade
-    Content: "C\u2019est \xE7a ouais ! Bisous papa, je file !"
+    Content: "Okay, okay i get it! Kiss daddy, see you!\r\n"
     IsThereChoices: 0
     Couleur: {r: 0.44313726, g: 0.6039216, b: 0.12156863, a: 1}
     Branching:

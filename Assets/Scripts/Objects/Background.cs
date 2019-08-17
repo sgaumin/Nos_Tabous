@@ -16,13 +16,13 @@ public class Background : MonoBehaviour
 
 	public IEnumerator FadIn()
 	{
-		Tween fad = sprite.DOFade(1f, 1f);
+		Tween fad = sprite.DOFade(1f, fadDuration);
 		yield return fad.WaitForCompletion(true);
 	}
 
 	public IEnumerator FadOut()
 	{
-		Tween fad = sprite.DOFade(0f, 1f);
+		Tween fad = sprite.DOFade(0f, fadDuration);
 		yield return fad.WaitForCompletion(true);
 	}
 }

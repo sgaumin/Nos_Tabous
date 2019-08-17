@@ -96,12 +96,9 @@ public class LevelManager6 : MonoBehaviour
 		// Hide the dialogues box
 		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(false));
 
-		// Background fad out animation
-		StartCoroutine(background.FadOut());
+		yield return StartCoroutine(background.FadOut());
 
-		// Coroutine End
 		GameSystem.Instance.LoadNextScene();
-		yield break;
 	}
 
 	private IEnumerator StartLevel()
@@ -112,14 +109,13 @@ public class LevelManager6 : MonoBehaviour
 		clock.SetActive(true);
 		yield return new WaitForSeconds(3f);
 		clock.SetActive(false);
-		yield return new WaitForSeconds(0.5f);
+		yield return new WaitForSeconds(0.2f);
 
-		// Show Background
-		StartCoroutine(background.FadIn());
+		yield return StartCoroutine(background.FadIn());
 
 		// Show sylvie Character
 		sylvieCharacter.gameObject.SetActive(true);
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(0.5f);
 
 		// Show dialogues box 
 		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(true));

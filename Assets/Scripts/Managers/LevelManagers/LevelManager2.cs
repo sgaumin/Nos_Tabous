@@ -240,9 +240,6 @@ public class LevelManager2 : MonoBehaviour
 		// Set Caroline idle animation
 		carolineAnimator.SetTrigger("Reset");
 
-		// Waiting time
-		yield return new WaitForSeconds(2f);
-
 		// Hide Texts into the dialogues box
 		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(false));
 
@@ -266,19 +263,13 @@ public class LevelManager2 : MonoBehaviour
 
 		// Play sound door
 		audioManager.PlayClosedDoorSound(true);
-		yield return new WaitForSeconds(4f);
+		yield return new WaitForSeconds(3f);
 
 		// Flip Mathias
 		mathiasCharacter.Flip();
-		yield return new WaitForSeconds(0.5f);
-
-		// Reset Mathias animation
 		mathiasAnimator.SetTrigger("Reset");
-		yield return new WaitForSeconds(0.5f);
 
-		// Background fad out animation
-		background.FadOut();
-		yield return new WaitForSeconds(2f);
+		yield return StartCoroutine(background.FadOut());
 
 		// Coroutine End
 		GameSystem.Instance.LoadNextScene();

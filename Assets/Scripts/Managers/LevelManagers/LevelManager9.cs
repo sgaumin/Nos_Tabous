@@ -117,8 +117,7 @@ public class LevelManager9 : MonoBehaviour
 		mathiasAnimator.SetBool("IsFadIn", true);
 		yield return new WaitForSeconds(1f);
 
-		// Show Background
-		StartCoroutine(background.FadIn());
+		yield return StartCoroutine(background.FadIn());
 
 		// Show Henry & Sylvie Characters facing
 		henryCharacter.gameObject.SetActive(true);
@@ -201,11 +200,8 @@ public class LevelManager9 : MonoBehaviour
 
 	private IEnumerator FinalStepLevel()
 	{
-		// Hide Texts into the dialogues box
 		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(false));
-
-		// Background fad out animation
-		StartCoroutine(background.FadOut());
+		yield return StartCoroutine(background.FadOut());
 
 		fadOutScreen.SetTrigger("FadOut");
 		yield return new WaitForSeconds(2f);

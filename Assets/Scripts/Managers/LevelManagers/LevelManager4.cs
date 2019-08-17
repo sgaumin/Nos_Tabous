@@ -269,18 +269,10 @@ public class LevelManager4 : MonoBehaviour
 
 		// Stop ambiance sound
 		audioManager.PlayAmbianceSound(false);
-
-		// Waiting time
 		yield return new WaitForSeconds(2f);
-
-		// Play sound car door closed
 		audioManager.PlayClosedDoorSound(true);
 
-		// jade Fad Out animation
 		jadeAnimator.SetTrigger("FadOut");
-		yield return new WaitForSeconds(2f);
-
-		// Fad Out Car
 		car.SetTrigger("FadOut");
 
 		// Hide the dialogues box
@@ -288,7 +280,7 @@ public class LevelManager4 : MonoBehaviour
 
 		// Background fad out animation
 		car.SetTrigger("FadOut");
-		yield return new WaitForSeconds(2f);
+		yield return new WaitForSeconds(1.5f);
 
 		GameSystem.Instance.LoadNextScene();
 	}

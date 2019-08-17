@@ -112,12 +112,12 @@ public class LevelManager5 : MonoBehaviour
 	{
 		// Play wind sound
 		audioManager.PlayWindSound(true);
-		yield return new WaitForSeconds(3f);
+		yield return new WaitForSeconds(1f);
 		mathiasCharacter.transform.DOMove(initialPosition.position, 1f, false).SetEase(Ease.InOutSine);
 
 		// Play foot sound
 		audioManager.PlayFootSound(true);
-		yield return new WaitForSeconds(6f);
+		yield return new WaitForSeconds(5f);
 
 		// Play knock sound
 		audioManager.PlayKnockSound(true);
@@ -128,8 +128,7 @@ public class LevelManager5 : MonoBehaviour
 		audioManager.PlayFootSound(false);
 		audioManager.PlayKnockSound(false);
 
-		// Show Background
-		StartCoroutine(background.FadIn());
+		yield return StartCoroutine(background.FadIn());
 
 		// Show sylvie Character
 		sylvieCharacter.gameObject.SetActive(true);
@@ -267,12 +266,8 @@ public class LevelManager5 : MonoBehaviour
 		sylvieAnimator.SetTrigger("FadOut");
 		henriAnimator.SetTrigger("FadOut");
 
-		// Hide the dialogues box
 		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(false));
-
-		// Background fad out animation
-		StartCoroutine(background.FadOut());
-
+		yield return StartCoroutine(background.FadOut());
 		GameSystem.Instance.LoadNextScene();
 	}
 }

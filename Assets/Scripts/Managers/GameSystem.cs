@@ -24,6 +24,12 @@ public class GameSystem : MonoBehaviour
 
 	public void LoadNextScene() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 
+	public void LoadGame()
+	{
+		Destroy(MusicPlayer.Instance.gameObject);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+	}
+
 	public void LoadMenu() => LoadSceneByName(MenuName);
 
 	public void LoadCredits() => LoadSceneByName(CreditsName);

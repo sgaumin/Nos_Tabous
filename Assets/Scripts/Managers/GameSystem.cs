@@ -32,8 +32,9 @@ public class GameSystem : MonoBehaviour
 	{
 #if UNITY_EDITOR
 		UnityEditor.EditorApplication.isPlaying = false;
-#else
-            Application.Quit();
+#endif
+#if UNITY_STANDALONE_OSX || UNITY_STANDALONE_WIN || UNITY_STANDALONE_LINUX
+		Application.Quit();
 #endif
 	}
 }

@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class LevelManager4 : LevelSequence
+public class LevelManager4 : MonoBehaviour
 {
 	[SerializeField] private Animator mathiasAnimator;
 	[SerializeField] private Animator jadeAnimator;
@@ -35,9 +35,6 @@ public class LevelManager4 : LevelSequence
 
 		// Index for checking the current IndexDialogue of DialogueSystemScript script 
 		indexCount = 999;
-
-		// Hide Dialogue Box
-		ShowDialogueBoxBackground(false);
 	}
 
 	private void Update()
@@ -129,11 +126,7 @@ public class LevelManager4 : LevelSequence
 		car.SetTrigger("Move");
 
 		// Show dialogues box 
-		ShowDialogueBoxBackground(true);
-		yield return new WaitForSeconds(0.5f);
-
-		// Show Texts into the dialogues box
-		DialogueBox.Instance.ShowTexts(true);
+		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(true));
 
 		// Play car ambience sound
 		audioManager.PlayAmbianceSound(true);
@@ -291,14 +284,8 @@ public class LevelManager4 : LevelSequence
 		// Fad Out Car
 		car.SetTrigger("FadOut");
 
-		// Hide Texts into the dialogues box
-		yield return new WaitForSeconds(0.5f);
-
-		// Animation FadOut dialogues box
-		Animator dialoguesAnimator = DialogueBox.Instance.GetComponent<Animator>();
-		dialoguesAnimator.SetTrigger("FadOut");
-
-		yield return new WaitForSeconds(0.5f);
+		// Hide the dialogues box
+		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(false));
 
 		// Background fad out animation
 		car.SetTrigger("FadOut");

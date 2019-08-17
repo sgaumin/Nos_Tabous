@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class LevelManager3 : LevelSequence
+public class LevelManager3 : MonoBehaviour
 {
 	[SerializeField] private Animator mathiasAnimator;
 	[SerializeField] private Animator henriAnimator;
@@ -32,9 +32,6 @@ public class LevelManager3 : LevelSequence
 
 		// Index for checking the current IndexDialogue of DialogueSystemScript script 
 		indexCount = 999;
-
-		// Hide Dialogue Box
-		ShowDialogueBoxBackground(false);
 	}
 
 	// Update is called once per frame
@@ -123,11 +120,7 @@ public class LevelManager3 : LevelSequence
 		yield return new WaitForSeconds(1f);
 
 		// Show dialogues box 
-		ShowDialogueBoxBackground(true);
-		yield return new WaitForSeconds(0.5f);
-
-		// Show Texts into the dialogues box
-		DialogueBox.Instance.ShowTexts(true);
+		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(true));
 	}
 
 	private IEnumerator SecondStepLevel()
@@ -189,19 +182,11 @@ public class LevelManager3 : LevelSequence
 		mathiasAnimator.SetTrigger("CallEnding");
 		yield return new WaitForSeconds(0.5f);
 
-		// Hide Texts into the dialogues box
-		DialogueBox.Instance.ShowTexts(false);
-		yield return new WaitForSeconds(0.5f);
-
-		// Animation FadOut dialogues box
-		Animator dialoguesAnimator = DialogueBox.Instance.GetComponent<Animator>();
-		dialoguesAnimator.SetTrigger("FadOut");
+		// Hide the dialogues box
+		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(false));
 
 		// Quit PLay Mode
 		yield return new WaitForSeconds(2f);
 		GameSystem.Instance.LoadNextScene();
-
-		// Coroutine End
-		yield break;
 	}
 }

@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class LevelManager5 : LevelSequence
+public class LevelManager5 : MonoBehaviour
 {
 	[SerializeField] private Animator mathiasAnimator;
 	[SerializeField] private Animator sylvieAnimator;
@@ -37,9 +37,6 @@ public class LevelManager5 : LevelSequence
 
 		// Index for checking the current IndexDialogue of DialogueSystemScript script 
 		indexCount = 999;
-
-		// Hide Dialogue Box
-		ShowDialogueBoxBackground(false);
 	}
 
 	// Update is called once per frame
@@ -139,14 +136,7 @@ public class LevelManager5 : LevelSequence
 		yield return new WaitForSeconds(1f);
 
 		// Show dialogues box 
-		ShowDialogueBoxBackground(true);
-		yield return new WaitForSeconds(0.5f);
-
-		// Show Texts into the dialogues box
-		DialogueBox.Instance.ShowTexts(true);
-
-		// Coroutine End
-		yield break;
+		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(true));
 	}
 
 	private IEnumerator MathiasTalking()
@@ -265,9 +255,6 @@ public class LevelManager5 : LevelSequence
 		{
 			mathiasAnimator.SetTrigger("VeryAnger");
 		}
-
-		// Coroutine End
-		yield break;
 	}
 
 	private IEnumerator FinalStepLevel()
@@ -280,17 +267,8 @@ public class LevelManager5 : LevelSequence
 		sylvieAnimator.SetTrigger("FadOut");
 		henriAnimator.SetTrigger("FadOut");
 
-		// Hide Texts into the dialogues box
-		DialogueBox.Instance.ShowTexts(false);
-		yield return new WaitForSeconds(0.5f);
-
-		// Animation FadOut dialogues box
-		Animator dialoguesAnimator = DialogueBox.Instance.GetComponent<Animator>();
-		dialoguesAnimator.SetTrigger("FadOut");
-		Animator dialoguesNameAnimator = DialogueBox.Instance.GetComponent<Animator>();
-		dialoguesNameAnimator.SetTrigger("FadOut");
-
-		yield return new WaitForSeconds(0.5f);
+		// Hide the dialogues box
+		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(false));
 
 		// Background fad out animation
 		StartCoroutine(background.FadOut());

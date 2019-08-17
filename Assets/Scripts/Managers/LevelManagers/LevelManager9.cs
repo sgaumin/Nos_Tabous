@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class LevelManager9 : LevelSequence
+public class LevelManager9 : MonoBehaviour
 {
 	[SerializeField] private Animator mathiasAnimator;
 	[SerializeField] private Animator henryAnimator;
@@ -20,7 +20,7 @@ public class LevelManager9 : LevelSequence
 
 	private bool isStarting = true;
 
-	void Start()
+	private void Start()
 	{
 		// Deactivate fad in animation for Mathias
 		mathiasAnimator.SetBool("IsFadIn", false);
@@ -40,21 +40,22 @@ public class LevelManager9 : LevelSequence
 
 		// Index for checking the current IndexDialogue of DialogueSystemScript script 
 		indexCount = 999;
-
-		// Hide Dialogue Box
-		ShowDialogueBoxBackground(false);
 	}
 
 	// Update is called once per frame
-	void Update()
+	private void Update()
 	{
 		// Check if the choice is Tabou and set the animation
 		if (DialogueSystemScript.isTabou)
+		{
 			StartCoroutine(TabouStepLevel());
+		}
 
 		// Set Animation and Sound according to the Dialogue Index
 		if (DialogueSystemScript.indexDialogue == indexCount)
+		{
 			return;
+		}
 
 		indexCount = DialogueSystemScript.indexDialogue;
 
@@ -68,34 +69,48 @@ public class LevelManager9 : LevelSequence
 
 		// Mathias Speaking Steps
 		if (indexCount == 5)
+		{
 			StartCoroutine(MathiasTalking());
+		}
 
 		// Mathias Surpris
 		if (indexCount == 1)
+		{
 			StartCoroutine(MathiasSurprised());
+		}
 
 		//Mathias Triste
 		if (indexCount == 4)
+		{
 			StartCoroutine(MathiasSad());
+		}
 
 		//henri et Sylvie surpris
 		if (indexCount == 5)
+		{
 			StartCoroutine(GrandParentsSurprised());
+		}
 
 		// henry Speaking Steps
 		if (indexCount == 1 || indexCount == 3)
+		{
 			StartCoroutine(HenryTalking());
+		}
 
 		// Reset Animations
 		if (indexCount == 4)
+		{
 			ResetAnimations();
+		}
 
 		// End Level
 		if (indexCount == 6)
+		{
 			StartCoroutine(FinalStepLevel());
+		}
 	}
 
-	IEnumerator StartLevel()
+	private IEnumerator StartLevel()
 	{
 		// Waiting time
 		yield return new WaitForSeconds(1f);
@@ -116,24 +131,17 @@ public class LevelManager9 : LevelSequence
 		yield return new WaitForSeconds(1f);
 
 		// Show dialogues box 
-		ShowDialogueBoxBackground(true);
-		yield return new WaitForSeconds(0.5f);
-
-		// Show Texts into the dialogues box
-		DialogueBox.Instance.ShowTexts(true);
-
-		// Coroutine End
-		yield break;
+		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(true));
 	}
 
-	void ResetAnimations()
+	private void ResetAnimations()
 	{
 		// Set Mathias Animation
 		mathiasAnimator.SetTrigger("Reset");
 		henryAnimator.SetTrigger("Reset");
 	}
 
-	IEnumerator HenryTalking()
+	private IEnumerator HenryTalking()
 	{
 		// Set Mathias Animation
 		mathiasAnimator.SetTrigger("Reset");
@@ -146,7 +154,7 @@ public class LevelManager9 : LevelSequence
 		yield break;
 	}
 
-	IEnumerator MathiasTalking()
+	private IEnumerator MathiasTalking()
 	{
 		// Set henry idle animation
 		henryAnimator.SetTrigger("Reset");
@@ -159,7 +167,7 @@ public class LevelManager9 : LevelSequence
 		yield break;
 	}
 
-	IEnumerator MathiasSurprised()
+	private IEnumerator MathiasSurprised()
 	{
 		// Set henry idle animation
 		henryAnimator.SetTrigger("Reset");
@@ -172,7 +180,7 @@ public class LevelManager9 : LevelSequence
 		yield break;
 	}
 
-	IEnumerator MathiasSad()
+	private IEnumerator MathiasSad()
 	{
 		// Set henry idle animation
 		henryAnimator.SetTrigger("Reset");
@@ -185,14 +193,14 @@ public class LevelManager9 : LevelSequence
 		yield break;
 	}
 
-	IEnumerator GrandParentsSurprised()
+	private IEnumerator GrandParentsSurprised()
 	{
 		yield return new WaitForSeconds(0.2f);
 		henryAnimator.SetTrigger("Surprised");
 		sylvieAnimator.SetTrigger("Surprised");
 	}
 
-	IEnumerator FinalStepLevel()
+	private IEnumerator FinalStepLevel()
 	{
 		// Set Henry & Mathias idle animation
 		//mathiasAnimator.SetTrigger("Reset");
@@ -200,11 +208,7 @@ public class LevelManager9 : LevelSequence
 		yield return new WaitForSeconds(0.5f);
 
 		// Hide Texts into the dialogues box
-		DialogueBox.Instance.ShowTexts(false);
-		yield return new WaitForSeconds(0.5f);
-
-		// Animation FadOut dialogues box
-		yield return new WaitForSeconds(0.5f);
+		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(false));
 
 		// Background fad out animation
 		StartCoroutine(background.FadOut());
@@ -217,7 +221,7 @@ public class LevelManager9 : LevelSequence
 		yield break;
 	}
 
-	IEnumerator TabouStepLevel()
+	private IEnumerator TabouStepLevel()
 	{
 		mathiasAnimator.SetTrigger("Reset");
 		mathiasAnimator.SetTrigger("Tabou");

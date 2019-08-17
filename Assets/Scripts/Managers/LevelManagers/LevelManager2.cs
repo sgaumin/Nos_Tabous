@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class LevelManager2 : LevelSequence
+public class LevelManager2 : MonoBehaviour
 {
 	[SerializeField] private Animator mathiasAnimator;
 	[SerializeField] private Animator carolineAnimator;
@@ -29,9 +29,6 @@ public class LevelManager2 : LevelSequence
 
 		// Index for checking the current IndexDialogue of DialogueSystemScript script 
 		indexCount = 999;
-
-		// Hide Dialogue Box
-		ShowDialogueBoxBackground(false);
 	}
 
 	private void Update()
@@ -122,18 +119,14 @@ public class LevelManager2 : LevelSequence
 		mathiasCharacter.Flip();
 		yield return new WaitForSeconds(0.5f);
 
-		StartCoroutine(background.FadIn());
+		yield return StartCoroutine(background.FadIn());
 
 		// Caroline start talking animation
 		carolineAnimator.SetTrigger("Talking");
 		yield return new WaitForSeconds(0.5f);
 
 		// Show dialogues box 
-		ShowDialogueBoxBackground(true);
-		yield return new WaitForSeconds(0.5f);
-
-		// Show Texts into the dialogues box
-		DialogueBox.Instance.ShowTexts(true);
+		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(true));
 	}
 
 	private IEnumerator MathiasTalking()
@@ -254,14 +247,7 @@ public class LevelManager2 : LevelSequence
 		yield return new WaitForSeconds(2f);
 
 		// Hide Texts into the dialogues box
-		DialogueBox.Instance.ShowTexts(false);
-		yield return new WaitForSeconds(0.5f);
-
-		// Animation FadOut dialogues box
-		Animator dialoguesAnimator = DialogueBox.Instance.GetComponent<Animator>();
-		dialoguesAnimator.SetTrigger("FadOut");
-
-		yield return new WaitForSeconds(0.5f);
+		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(false));
 
 		// Flip Mathias
 		mathiasCharacter.Flip();

@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelManager8 : LevelSequence
+public class LevelManager8 : MonoBehaviour
 {
 	private enum LevelState
 	{
@@ -48,6 +48,7 @@ public class LevelManager8 : LevelSequence
 	{
 		// If all objects is checked
 		if (currentStep == LevelState.First)
+		{
 			if (!IsAllObjectsChecked())
 			{
 				return;
@@ -62,6 +63,7 @@ public class LevelManager8 : LevelSequence
 					return;
 				}
 			}
+		}
 
 		// If Andre's letter is checked
 		if (currentStep == LevelState.Second)

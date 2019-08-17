@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LevelManager1 : LevelSequence
+public class LevelManager1 : MonoBehaviour
 {
 	// TO DO: Create an abract class to avoid repetition in variables between all LevelManager
 	[SerializeField] private Animator mathiasAnimator;
@@ -18,7 +18,7 @@ public class LevelManager1 : LevelSequence
 	private Character henriCharacter;
 	private int indexCount;
 
-	void Start()
+	private void Start()
 	{
 		// Asign Character components
 		mathiasCharacter = mathiasAnimator.gameObject.GetComponent<Character>();
@@ -33,9 +33,6 @@ public class LevelManager1 : LevelSequence
 
 		// Index for checking the current IndexDialogue of DialogueSystemScript script 
 		indexCount = 999;
-
-		// Hide Dialogue Box
-		ShowDialogueBoxBackground(false);
 	}
 
 	// TO DO: Create a Delegate function on DialogueSystemScript for isTabou & indexDialogue variables
@@ -43,41 +40,57 @@ public class LevelManager1 : LevelSequence
 	{
 		// Check if the choice is Tabou and set the animation
 		if (DialogueSystemScript.isTabou)
+		{
 			StartCoroutine(TabouStepLevel());
+		}
 
 		// Set Animation and Sound according to the Dialogue Index
 		if (DialogueSystemScript.indexDialogue == indexCount)
+		{
 			return;
+		}
 
 		indexCount = DialogueSystemScript.indexDialogue;
 
 		// Start Level scripting
 		if (indexCount == 0)
+		{
 			StartCoroutine(StartLevel());
+		}
 
 		// Mathias Talking
 		if (indexCount == 2 || indexCount == 4 || indexCount == 5 || indexCount == 8 || indexCount == 10 || indexCount == 13)
+		{
 			StartCoroutine(MathiasTalkingStep());
+		}
 
 		// Mathias Anger
 		if (indexCount == 15)
+		{
 			StartCoroutine(AngerStepLevel());
+		}
 
 		// Mathias AngryIdle
 		if (indexCount == 14)
+		{
 			AngerIdleStep();
+		}
 
 
 		// Henri Talking
 		if (indexCount == 1 || indexCount == 3 || indexCount == 6 || indexCount == 9 || indexCount == 12 || indexCount == 14)
+		{
 			StartCoroutine(HenriTalkingStep());
+		}
 
 		// Final Step
 		if (indexCount == 15)
+		{
 			StartCoroutine(LastStepLevel());
+		}
 	}
 
-	IEnumerator StartLevel()
+	private IEnumerator StartLevel()
 	{
 		// Waiting before starting
 		yield return new WaitForSeconds(1f);
@@ -126,14 +139,10 @@ public class LevelManager1 : LevelSequence
 		yield return new WaitForSeconds(0.5f);
 
 		// Show dialogues box 
-		ShowDialogueBoxBackground(true);
-		yield return new WaitForSeconds(0.5f);
-
-		// Show Texts into the dialogues box
-		DialogueBox.Instance.ShowTexts(true);
+		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(true));
 	}
 
-	IEnumerator MathiasTalkingStep()
+	private IEnumerator MathiasTalkingStep()
 	{
 		// Set Henri calling idle animation
 		henriAnimator.SetTrigger("BackCallIdle");
@@ -143,7 +152,7 @@ public class LevelManager1 : LevelSequence
 		mathiasAnimator.SetTrigger("CallTalking");
 	}
 
-	IEnumerator HenriTalkingStep()
+	private IEnumerator HenriTalkingStep()
 	{
 		// Set Mathias calling idle animation
 		if (indexCount != 1)
@@ -156,7 +165,7 @@ public class LevelManager1 : LevelSequence
 		}
 	}
 
-	IEnumerator LastStepLevel()
+	private IEnumerator LastStepLevel()
 	{
 		// Set Henri calling idle animation
 		henriAnimator.SetTrigger("BackCallIdle");
@@ -187,19 +196,15 @@ public class LevelManager1 : LevelSequence
 		// Set Mathias Anger animation
 		mathiasAnimator.SetTrigger("Reset");
 
-		// Hide Texts into the dialogues box
-		DialogueBox.Instance.ShowTexts(false);
-		yield return new WaitForSeconds(0.5f);
-
-		// Animation FadOut dialogues box
-		DialogueBox.Instance.FadBackground(false);
+		// Hide the dialogues box
+		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(false));
 
 		// Quit PLay Mode
 		yield return new WaitForSeconds(2f);
 		GameSystem.Instance.LoadNextScene();
 	}
 
-	IEnumerator TabouStepLevel()
+	private IEnumerator TabouStepLevel()
 	{
 		mathiasAnimator.SetTrigger("CallIdle");
 		mathiasAnimator.SetTrigger("CallTabou");
@@ -208,7 +213,7 @@ public class LevelManager1 : LevelSequence
 		mathiasAnimator.SetTrigger("CallTalking");
 	}
 
-	IEnumerator AngerStepLevel()
+	private IEnumerator AngerStepLevel()
 	{
 		// Set Henri calling idle animation
 		henriAnimator.SetTrigger("BackCallIdle");
@@ -218,7 +223,7 @@ public class LevelManager1 : LevelSequence
 		mathiasAnimator.SetTrigger("CallAnger");
 	}
 
-	void AngerIdleStep()
+	private void AngerIdleStep()
 	{
 		// Set Mathias calling anger animation
 		mathiasAnimator.SetTrigger("CallAngerIdle");

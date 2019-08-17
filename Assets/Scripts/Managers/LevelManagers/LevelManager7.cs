@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class LevelManager7 : LevelSequence
+public class LevelManager7 : MonoBehaviour
 {
 	[SerializeField] private Animator mathiasAnimator;
 	[SerializeField] private Background background;
@@ -24,9 +24,6 @@ public class LevelManager7 : LevelSequence
 
 		// Index for checking the current IndexDialogue of DialogueSystemScript script 
 		indexCount = 999;
-
-		// Hide Dialogue Box
-		ShowDialogueBoxBackground(false);
 	}
 
 	// Update is called once per frame
@@ -89,11 +86,7 @@ public class LevelManager7 : LevelSequence
 		yield return new WaitForSeconds(2f);
 
 		// Show dialogues box 
-		ShowDialogueBoxBackground(true);
-		yield return new WaitForSeconds(0.5f);
-
-		// Show Texts into the dialogues box
-		DialogueBox.Instance.ShowTexts(true);
+		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(true));
 	}
 
 	private IEnumerator MathiasTalkingStep()
@@ -123,12 +116,8 @@ public class LevelManager7 : LevelSequence
 			yield return new WaitForSeconds(2f);
 		}
 
-		// Hide Texts into the dialogues box
-		DialogueBox.Instance.ShowTexts(false);
-		yield return new WaitForSeconds(0.5f);
-
-		// Animation FadOut dialogues box
-		yield return new WaitForSeconds(0.5f);
+		// Hide the dialogues box
+		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(false));
 
 		// Background fad out animation
 		StartCoroutine(background.FadOut());

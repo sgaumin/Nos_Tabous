@@ -1,5 +1,6 @@
 ﻿using DG.Tweening;
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,10 @@ public class DialogueBox : MonoBehaviour
 	[Header("Debug")]
 	[SerializeField] private bool useLanguageData;
 	[SerializeField] private Languages language = Languages.French;
+
+	[Header("Parameters")]
+	private float durationBeforeShowText = 0.5f;
+	private float fadDuration = 0.3f;
 
 	[Header("Dialogues")]
 	[SerializeField] private OneDialogueElementList french;
@@ -30,14 +35,41 @@ public class DialogueBox : MonoBehaviour
 		SetDialogueFile();
 	}
 
-	public void ShowTexts(bool show)
+	protected void Start()
+	{
+		Array.ForEach(choices, x => x.gameObject.SetActive(false));
+		gameObject.SetActive(false);
+	}
+
+	public IEnumerator ShowDialogueBox(bool show)
+	{
+		gameObject.SetActive(true);
+
+		if (show)
+		{
+			yield return StartCoroutine(FadBackground(show));
+			yield return StartCoroutine(ShowTexts(show));
+		}
+		else
+		{
+			yield return StartCoroutine(ShowTexts(show));
+			yield return StartCoroutine(FadBackground(show));
+		}
+	}
+
+	private IEnumerator FadBackground(bool fadIn)
+	{
+		Array.ForEach(backgrounds, x => x.DOFade(fadIn ? 1f : 0f, fadDuration));
+		yield return new WaitForSeconds(fadDuration);
+	}
+
+	private IEnumerator ShowTexts(bool show)
 	{
 		sentence.gameObject.SetActive(show);
 		name.gameObject.SetActive(show);
 		Array.ForEach(choices, x => x.gameObject.SetActive(show));
+		yield return new WaitForSeconds(fadDuration);
 	}
-
-	public void FadBackground(bool fadIn) => Array.ForEach(backgrounds, x => x.DOFade(fadIn ? 1f : 0f, 1f));
 
 	private void SetDialogueFile()
 	{

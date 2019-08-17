@@ -38,7 +38,7 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 3
   - WhoIsSpeaking: Mathias
-    Content: When i parked my car i saw the garden, and I saw the kid i was who played
+    Content: When i parked my car i saw the garden, and I saw the kid I was who played
       with the ball against the fence.
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
@@ -133,7 +133,7 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 14
   - WhoIsSpeaking: Henri
-    Content: "Are you okay? You seems kinda weird. This is the car ride right? \nSylvie,
+    Content: "Are you okay? You seems kinda weird. It's the car ride, right? \nSylvie,
       prepare him some tisane, it will perking him up. I\u2019ll help you for bring
       your suitcase inside."
     IsThereChoices: 0

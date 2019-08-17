@@ -82,10 +82,8 @@ public class LevelManager7 : MonoBehaviour
 		yield return new WaitForSeconds(2.5f);
 
 		background.GetComponent<SpriteRenderer>().color = new Color(110f / 255f, 110f / 255f, 110f / 255f, 0f);
-		StartCoroutine(background.FadIn());
-		yield return new WaitForSeconds(2f);
 
-		// Show dialogues box 
+		yield return StartCoroutine(background.FadIn());
 		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(true));
 	}
 
@@ -116,11 +114,8 @@ public class LevelManager7 : MonoBehaviour
 			yield return new WaitForSeconds(2f);
 		}
 
-		// Hide the dialogues box
 		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(false));
-
-		// Background fad out animation
-		StartCoroutine(background.FadOut());
+		yield return StartCoroutine(background.FadOut());
 
 		// Load end Game Screen is End
 		if (isEnd)
@@ -131,8 +126,7 @@ public class LevelManager7 : MonoBehaviour
 
 			GameSystem.Instance.LoadSceneByName("10- Fin");
 		}
-
-		if (!isEnd)
+		else
 		{
 			GameSystem.Instance.LoadNextScene();
 		}

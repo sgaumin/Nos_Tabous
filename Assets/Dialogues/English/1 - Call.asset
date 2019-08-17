@@ -152,7 +152,7 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 14
   - WhoIsSpeaking: Henri
-    Content: Have a good night, kiss th- CLIC
+    Content: Have a good night, kiss *CLIC*
     IsThereChoices: 0
     Couleur: {r: 0.6, g: 1, b: 0.8, a: 1}
     Branching:

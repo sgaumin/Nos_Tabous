@@ -174,7 +174,7 @@ MonoBehaviour:
       ChoiceList: []
     FollowUpDialogueElement: 17
   - WhoIsSpeaking: Jade
-    Content: "Daddy, last Christmas with them will be 4 years ago.\r\n"
+    Content: "Daddy, last Christmas with them was 4 years ago.\r\n"
     IsThereChoices: 0
     Couleur: {r: 0.44313726, g: 0.6039216, b: 0.12156863, a: 1}
     Branching:
@@ -203,7 +203,7 @@ MonoBehaviour:
     FollowUpDialogueElement: 21
   - WhoIsSpeaking: Mathias
     Content: "Said hi to your mother for me. Ah and hum\u2026 Ask if i can call her
-      next week. Above all don\u2019t mention Caroline. "
+      next week. \nDon\u2019t mention Caroline please. "
     IsThereChoices: 0
     Couleur: {r: 1, g: 1, b: 1, a: 1}
     Branching:

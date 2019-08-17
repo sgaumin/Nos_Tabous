@@ -492,6 +492,7 @@ GameObject:
   - component: {fileID: 2038318730}
   - component: {fileID: 2038318732}
   - component: {fileID: 2038318731}
+  - component: {fileID: 2038318733}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -543,7 +544,7 @@ MonoBehaviour:
     m_FontSize: 14
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 5
+    m_MinSize: 2
     m_MaxSize: 40
     m_Alignment: 3
     m_AlignByGeometry: 0
@@ -567,3 +568,32 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2038318729}
   m_CullTransparentMesh: 0
+--- !u!114 &2038318733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038318729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7f95485049766d4c85f28c6de776a2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frenchContent: "Alors Papa s\u2019est enfui apr\xE8s ma naissance\u2026 Il cherchait
+    Andr\xE9.\r\n\r\nEt Maman savait qu\u2019il \xE9tait homosexuel quand ils se sont
+    mari\xE9s, leur famille - mes grands-parents - ne voulait pas accepter qu\u2019il
+    le soit et ont arrang\xE9 leur mariage. \r\n\r\nVoil\xE0 pourquoi je n\u2019ai
+    quasiment jamais vu le reste de ma famille\u2026 ils n\u2019ont pas trouv\xE9
+    leur place avec eux. \xC7a explique aussi nos d\xE9m\xE9nagements\u2026 \r\n\r\nPapa
+    \xE9tait bien amoureux de Maman, au final. Il l\u2019aime. Et\u2026 il\u2026 il
+    m\u2019aime. Il n\u2019a jamais vraiment eu de p\xE8re non plus\u2026\r\n\r\n\u2026\r\n\r\n\u2026
+    je ferais mieux de descendre.\r"
+  englishContent: "So dad run away after my born\u2026 He was research for Andr\xE9.\r\n\r\nAnd
+    mom knew that dad was gay when they be married, there family - my grandparent
+    - can\u2019t agree my father\u2019s true nature so they made an arranged marriage.\r\n\r\nThat
+    why i almost never saw one part of my family\u2026 They couldn\u2019t find their
+    place with them. And it explain why we moved so much\u2026\r\n\r\nDad truly loved
+    mother, in the end. He love her.  And\u2026 He\u2026  He love me. So he never
+    really had a father too\u2026\r\n\r\n\u2026\r\n\r\n\u2026 I would rather get down.\r"
+  japaneseContent: "\u3053\u308C\u304B\u3089\u3001\u89AA\u7236\u3092\u3082\u3046\u540C\u3058\u76EE\u3067\u898B\u308C\u306A\u3044\u306A...\u3002\r\n\r\n\u306A\u308B\u307B\u3069\u3001\u304A\u3084\u3058\u306F\u81EA\u5206\u304C\u7523\u307E\u308C\u305F\u5F8C\u3067\u9003\u3052\u305F...\u3002\u30A2\u30F3\u30C9\u30EC\u3092\u3055\u304C\u3059\u305F\u3081\u304B\u3082\u3002\r\n\r\n\u3067\u3001\u6BCD\u3055\u3093\u306F\u77E5\u3063\u3066\u305F\u306F\u305A\u3002\u7956\u7236\u6BCD\u306F\u89AA\u7236\u306E\u72B6\u6CC1\u306B\u53CD\u5BFE\u3057\u3066\u3066\u3001\u304A\u898B\u5408\u3044\u7D50\u5A5A\u3055\u308C\u305F\u3002\r\n\u3060\u304B\u3089\u3001\u3042\u3093\u307E\u89AA\u621A\u3068\u4F1A\u308F\u306A\u304B\u3063\u305F...\u3002\u4F55\u56DE\u3082\u5F15\u3063\u8D8A\u3057\u3057\u305F\u7406\u7531\u304C\u3001\u4ECA\u3088\u304F\u308F\u304B\u3063\u305F...\u3002\r\n\r\n\u7D50\u5C40\u304A\u3084\u3058\u3044\u306F\u672C\u5F53\u306B\u6BCD\u3055\u3093\u3092\u611B\u3057\u3066\u308B\u3002\u611B\u3057\u3066\u3066...\u3002\u5F7C\u306F...\u3001\u4FFA\u3082\u611B\u3057\u3066\u308B\u3002\u3000\r\n\r\n\u5F7C\u3082\u7236\u306F\u3044\u306A\u304B\u3063\u305F\u306A\u3042...\u3002\r\n\r\n\u2026\u3002\r\n\r\n...\u3058\u3083\u3001\u964D\u308A\u3088\u3046\u3002\r"

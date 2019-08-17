@@ -34,7 +34,6 @@ public class LevelManager9 : MonoBehaviour
 		mathiasCharacter.gameObject.SetActive(false);
 		henryCharacter.gameObject.SetActive(false);
 		sylvieCharacter.gameObject.SetActive(false);
-		background.gameObject.SetActive(false);
 
 		//fadOutScreen.SetActive(false);
 
@@ -202,11 +201,6 @@ public class LevelManager9 : MonoBehaviour
 
 	private IEnumerator FinalStepLevel()
 	{
-		// Set Henry & Mathias idle animation
-		//mathiasAnimator.SetTrigger("Reset");
-		//henryAnimator.SetTrigger("Reset");
-		yield return new WaitForSeconds(0.5f);
-
 		// Hide Texts into the dialogues box
 		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(false));
 
@@ -218,7 +212,6 @@ public class LevelManager9 : MonoBehaviour
 
 		// Coroutine End
 		GameSystem.Instance.LoadNextScene();
-		yield break;
 	}
 
 	private IEnumerator TabouStepLevel()

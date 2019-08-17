@@ -33,6 +33,8 @@ public class LevelManager1 : MonoBehaviour
 
 		// Index for checking the current IndexDialogue of DialogueSystemScript script 
 		indexCount = 999;
+
+		StartCoroutine(StartLevel());
 	}
 
 	// TO DO: Create a Delegate function on DialogueSystemScript for isTabou & indexDialogue variables
@@ -51,12 +53,6 @@ public class LevelManager1 : MonoBehaviour
 		}
 
 		indexCount = DialogueSystemScript.indexDialogue;
-
-		// Start Level scripting
-		if (indexCount == 0)
-		{
-			StartCoroutine(StartLevel());
-		}
 
 		// Mathias Talking
 		if (indexCount == 2 || indexCount == 4 || indexCount == 5 || indexCount == 8 || indexCount == 10 || indexCount == 13)

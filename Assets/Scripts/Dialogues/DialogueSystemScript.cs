@@ -21,9 +21,8 @@ public class DialogueSystemScript : MonoBehaviour
 
 	public OneDialogueElementList DialogueContent { get; set; }
 
-	void Start()
+	private void Start()
 	{
-
 		indexDialogue = DialogueContent.startingIndex;
 		indexDialogueNew = DialogueContent.startingIndex;
 		IsReady = false;
@@ -45,7 +44,7 @@ public class DialogueSystemScript : MonoBehaviour
 		UpdateText();
 	}
 
-	void Update()
+	private void Update()
 	{
 		gameObject.GetComponent<Text>().fontSize = BestFitText.BestFitFrontSize;
 
@@ -154,7 +153,7 @@ public class DialogueSystemScript : MonoBehaviour
 		}
 	}
 
-	void UpdateText()
+	private void UpdateText()
 	{
 		text = DialogueContent.ElementList[indexDialogue].Content;
 		text = string.Concat(text, "\n");

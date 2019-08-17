@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using DG.Tweening;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameSystem : MonoBehaviour
@@ -30,7 +31,12 @@ public class GameSystem : MonoBehaviour
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 	}
 
-	public void LoadMenu() => LoadSceneByName(MenuName);
+	public void LoadMenu()
+	{
+		DOTween.KillAll();
+		Destroy(AudioManagerClic.Instance.gameObject);
+		LoadSceneByName(MenuName);
+	}
 
 	public void LoadCredits() => LoadSceneByName(CreditsName);
 

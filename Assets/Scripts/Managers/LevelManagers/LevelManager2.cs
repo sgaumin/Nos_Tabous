@@ -55,7 +55,6 @@ public class LevelManager2 : MonoBehaviour
 			indexCount = 1;
 			isStarting = false;
 			StartCoroutine(StartLevel());
-
 		}
 
 		// Mathias Speaking Steps
@@ -109,8 +108,6 @@ public class LevelManager2 : MonoBehaviour
 
 	private IEnumerator StartLevel()
 	{
-		yield return new WaitForSeconds(2f);
-
 		// Show Caroline Character
 		carolineCharacter.gameObject.SetActive(true);
 		yield return new WaitForSeconds(1f);
@@ -121,12 +118,12 @@ public class LevelManager2 : MonoBehaviour
 
 		yield return StartCoroutine(background.FadIn());
 
+		// Show dialogues box 
+		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(true));
+
 		// Caroline start talking animation
 		carolineAnimator.SetTrigger("Talking");
 		yield return new WaitForSeconds(0.5f);
-
-		// Show dialogues box 
-		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(true));
 	}
 
 	private IEnumerator MathiasTalking()

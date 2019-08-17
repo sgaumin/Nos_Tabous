@@ -186,7 +186,6 @@ public class LevelManager3 : MonoBehaviour
 		yield return StartCoroutine(DialogueBox.Instance.ShowDialogueBox(false));
 
 		// Quit PLay Mode
-		yield return new WaitForSeconds(2f);
 		GameSystem.Instance.LoadNextScene();
 	}
 }

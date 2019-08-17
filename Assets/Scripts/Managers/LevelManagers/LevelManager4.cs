@@ -107,21 +107,20 @@ public class LevelManager4 : MonoBehaviour
 
 	private IEnumerator StartLevel()
 	{
-		yield return new WaitForSeconds(1f);
 		mathiasCharacter.transform.DOMove(initialPosition.position, 1f, false).SetEase(Ease.InOutSine);
 		yield return new WaitForSeconds(1f);
 
 		// Play car starting sound
 		audioManager.PlayStartDrivingSound(true);
-		yield return new WaitForSeconds(6f);
+		yield return new WaitForSeconds(5f);
 
 		// Show jade Character
 		jadeCharacter.gameObject.SetActive(true);
-		yield return new WaitForSeconds(3f);
+		yield return new WaitForSeconds(2f);
 
 		// Show Background
 		car.gameObject.SetActive(true);
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(0.5f);
 
 		car.SetTrigger("Move");
 

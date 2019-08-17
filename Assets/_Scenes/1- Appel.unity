@@ -450,10 +450,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7f95485049766d4c85f28c6de776a2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frenchContent: "Vous allez incarner Mathias, qui est un homme tr\uBCE0complex\uBBA0Il
-    lui arrive souvent de vouloir dire quelque chose, mais de ne pas y arriver. Parfois,
-    il arrivera \u28E4ire quelque chose qui y ressemble, et parfois il n\x19arrivera
-    pas du tout \u28EDentionner un sujet. \nBon courage !"
+  frenchContent: "Vous allez incarner Mathias, qui est un homme tr\xE8s complex\xE9.
+    Il lui arrive souvent de vouloir dire quelque chose, mais de ne pas y arriver.
+    Parfois, il arrivera \xE0 dire quelque chose qui y ressemble, et parfois il n\u2019arrivera
+    pas du tout \xE0 mentionner un sujet. Bon courage !"
   englishContent: "You will play as Mathias, who has got really complexed. When he
     wants to said something, often he can\u2019t managed to talk. Sometimes he will
     said something close, and sometimes he won\u2019t managed to mention it at all.

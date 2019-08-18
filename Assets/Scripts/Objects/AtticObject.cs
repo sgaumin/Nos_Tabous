@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class GrenierObjects : MonoBehaviour
+public class AtticObject : MonoBehaviour
 {
 	[Header("Comment Translations")]
 	[TextArea(3, 10)]
@@ -25,12 +25,12 @@ public class GrenierObjects : MonoBehaviour
 	[SerializeField] private Text commentsBox;
 	[SerializeField] private Text lettersBox;
 
-	private LevelManager8 levelManager;
+	private LevelManager8 levelSequencer;
 	private Animator animator;
 	private string comment;
 	private string letterContent;
 
-	public bool IsChecked { get; private set; }
+	public bool HasBeenChecked { get; private set; }
 
 	public bool CanBeSelected
 	{
@@ -44,14 +44,7 @@ public class GrenierObjects : MonoBehaviour
 			{
 				animator = GetComponent<Animator>();
 				animator.SetBool("isHighlighted", false);
-				if (IsChecked)
-				{
-					animator.SetTrigger("IsIdle");
-				}
-				else
-				{
-					animator.SetTrigger("IsWaiting");
-				}
+				animator.SetTrigger(HasBeenChecked ? "IsIdle" : "IsWaiting");
 			}
 			canBeSelected = value;
 		}
@@ -59,8 +52,8 @@ public class GrenierObjects : MonoBehaviour
 
 	private void Start()
 	{
-		levelManager = FindObjectOfType<LevelManager8>();
 		animator = GetComponent<Animator>();
+		levelSequencer = FindObjectOfType<LevelManager8>();
 		canBeSelected = true;
 
 		switch (LanguageData.Language)
@@ -93,7 +86,7 @@ public class GrenierObjects : MonoBehaviour
 		if (canBeSelected)
 		{
 			animator.SetBool("isHighlighted", false);
-			if (IsChecked)
+			if (HasBeenChecked)
 			{
 				animator.SetTrigger("IsIdle");
 			}
@@ -108,13 +101,20 @@ public class GrenierObjects : MonoBehaviour
 	{
 		if (canBeSelected)
 		{
-			IsChecked = true;
+			HasBeenChecked = true;
+			commentsBox.text = comment;
 			if (isLetter)
 			{
 				lettersBox.text = letterContent;
-				StartCoroutine(levelManager.ShowLetter(isHenriLetter));
+				if (isHenriLetter)
+				{
+					StartCoroutine(levelSequencer.OpenHenriLetter());
+				}
+				else
+				{
+					StartCoroutine(levelSequencer.OpenAndreLetter());
+				}
 			}
-			commentsBox.text = comment;
 		}
 	}
 }

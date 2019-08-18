@@ -7,46 +7,38 @@ public class LevelManager8 : MonoBehaviour
 {
 	private enum LevelState
 	{
-		Zero,
-		First,
-		Second,
-		Third,
-		Fourth
+		CheckingObjects,
+		CheckingAndreLetter,
+		CheckingHenryLetter,
+		Finishing
 	}
 
-	[SerializeField] private GrenierObjects henriLetter;
+	[SerializeField] private AtticObject henriLetter;
 	[SerializeField] private GameObject commentsBox;
 	[SerializeField] private GameObject lettersBox;
 	[SerializeField] private Animator fadScreen;
 	[SerializeField] private Button quitButton;
 
-	private GrenierObjects[] grenierObjects;
+	private AtticObject[] grenierObjects;
 
-	private LevelState currentStep = LevelState.First;
+	private LevelState currentStep = LevelState.CheckingObjects;
 
 	protected void Start()
 	{
-		// Hide Henri's letter
+		grenierObjects = FindObjectsOfType<AtticObject>();
+
 		henriLetter.gameObject.SetActive(false);
 
-		// Reteive all objects
-		grenierObjects = FindObjectsOfType<GrenierObjects>();
-
-		// Hide UI
-		commentsBox.SetActive(false);
 		lettersBox.SetActive(false);
 		quitButton.gameObject.SetActive(false);
 
-		// Starting level scripting
-		StartCoroutine(StartStep());
-
-		currentStep = LevelState.Zero;
+		currentStep = LevelState.CheckingObjects;
+		commentsBox.SetActive(true);
 	}
 
 	protected void Update()
 	{
-		// If all objects is checked
-		if (currentStep == LevelState.First)
+		if (currentStep == LevelState.CheckingObjects)
 		{
 			if (!IsAllObjectsChecked())
 			{
@@ -54,117 +46,83 @@ public class LevelManager8 : MonoBehaviour
 			}
 			else
 			{
-				// Show Henri's letter
-				currentStep = LevelState.Third;
-				StartCoroutine(ShowHenriLetter());
+				currentStep = LevelState.CheckingHenryLetter;
+				StartCoroutine(FindHenriLetter());
 				return;
 			}
 		}
-		// If Andre's letter is checked
-		else if (currentStep == LevelState.Second)
+		else if (currentStep == LevelState.CheckingAndreLetter)
 		{
 			henriLetter.CanBeSelected = false;
-
 			if (Input.anyKeyDown)
 			{
-				currentStep = LevelState.First;
+				currentStep = LevelState.CheckingObjects;
 				StartCoroutine(HideLetter());
 				henriLetter.CanBeSelected = true;
 			}
 		}
 	}
 
-	private IEnumerator StartStep()
+	private IEnumerator FindHenriLetter()
 	{
-		yield return new WaitForSeconds(1f);
-		commentsBox.SetActive(true);
-		currentStep = LevelState.First;
-	}
+		yield return StartCoroutine(SetAllClickable(false));
 
-	private IEnumerator ShowHenriLetter()
-	{
-		// Stop click interactions
-		yield return new WaitForSeconds(0.2f);
-		SetAllClickable(false);
-
-		// Show Henri's letter
 		yield return new WaitForSeconds(3f);
 		henriLetter.gameObject.SetActive(true);
-
-		// Hide dialogueBox
 		commentsBox.SetActive(false);
 	}
 
-	public IEnumerator ShowLetter(bool isHenriLetter)
+	public IEnumerator OpenAndreLetter()
 	{
-		// Hide dialogueBox
+		yield return StartCoroutine(SetAllClickable(false));
+
+		currentStep = LevelState.CheckingAndreLetter;
 		commentsBox.SetActive(false);
-
-		// Show lettersBox
 		lettersBox.SetActive(true);
+	}
 
-		// Stop click interactions
-		yield return new WaitForSeconds(0.2f);
-		SetAllClickable(false);
+	public IEnumerator OpenHenriLetter()
+	{
+		yield return StartCoroutine(SetAllClickable(false));
 
-		if (isHenriLetter)
-		{
-			henriLetter.CanBeSelected = false;
+		currentStep = LevelState.Finishing;
+		henriLetter.CanBeSelected = false;
 
-			// Henri's letter step
-			currentStep = LevelState.Fourth;
-
-			// Show Quit Button
-			quitButton.gameObject.SetActive(true);
-		}
-		else
-		{
-			// Andre's Letter step
-			currentStep = LevelState.Second;
-		}
-
-		yield break;
+		commentsBox.SetActive(false);
+		lettersBox.SetActive(true);
+		quitButton.gameObject.SetActive(true);
 	}
 
 	public IEnumerator HideLetter()
 	{
-		// Hide dialogueBox
+		yield return StartCoroutine(SetAllClickable(true));
+
 		commentsBox.SetActive(true);
-
-		// Hide lettersBox
 		lettersBox.SetActive(false);
-
-		// Allow click interaction
-		yield return new WaitForSeconds(0.2f);
-		SetAllClickable(true);
 	}
 
-	private void LaunchFinalSteps() => StartCoroutine(FinalStep());
+	private void LaunchFinalSteps() => StartCoroutine(ExecuteFinalStep());
 
-	private IEnumerator FinalStep()
+	private IEnumerator ExecuteFinalStep()
 	{
-		// Waiting time
 		yield return new WaitForSeconds(1f);
 
-		// Hide quit button
 		quitButton.gameObject.SetActive(false);
-
-		// Hide dialogue box
 		commentsBox.SetActive(false);
-
-		// Hide lettersBox
 		lettersBox.SetActive(false);
 
 		// fad Out animation
 		fadScreen.SetTrigger("FadOut");
 		yield return new WaitForSeconds(2f);
 
-		// Load Next scene
 		GameSystem.Instance.LoadNextScene();
 	}
 
-	// Check if all objects is checked
-	private bool IsAllObjectsChecked() => Array.TrueForAll(grenierObjects, x => x.IsChecked);
+	private bool IsAllObjectsChecked() => Array.TrueForAll(grenierObjects, x => x.HasBeenChecked);
 
-	private void SetAllClickable(bool value) => Array.ForEach(grenierObjects, x => x.CanBeSelected = value);
+	private IEnumerator SetAllClickable(bool value)
+	{
+		yield return new WaitForSeconds(0.2f);
+		Array.ForEach(grenierObjects, x => x.CanBeSelected = value);
+	}
 }

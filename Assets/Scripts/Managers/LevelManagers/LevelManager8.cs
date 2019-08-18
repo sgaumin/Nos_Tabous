@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -24,7 +24,6 @@ public class LevelManager8 : MonoBehaviour
 
 	private LevelState currentStep = LevelState.First;
 
-	// TO DO: BUG si on terminer par selectionner la lettre d'André
 	protected void Start()
 	{
 		// Hide Henri's letter
@@ -55,23 +54,22 @@ public class LevelManager8 : MonoBehaviour
 			}
 			else
 			{
-				if (currentStep != LevelState.Second)
-				{
-					// Show Henri's letter
-					currentStep = LevelState.Third;
-					StartCoroutine(ShowHenriLetter());
-					return;
-				}
+				// Show Henri's letter
+				currentStep = LevelState.Third;
+				StartCoroutine(ShowHenriLetter());
+				return;
 			}
 		}
-
 		// If Andre's letter is checked
-		if (currentStep == LevelState.Second)
+		else if (currentStep == LevelState.Second)
 		{
+			henriLetter.CanBeSelected = false;
+
 			if (Input.anyKeyDown)
 			{
 				currentStep = LevelState.First;
 				StartCoroutine(HideLetter());
+				henriLetter.CanBeSelected = true;
 			}
 		}
 	}
@@ -107,16 +105,16 @@ public class LevelManager8 : MonoBehaviour
 
 		// Stop click interactions
 		yield return new WaitForSeconds(0.2f);
-		henriLetter.GetComponent<GrenierObjects>().CanBeSelected = false;
 		SetAllClickable(false);
 
 		if (isHenriLetter)
 		{
+			henriLetter.CanBeSelected = false;
+
 			// Henri's letter step
 			currentStep = LevelState.Fourth;
 
 			// Show Quit Button
-			yield return new WaitForSeconds(0.2f);
 			quitButton.gameObject.SetActive(true);
 		}
 		else
@@ -124,6 +122,8 @@ public class LevelManager8 : MonoBehaviour
 			// Andre's Letter step
 			currentStep = LevelState.Second;
 		}
+
+		yield break;
 	}
 
 	public IEnumerator HideLetter()

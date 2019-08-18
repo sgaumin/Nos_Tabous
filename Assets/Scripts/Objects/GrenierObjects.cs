@@ -32,29 +32,6 @@ public class GrenierObjects : MonoBehaviour
 
 	public bool IsChecked { get; private set; }
 
-	private void Start()
-	{
-		levelManager = FindObjectOfType<LevelManager8>();
-		animator = GetComponent<Animator>();
-		canBeSelected = true;
-
-		switch (LanguageData.Language)
-		{
-			case Languages.French:
-				comment = frenchComment;
-				letterContent = frenchLetterContent;
-				break;
-			case Languages.English:
-				comment = englishComment;
-				letterContent = englishLetterContent;
-				break;
-			case Languages.Japanese:
-				comment = japaneseComment;
-				letterContent = japaneseLetterContent;
-				break;
-		}
-	}
-
 	public bool CanBeSelected
 	{
 		get
@@ -77,6 +54,29 @@ public class GrenierObjects : MonoBehaviour
 				}
 			}
 			canBeSelected = value;
+		}
+	}
+
+	private void Start()
+	{
+		levelManager = FindObjectOfType<LevelManager8>();
+		animator = GetComponent<Animator>();
+		canBeSelected = true;
+
+		switch (LanguageData.Language)
+		{
+			case Languages.French:
+				comment = frenchComment;
+				letterContent = frenchLetterContent;
+				break;
+			case Languages.English:
+				comment = englishComment;
+				letterContent = englishLetterContent;
+				break;
+			case Languages.Japanese:
+				comment = japaneseComment;
+				letterContent = japaneseLetterContent;
+				break;
 		}
 	}
 
@@ -114,7 +114,6 @@ public class GrenierObjects : MonoBehaviour
 				lettersBox.text = letterContent;
 				StartCoroutine(levelManager.ShowLetter(isHenriLetter));
 			}
-
 			commentsBox.text = comment;
 		}
 	}

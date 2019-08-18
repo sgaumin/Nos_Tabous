@@ -34,7 +34,10 @@ public class GameSystem : MonoBehaviour
 	public void LoadMenu()
 	{
 		DOTween.KillAll();
-		Destroy(AudioManagerClic.Instance.gameObject);
+		if (AudioManagerClic.Instance != null)
+		{
+			Destroy(AudioManagerClic.Instance.gameObject);
+		}
 		LoadSceneByName(MenuName);
 	}
 

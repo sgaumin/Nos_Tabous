@@ -14,14 +14,12 @@ public class TranslationText : MonoBehaviour
 	public string japaneseContent;
 
 	private Text text;
-	private TextMeshPro textPro;
-	private TextMeshProUGUI textProUGUI;
+	private TMP_Text textPro;
 
 	private void Start()
 	{
 		text = GetComponent<Text>();
-		textPro = GetComponent<TextMeshPro>();
-		textProUGUI = GetComponent<TextMeshProUGUI>();
+		textPro = GetComponent<TMP_Text>();
 
 		UpdateTraduction();
 	}
@@ -30,48 +28,21 @@ public class TranslationText : MonoBehaviour
 	{
 		switch (LanguageData.Language)
 		{
-			case Languages.French:
-				if (text != null)
-				{
-					text.text = frenchContent;
-				}
-				else if (textPro != null)
-				{
-					textPro.text = frenchContent;
-				}
-				else if (textProUGUI != null)
-				{
-					textProUGUI.text = frenchContent;
-				}
-				break;
-			case Languages.English:
-				if (text != null)
-				{
-					text.text = englishContent;
-				}
-				else if (textPro != null)
-				{
-					textPro.text = englishContent;
-				}
-				else if (textProUGUI != null)
-				{
-					textProUGUI.text = englishContent;
-				}
-				break;
-			case Languages.Japanese:
-				if (text != null)
-				{
-					text.text = japaneseContent;
-				}
-				else if (textPro != null)
-				{
-					textPro.text = japaneseContent;
-				}
-				else if (textProUGUI != null)
-				{
-					textProUGUI.text = japaneseContent;
-				}
-				break;
+			case Languages.French: SetText(frenchContent); break;
+			case Languages.English: SetText(englishContent); break;
+			case Languages.Japanese: SetText(japaneseContent); break;
+		}
+	}
+
+	private void SetText(string content)
+	{
+		if (text != null)
+		{
+			text.text = content;
+		}
+		else if (textPro != null)
+		{
+			textPro.text = content;
 		}
 	}
 }
